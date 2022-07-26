@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>论文阅读——威胁情报 | Central Park</title>	
+
+<link rel="stylesheet" href="https://adureychloe.github.io//styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+            display = "https://adureychloe.github.io//media/css/night.css";
+
+            display = "https://adureychloe.github.io//media/css/night.css";   
+      
+            display = "https://adureychloe.github.io//media/css/day.css";
+
+            display = "https://adureychloe.github.io//media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://adureychloe.github.io//media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://adureychloe.github.io/" rel="home">Central Park</a></h1>
+										
+					<h2 class="site-description">How you doing😀?</h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+     			
+<li>
+	 
+	<a  href="/"> 首页</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/archives"> 归档</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/tags"> 标签</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/post/about"> 关于</a></li>
+	
+    
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">论文阅读——威胁情报</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2022-07-11 14:06:56" itemprop="datePublished" pubdate="">2022-07-11</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<h1 id="资源">资源</h1>
+<p>Blacklists：CleanMX， PhishTank</p>
+<p>IOC provider：AlienVault, Recorded Future, Malware-bytes</p>
+<p>article：Hexacorn, Naked Security, Malware-don't need coffee, Symantec, Kaspersky, McAfee, ThreatExchange, dibnet</p>
+<p>OpenIOC: iockucket, openiocdb</p>
+<p>comercial CTI source: IBM X-Force Exchange Platform, ThreatBook</p>
+<h1 id="一-ttpdrill-automatic-and-accurate-extraction-of-threat-actions-from-unstructured-text-of-cti-sources">一、TTPDrill: Automatic and Accurate Extraction of Threat Actions from Unstructured Text of CTI Sources</h1>
+<h2 id="摘要">摘要</h2>
+<p>缺少标准化语言和对网络威胁信息的自动分析技术，使得从CTI报告中分析非结构化文本非常耗时耗力。本文目标是设计一个自动化且考虑上下文的威胁情报提取器，从公共CTI来源中精确提取到攻击模式（TTP）。本文贡献有三个：</p>
+<ul>
+<li>创新性地提出一个威胁-动作本体。</li>
+<li>设计一个混合NLP和IR的文本挖掘方法，基于语义而不是句法关系抽取威胁动作。</li>
+<li>通过映射每个威胁动作到一个技术、战术和杀伤链阶段，构造出一个完整的攻击模式，并转换成威胁情报标准，如STIX2.1。<br>
+TTPDrill在不同评估方式上实现了超过82%的精确率和召回率。</li>
+</ul>
+<h2 id="引言">引言</h2>
+<h1 id="acing-the-ioc-game-toward-automatic-discovery-andanalysis-of-open-source-cyber-threat-intelligence">Acing the IOC Game- Toward Automatic Discovery andAnalysis of Open-Source Cyber Threat Intelligence</h1>
+<h2 id="摘要-2">摘要</h2>
+<p>IOC（如恶意软件指纹，僵尸网络ip）。提出iACE，自动提取IOC。</p>
+<p>依据是文章中的IOC通常与通过语法关系与一系列上下文联系在一起，iACE自动定位IOC和上下文，通过图挖掘技术分析关系，最后生成OpenIOC项。</p>
+<p>实验在45个博客的71000篇文章提取了900k的OpenIOC项，准确率95%，覆盖率90%。</p>
+<h2 id="引言-2">引言</h2>
+<p>CTI经常用IOC形式，如病毒指纹、僵尸网络IP/域名，攻击文件MD5hash。</p>
+<h2 id="难点">难点</h2>
+<p>NER难点在于一个领域的方法不适用于另一个领域，RE难点在于IOC和上下文之间的关系复杂。</p>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220304160214563.png" alt="image-20220304160214563" loading="lazy"></figure>
+<h2 id="整体结构">整体结构</h2>
+<p>预处理文章：使用topic-term分类找出可能包含IOC的文章，ocr提取图片中的文字。</p>
+<p>定位包含IOC token的句子，建立IOC token和上下文之间的联系，将句子转化为依赖图DG。</p>
+<p>利用图挖掘技术分析token之间的关系，确认是否真的包含IOC。</p>
+<figure data-type="image" tabindex="2"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220304161005116.png" alt="image-20220304161005116" loading="lazy"></figure>
+<h1 id="hincti-a-cyber-threat-intelligence-modeling-and-identification-system-based-on-heterogeneous-information-network">HinCTI: A Cyber Threat Intelligence Modeling and Identification System Based on Heterogeneous Information Network</h1>
+<h2 id="摘要-3">摘要</h2>
+<p>创建CTI很困难，因为CTI之间内在和外在的关系，还有CTI中包含的威胁基础设施节点的异构性。因为网络威胁基础设施节点标签有限，自动识别基础设施节点的威胁种类很困难。本文提出HinCTI来创建网络威胁情报和识别威胁类型。首先，设计了一个威胁情报元模式来描述基础设施节点间的语义关系。之后在HIN（异构信息网络）上创建威胁情报，能融合各种基建节点和它们之间的丰富关系。接下来，定义了MIIS指标，提出基于MIIS度量的异构图卷积网络（GCN）来识别基建节点威胁类型。</p>
+<p>本文第一个在HIN上创建CTI来威胁识别并提出一个基于异构GCN的方法来识别威胁类型。</p>
+<h2 id="引言-3">引言</h2>
+<p>本研究只考虑结构化的CTI数据。</p>
+<h3 id="意义">意义</h3>
+<ul>
+<li>很少有研究集中在CTI中包含的基建节点的有限威胁类型标签问题。</li>
+<li>很少研究关注从HIN的视角研究基建节点之间的深层语义关系。</li>
+</ul>
+<h3 id="贡献">贡献</h3>
+<ul>
+<li>从计算的视角（基于元路径和元图物质计算）提出基于HIN的CTI创建方法</li>
+<li>基于MIIS度量的异构GCN方法来识别基建节点的威胁类型</li>
+<li>提出HinCTI系统，创建CTI和识别威胁类型</li>
+</ul>
+<h2 id="创建cti">创建CTI</h2>
+<figure data-type="image" tabindex="3"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220305145738765.png" alt="image-20220305145738765" loading="lazy"></figure>
+<p>如图所示，两个domain之间的关系能用域名相关服务来丰富，例如来自Whois数据库的相关所有者，相关组织、DNS相关位置、相关注册者等；两个IP之间关系能用IP相关服务来丰富，例如IP2Location来获得相同ISP；。。。有害文件哈希能用开源恶意软件分析工具。。。，例如CVE数据库；。。。电子邮件用相同主机名字的关系。</p>
+<figure data-type="image" tabindex="4"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220305150528933.png" alt="image-20220305150528933" loading="lazy"></figure>
+<p>一块威胁情报实例能看作整个HIN的子图。</p>
+<h2 id="系统结构">系统结构</h2>
+<figure data-type="image" tabindex="5"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220305150930947.png" alt="image-20220305150930947" loading="lazy"></figure>
+<h1 id="threat-intelligence-generation-using-network-telescope-data-for-industrial-control-systems">Threat Intelligence Generation Using Network Telescope Data for Industrial Control Systems</h1>
+<h2 id="摘要-4">摘要</h2>
+<p>文章通过分析网络望远镜流量（好像就是暗网流量）来探索工控设备的威胁范围。工控系统（ICS），文章分析暗网流量并生成针对ICS的扫描活动（campaign）的威胁情报。分析数据包的技术是DPI（deep packet inspection）。作者找到了13个不同的payload模板。使用机器学习来分类这些活动的来源，并识别威胁主体例如僵尸网络、恶意攻击者或研究者，最后用一种打分方法对威胁活动进行评级。收集了暗网上12.85TB（330天）的网络流量。</p>
+<h2 id="引言-4">引言</h2>
+<p>背景：需要精确、最新的针对ICS日益增加的网络威胁的情报，来预防攻击。</p>
+<p>贡献：</p>
+<ul>
+<li>提出一个可伸展的方法，通过分析暗网数据流，检测接近实时的针对ICS的探测活动。</li>
+<li>通过使用DPI技术来识别一场战役的潜在客体。各种方法的使用使其自动决定每次战役的威胁等级。</li>
+<li>创建了一个弹性的打分系统，通过预先设定指标的威胁等级对战役进行评级。</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220301155705116.png" alt="image-20220301155705116" loading="lazy"></figure>
+<h2 id="战役检测">战役检测</h2>
+<p>战役定义：一系列单来源扫描的集合。。扫描活动共享一些特征，例如相似的数据包特征、相似的扫描技巧和相似的时态特征。</p>
+<p>对流量分类为non-ICS和ICS：</p>
+<figure data-type="image" tabindex="7"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220301155858834.png" alt="image-20220301155858834" loading="lazy"></figure>
+<h2 id="来源ip分析">来源ip分析</h2>
+<p>将检测的ip通过外部数据库，例如VirusTotal和DShield，来提取相关信息（各种资产），用Doc2Vec分类来源。</p>
+<h2 id="威胁情报生成">威胁情报生成</h2>
+<p>就是ip和payload。</p>
+<h1 id="twitisocial-listening-for-threat-intelligence">Twiti:Social Listening for Threat Intelligence</h1>
+<h2 id="摘要-5">摘要</h2>
+<p>Twitter 是⼀个流⾏的威胁追踪公共资源，许多安全供应商和安全专家在实践中使⽤ Twitter 来收集⼊侵指标 (IOC, Indicators of Compromise)。然⽽，在 Twitter 上对 IOC 的研究甚少。它们的重要特征从未被研究过，如早期性、唯⼀性和准确性。⽽且，如何从 Twitter 中⾼精度地提取 IOC并不明显。在本⽂中介绍了 Twiti，这是⼀个从 Twitter ⾃动提取各种形式的恶意软件 IOC 的系统，Twiti 的源代码可在 https://github.com/Samsung/Twiti 获得。基于收集到的 IOC，对 Twitter 上的恶意软件 IOC 进⾏了⾸次实证评估和彻 底分析。 Twiti 通过利⽤⾃然语⾔处理和机器学习技术从被识别为具有恶意软件 IOC 信息的推⽂中提取 IOC。通过⼴泛的评估，证明 Twiti 不仅可以准确地提取恶意软件 IOC，⽽且提取的 IOC 是唯⼀且早期的。通过从各个⽅⾯分析 Twiti 中的 IOC，发现 Twitter ⽐其 他公共威胁情报 (TI) 反馈更好地捕获持续的恶意软件威胁，例如 Emotet 变体和恶意软件分发站点。还发现 Twitter 上只有⼀⼩部分 IOC 来⾃商业供应商帐户、个⼈ Twitter ⽤户是早期发现或独家 IOC 的主要贡献者，这表明 Twitter 可以提供许多在商业领域发现的 有价值的 IOC。</p>
+<h2 id="介绍">介绍</h2>
+<p>IOC 是网络攻击的取证工件，因此它们能够检测系统或网络上的入侵企图或任何其他恶意活动。当及时提供最新的 IOC 时，它们在保护系统或网络免受未来攻击方面发挥着关键作用。 IOC 的示例包括恶意文件的 MD5 哈希值、IP 地址、僵尸网络的 URL 或域以及文件名。</p>
+<p>大多数组织订阅威胁情报 (TI) 源以接收恶意软件 IOC，但单个源是不够的。许多 tivirus 解决方案和商业 TI 源通常不会立即反映新的或正在进行的攻击的 IOC。由于这些原因，许多行业和安全专业人士通过开源威胁情报丰富了 IOC。</p>
+<p>有很多公共资源可以收集恶意软件 IOC。最容易访问的来源是公共恶意软件黑名单列表，例如 Feodo tracker 和 AlienVault IP 声誉 。安全供应商博客是 IOC 挖掘的另一个常见来源。安全邮件列表、安全论坛和暗网也经常用于 IOC 搜索 。在众多公共资源中，Twitter 保证攻击的数量、及时性和多样性。它通过将推文链接到外部站点来从整个网络带来大量内容，这使 Twitter 能够涵盖来自各种来源的大量新 IOC，例如安全供应商博客、蜜罐和恶意软件沙箱。这使得许多安全供应商在实践中利用 Twitter 进行 IOC 搜索。</p>
+<p>然而，由于 Twitter 的独特特性，如文本短、非标准语言以及与推文相关的外部来源多样，从 Twitter 中挖掘出高精度的 IOCs 并不明显。有一些开放系统从 Twitter 收集 IOC。但是，正如稍后展示的那样，实验表明在 Twitter 上使用 IOC 时，两个系统的覆盖率和准确性都不令人满意。因此开发了 Twiti，一个用于 Twitter 的自动 IOC 提取系统。 Twiti 使用推文分类器和选定的外部源列表识别可能包含恶意软件 IOC 的推文。然后它从推文和推文中的外部链接中提取 IOC。这种方法使 Twiti 能够以高精度收集大量 IOC。</p>
+<p>此外，尽管 Twitter 作为 IOC 的数据源广受欢迎，但人们对从中收集的 IOC 知之甚少——Twitter 上有多少 IOC、它们有多新、多准确、与其他公共或商业机构相比有多独特TI 反馈、报告了哪些恶意软件 IOC、谁报告了独家 IOC、Twitter 上有多少 IOC 可以用于任何目的、可以从外部链接获取多少 IOC等等。为了回答这些问题，通过 Twiti 收集恶意文件哈希以及与恶意软件相关的 IP 地址、域和 URL。然后评估数量、延迟、准确性和排他性。最终从数据源、文件类型到恶意软件类型等各个方面分析了收集到的 IOC 的特征，以提供有关 Twitter 上 IOC 的见解。</p>
+<h2 id="设计架构">设计架构</h2>
+<p>下图说明了 Twiti 的架构。Twiti 由三个步骤组成——数据收集、相关推文选择和 IOC 提取。 Twiti 旨在以高精度收集尽可能多的与恶意软件相关的 IOC。为了实现这一目标，在 2019 年 11 月进行了一项试点研究，精心设计了数据收集器和 IOC 提取器。</p>
+<figure data-type="image" tabindex="8"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-02-25%20%E4%B8%8B%E5%8D%883.22.59.png" alt="截屏2022-02-25 下午3.22.59" loading="lazy"></figure>
+<h3 id="1-推文收集器">1、推文收集器</h3>
+<p>为了最大化要收集的 IOC 的数量，Twiti 主要通过使用 Twitter 搜索 API 的关键字跟踪来收集数据，其次是使用时间线 API通过用户跟踪来收集数据。跟踪了 35 个可能与恶意软件 IOC 一起出现的关键字。关键字的示例包括 “malware”、“ransomware”、“botnet”、“spyware”、“adware”、“malspam”、“iocs” 和“virustotal.com”。此外，还跟踪了 146 名 Twitter 用户，其中包括 86% 的安全专家、12% 的安全供应商和 2% 的其他安全组织。请注意，在 125 位安全专家中，67% 的人在他们的个人资料中将自己介绍为恶意软件分析师、恶意软件研究员、威胁猎人d或威胁情报研究员。另请注意，Twiti 会收集转发的原始推文并从中提取 IOC。</p>
+<h3 id="2-相关推文选择器">2、相关推文选择器</h3>
+<p>使用模式匹配简单提取 IOC 会导致许多误报。大多数推文都包含他们自己的推文或参考的链接（例如，https://t.co/qQdme1Buxh ）。一些推文提到软件版本与 IP 模式匹配（例如，Tuleap 9.17.99.189）。一些推文提到了用于引用提交 ID 或区块链交易的哈希值。为了减少这种误报，Twiti 首先处理推文中的链接，然后对推文进行分类以过滤掉那些没有 IOC 的推文。</p>
+<h4 id="21-推文预处理器">2.1 推文预处理器</h4>
+<ul>
+<li>
+<p>**短URL移除器：**Twitter 的 t.co 服务会自动缩短推文中发布的所有链接（URL）。由于 Twitter 转换的链接会针对潜在危险站点进行检查，因此会从文本中删除“http://t.co ”链接，以避免将推文中的良性 URL 错误地检测为 IOC。尽管在此过程中，由其他 URL 缩短器缩短的某些链接有时仍会保留在推文中。因此还会删除域名为“bit.ly”、“tinyurl.com”、“buff.ly”、“goo.gl”、“youtu.be”或“ow.ly”的短URL。</p>
+</li>
+<li>
+<p><strong>正则表达式检查器</strong>：删除短URL后，会检查每条推文中是否有与哈希、IP 地址、域和 URL 的正则表达式匹配的术语。</p>
+</li>
+<li>
+<p>**文本预处理器：**对于通过正则表达式检查器的每条推文，应用以下自然语言处理 (NLP) 为分类器提取特征：</p>
+<p>(1) 所有类型的hash都替换为“[hash]”。 IP 地址、URL、域、文件名、文件路径和电子邮件的术语也替换为“[ip]”、“[url]”、“[domain]”、“[filename]”、“[filepath]” ，和“[email]”，分别。请注意，所有经过修改的 URL、IP 地址和域都被转换为它们的代表标记，例如“[url]”。 Twitter 句柄和 CVE ID 也被替换为“[username]”和“[cve]”。所有数字都替换为“[num]”。</p>
+<p>(2) 命名实体识别 (NER) 应用于每条推文。标记为恶意软件的词被替换为“[malware_name]”。</p>
+<p>(3) 删除了前文和后文中的 Twitter 句柄。</p>
+<p>(4) 删除了 IOC 中未使用的 Unicode 字符和符号。</p>
+<p>(5) 推文是小写的。跟踪的关键字及其别名由单个标记形式的单个代表性术语替换。例如，“c&amp;c”、“cnc”和“command and-control”被替换为“c2”。</p>
+<p>(6) 对推文进行标记化并对每个单词应用词形还原，以将单词的屈折形式表示为单个单词。停用词被删除。删除由单个字符“[username]”和“[num]”组成的词。</p>
+<p>请注意，现有的 NER 工具如 NLTK、CoreNLP和 twitter_nlp未在网络安全领域接受过训练。因此，使用提及网络安全事件的推文训练了 Bert 模型，并在步骤 (2) 中使用了它。基于 Bert 的 NER 的详细信息可以在 https://github.com/Samsung/Twiti 上找到。</p>
+</li>
+</ul>
+<h4 id="22-推文分类器">2.2 推文分类器</h4>
+<p>开发了一种高性能推文分类器，用于确定推文是否包含 IOC。在下文中根据是否包含 IOC 将推文称为 IOC 推文或非 IOC 推文。</p>
+<ul>
+<li>
+<p>**数据集：**为了构建 IOC 推文分类器，收集了 2019 年 1 月至 9 月包含 IOC 模式的推文。在此期间，可以收集 21,937 条推文。去除Jaccard相似度大于0.70的相似推文后，剩余5675条推文。三位安全专家手动注释每条推文是否包含任何 IOC。有 3,007 条IOC推文和 2,668 条非IOC推文。</p>
+</li>
+<li>
+<p>**特征：**认为以下是初始特征：</p>
+<p>• Defanged IOCs：此功能检查每条推文中是否至少有一个defanged IOC。在推特上发布 IOC 时，defang 技术通常应用于 IP 地址、URL 和域，以防止意外暴露于恶意活动内容。此类推文的示例包括“#gandcrab @ hxxp://92.63.197.106/c.exe”、“#Roam ingMantis new landing pages：67[.] 198.129.27 …”、“#darkcomet /elumadns.eluma101 .com …”，“This app impersonate…#c2 hold[.]jcgloball[.]org:11880”。</p>
+<p>• 上下文n-gram：这些是围绕IOC 关键词的上下文词。使用的关键词是被跟踪的关键字（例如， “malware”, “ransomware”, “botnet”）、“[hash]”、“[ip]”、“[url]”、“[domain]”和“[malware_name]”。很明显，在 IOC 和非 IOC 推文中，有关感兴趣模式的词会大不相同。例如，“version [ip]”、“up to [ip]”、“before [ip]”、“preor to [ip]”和“commit [hash]”清楚地出现在关于软件漏洞的推文中，而“ hash [hash]”、“c2 [url]”、“c2 [ip]”、“botnet c2”、“from [ip]”、“ransomware [hash]”、“[file name] [hash]”、和“[malware_name] md5s [hash]”绝对属于IOC的推文。为了提取这样的上下文特征，首先将文本预处理 (1)-(5) 应用于每条推文。然后提取由目标词及其左右两侧的 1-2 个词组成的二元词组和三元词组。</p>
+<p>• 词袋：与IOC 共同出现的词也不同于非IOC 推文中的词。例如，“c2”、“md5s”、“yara”、“botnet”、“[malware_name]”、“ransomware”显然更多地出现在IOC的推文中。相反，在 IOC 推文中不太可能观察到“[cve]”、“csrf”、“0daytoday”、“vulnerability”、“xss”和“sql”。文本预处理（1）-（6）用于提取单词。然后删除常见的英语单词。通过将词形还原词视为特征，可以考虑在上下文特征中无法考虑的词变异。</p>
+<p>请注意，这里的所有特征都是二元特征。也就是说，如果每个特征在推文中，则取值为 1，否则取值为 0。</p>
+</li>
+<li>
+<p>**特征选择：**并非所有特征对分类都很重要。选择了使用互信息 (MI) 将 IOC 推文与非 IOC 推文区分开来的特征。</p>
+</li>
+<li>
+<p>**分类器：**有 22,316 个初始特征。特征选择后，保留了 1,456 个特征。它们包含 483 个单词（unigrams）和 972 个二元词和三元词。考虑了 3 个分类器——逻辑回归、随机森林和 XGBoost。使用由 3,007 条 IOC 推文和 2,668 条非 IOC 推文组成的数据集使用 5 折交叉验证评估了这些分类器。选择了随机森林分类器，因为它表现出最好的性能——精度为 0.95，召回率为 0.96。</p>
+</li>
+</ul>
+<h4 id="23-外部链接检查器">2.3 外部链接检查器</h4>
+<p>由于推文文本简洁（280 个字符限制），用户经常通过外部链接分享详细信息。因此通过分析试点研究中推文中的外部链接，构建了一个外部来源列表，这些来源为大量 IOC 提供了较小的误报。由于推文中的所有链接都被 Twitter 缩短，Twiti 从 Twitter API 检索“http://t.co ”链接的完整URL。然后检查完整的 URL 是否来自选定的外部源。</p>
+<h3 id="3-ioc提取器">3、IOC提取器</h3>
+<p>在 Twitter 上，有各种与威胁相关的信息，从漏洞、漏洞利用和恶意软件到异常网络活动。但是，此类信息的详细程度因作者而异。一些 Twitter 用户发布 C&amp;C 服务器或其他有价值的 IOC 信息，如 IP 地址、URL 和文件哈希。另一方面，其他用户在没有太多细节的情况下分享他们的发现或经验。根据信息的详细程度，从 Twitter 寻找 IOC 的方法有所不同。</p>
+<ul>
+<li>
+<p>**从推文中提取 IOC：**Twiti 首先通过正则表达式的模式匹配在推文文本中查找 IOC。但是，某些类型的 IOC（例如 URL 和 IP 地址）通常会被破坏，以避免无意中点击恶意链接。从评估中发现 38% 的收集到的 IP 被篡改，73% 的收集到的 URL 被篡改。这表明 Twitter 在处理 defang 技术方面比在安全博客、论坛和邮件列表中面临更多挑战。 Twiti 通过在开源 IOC 提取器中使用各种去污技术以及为扩展检测范围而添加的更多脱移URL 模式来检测脱移IOC。 Twiti 还从链接文本本身收集文件哈希、IP 地址和域。回想一下，Twiti 在模式匹配之前从文本中删除了“http://t.co ”链接，尽管它们是推文的一部分。但是，从外部链接分析中，观察到某些类型的 IOC 嵌入在恶意软件分析服务的给定链接文本中。例如，“https://www.virustotal.com/gui/ip-address/78.155.199.119/detection ”。因此，Twiti 直接从给定的链接中提取这些 IOC。</p>
+</li>
+<li>
+<p>**从外部来源提取 IOC：**当推文中的链接位于选定列表中时，Twiti 从外部来源收集 IOC。为了选择提供大量 IOC 且误报较小的外部来源，分析了 2019 年 11 月收集的推文中嵌入的链接。从分析发现，安全供应商博客、恶意软件分析服务和 Pastebin.com 是 IOC 的主要来源。</p>
+</li>
+</ul>
+<h2 id="设计选择">设计选择</h2>
+<ul>
+<li>
+<p>**数据收集方法：**有两种方法可以从 Twitter 收集数据——(i) 关键字跟踪和 (ii) 用户跟踪。由于关键词追踪对IOC的拉动更大，更容易扩展，所以Twiti使用关键词追踪作为主要的数据收集方法，用户追踪作为辅助方法。</p>
+</li>
+<li>
+<p>**关键词的选择：**选择了可能与 IOC 共同出现的关键字，但不要制造太多噪音。使用数据集提取了在 IOC 推文中比非 IOC 推文中出现次数更多的前 100 个单词。应用了文本预处理 (1)-(6)，然后删除了 Twitter 中的常用词和规范化的词，如“[mal ware_name]”和“[cve]”。删除可能导致很多误报的一般词后，得到了 35 个词。</p>
+</li>
+<li>
+<p>**推特用户的选择：**为了使基于用户的数据收集与基于关键字的数据收集相辅相成，选择了满足以下任一条件的 Twitter 用户</p>
+</li>
+<li>
+<p>**外部源的选择：**分析了 2019 年 11 月收集的 IOC 推文中嵌入的链接。获得了 25,437 个唯一参考 URL，其中包含 5,605 个唯一域。其中，选择了IOC收藏的顶级站点。请注意，在 25,437 个外部链接中，6.2% 来自恶意软件分析服务，4.2% 来自安全供应商博客，1.4% 来自 Pastebin.com，0.15% 来自 AlienVault OTX。</p>
+</li>
+</ul>
+<h2 id="评估">评估</h2>
+<p>四个指标：</p>
+<ul>
+<li>数量</li>
+<li>排他性：Twiti 中指标在其生命周期内不在参考源中的比例。它的正式形式为 |Twiti\A|/|Twiti|。</li>
+<li>延迟：Twiti 首次检测到指标与其生命周期内首次出现在参考源之间所经过的时间。</li>
+<li>准确度：真正恶意指标的比例。</li>
+</ul>
+<h2 id="实验分析">实验分析</h2>
+<h3 id="推特上的ioc数量">推特上的IOC数量</h3>
+<ul>
+<li>Pastebin.com 是推文中链接的最大 IOC 来源。</li>
+<li>推文是恶意 IP 收集的最大和最独特的来源。</li>
+<li>AlienVault OTX Pulse 是与推文相关的顶级 IOC 来源之一，但它带来了大量延迟的 IOC。</li>
+<li>URLhaus 是文件哈希的一个小来源，但它是新文件哈希的最大来源。</li>
+<li>安全厂商博客是恶意文件散列和 URL 的最早来源，但同时也是最迟的来源。</li>
+</ul>
+<h3 id="ioc特征">IOC特征</h3>
+<h2 id="局限">局限</h2>
+<ul>
+<li>可能存在虚假信息。因此尽管在评估中观察到 Twiti 的高精度，但 Twiti 容易受到数据投毒攻击。为了克服这一弱点，可以利用 VirusTotal 和 IP 许可名单来验证 Twiti 收集的 IOC。</li>
+<li>由于 Twiti 从 Pastebin.com 收集 IOC 仅使用词过滤器，因此当将一些良性指标与恶意指标一起发布时，无法保证从中获取的 IOC 的准确性，</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>在本文中提出了一种用于 Twitter 的高保真 IOC 提取系统。 通过对收集到的 IOC 的广泛评估，证明所提议的系统能够比其他公共 TI 反馈更早地收集独特且准确的恶意软件 IOC。 这使得 Twitter 成为一个有价值的开源威胁情报源。 还展示了 Twitter 能够以高精度和早期的方式捕获大量正在进行的恶意软件攻击。 通过从各个方面分析 IOC 的特征，可以更好地了解 Twitter 上的恶意软件 IOC，以及如何利用 Twitter 对抗恶意软件威胁的指南。</p>
+<h1 id="cti-view-apt-threat-intelligence-analysis-system">CTI View: APT Threat Intelligence Analysis System</h1>
+<h2 id="摘要-6">摘要</h2>
+<p>设计了一个自动系统CTI View，可以从大量非结构网络威胁情报中进行文本提取和分析。</p>
+<p>主要工作：</p>
+<ul>
+<li>处理异构的CTI</li>
+<li>使用混合黑名单和白名单机制的正则表达式来提取IOC和TTP信息</li>
+<li>提出基于bert的模型，对异构CTI进行实体抽取</li>
+</ul>
+<h2 id="引言-5">引言</h2>
+<p>IOC：hash、IP、domain、Mac、e-mail</p>
+<p>威胁情报主要问题：</p>
+<ul>
+<li>来源复杂</li>
+<li>CTI种类繁多且无组织，应用场景复杂</li>
+<li>信息生成很快，威胁情报更新很快</li>
+</ul>
+<p>IOC缺点：</p>
+<ul>
+<li>IOC不能表示攻击者怎么和受害系统交互</li>
+<li>IOC只能关注攻击过程的部分分析，不能建立一个完整的攻击链，更别说攻击的组织者和实施者，造成攻击行为检测的不准确。</li>
+<li>IOC项目关联性很低，独立性很高，不能对溯源提供高支持。</li>
+</ul>
+<h2 id="贡献-2">贡献</h2>
+<ul>
+<li>设计了一个基于网页文本识别技术的CTI文本抽取系统。</li>
+<li>设计了基于Bert的威胁实体识别系统。</li>
+</ul>
+<h2 id="整体结构-2">整体结构</h2>
+<figure data-type="image" tabindex="9"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220328144912079.png" alt="image-20220328144912079" loading="lazy"></figure>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+				<a href="https://adureychloe.github.io/tag/7VQKROPzY/" rel="tag">paper</a>	
+				 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://adureychloe.github.io/post/pytorch-torchbackendscudnn-she-zhi-zuo-yong/" rel="prev"> pytorch torch.backends.cudnn设置作用</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://adureychloe.github.io/post/lun-wen-su-shua/" rel="next"> 论文速刷</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://adureychloe.github.io//images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">John</div></div>
+
+
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://adureychloe.github.io//media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a><br>Theme:   <a href="https://github.com/alterfang/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>. Powered by <a href="https://gridea.dev/" target="_blank" title="Gridea"><span>Gridea</span></a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://adureychloe.github.io//media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>

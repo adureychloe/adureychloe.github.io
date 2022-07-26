@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+<meta HTTP-EQUIV="expires" CONTENT="0"> 
+<title>kaggle竞赛技巧 | Central Park</title>	
+
+<link rel="stylesheet" href="https://adureychloe.github.io//styles/main.css">
+<script type="text/javascript">
+function getCSS()
+{
+        datetoday = new Date();
+        timenow=datetoday.getTime();
+        datetoday.setTime(timenow);
+        thehour = datetoday.getHours();
+
+            display = "https://adureychloe.github.io//media/css/night.css";
+
+            display = "https://adureychloe.github.io//media/css/night.css";   
+      
+            display = "https://adureychloe.github.io//media/css/day.css";
+
+            display = "https://adureychloe.github.io//media/css/day.css";
+      
+
+var css = '<';
+        css+='link rel="stylesheet" href='+display+' \/';
+        css+='>';
+        document.write(css);
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap" rel="stylesheet">
+<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://adureychloe.github.io//media/scripts/script.js'></script>
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
+  <script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:true,live:true});wow.init();</script>
+
+<script type="text/javascript">
+window.onload=getCSS();
+</script>
+
+
+ 	
+</head>
+<body class="post-template-default single single-post postid-70 single-format-standard">
+    <div id="wrapper">
+        
+			
+		<header id="header" class="site-header" 
+		
+		style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://adureychloe.github.io//post-images/kaggle-jing-sai-ji-qiao.jpg)"
+		
+		>
+			<div class="site-branding">
+									<h1 class="site-title"><a href="https://adureychloe.github.io/" rel="home">Central Park</a></h1>
+										
+					<h2 class="site-description">How you doing😀?</h2>
+										
+							</div>
+			<nav id="nav-wrapper">
+				<div class="container">
+					<div class="nav-toggle">
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<ul id="" class="dove">
+		 
+     			
+<li>
+	 
+	<a  href="/"> 首页</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/archives"> 归档</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/tags"> 标签</a></li>
+	
+    
+     			
+<li>
+	 
+	<a  href="/post/about"> 关于</a></li>
+	
+    
+
+</ul>
+</li>		
+		
+</ul>				</div>
+			</nav>
+						<div class="jingge">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        </header>
+
+		<div id="content" class="container">
+			<div class="row">
+	<div class="col-md-8 site-main">
+				
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-5 tag-10 tag-9 tag-11">
+
+	
+	                      
+		<div class="entry-content">
+			<h1 class="wow swing entry-title">kaggle竞赛技巧</h1>
+<div class="entry-meta">
+<div class="wow bounce">
+	<i class="iconfont icon-rili"> <time class="lately-a" datetime="2022-06-30 14:31:53" itemprop="datePublished" pubdate="">2022-06-30</time></i>
+	          </div>
+			
+</span>
+													 
+		</div>
+                  
+			<div class="wow slideInLeft entry-summary song">
+				<p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E8%B0%83%E5%8F%82%E7%A5%9E%E5%99%A8optuna">一、调参神器optuna</a>
+<ul>
+<li><a href="#lgbm%E8%B0%83%E5%8F%82">LGBM调参</a>
+<ul>
+<li><a href="#%E4%B8%80-%E5%AE%9A%E4%B9%89objective">一、定义objective</a></li>
+<li><a href="#%E4%BA%8C-%E8%B0%83%E5%8F%82study">二、调参study</a></li>
+<li><a href="#%E4%B8%89-%E7%BB%98%E5%9B%BE">三、绘图</a></li>
+<li><a href="#%E5%9B%9B-%E6%9C%80%E4%BD%B3%E5%8F%82%E6%95%B0">四、最佳参数</a></li>
+</ul>
+</li>
+<li><a href="#xgboost">XGBOOST</a>
+<ul>
+<li><a href="#%E4%B8%80-%E5%AE%9A%E4%B9%89objective-2">一、定义objective</a></li>
+<li><a href="#%E4%BA%8C-%E8%B0%83%E5%8F%82study-2">二、调参study</a></li>
+<li><a href="#%E4%B8%89-%E7%BB%98%E5%9B%BE-2">三、绘图</a></li>
+<li><a href="#%E5%9B%9B-%E6%9C%80%E4%BD%B3%E5%8F%82%E6%95%B0-2">四、最佳参数</a></li>
+</ul>
+</li>
+<li><a href="#%E9%9B%86%E6%88%90%E7%9A%84%E5%89%AA%E6%9E%9D%E6%96%B9%E6%B3%95">集成的剪枝方法</a></li>
+<li><a href="#%E5%8F%AF%E8%A7%86%E5%8C%96">可视化</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h1 id="一-调参神器optuna">一、调参神器optuna</h1>
+<p>参考网址：<a href="https://blog.csdn.net/qq_43510916/article/details/113794486?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1-113794486-blog-123272573.pc_relevant_multi_platform_whitelistv1&amp;spm=1001.2101.3001.4242.2&amp;utm_relevant_index=4">https://blog.csdn.net/qq_43510916/article/details/113794486?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1-113794486-blog-123272573.pc_relevant_multi_platform_whitelistv1&amp;spm=1001.2101.3001.4242.2&amp;utm_relevant_index=4</a><br>
+optuna是一个超参数调节工具，适合绝大多数的机器学习框架，sklearn，xgb，lgb，pytorch等。一个optuna 的优化程序中有三个最核心的概念，目标函数(objective)，单次试验(trial)，和研究(study)。objective负责<strong>定义待优化函数并指定超参数范围</strong>，trial对应objective的单次执行，而study负责管理优化，决定优化的方式、总实验的次数、实验结果的记录等。<br>
+例子：</p>
+<pre><code class="language-python">import optuna
+def objective(trial):
+    x = trial.suggest_uniform('x', -10, 10)
+    y = trial.suggest_uniform('y', -10, 10)
+    return (x+y) ** 2
+
+study = optuna.create_study(direction='maximize')
+study.optimize(objective, n_trials=100)
+
+print(study.best_params)
+print(study.best_value)
+</code></pre>
+<h2 id="lgbm调参">LGBM调参</h2>
+<h3 id="一-定义objective">一、定义objective</h3>
+<pre><code class="language-python">from lightgbm import LGBMRegressor
+import optuna
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split, KFold
+import optuna.integration.lightgbm as oplgb
+
+def objective(trial):
+    X_train, X_test, y_train, y_test=train_test_split(data, target, train_size=0.3)# 数据集划分
+    param = {
+        'metric': 'rmse', 
+        'random_state': 48,
+        'n_estimators': 20000,
+        'reg_alpha': trial.suggest_loguniform('reg_alpha', 1e-3, 10.0),
+        'reg_lambda': trial.suggest_loguniform('reg_lambda', 1e-3, 10.0),
+        'colsample_bytree': trial.suggest_categorical('colsample_bytree', [0.3,0.4,0.5,0.6,0.7,0.8,0.9, 1.0]),
+        'subsample': trial.suggest_categorical('subsample', [0.4,0.5,0.6,0.7,0.8,1.0]),
+        'learning_rate': trial.suggest_categorical('learning_rate', [0.006,0.008,0.01,0.014,0.017,0.02]),
+        'max_depth': trial.suggest_categorical('max_depth', [5, 7, 9, 11, 13, 15, 17, 20, 50]),
+        'num_leaves' : trial.suggest_int('num_leaves', 1, 1000),
+        'min_child_samples': trial.suggest_int('min_child_samples', 1, 300),
+        'cat_smooth' : trial.suggest_int('cat_smooth', 1, 100)      
+    }
+    
+    lgb=LGBMRegressor(**param)
+    lgb.fit(X_train, y_train, eval_set=[(X_test, y_test)], early_stopping_rounds=100, verbose=False)
+    pred_lgb=lgb.predict(X_test)
+    rmse = mean_squared_error(y_test, pred_lgb, squared=False)
+    return rmse
+</code></pre>
+<h3 id="二-调参study">二、调参study</h3>
+<pre><code class="language-python">study = optuna.create_study(direction='minimize')
+n_trials=50 #try50次
+study.optimize(objective, n_trials=n_trials)
+</code></pre>
+<h3 id="三-绘图">三、绘图</h3>
+<pre><code class="language-python">optuna.visualization.plot_optimization_history(study)# 绘制
+optuna.visualization.plot_parallel_coordinate(study)# 
+optuna.visualization.plot_param_importances(study)# 
+</code></pre>
+<h3 id="四-最佳参数">四、最佳参数</h3>
+<pre><code class="language-python">params=study.best_params
+params['metric'] = 'rmse'
+</code></pre>
+<h2 id="xgboost">XGBOOST</h2>
+<h3 id="一-定义objective-2">一、定义objective</h3>
+<pre><code class="language-python">from lightgbm import LGBMRegressor
+import optuna
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split, KFold
+import optuna.integration.lightgbm as oplgb
+
+def objective(trial):
+    data = train.iloc[:, :-1]
+    target = train.target
+    train_x, test_x, train_y, test_y = train_test_split(data, target, test_size=0.3, random_state=42)
+    param = {
+        'lambda': trial.suggest_loguniform('lambda', 1e-3, 10.0),
+        'alpha': trial.suggest_loguniform('alpha', 1e-3, 10.0),
+        'colsample_bytree': trial.suggest_categorical('colsample_bytree', [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]),
+        'subsample': trial.suggest_categorical('subsample', [0.4, 0.5, 0.6, 0.7, 0.8, 1.0]),
+        'learning_rate': trial.suggest_categorical('learning_rate',
+                                                   [0.008, 0.009, 0.01, 0.012, 0.014, 0.016, 0.018, 0.02]),
+        'n_estimators': 4000,
+        'max_depth': trial.suggest_categorical('max_depth', [5, 7, 9, 11, 13, 15, 17, 20]),
+        'random_state': trial.suggest_categorical('random_state', [24, 48, 2020]),
+        'min_child_weight': trial.suggest_int('min_child_weight', 1, 300),
+    }
+    model = xgb.XGBRegressor(**param)
+    model.fit(train_x, train_y, eval_set=[(test_x, test_y)], early_stopping_rounds=100, verbose=False)
+    preds = model.predict(test_x)
+    rmse = mean_squared_error(test_y, preds, squared=False)
+    return rmse
+</code></pre>
+<h3 id="二-调参study-2">二、调参study</h3>
+<pre><code class="language-python">study = optuna.create_study(direction='minimize')
+n_trials=1
+study.optimize(objective, n_trials=n_trials)
+print('Number of finished trials:', len(study.trials))
+print(&quot;------------------------------------------------&quot;)
+print('Best trial:', study.best_trial.params)
+print(&quot;------------------------------------------------&quot;)
+print(study.trials_dataframe())
+print(&quot;------------------------------------------------&quot;)
+</code></pre>
+<h3 id="三-绘图-2">三、绘图</h3>
+<pre><code class="language-python">optuna.visualization.plot_optimization_history(study).show()
+#plot_parallel_coordinate: interactively visualizes the hyperparameters and scores
+optuna.visualization.plot_parallel_coordinate(study).show()
+'''plot_slice: shows the evolution of the search. You can see where in the hyperparameter space your search
+went and which parts of the space were explored more.'''
+optuna.visualization.plot_slice(study).show()
+optuna.visualization.plot_contour(study, params=['alpha',
+                            #'max_depth',
+                            'lambda',
+                            'subsample',
+                            'learning_rate',
+                            'subsample']).show()
+#Visualize parameter importances.
+optuna.visualization.plot_param_importances(study).show()
+#Visualize empirical distribution function
+optuna.visualization.plot_edf(study).show()
+</code></pre>
+<h3 id="四-最佳参数-2">四、最佳参数</h3>
+<pre><code class="language-python">params=study.best_params
+params['metric'] = 'rmse'
+</code></pre>
+<h2 id="集成的剪枝方法">集成的剪枝方法</h2>
+<p>剪枝可以提高最终分类器的复杂度，防止过拟合。Optuna提供了对多个流行ML框架的集成，用户可以使用它在超参数训练期间尝试修剪。例子:</p>
+<ul>
+<li>XGBoost:optuna.integration.XGBoostPruningCallback</li>
+<li>LightGBM:optuna.integration.LightGBMPruningCallback</li>
+<li>Chainer:optuna.integration.ChainerPruningExtension</li>
+<li>Keras:optuna.integration.KerasPruningCallback</li>
+<li>TensorFlowoptuna.integration.TensorFlowPruningHook</li>
+<li>tf.kerasoptuna.integration.TFKerasPruningCallback</li>
+<li>MXNetoptuna.integration.MXNetPruningCallback</li>
+</ul>
+<h2 id="可视化">可视化</h2>
+<ul>
+<li>plot_optimization_history (可视化优化的过程)</li>
+<li>plot_intermediate_values (可视化学习的曲线)</li>
+<li>plot_slice (可视化个别参数)</li>
+<li>plot_contour (可视化参数间的彼此关系)</li>
+<li>plot_parallel_coordinate (可视化高维度中参数间的彼此关系)</li>
+<li>plot_param_importances (可视化参数对模型的重要程度)</li>
+<li>plot_edf (可视化验分布函数)</li>
+</ul>
+
+							</div>
+	<div class="wow bounceInDown vt-post-tags">
+ 
+				<a href="https://adureychloe.github.io/tag/xrL0Jdofn/" rel="tag">kaggle</a>	
+				 
+					</div>						
+<nav class="navigation3 post-navigation3" role="navigation">
+		
+		<div class="nav-links3">
+      
+		<div class="wow bounceInLeft nav-previous3"><a href="https://adureychloe.github.io/post/zi-ran-yu-yan-chu-li-de-yi-xie-suo-xie-ming-ci/" rel="prev"> 自然语言处理的一些缩写名词</a></div>
+		 
+		 
+		<div class="wow bounceInRight nav-next3"><a href="https://adureychloe.github.io/post/shen-du-xue-xi-ti-sheng-mo-xing-xing-neng-de-xiao-ji-qiao/" rel="next"> 深度学习提升模型性能的小技巧</a></div>
+		
+		</div>
+	</nav>
+	<div class="wow rollIn author-info" style="visibility: visible; animation-name: rollIn;">
+	<div class="author-avatar pull-left"><img src="https://adureychloe.github.io//images/avatar.png" ></div>
+ 
+	<div class="author-description"><div class="author-title"><div class="author-link" rel="author">John</div></div>
+
+
+		</div>
+		
+ 
+		
+</article>
+
+<div id="marlin_lite_about_widget-2" class="wow bounceInUp widget marlin_lite_about_widget" data-wow-delay="0.1s">
+		
+        
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://adureychloe.github.io//media/scripts/Valine.min.js'></script>
+
+<div class="comment"></div>
+<script>
+        new Valine({
+            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+            av: AV, 
+            el: '.comment',
+            lang: 'zh-cn',
+            
+            
+      emoticon_list: ["吐.png","喷血.png","狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","中指.png","尴尬.png","瞅你.png","想一想.png","中枪.png","得意.png","肿包.png","扇耳光.png","亲亲.png","惊喜.png","脸红.png","无所谓.png","便便.png","愤怒.png","蜡烛.png","献黄瓜.png","内伤.png","投降.png","观察.png","看不见.png","击掌.png","抠鼻.png","邪恶.png","看热闹.png","口水.png","抽烟.png","锁眉.png","装大款.png","吐舌.png","无奈.png","长草.png","赞一个.png","呲牙.png","无语.png","阴暗.png","不出所料.png","咽气.png","期待.png","高兴.png","吐血倒地.png","哭泣.png","欢呼.png","黑线.png","喜极而泣.png","喷水.png","深思.png","鼓掌.png","暗地观察.png"],
+     	
+      	
+          
+        });
+    </script> 
+
+
+   
+  
+ 
+
+		</div>
+
+			</div>
+			
+
+
+<div class="tocc col l3 hide-on-med-and-down">
+	
+        <div class="toc-widget">
+			
+            <div class="toc-title"></div>
+			
+            <div id="toc-content">
+			
+			
+			</div>
+        </div>
+    </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.5.0/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '.entry-summary',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('.entry-summary').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>										 
+
+ 
+       
+
+
+			</div>
+		</div>
+
+		
+		 	<footer id="colophon" class="site-footer">
+
+			<div class="container">
+	
+				<div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a><br>Theme:   <a href="https://github.com/alterfang/gridea-theme-pan" target="_blank" title="Pan"><span>Pan</span></a>. Powered by <a href="https://gridea.dev/" target="_blank" title="Gridea"><span>Gridea</span></a></div>		
+			</div>
+		
+		</footer>
+
+</div>
+
+<script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script type='text/javascript' src='https://adureychloe.github.io//media/scripts/marlin-scripts.js'></script>
+ <script src="//tokinx.github.io/lately/lately.min.js"></script>
+  <script>jQuery(document).ready(function(){$.lately({'target':'.lately-a,.lately-b,.lately-c'})});</script>
+  <style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
+</a>
+
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+		<script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $('.navigation:eq(0)').remove();
+                $("").attr("rel" , "external");
+                $("a[rel='external'],a[rel='external nofollow']").attr("target","_blank");
+                $("a.vi").attr("rel" , "");
+                $.viewImage({
+                    'target'  : 'img',
+                    'exclude' : '.vsmile-icons img,.gallery img',
+                    'delay'   : 300
+                });
+                $.lately({
+                    'target' : '.commentmetadata a,.infos time,.post-list time'
+                });
+                prettyPrint();
+                
+                $('ul.links li a').each(function(){
+                    if($(this).parent().find('.bg').length==0){
+                        $(this).parent().append('<!---<div class="bg" style="background-image:url(https://c3.glgoo.top/s2/favicons?domain='+$(this).attr("href")+')"></div>--->')
+                    }
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+
+</body>
+</html>
