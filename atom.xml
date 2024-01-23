@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://adureychloe.github.io/</id>
+    <title>Central Park</title>
+    <updated>2024-01-23T03:58:21.964Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://adureychloe.github.io/"/>
+    <link rel="self" href="https://adureychloe.github.io/atom.xml"/>
+    <subtitle>How you doing😀?</subtitle>
+    <logo>https://adureychloe.github.io/images/avatar.png</logo>
+    <icon>https://adureychloe.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, Central Park</rights>
+    <entry>
+        <title type="html"><![CDATA[BERT获取特殊符号token和id]]></title>
+        <id>https://adureychloe.github.io/post/bert-huo-qu-te-shu-fu-hao-token-he-id/</id>
+        <link href="https://adureychloe.github.io/post/bert-huo-qu-te-shu-fu-hao-token-he-id/">
+        </link>
+        <updated>2024-01-23T03:57:18.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-python">self.sep_token = self.tokenizer.sep_token
+self.cls_token = self.tokenizer.cls_token
+self.pad_token = self.tokenizer.pad_token
+self.sep_id = self.tokenizer.sep_token_id
+self.cls_id = self.tokenizer.cls_token_id
+self.pad_id = self.tokenizer.pad_token_id
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python求解根号]]></title>
+        <id>https://adureychloe.github.io/post/python-qiu-jie-gen-hao/</id>
+        <link href="https://adureychloe.github.io/post/python-qiu-jie-gen-hao/">
+        </link>
+        <updated>2024-01-22T14:24:57.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目">题目</h1>
+<p>求根号2的值，误差在0.0000001内。</p>
+<h1 id="方法">方法</h1>
+<h2 id="梯度下降法">梯度下降法</h2>
+<p>求根号2的值，也就是求<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x^2-2=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>的解，即损失函数：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>=</mo><mo>(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mo>)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">L = (x^2-2)^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></p>
+<p>取极小值时的 x ，注意损失函数我们要用平方。</p>
+<p>导数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>d</mi><mi>L</mi><mi mathvariant="normal">/</mi><mi>d</mi><mi>x</mi><mo>=</mo><mn>4</mn><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mn>8</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">g(x) = dL/dx = 4x^3-8x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">L</span><span class="mord">/</span><span class="mord mathdefault">d</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mord mathdefault">x</span></span></span></span>，x随机一个初始值，然后不断更新x。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>x</mi><mi>n</mi></msub><mo>−</mo><mi>α</mi><mi>g</mi><mo>(</mo><msub><mi>x</mi><mi>n</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">x_{n+1} = x_n - \alpha g(x_n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<pre><code class="language-python">import random
+import matplotlib.pyplot as plt
+
+class solution():
+    def gradient_descent(self, n):
+        # 随机初始化
+        # x = float(random.randint(1,100))
+        x = 2
+        # 学习率
+        lr = 0.00001
+        loss = []
+        while abs(x ** 2 - n) &gt; 0.0000001: # 达到误差以下
+            x = x - lr * (4* (x**3) - 8*x)
+            loss.append((x**2-n)**2)
+
+        return loss,x
+
+if __name__=='__main__':
+    n = 2
+    loss, a = solution().gradient_descent(n)
+
+    x=range(len(loss))
+    plt.plot(x,loss)
+    plt.xlim(0,1000)
+    plt.show()
+
+</code></pre>
+<h2 id="牛顿法">牛顿法</h2>
+<p>利用函数的泰勒级数的前面几项来寻找方程的根。<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202401222246069.png" alt="截屏2024-01-22 22.46.01" loading="lazy"></p>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202401222247684.png" alt="截屏2024-01-22 22.47.16" loading="lazy"></figure>
+<pre><code class="language-python">class sqrt(object):
+    def s(self,x):
+        a = x
+        while a * a - x &gt; 0.0000001:
+            a = (a + x / a) / 2
+            print(a)
+
+if __name__ == '__main__':
+    x = 169
+    sqrt().s(x)
+</code></pre>
+<h2 id="二分法">二分法</h2>
+<pre><code class="language-python">class Solution3():
+    def mySqrt(self, x):
+        if x==0:
+            return 0
+        if x==1:
+            return 1
+        left = 1
+        right = x
+        while left&lt;=right:
+            mid = left+(right-left)//2
+            if mid*mid - x &lt; 0.000001:
+                return mid
+            elif mid*mid&gt;x:
+                right = mid - 0.0001  # 相当于学习率
+            else:
+                left = mid + 0.0001
+        return right
+
+if __name__ == '__main__':
+    print(Solution3().mySqrt(3))
+</code></pre>
+<h1 id="参考资料">参考资料</h1>
+<p><a href="https://blog.csdn.net/weixin_41744192/article/details/123543067">二分法、梯度下降法、牛顿法求解根号（Python）</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[设置随机数种子以确保实验结果的可重复性]]></title>
+        <id>https://adureychloe.github.io/post/she-zhi-sui-ji-shu-chong-zi-yi-que-bao-shi-yan-jie-guo-de-ke-chong-fu-xing/</id>
+        <link href="https://adureychloe.github.io/post/she-zhi-sui-ji-shu-chong-zi-yi-que-bao-shi-yan-jie-guo-de-ke-chong-fu-xing/">
+        </link>
+        <updated>2024-01-22T02:52:10.000Z</updated>
+        <content type="html"><![CDATA[<p>在Python中，你可以使用<code>random</code>模块的<code>seed</code>函数来设置随机种子，以确保实验的可重复性。此外，如果你在实验中使用了NumPy或者PyTorch，你也需要分别为它们设置随机种子。</p>
+<p>以下是一个示例：</p>
+<pre><code class="language-python">import random
+import numpy as np
+import torch
+
+def set_seed(seed):
+    random.seed(seed)  # 设置Python内置的随机种子
+    np.random.seed(seed)  # 设置NumPy的随机种子
+    torch.manual_seed(seed)  # 设置PyTorch的随机种子
+
+    if torch.cuda.is_available():  # 如果使用了GPU，还需要额外设置PyTorch的GPU随机种子
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+
+set_seed(1234)  # 使用1234作为随机种子
+</code></pre>
+<p>这样，无论何时你运行你的代码，只要使用相同的随机种子，你的实验结果就应该是一致的。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[树模型处理类别数据]]></title>
+        <id>https://adureychloe.github.io/post/shu-mo-xing-chu-li-lei-bie-shu-ju/</id>
+        <link href="https://adureychloe.github.io/post/shu-mo-xing-chu-li-lei-bie-shu-ju/">
+        </link>
+        <updated>2024-01-17T03:09:23.000Z</updated>
+        <content type="html"><![CDATA[<p>对于categorical类型的特征，LightGBM和CatBoost都可以直接进行处理。lgb可以直接输入数据或者设置<code>categorical_feature</code>参数，catboost需要创建数据池Pool时设置<code>cat_features</code>参数。</p>
+<p>XGBoost不能直接处理分类特征，需要先将其编码。或者在训练时添加参数<code>enable_categorical=True, tree_method='hist'</code>。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[sklearn cross_val_score返回nan问题]]></title>
+        <id>https://adureychloe.github.io/post/sklearn-cross_val_score-fan-hui-nan-wen-ti/</id>
+        <link href="https://adureychloe.github.io/post/sklearn-cross_val_score-fan-hui-nan-wen-ti/">
+        </link>
+        <updated>2024-01-13T08:34:10.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>今天利用optuna训练lgb时，交叉验证使用cross_val_score，结果失败，返回nan。</p>
+<h1 id="解决方法">解决方法</h1>
+<p>这个有很多可能，对于我的情况来说，输入数据是dataframe，应该没问题。出问题的是lgb里的early_stopping，猜测是刚开始nan结果直接触发早停了。<br>
+解决方法就是不用cross_val_score，自己定义验证函数。不确定cross_val_score为什么会出现这种情况，但是自己定义验证函数就可以了。</p>
+<pre><code class="language-python">cv_scores = np.empty(cv.n_splits)
+    for i,(train_idx, test_idx) in enumerate(cv.split(X,y)):
+        x_train, x_test = X.iloc[train_idx],X.iloc[test_idx]
+        y_train,y_test = y.iloc[train_idx],y.iloc[test_idx]
+
+        model = lgb.LGBMRegressor(**params)
+        model.fit(x_train,y_train,
+                  eval_set=[(x_test,y_test)],
+                  early_stopping_rounds=100,
+                  callbacks=[LightGBMPruningCallback(trial,'l1')
+                  ],
+                  )
+        print(f'fold {i}')
+        y_pred = model.predict(x_test)
+        cv_scores[i] = mean_absolute_error(y_test,y_pred)
+    # model = lgb.LGBMRegressor(**params)
+    # cv = MonthlyKFold(1)
+    # scores = -1 * cross_val_score(model,X=X,y=y,cv=MonthlyKFold(1),scoring='neg_mean_absolute_error')
+    return np.mean(cv_scores)
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[optuna调参查阅]]></title>
+        <id>https://adureychloe.github.io/post/optuna-diao-can-cha-yue/</id>
+        <link href="https://adureychloe.github.io/post/optuna-diao-can-cha-yue/">
+        </link>
+        <updated>2024-01-11T03:14:25.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="lgb">LGB</h1>
+<pre><code class="language-python">params = {
+            
+            'early_stopping_round':100,
+            'random_state'     : trial.suggest_categorical('random_state',[42,2023,2024]),
+            #'extra_trees'      : True,
+            'boosting_type': 'gbdt',
+            #'device':'gpu',
+            'objective': 'mae',
+            'n_estimators':2000,
+            'early_stopping_round':100,
+            #'colsample_bytree' : trial.suggest_float('colsample_bytree', 0.1, 1.0),
+            #'colsample_bynode' : trial.suggest_float('colsample_bynode', 0.1, 1.0),
+            'max_depth'        : trial.suggest_int('max_depth', 3, 10),
+            'learning_rate'    : trial.suggest_float('learning_rate', 1e-2, 2e-1, log=True),
+            'lambda_l1'        : trial.suggest_float('lambda_l1', 1e-2, 10.0, log=True),
+            'lambda_l2'        : trial.suggest_float('lambda_l2', 1e-2, 10.0, log=True),
+            'num_leaves'       : trial.suggest_int('num_leaves', 8, 1024),
+        #     'min_child_weight'       : trial.suggest_int('min_child_weight', 2, 10),
+        #     'min_data_in_leaf' : trial.suggest_int('min_data_in_leaf', 5, 250),
+        }
+
+study = optuna.create_study(sampler=TPESampler(), direction=&quot;minimize&quot;)
+</code></pre>
+<h1 id="catboost">CatBoost</h1>
+<pre><code class="language-python">params = {
+            'iterations': 20000,
+            #'verbose': 1,
+            'od_type': 'Iter', 
+            'od_wait': 100, # 早停
+            'loss_function': 'MAE',
+            #&quot;colsample_bylevel&quot;: trial.suggest_float(&quot;colsample_bylevel&quot;, 0.01, 0.1), # can't use when gpu
+            &quot;boosting_type&quot;: trial.suggest_categorical(&quot;boosting_type&quot;, [&quot;Ordered&quot;, &quot;Plain&quot;]),
+            &quot;bootstrap_type&quot;: trial.suggest_categorical(
+                &quot;bootstrap_type&quot;, [&quot;Bayesian&quot;, &quot;Bernoulli&quot;]
+            ),
+            &quot;min_data_in_leaf&quot;: trial.suggest_int(&quot;min_data_in_leaf&quot;, 2, 20),
+            &quot;one_hot_max_size&quot;: trial.suggest_int(&quot;one_hot_max_size&quot;, 2, 20),
+            'learning_rate': trial.suggest_loguniform('learning_rate', 1e-3, 0.1),
+            'depth': trial.suggest_int('depth', 4, 10),
+            'l2_leaf_reg': trial.suggest_float('l2_leaf_reg', 1e-4, 1e+1, log=True),
+            'random_strength': trial.suggest_float('random_strength', 1e-4, 1e+1, log=True),
+            #'bagging_temperature': trial.suggest_float('bagging_temperature', 0.0, 10.0),
+            'border_count': trial.suggest_int('border_count', 32, 255),
+            #'subsample': trial.suggest_discrete_uniform('subsample', 0.1, 1.0, 0.01),
+            'task_type': 'GPU'
+        }
+
+    if params[&quot;bootstrap_type&quot;] == &quot;Bayesian&quot;:
+        params[&quot;bagging_temperature&quot;] = trial.suggest_float(&quot;bagging_temperature&quot;, 0, 10)
+    elif params[&quot;bootstrap_type&quot;] == &quot;Bernoulli&quot;:
+        params[&quot;subsample&quot;] = trial.suggest_float(&quot;subsample&quot;, 0.1, 1)
+</code></pre>
+<h1 id="xgb">xgb</h1>
+<pre><code class="language-python">params = {
+
+            
+            #'random_state'     : trial.suggest_categorical('random_state',[42,2023,2024]),
+            #'extra_trees'      : True,
+            # 'boosting_type': 'gbdt',
+            'device':'gpu',
+            'enable_categorical':True,
+            'tree_method':'hist',
+            'objective' : 'reg:absoluteerror',
+            #'early_stopping_rounds':100,
+            &quot;n_estimators&quot;: 3000,
+            'colsample_bytree' : trial.suggest_float('colsample_bytree', 0.5, 1.0),
+            'subsample' : trial.suggest_float('subsample', 0.5, 1.0),
+            'gamma': trial.suggest_loguniform('gamma',1e-3,10.0),
+            'min_child_weight': trial.suggest_int('min_child_weight', 1, 10),
+            'learning_rate':trial.suggest_loguniform('learning_rate',1e-3,1.0),
+            'reg_lambda': trial.suggest_loguniform('lambda', 1e-3, 10.0),
+            'reg_alpha': trial.suggest_loguniform('alpha', 1e-3, 10.0),
+            'max_depth'        : trial.suggest_int('max_depth', 3, 10),
+            
+        }
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[LightGBM训练报错"keyerror:0"]]></title>
+        <id>https://adureychloe.github.io/post/lightgbm-xun-lian-bao-cuo-keyerror0/</id>
+        <link href="https://adureychloe.github.io/post/lightgbm-xun-lian-bao-cuo-keyerror0/">
+        </link>
+        <updated>2024-01-10T11:25:17.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>比较坑的错误，运行到fit时报错&quot;keyerror:0&quot;，以为是数据key的问题，调了好久。</p>
+<h1 id="解决方法">解决方法</h1>
+<p>太粗心，写eval_set时列表里没有写元组，没有打括号。</p>
+<pre><code class="language-python">eval_set = [(x_test,y_test)]
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Leetcode 169: Majority Element]]></title>
+        <id>https://adureychloe.github.io/post/leetcode-169-majority-element/</id>
+        <link href="https://adureychloe.github.io/post/leetcode-169-majority-element/">
+        </link>
+        <updated>2023-11-17T01:30:14.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>给定一个大小 n 的数组 nums，返回众数。已知众数出现次数大于n/2。</p>
+<h1 id="思路">思路</h1>
+<p>如果是普通做法就是用哈希然后排序，但是题目给出次数大于n/2，可以时间复杂度为O(n)。<br>
+用的是同归于尽消杀法。<br>
+比如100个数，众数至少51个。</p>
+<ol>
+<li>第一个到来的士兵插上自己方的旗帜，领主winner就是这个阵营，现存兵力count = 1</li>
+<li>如果新来的是同一阵营，则集合起来占领高地，领主不变，count++</li>
+<li>否则，派一个人同归于尽，count--。即使双方死光，旗帜依然不变。</li>
+<li>如果死光，下一个士兵就是新的领主阵营，count = 1。</li>
+</ol>
+<p>就这样，最后剩下的必然是多数人阵营。</p>
+<h1 id="代码">代码</h1>
+<pre><code class="language-python">def major(nums):
+    winner = nums[0]
+    count = 1
+    for i in range(1, len(nums)):
+        if nums[i] == winner:
+            count += 1
+        elif count == 0:
+            winner = nums[i]
+            count += 1
+        else:
+            count -= 1
+    return winner
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[实体链接]]></title>
+        <id>https://adureychloe.github.io/post/shi-ti-lian-jie/</id>
+        <link href="https://adureychloe.github.io/post/shi-ti-lian-jie/">
+        </link>
+        <updated>2023-11-03T03:54:18.000Z</updated>
+        <content type="html"><![CDATA[<p>参考项目地址：<a href="https://github.com/liuhuanyong/wordmultisensedisambiguation">https://github.com/liuhuanyong/wordmultisensedisambiguation</a></p>
+<h1 id="定义">定义</h1>
+<p>与词义消歧任务类似，实体链接的目的是<strong>将实体提及与知识库中对应实体进行链接</strong>，在知识库中找到候选的正确实体描述后才能准确提供后续的实体查询、推理等下游任务。</p>
+<p>实体链接，是指给定一篇文本中的实体指称（mention），确定这些指称在给定知识库中的目标实体（entity），本质上是一个匹配+筛选（消歧）的过程，其核心假设是：<strong>如果两个实体所在的上下文信息一致，这两个实体就有可能是一个实体。</strong></p>
+<p>由于在一般情况下已有实体的数量很大，因此常用搜索引擎的“召回+排序”方法，将实体链接划分成实体提及识别（候选实体生成）、目标实体排序与链接（候选实体消歧）两个阶段，先生成一堆实体候选以降低第二阶段的计算量，再对候选实体进行相似性排序。</p>
+<h1 id="流程">流程</h1>
+<p>实体链接流程包括实体识别和实体链接两个部分。以在线百科知识库下句子词语语义消歧为例。</p>
+<ul>
+<li>首先，根据给定的待链接实体通过网络请求，获取百科记录的多个义项；</li>
+<li>其次，获取每个义项对应的页面关键词以及描述信息构造上下文，可以利用抽取关键词的方式表示上下文信息，接着利用词向量相加求平均的方式对上下文进行向量化表示；</li>
+<li>最后对词语上下文与义项语义表示相似度计算，按照得分从大到小排序得到最高分实体，完成链接。</li>
+<li>三个核心点,一个是对义项的聚类,二是对义项的语义表示,三是词语上下文与义项语义表示相似度的计算。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[用数组表示树]]></title>
+        <id>https://adureychloe.github.io/post/yong-shu-zu-biao-shi-shu/</id>
+        <link href="https://adureychloe.github.io/post/yong-shu-zu-biao-shi-shu/">
+        </link>
+        <updated>2023-09-23T07:49:24.000Z</updated>
+        <content type="html"><![CDATA[<p>比如[10,7,2,5,1]，如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>是节点的索引，那么父节点和子节点在数组中的位置：</p>
+<pre><code>parent(i) = floor((i-1)/2)
+left(i) = 2i+1
+right(i) = 2i+2
+</code></pre>
+<blockquote>
+<p>注意：根节点(10)没有父节点，因为 -1 不是一个有效的数组索引。同样，节点 (2)，(5)和(1) 没有子节点，因为这些索引已经超过了数组的大小，所以我们在使用这些索引值的时候需要保证是有效的索引值。</p>
+</blockquote>
+<p>参考：<a href="https://www.jianshu.com/p/6b526aa481b1">https://www.jianshu.com/p/6b526aa481b1</a></p>
+]]></content>
+    </entry>
+</feed>

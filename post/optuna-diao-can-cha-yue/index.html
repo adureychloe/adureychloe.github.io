@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>optuna调参查阅 | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="optuna调参查阅 | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="optuna调参查阅" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/optuna-diao-can-cha-yue/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>optuna调参查阅</h1>
+              <span class="meta">
+                Posted on
+                2024-01-11，3 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="lgb">LGB</h1>
+<pre><code class="language-python">params = {
+            
+            'early_stopping_round':100,
+            'random_state'     : trial.suggest_categorical('random_state',[42,2023,2024]),
+            #'extra_trees'      : True,
+            'boosting_type': 'gbdt',
+            #'device':'gpu',
+            'objective': 'mae',
+            'n_estimators':2000,
+            'early_stopping_round':100,
+            #'colsample_bytree' : trial.suggest_float('colsample_bytree', 0.1, 1.0),
+            #'colsample_bynode' : trial.suggest_float('colsample_bynode', 0.1, 1.0),
+            'max_depth'        : trial.suggest_int('max_depth', 3, 10),
+            'learning_rate'    : trial.suggest_float('learning_rate', 1e-2, 2e-1, log=True),
+            'lambda_l1'        : trial.suggest_float('lambda_l1', 1e-2, 10.0, log=True),
+            'lambda_l2'        : trial.suggest_float('lambda_l2', 1e-2, 10.0, log=True),
+            'num_leaves'       : trial.suggest_int('num_leaves', 8, 1024),
+        #     'min_child_weight'       : trial.suggest_int('min_child_weight', 2, 10),
+        #     'min_data_in_leaf' : trial.suggest_int('min_data_in_leaf', 5, 250),
+        }
+
+study = optuna.create_study(sampler=TPESampler(), direction=&quot;minimize&quot;)
+</code></pre>
+<h1 id="catboost">CatBoost</h1>
+<pre><code class="language-python">params = {
+            'iterations': 20000,
+            #'verbose': 1,
+            'od_type': 'Iter', 
+            'od_wait': 100, # 早停
+            'loss_function': 'MAE',
+            #&quot;colsample_bylevel&quot;: trial.suggest_float(&quot;colsample_bylevel&quot;, 0.01, 0.1), # can't use when gpu
+            &quot;boosting_type&quot;: trial.suggest_categorical(&quot;boosting_type&quot;, [&quot;Ordered&quot;, &quot;Plain&quot;]),
+            &quot;bootstrap_type&quot;: trial.suggest_categorical(
+                &quot;bootstrap_type&quot;, [&quot;Bayesian&quot;, &quot;Bernoulli&quot;]
+            ),
+            &quot;min_data_in_leaf&quot;: trial.suggest_int(&quot;min_data_in_leaf&quot;, 2, 20),
+            &quot;one_hot_max_size&quot;: trial.suggest_int(&quot;one_hot_max_size&quot;, 2, 20),
+            'learning_rate': trial.suggest_loguniform('learning_rate', 1e-3, 0.1),
+            'depth': trial.suggest_int('depth', 4, 10),
+            'l2_leaf_reg': trial.suggest_float('l2_leaf_reg', 1e-4, 1e+1, log=True),
+            'random_strength': trial.suggest_float('random_strength', 1e-4, 1e+1, log=True),
+            #'bagging_temperature': trial.suggest_float('bagging_temperature', 0.0, 10.0),
+            'border_count': trial.suggest_int('border_count', 32, 255),
+            #'subsample': trial.suggest_discrete_uniform('subsample', 0.1, 1.0, 0.01),
+            'task_type': 'GPU'
+        }
+
+    if params[&quot;bootstrap_type&quot;] == &quot;Bayesian&quot;:
+        params[&quot;bagging_temperature&quot;] = trial.suggest_float(&quot;bagging_temperature&quot;, 0, 10)
+    elif params[&quot;bootstrap_type&quot;] == &quot;Bernoulli&quot;:
+        params[&quot;subsample&quot;] = trial.suggest_float(&quot;subsample&quot;, 0.1, 1)
+</code></pre>
+<h1 id="xgb">xgb</h1>
+<pre><code class="language-python">params = {
+
+            
+            #'random_state'     : trial.suggest_categorical('random_state',[42,2023,2024]),
+            #'extra_trees'      : True,
+            # 'boosting_type': 'gbdt',
+            'device':'gpu',
+            'enable_categorical':True,
+            'tree_method':'hist',
+            'objective' : 'reg:absoluteerror',
+            #'early_stopping_rounds':100,
+            &quot;n_estimators&quot;: 3000,
+            'colsample_bytree' : trial.suggest_float('colsample_bytree', 0.5, 1.0),
+            'subsample' : trial.suggest_float('subsample', 0.5, 1.0),
+            'gamma': trial.suggest_loguniform('gamma',1e-3,10.0),
+            'min_child_weight': trial.suggest_int('min_child_weight', 1, 10),
+            'learning_rate':trial.suggest_loguniform('learning_rate',1e-3,1.0),
+            'reg_lambda': trial.suggest_loguniform('lambda', 1e-3, 10.0),
+            'reg_alpha': trial.suggest_loguniform('alpha', 1e-3, 10.0),
+            'max_depth'        : trial.suggest_int('max_depth', 3, 10),
+            
+        }
+</code></pre>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#lgb">LGB</a></li>
+<li><a href="#catboost">CatBoost</a></li>
+<li><a href="#xgb">xgb</a></li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/lightgbm-xun-lian-bao-cuo-keyerror0/">
+              <span class="post-title">
+                LightGBM训练报错&#34;keyerror:0&#34;&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

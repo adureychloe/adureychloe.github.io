@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>知识图谱构建流程 | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="知识图谱构建流程 | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="知识图谱构建流程" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/zhi-shi-tu-pu-gou-jian-liu-cheng/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>知识图谱构建流程</h1>
+              <span class="meta">
+                Posted on
+                2023-08-23，10 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h2 id="本体构建">本体构建</h2>
+<p>本体一般指对某个领域内的概念的正式且详细的描述，包括：</p>
+<ul>
+<li>classes：描述领域中的概念（可以理解成实例的抽象类）</li>
+<li>slots：描述每个概念的属性</li>
+<li>facets：描述属性的限制</li>
+</ul>
+<p>一个本体极其classes的实例集构成一个<strong>知识库</strong>。实际应用中，构建一个本体包括：</p>
+<ul>
+<li>定义本体中的概念</li>
+<li>将概念进行分层，确定超类和子类关系（就是类的层级关系）</li>
+<li>定义概念的属性以及对这些属性的值的限制</li>
+<li>为实例填充这些属性值</li>
+</ul>
+<p>一般的话，定义类及其层次结构一般有两种：自底向上和自顶而下。</p>
+<ul>
+<li>开放域知识图谱的本体构建通常用自底向上的方法，自动地从知识图谱中抽取概念、概念层次和概念之间的关系。</li>
+<li>领域知识图谱多采用自顶向下的方法来构建本体。一方面，相对于开放域知识图谱，领域知识图谱涉及的概念和范围都是固定或者可控的；另一方面，对于领域知识图谱，要求其满足较高的精度。自顶向下是先为知识图谱定义好本体与数据模式，再将实体加入到知识库。该构建方式需要利用一些现有的结构化知识库作为其基础知识库。</li>
+</ul>
+<p>我们的项目肯定是用自顶向下的方法，关键在于定义哪些类、要不要定义子类、类的属性、类之间的关系等等，都是需要考虑的点。</p>
+<h2 id="一个知识图谱实例">一个知识图谱实例</h2>
+<figure data-type="image" tabindex="1"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670065350495-a33a1cb1-45bd-444f-9b99-82518d2fe015.png" alt="img" loading="lazy"></figure>
+<p>知识图谱的基本单位，就是“<strong>实体(Entity)-关系(Relationship)-实体(Entity)</strong>” 构成的三元组，这也是知识图谱的核心。 实体就是实例，属性一般包括对象属性（object property）和数据属性（data property），对象属性就是实体之间的关系，数据属性是实例或关系本身的属性。</p>
+<h2 id="数据类型和存储方式">数据类型和存储方式</h2>
+<figure data-type="image" tabindex="2"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670209313670-d94a8449-a87a-44b1-a361-d025ea2ebac2.png" alt="img" loading="lazy"></figure>
+<p>知识图谱的原始数据类型一般来说有三类（也是互联网上的三类原始数据）：</p>
+<ul>
+<li><strong>结构化数据（Structed Data）</strong>，如：关系数据库、链接数据</li>
+<li><strong>半结构化数据（Semi-Structured Data）</strong>，如：XML、JSON、百科</li>
+<li><strong>非结构化数据（Unstructured Data）</strong>，如：图片、音频、视频</li>
+</ul>
+<p>存储数据的方式一般有两种：</p>
+<ul>
+<li>一种是RDF（资源描述框架）这样的规范存储格式来进行存储，RDF是语义网体系的基础技术，是一个用来描述万维网上的资源及其相互间的关系的数据模型，提供了一个统一的标准。核心包括资源（resource）、属性（property）、RDF陈述（RDF statement）等，最核心的就是三元组，资源——关系——资源。 RDF三元组 <strong>&lt;主体(subject)，谓词(predicate)，宾语(object)&gt;。</strong>                     <img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670209677357-c9ad441e-31fc-4d3b-8dde-77e22630cb07.png" alt="img" loading="lazy">                                                                                                                                                   RDF的表达能力是有限的，无法区分概念(类)和对象（实例），也无法定义和描述类的关系/属性，不能用来描述本体，所以在RDF基础上提出本体语言RDFS和OWL，RDFS是对RDF的扩充，OWL是对REFS的扩充。OWL就是Web Ontology Language，是目前的终极本体语言，语义网技术栈的核心之一。OWL有两个主要的功能：</li>
+</ul>
+<p><strong>1）提供快速、灵活的数据建模能力。</strong></p>
+<p><strong>2）高效的自动推理。</strong></p>
+<p>OWL示例：</p>
+<figure data-type="image" tabindex="3"><img src="https://cdn.nlark.com/yuque/0/2022/jpeg/34563578/1670210732246-0540115c-faec-4cad-884c-43712d51822b.jpeg" alt="img" loading="lazy"></figure>
+<p>RDF的数据都是以图形式存储的，它的查询语言使用的是SPARQL。</p>
+<pre><code class="language-plain">PREFIX ab: &lt;http://learningsparql.com/ns/addressbook#&gt; 
+ 
+SELECT ?craig_email
+WHERE
+{ ab:craig ab:email ?craig_email . }
+</code></pre>
+<p>一般RDF存储的工具是Apache Jena。</p>
+<ul>
+<li>另一种方式是使用图数据库进行存储，典型的是Neo4j。因为本体一般用OWL语言表示，所以用图数据库存储需要进行一下转换：</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670213292031-76ba7523-e937-4508-88dd-f8b8e6de22ba.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670226254092-86cd26a2-f7db-4ec9-8f30-45df0c433909.png" alt="img" loading="lazy"></figure>
+<h2 id="知识图谱架构">知识图谱架构</h2>
+<p>知识图谱架构主要分为逻辑架构与技术架构。</p>
+<figure data-type="image" tabindex="6"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670239945549-9d500f1a-6f10-4e56-91cc-fe9a6d283203.png" alt="img" loading="lazy"></figure>
+<h3 id="逻辑架构">逻辑架构</h3>
+<p>分为模式层和数据层。</p>
+<p>模式层大概就是本体，数据层就是实例化的数据。</p>
+<p><em><strong>可以看看这个例子</strong></em>*：*<br>
+<em>模式层：实体-关系-实体，实体-属性-属性值</em><br>
+<em>数据层：吴京-妻子-谢楠，吴京-导演-战狼Ⅱ</em></p>
+<h3 id="技术架构">技术架构</h3>
+<p>技术架构大概分成数据抽取、知识抽取、知识融合、知识加工。过程大概是这样：</p>
+<p>首先，我们有一大堆的数据，这些数据可能是结构化的、非结构化的以及半结构化的；然后，我们基于这些数据来构建知识图谱，这一步主要是通过一系列自动化或半自动化的技术手段，来从原始数据中提取出知识要素，即一堆实体关系，并将其存入我们的知识库的模式层和数据层。</p>
+<ul>
+<li><strong>信息抽取</strong>：从各种类型的数据源中提取出实体、属性以及实体间的相互关系，在此基础上形成本体化的知识表达。</li>
+<li><strong>知识融合</strong>：在获得新知识之后，需要对其进行整合，以消除矛盾和歧义，比如某些实体可能有多种表达，某个特定称谓也许对应于多个不同的实体等。</li>
+<li><strong>知识加工</strong>：对于经过融合的新知识，需要经过质量评估之后（部分需要人工参与甄别），才能将合格的部分加入到知识库中，以确保知识库的质量。</li>
+</ul>
+<h2 id="知识图谱构建过程">知识图谱构建过程</h2>
+<h3 id="知识抽取">知识抽取</h3>
+<p>知识抽取主要是从半结构化或者非结构化的数据中抽取出实体、实体关系和实体属性等结构化信息的技术，涉及到实体抽取、关系抽取和属性抽取。</p>
+<h4 id="实体抽取">实体抽取</h4>
+<p>也叫做命名实体识别（NER），从文本中识别出命名实体。</p>
+<figure data-type="image" tabindex="7"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670332475307-119e84e8-21c7-4db4-9ffc-38658906ac68.png" alt="img" loading="lazy"></figure>
+<h4 id="关系抽取">关系抽取</h4>
+<p>文本语料经过实体抽取之后，得到的是一系列离散的命名实体。<strong>为了得到语义信息，还需要从相关语料中提取出实体之间的关联关系，通过关系将实体联系起来，才能够形成网状的知识结构</strong>。</p>
+<figure data-type="image" tabindex="8"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670332599617-52373576-4811-4310-839c-cb45f38c1e9a.png" alt="img" loading="lazy"></figure>
+<h4 id="属性抽取">属性抽取</h4>
+<p>属性抽取的目标是从不同信息源中采集特定实体的属性信息，如针对某个公众人物，可以从网络公开信息中得到其昵称、生日、国籍、教育背景等信息。</p>
+<figure data-type="image" tabindex="9"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670332690831-57a03a81-4970-42e1-a735-f8211d588f06.png" alt="img" loading="lazy"></figure>
+<h3 id="知识融合">知识融合</h3>
+<figure data-type="image" tabindex="10"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670332785137-697abeff-2523-4a93-a661-08aa814cd37b.png" alt="img" loading="lazy"></figure>
+<p>整合前面抽取的各种知识，主要分为实体链接和知识合并。</p>
+<h4 id="实体链接">实体链接</h4>
+<p><strong>实体链接（entity linking）是指对于从文本中抽取得到的实体对象，将其链接到知识库中对应的正确实体对象的操作</strong>。其基本思想是首先根据给定的实体指称项，从知识库中选出一组候选实体对象，然后通过相似度计算将指称项链接到正确的实体对象。</p>
+<figure data-type="image" tabindex="11"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670333341272-a07aea97-8b89-484c-9fd0-471012f64617.png" alt="img" loading="lazy"></figure>
+<p><strong>实体链接的流程</strong>：</p>
+<ul>
+<li>从文本中通过实体抽取得到实体指称项。</li>
+<li>进行<strong>实体消歧</strong>和<strong>共指消解</strong>，判断知识库中的同名实体与之是否代表不同的含义以及知识库中是否存在其他命名实体与之表示相同的含义。</li>
+<li>在确认知识库中对应的正确实体对象之后，将该实体指称项链接到知识库中对应实体。</li>
+</ul>
+<p><em><strong>实体消歧*</strong></em>：是专门用于解决同名实体产生歧义问题的技术，通过实体消歧，就可以根据当前的语境，准确建立实体链接，实体消歧主要采用聚类法。其实也可以看做基于上下文的分类问题，类似于词性消歧和词义消歧。<br>
+<em><em><strong>共指消解*</strong></em>：主要用于解决多个指称对应同一实体对象的问题。在一次会话中，多个指称可能指向的是同一实体对象。利用共指消解技术，可以将这些指称项关联（合并）到正确的实体对象。共指消解还有一些其他的名字，比如对象对齐、实体匹配和实体同义。</em></p>
+<h4 id="知识合并">知识合并</h4>
+<p>前面实体链接链接的是我们从<strong>半结构化数据和非结构化数据</strong>那里通过信息抽取提取出来的数据。我们也可以合并<strong>结构化数据</strong>，如外部知识库和关系数据库。就是知识融合过程。</p>
+<p>一般来说知识融合主要分为两种：<strong>合并外部知识库</strong>，主要处理数据层和模式层的冲突；<strong>合并关系数据库</strong>，有RDB2RDF等方法。</p>
+<figure data-type="image" tabindex="12"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670333365895-76a13615-0ee5-472f-8087-c70062aa889f.png" alt="img" loading="lazy"></figure>
+<h3 id="知识加工">知识加工</h3>
+<p>要想最终获得结构化，网络化的知识体系，还需要经历知识加工的过程。<strong>知识加工主要包括3方面内容：本体抽取、知识推理和质量评估。</strong></p>
+<figure data-type="image" tabindex="13"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670333871493-7cca6c43-811c-492e-9747-7b08803ece3a.png" alt="img" loading="lazy"></figure>
+<h4 id="本体抽取"><strong>本体抽取</strong></h4>
+<p><strong>本体可以采用人工编辑的方式手动构建（借助本体编辑软件），也可以以数据驱动的自动化方式构建本体。</strong></p>
+<h4 id="知识推理"><strong>知识推理</strong></h4>
+<p>知识图谱雏形构建好了，但是在这个时候，知识图谱之间大多数关系都是残缺的，缺失值非常严重，那么这个时候，我们就可以使用知识推理技术，去完成进一步的知识发现。知识图谱推理的目标是利用图谱中已经存在的关联关系或事实来推断未知的关系或事实。</p>
+<p><strong>推理属性值</strong>：已知某实体的生日属性，可以通过推理得到该实体的年龄属性；</p>
+<p><strong>推理概念</strong>：已知(老虎，科，猫科)和（猫科，目，食肉目）可以推出（老虎，目，食肉目）</p>
+<p>这一块的算法主要可以分为3大类：<strong>基于知识表达的关系推理技术；基于概率图模型的关系推理技术路线示意图；基于深度学习的关系推理技术路线示意图</strong>。</p>
+<figure data-type="image" tabindex="14"><img src="https://cdn.nlark.com/yuque/0/2022/png/34563578/1670334199469-5e0ea4b1-ec38-45ba-9c6d-95ba740afcdf.png" alt="img" loading="lazy"></figure>
+<h4 id="质量评估">质量评估</h4>
+<p>质量评估也是知识库构建技术的重要组成部分，这一部分存在的意义在于：可以对知识的可信度进行量化，通过舍弃置信度较低的知识来保障知识库的质量。</p>
+<h3 id="知识更新">知识更新</h3>
+<p>从逻辑上看，知识库的更新包括概念层的更新和数据层的更新。</p>
+<ul>
+<li><strong>概念层的更新</strong>：新增数据后获得了新的概念，需要自动将新的概念添加到知识库的概念层中。</li>
+<li><strong>数据层的更新</strong>：主要是新增或更新实体、关系、属性值，对数据层进行更新需要考虑数据源的可靠性、数据的一致性（是否存在矛盾或冗杂等问题）等可靠数据源，并选择在各数据源中出现频率高的事实和属性加入知识库。</li>
+</ul>
+<p>知识图谱的内容更新有两种方式：</p>
+<ul>
+<li><strong>全面更新</strong>：指以更新后的全部数据为输入，从零开始构建知识图谱。这种方法比较简单，但资源消耗大，而且需要耗费大量人力资源进行系统维护；</li>
+<li><strong>增量更新</strong>：以当前新增数据为输入，向现有知识图谱中添加新增知识。这种方式资源消耗小，但目前仍需要大量人工干预（定义规则等），因此实施起来十分困难。</li>
+</ul>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%9C%AC%E4%BD%93%E6%9E%84%E5%BB%BA">本体构建</a></li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%AE%9E%E4%BE%8B">一个知识图谱实例</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F">数据类型和存储方式</a></li>
+<li><a href="#%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%B6%E6%9E%84">知识图谱架构</a>
+<ul>
+<li><a href="#%E9%80%BB%E8%BE%91%E6%9E%B6%E6%9E%84">逻辑架构</a></li>
+<li><a href="#%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84">技术架构</a></li>
+</ul>
+</li>
+<li><a href="#%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B">知识图谱构建过程</a>
+<ul>
+<li><a href="#%E7%9F%A5%E8%AF%86%E6%8A%BD%E5%8F%96">知识抽取</a>
+<ul>
+<li><a href="#%E5%AE%9E%E4%BD%93%E6%8A%BD%E5%8F%96">实体抽取</a></li>
+<li><a href="#%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96">关系抽取</a></li>
+<li><a href="#%E5%B1%9E%E6%80%A7%E6%8A%BD%E5%8F%96">属性抽取</a></li>
+</ul>
+</li>
+<li><a href="#%E7%9F%A5%E8%AF%86%E8%9E%8D%E5%90%88">知识融合</a>
+<ul>
+<li><a href="#%E5%AE%9E%E4%BD%93%E9%93%BE%E6%8E%A5">实体链接</a></li>
+<li><a href="#%E7%9F%A5%E8%AF%86%E5%90%88%E5%B9%B6">知识合并</a></li>
+</ul>
+</li>
+<li><a href="#%E7%9F%A5%E8%AF%86%E5%8A%A0%E5%B7%A5">知识加工</a>
+<ul>
+<li><a href="#%E6%9C%AC%E4%BD%93%E6%8A%BD%E5%8F%96"><strong>本体抽取</strong></a></li>
+<li><a href="#%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86"><strong>知识推理</strong></a></li>
+<li><a href="#%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BC%B0">质量评估</a></li>
+</ul>
+</li>
+<li><a href="#%E7%9F%A5%E8%AF%86%E6%9B%B4%E6%96%B0">知识更新</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/aws-wu-fa-ssh-lian-jie-emr/">
+              <span class="post-title">
+                AWS无法SSH连接EMR&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

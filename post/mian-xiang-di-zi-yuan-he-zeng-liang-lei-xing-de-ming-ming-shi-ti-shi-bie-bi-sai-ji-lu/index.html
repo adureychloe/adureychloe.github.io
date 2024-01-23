@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>面向低资源和增量类型的命名实体识别比赛记录 | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="面向低资源和增量类型的命名实体识别比赛记录 | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="面向低资源和增量类型的命名实体识别比赛记录" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/mian-xiang-di-zi-yuan-he-zeng-liang-lei-xing-de-ming-ming-shi-ti-shi-bie-bi-sai-ji-lu/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>面向低资源和增量类型的命名实体识别比赛记录</h1>
+              <span class="meta">
+                Posted on
+                2023-06-29，19 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="1-背景">1、背景</h1>
+<p>该赛题数据集共计约6000条样本，包含以下9种实体类型：飞行器, 单兵武器, 炸弹, 装甲车辆, 火炮, 导弹, 舰船舰艇, 太空装备, 其他武器装备。参考低资源学习领域的任务设置，为每种类型从原始数据集中采样50个左右样本案例，形成共97条标注样本的训练集（每一条样本可能包含多个实体和实体类型），其余样本均用于测试集。所有数据文件编码均为UTF-8。</p>
+<h1 id="2-方法">2、方法</h1>
+<h2 id="chatglm-6b大模型基于p-tuning-v2微调">chatglm-6b大模型基于P-Tuning v2微调</h2>
+<p>安装依赖：</p>
+<pre><code class="language-shell">pip install rouge_chinese nltk jieba datasets
+</code></pre>
+<h3 id="one-shot测试模型">One-Shot测试模型</h3>
+<pre><code class="language-python">import torch
+from transformers import AutoModel, AutoTokenizer, AutoModelForTokenClassification, Trainer, TrainingArguments
+import re
+import json
+#datasets = load_dataset('json', data_files='ner_train.json')
+
+schema = {
+    '武器实体':['飞行器', '单兵武器', '炸弹', '装甲车辆', '火炮', '导弹', '舰船舰艇', '太空装备', '其他武器装备']
+}
+
+IE_PATTERN = &quot;{}\n\n提取上述句子中{}类型的实体，输出实体文本、类型、在句子中的起始位置和结束位置(每个字符都算一个位置，从0开始计数)，用JSON格式输出，多个值之间用','分隔。&quot;
+
+ie_examples = {
+        'sentence':'近日，据美国联合发射联盟公司宣布，该公司推出了一个网址为www.RocketBuilder.com的新网站。据称，11月30日上线的火箭制造者网站，将根据用户提供的目标轨道、载荷质量、整流罩尺寸、发射日期等参数，估算使用宇宙神-5火箭执行发射任务的价格。为保持商业发射市场竞争力，宇宙神-5型火箭的发射价格从2015年的1.84亿美元降至1.09亿美元，这一价格仅针对商业用户。而针对政府用户，因需提供额外的任务保障服务，报价需增加3000万～8000万美元。该网站仅接受商业任务预定，预计2017年底将增加火神火箭的发射报价，而不提供仅为政府用户服务的德尔它-4火箭的报价。据报道，联合发射联盟公司还打算为政府和军队用户提供一个类似的报价网站。截止目前，该公司已经成功完成113次火箭发射任务，且成功率为100%。',
+        'answers':[
+            {
+            &quot;start&quot;: 110,
+            &quot;end&quot;: 117,
+            &quot;text&quot;: &quot;宇宙神-5火箭&quot;,
+            &quot;type&quot;: &quot;太空装备&quot;,
+            &quot;sample_id&quot;: 0
+            },
+            {
+            &quot;start&quot;: 140,
+            &quot;end&quot;: 148,
+            &quot;text&quot;: &quot;宇宙神-5型火箭&quot;,
+            &quot;type&quot;: &quot;太空装备&quot;,
+            &quot;sample_id&quot;: 0
+            },
+            {
+            &quot;start&quot;: 254,
+            &quot;end&quot;: 258,
+            &quot;text&quot;: &quot;火神火箭&quot;,
+            &quot;type&quot;: &quot;太空装备&quot;,
+            &quot;sample_id&quot;: 0
+            },
+            {
+            &quot;start&quot;: 277,
+            &quot;end&quot;: 284,
+            &quot;text&quot;: &quot;德尔它-4火箭&quot;,
+            &quot;type&quot;: &quot;太空装备&quot;,
+            &quot;sample_id&quot;: 0
+            }
+        ]
+    
+}
+
+def init_promts():
+    ie_prefix = [
+        (
+            &quot;需要你协助完成信息抽取任务，当我给你一个句子时，帮我抽取出句子中的实体和所在位置，并按照JSON的格式输出，多个值之间用','分隔。&quot;,
+            '请输入句子。'            
+        )
+    ]
+
+    properties_str = '，'.join(schema['武器实体'])
+    schema_str_list = f'({properties_str})'
+    sentence = ie_examples['sentence']
+    sentence_with_prompt = IE_PATTERN.format(sentence, schema_str_list)
+    ie_prefix.append((
+        f'{sentence_with_prompt}',
+        f&quot;{json.dumps(ie_examples['answers'], ensure_ascii=False)}&quot;
+
+    ))
+
+    return {'ie_prefix': ie_prefix}
+
+def format_output(response:str):
+    if '```json' in response:
+        res = re.findall(r'```json(.*?)```', response)
+        if len(res) and res[0]:
+            response = res[0]
+        response.replace('、',',')
+    try:
+        return json.loads(response)
+    except:
+        return response
+    
+def inference(sentences:list, custom_settings:dict):
+    for sentence in sentences:
+        properties_str = '，'.join(schema['武器实体'])
+        schema_str_list = f'&quot;武器实体&quot;({properties_str})'
+    
+        sentence_with_ie_prompt = IE_PATTERN.format(sentence, schema_str_list)
+        result, _ = model.chat(tokenizer, sentence_with_ie_prompt,history=custom_settings['ie_prefix'])
+        result = format_output(result)
+        print(sentence)
+        print(result)
+
+if __name__ == '__main__':
+    
+    tokenizer = AutoTokenizer.from_pretrained(&quot;THUDM/chatglm-6b&quot;,  trust_remote_code=True)
+    model = AutoModel.from_pretrained(&quot;THUDM/chatglm-6b&quot;, trust_remote_code=True).half().cuda()
+    #model = model.eval()
+    sentences = [
+        '美国空军部长希瑟・威尔逊本周二宣布，Space-X公司将于8月份发射空军X-37B无人轨道机动飞行器。而在前4次轨道试验任务中，X-37B由联合发射联盟的宇宙神-5火箭发射。威尔逊在网络直播的参议院军事委员会听证会上表示，Space-X公司将于8月份发射空军有效载荷进入轨道，该载荷为空军两架X-37B飞行器之一。空军在X-37B发射前2个月公布发射合同，而通常是在发射前2年公布，并且拒绝披露合同授予日期及其他细节。SpaceX总裁GwynneShotwell拒绝置评。'
+    ]
+
+    custom_settings = init_promts()
+    inference(sentences,custom_settings)
+
+</code></pre>
+<h3 id="数据转换">数据转换</h3>
+<p>原始数据格式：<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202307031213738.png" alt="截屏2023-07-03 12.06.06" loading="lazy"></p>
+<p>官方微调数据格式：<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202307031215286.png" alt="截屏2023-07-03 12.06.06" loading="lazy"></p>
+<p>也就是需要转换成一问一答的形式，转换原始数据：</p>
+<pre><code class="language-python">import json
+
+
+file_path = 'ner_train.json'
+def transData(file_path):
+    with open(file_path,'r',encoding='utf-8') as f:
+        train_data = json.load(f)
+        result = []        
+        for sample in train_data:
+            lines = {}
+            texts = sample['text']
+            answers = []
+            entities = sample['annotations']
+            for entity in entities:
+                sample_id = entity['sample_id']
+                text = entity['text']
+                type = entity['type']
+                start = entity['start']
+                end = entity['end']
+                answer = {}
+                answer['sample_id'] = sample_id
+                answer['text'] = text
+                answer['type'] = type
+                answer['start'] = start
+                answer['end'] = end
+                answers.append(answer)
+            lines['texts']=texts
+            lines['answers'] = answers
+            result.append(lines)
+    with open('data/ner_train.json','w',encoding='utf-8') as f:
+        json.dump(result,f,ensure_ascii=False)
+
+transData(file_path)
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202307031206829.png" alt="截屏2023-07-03 12.06.06" loading="lazy"></figure>
+<h3 id="微调训练">微调训练</h3>
+<p>运行</p>
+<pre><code class="language-shell">bash train.sh
+</code></pre>
+<p>其中train.sh里：</p>
+<pre><code class="language-shell">CUDA_VISIBLE_DEVICES=0 python3 main.py \
+    --do_train \
+    --train_file data/post_train_1.json \
+    --prompt_column texts \
+    --response_column answers \
+    --overwrite_cache \
+    --model_name_or_path THUDM/chatglm-6b \
+    --output_dir output/ner-chatglm-6b-pt-$PRE_SEQ_LEN-$LR \
+    --overwrite_output_dir \
+    --max_source_length 728 \
+    --max_target_length 512 \
+    --per_device_train_batch_size 4 \
+    --per_device_eval_batch_size 1 \
+    --gradient_accumulation_steps 4 \
+    --predict_with_generate \
+    --max_steps 3000 \
+    --logging_steps 10 \
+    --save_steps 1000 \
+    --learning_rate $LR \
+    --pre_seq_len $PRE_SEQ_LEN \
+    --source_prefix &quot;实体类型列表为['飞行器', '单兵武器', '炸弹', '装甲车辆', '火炮', '导弹', '舰船舰艇', '太空装备', '其他武器装备']。提取下面句子中可能存在的实体列表中的实体，输出实体文本、类型，用JSON格式输出，输出格式为{'text':'','type':''}，多个值之间用','分隔。句子：&quot;\
+    --quantization_bit 4
+</code></pre>
+<p>PRE_SEQ_LEN 和 LR 分别是 soft prompt 长度和训练的学习率，可以进行调节以取得最佳的效果。P-Tuning-v2 方法会冻结全部的模型参数，可通过调整 quantization_bit 来被原始模型的量化等级，不加此选项则为 FP16 精度加载。<br>
+source_prefix是给模型的prompt，加在数据前面。</p>
+<h3 id="推理">推理</h3>
+<p>在 P-tuning v2 训练时模型只保存 PrefixEncoder 部分的参数，在推理时需要同时加载原 ChatGLM-6B 模型以及 PrefixEncoder 的权重。</p>
+<pre><code class="language-python">import torch
+import json
+import ast
+from tqdm import tqdm
+from transformers import AutoConfig, AutoModel, AutoTokenizer
+
+model_path = &quot;THUDM/chatglm-6b&quot;
+current_path = os.path.abspath(__file__)
+parent_directory = os.path.dirname(current_path)
+tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+
+prefix = &quot;实体类型列表为['飞行器', '单兵武器', '炸弹', '装甲车辆', '火炮', '导弹', '舰船舰艇', '太空装备', '其他武器装备']。提取下面句子中可能存在的实体列表中的实体，输出实体文本、类型，用JSON格式输出，输出格式为{'text':'','type':''}，多个值之间用','分隔。句子：&quot;
+
+# Fine-tuning 后的表现测试
+config = AutoConfig.from_pretrained(model_path, trust_remote_code=True, pre_seq_len=128)
+model = AutoModel.from_pretrained(model_path, config=config, trust_remote_code=True)
+
+prefix_state_dict = torch.load(parent_directory+&quot;/output/ner-chatglm-6b-pt-128-2e-2/checkpoint-3000/pytorch_model.bin&quot;)
+new_prefix_state_dict = {}
+for k,v in prefix_state_dict.items():
+    new_prefix_state_dict[k[len(&quot;transformer.prefix_encoder.&quot;):]] = v
+model.transformer.prefix_encoder.load_state_dict(new_prefix_state_dict)
+
+model = model.half().cuda()
+model.transformer.prefix_encoder.float()
+model = model.eval()
+
+results = []
+</code></pre>
+<p>之后需要针对测试集中的每一条文本进行提问获得结果，在处理返回结果时有几个问题：</p>
+<ol>
+<li>返回文本是字符串里的列表'[]'，不能直接用列表提取方法。</li>
+<li>返回文本有长度限制，因此有些文本会在最后断开，不能直接提取text和type。</li>
+<li>尽管prompt已经指定实体类型，返回结果还是会有不存在的实体，需要找出更改。</li>
+</ol>
+<p>针对第一个问题，使用两种解决方法：</p>
+<ul>
+<li>使用ast.literal_eval()来处理抽象数据类型，能提取'[]'里的列表。但是如果碰上第二个问题则引号没有闭合，会报错。</li>
+<li>直接使用正则匹配，这样也能避免第二个问题。</li>
+</ul>
+<pre><code class="language-python">with open(parent_directory+'/data/ner_test.json','r') as f:
+    test_data = json.load(f)
+    complete = [1]*len(test_data)
+    for i,line in tqdm(enumerate(test_data),total=len(test_data)):
+        sample_id = line['sample_id']
+        text = line['text']
+        prompt = prefix + text
+        response,history = model.chat(tokenizer,prompt)
+        # try:
+        #     response = ast.literal_eval(response)
+        #     for item in response:
+        #         item['sample_id'] = i
+        #         results.append(item)
+        # except:
+
+        # 使用正则表达式提取&quot;text&quot;和&quot;type&quot;
+        response = response.replace('&quot;',&quot;'&quot;)
+        pattern = r&quot;'text':\s*'([^']*)',\s*'type':\s*'([^']*)'&quot;
+        matches = re.findall(pattern, response)
+        if matches == []:
+            print(&quot;not right: &quot;+response)
+        # 构建结果列表
+        result = [{'sample_id':i, 'text': match[0], 'type': match[1]} for match in matches]
+        for item in result:
+            results.append(item)
+</code></pre>
+<p>针对第三个问题，对结果文件进行后处理，将实体列表外的实体改成列表内的。</p>
+<p>最后得到结果F1大概0.3几，很低。如果时间充足，可以查看其它人的最新研究，改进提问方式。</p>
+<h2 id="uie微调">UIE微调</h2>
+<p>表现最好地目前应该是UIE。</p>
+<h3 id="数据转换-2">数据转换</h3>
+<p>UIE需要使用doccano或LabelStudio进行数据标注的格式，因此需要先将数据转换成doccano标注的格式。</p>
+<pre><code class="language-python">def process_train_doccano(file_path,out_path):
+    &quot;&quot;&quot;将训练集转为doccano训练形式&quot;&quot;&quot;
+    with open(file_path,'r',encoding='utf-8') as f:
+        # data = f.read()
+        data = json.load(f)
+    
+    fw = open(out_path,'w',encoding='utf-8')
+
+    for line in data:
+        target = {}
+        text = line['texts']
+        answer = line['answers']
+        target[&quot;id&quot;] = answer[0]['sample_id']
+        target[&quot;text&quot;] = text
+        target[&quot;relations&quot;]=[]
+        target[&quot;entities&quot;]=[]
+        entities = []
+        for i,item in enumerate(answer):
+            temp = {}
+            temp[&quot;id&quot;]=i
+            temp[&quot;start_offset&quot;] = item['start']
+            temp[&quot;end_offset&quot;] = item['end']
+            temp[&quot;label&quot;] = item['type']
+            entities.append(temp)
+        target[&quot;entities&quot;] = entities
+        fw.write(json.dumps(target,ensure_ascii=False) + &quot;\n&quot;)
+    fw.close()
+</code></pre>
+<pre><code class="language-json">{&quot;id&quot;: 1, &quot;text&quot;: &quot;近日，据美国联合发射联盟公司的宣布，新发布的www.RocketBuilder.com网站正式上线，用户可根据轨道、质量、整流罩尺寸、发射日期等参数估算使用宇宙神-5火箭执行发射任务的费用。考虑到要保持市场竞争力，价格从2015年的1.84亿美元，专为商业用户降低到1.09亿美元；不过政府用户因需提供更多的任务保障服务，发射费用还需增加3000万～8000万美元。除此之外，金额包括火神火箭，但不提供仅为政府用户服务的德尔它-4火箭。事实上，迄今为止，联合发射联盟公司以每次百分百的成功率，已发射了113枚火箭。\n&quot;, &quot;relations&quot;: [], &quot;entities&quot;: [{&quot;id&quot;: 0, &quot;start_offset&quot;: 78, &quot;end_offset&quot;: 85, &quot;label&quot;: &quot;太空装备&quot;}, {&quot;id&quot;: 1, &quot;start_offset&quot;: 192, &quot;end_offset&quot;: 196, &quot;label&quot;: &quot;太空装备&quot;}, {&quot;id&quot;: 2, &quot;start_offset&quot;: 210, &quot;end_offset&quot;: 217, &quot;label&quot;: &quot;太空装备&quot;}]}
+{&quot;id&quot;: 2, &quot;text&quot;: &quot;头一次，卡拉奇船厂交付给巴基斯坦海军的是一艘长63米，名为迪哈沙特号的阿兹玛特级导弹巡逻艇，2018年6月12日完工。这是在2010年巴基斯坦与中国签署的采购2艘阿兹玛特级导弹艇协议下的第二艘，在天津新港船厂的技术转让情况下，建造完成。这艘迪哈沙特号的设计原型来自于人民解放军海军的红箭级导弹艇，而其上层结构依据了隐形功能。迪哈沙特号的近程防御武器系统由8枚2座四联装C-802A地对地掠海飞行反舰导弹、2门37毫米双管舰炮，以及1门630型30毫米6管高射速炮构成。这艘可容纳15名船员，最高航行速度为30节，18节时的续航力可达1000海里的巡逻艇，正式于6月加入巴基斯坦海军。穆罕默德・阿西夫・桑迪拉参谋长在交付仪式上表示，迪哈沙特号是巴基斯坦和中国不断增长友谊的见证，也将极可能作为巴基斯坦海军近海指挥部的巡逻艇和搜救艇使用。\n&quot;, &quot;relations&quot;: [], &quot;entities&quot;: [{&quot;id&quot;: 0, &quot;start_offset&quot;: 35, &quot;end_offset&quot;: 45, &quot;label&quot;: &quot;舰船舰艇&quot;}, {&quot;id&quot;: 4, &quot;start_offset&quot;: 315, &quot;end_offset&quot;: 320, &quot;label&quot;: &quot;舰船舰艇&quot;}, {&quot;id&quot;: 4, &quot;start_offset&quot;: 315, &quot;end_offset&quot;: 320, &quot;label&quot;: &quot;舰船舰艇&quot;}, {&quot;id&quot;: 4, &quot;start_offset&quot;: 315, &quot;end_offset&quot;: 320, &quot;label&quot;: &quot;舰船舰艇&quot;}, {&quot;id&quot;: 4, &quot;start_offset&quot;: 315, &quot;end_offset&quot;: 320, &quot;label&quot;: &quot;舰船舰艇&quot;}, {&quot;id&quot;: 5, &quot;start_offset&quot;: 81, &quot;end_offset&quot;: 89, &quot;label&quot;: &quot;舰船舰艇&quot;}, {&quot;id&quot;: 6, &quot;start_offset&quot;: 184, &quot;end_offset&quot;: 201, &quot;label&quot;: &quot;导弹&quot;}, {&quot;id&quot;: 7, &quot;start_offset&quot;: 204, &quot;end_offset&quot;: 212, &quot;label&quot;: &quot;火炮&quot;}, {&quot;id&quot;: 8, &quot;start_offset&quot;: 217, &quot;end_offset&quot;: 231, &quot;label&quot;: &quot;火炮&quot;}]}
+</code></pre>
+<h3 id="数据切分构造负样本">数据切分/构造负样本</h3>
+<p>信息抽取是从非结构化或半结构化文本数据中提取结构化的信息，可以使用以下几种方法进行负样本构建：</p>
+<ul>
+<li>
+<p>随机选取方法：随机选择文本数据中不包含目标信息的部分作为负样本。</p>
+</li>
+<li>
+<p>反例生成法：根据真实数据中不属于目标信息的特征构建虚拟的负样本。例如，在提取人名时，将所有非人名部分作为虚拟负样本。</p>
+</li>
+<li>
+<p>噪声扰动法：向正样本中添加噪声或错误信息，使得模型能够区分出正确的信息和错误的信息。</p>
+</li>
+<li>
+<p>无关语料库采样法：从与正样本不同的领域或主题的语料库中随机选取一些数据作为负样本。</p>
+</li>
+</ul>
+<p>需要注意的是，在进行负样本构建时应尽量保证构建出来的负样本与正样本在数据分布上的差异不会过大，以确保模型有足够的泛化能力。同时，也要考虑到负样本数量的影响，一般情况下需要与正样本数量保持相对平衡。<br>
+这里我们直接用doccano.py构造负样本。</p>
+<pre><code class="language-shell">!python doccano.py --doccano_file data/change_train_1000.json --task_type ext --save_dir data --negative_ratio 10
+</code></pre>
+<h3 id="模型微调">模型微调</h3>
+<p>微调小技巧</p>
+<ul>
+<li>Warmup：学习率更新策略<br>
+Warmup原理指的是在训练神经网络模型时，通过逐渐增大学习率来提高模型的训练效果。在模型训练开始的阶段，逐步增加学习率的大小，直到达到预设最大值，然后再保持不变。这个过程可以让模型逐渐从初始状态进入到稳定状态，避免在训练初期出现较大的震荡或梯度爆炸等情况，同时也能加速模型训练过程。在实际应用中通常会采用一些特定的warmup策略，如线性递增、多项式递增等，在一定程度上可以提升模型的性能表现。此外，还可以结合其他技巧，如批归一化、dropout等，来进一步改善模型的训练效果。
+<ul>
+<li>线性调整策略（linear）：在每个训练步骤中将学习率按线性递减的方式进行衰减，直到达到最小值。该策略通常适用于训练过程稳定的场景。</li>
+<li>余弦退火策略（cosine）：根据余弦函数的曲线进行学习率的动态调整，先从较大的学习率开始逐步下降，然后在训练周期的后半部分加快调整速度，使得学习率更快地衰减，并且在训练完成前接近于0。该策略可以帮助提高模型的精度和稳定性。</li>
+<li>固定学习率策略（constant）：在整个训练过程中保持不变的学习率，适用于数据集较小，训练较快的场景。</li>
+<li>温暖启动固定学习率策略（constant_with_warmup）：该策略先使用较小的学习率进行预热，在一定步数内逐渐增加学习率，然后在剩余训练步数内使用较大的学习率进行训练。预热可以帮助模型在刚开始训练时更好地适应数据集，加快学习速度和提高模型精度。</li>
+</ul>
+</li>
+</ul>
+<p>Warmup ratio的大小主要取决于训练数据的规模，模型的复杂度和任务的难度等因素。通常来说，warmup_ratio设置为0.1左右比较合适。这意味着，在整个训练过程中，模型的前10%的迭代次数将会采用相对较小的学习率进行warmup。</p>
+<blockquote>
+<p>需要注意的是，如果warmup_ratio设置过大，可能会导致模型在warmup阶段花费过多时间，从而影响整个训练过程的进展。反之，如果warmup_ratio设置过小，则可能无法充分调整模型参数，导致模型训练不稳定，或者出现梯度爆炸等问题。因此，需要根据具体情况，合理地设置warmup_ratio的大小，以达到最佳的训练效果。</p>
+</blockquote>
+<ul>
+<li>正则化（Regularization）<br>
+权重衰减/权重衰退：Weight Decay是一个正则化技术，作用是抑制模型的过拟合，以此来提高模型的泛化性。它是通过给损失函数增加模型权重L2范数的惩罚(penalty)来让模型权重不要太大，以此来减小模型的复杂度，从而抑制模型的过拟合。除了所有bias和 LayerNorm 权重之外，应用于所有层的权重衰减数值，在训练期间对模型的权重施加额外惩罚（通常是 L2 正则化）来防止过度拟合。
+<ul>
+<li>weight decay 的最佳值通常取决于数据集和模型本身。不同的模型和数据集可能对 weight decay 有不同的敏感度。如果 weight decay 设置太低，则模型可能会过度拟合；如果设置太高，则可能会导致模型对训练数据的拟合能力较差。</li>
+<li>建议使用网格搜索或交叉验证等技术来选择最佳的 weight decay 值通常建议尝试一组设置，例如 [1e-6,1e-5, 1e-4, 1e-3, 1e-2]，并根据交叉验证性能选择最佳结果。</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-shell">!python finetune.py  \
+    --device gpu \
+    --logging_steps 10 \
+    --save_steps 100 \
+    --eval_steps 100 \
+    --seed 1005 \
+    --model_name_or_path uie-m-large\
+    --output_dir ./checkpoint/change/model_best \
+    --train_path ./data/train.txt \
+    --dev_path ./data/dev.txt  \
+    --max_seq_len 512  \
+    --per_device_train_batch_size  12 \
+    --per_device_eval_batch_size 12 \
+    --num_train_epochs 30 \
+    --learning_rate 1e-5 \
+    --label_names &quot;start_positions&quot; &quot;end_positions&quot; \
+    --do_train \
+    --do_eval \
+    --do_export \
+    --export_model_dir ./checkpoint/model_best \
+    --overwrite_output_dir \
+    --disable_tqdm True \
+    --metric_for_best_model eval_f1 \
+    --load_best_model_at_end  True \
+    --lr_scheduler_type &quot;cosine&quot; \
+    --warmup_ratio 0.15 \
+    --weight_decay 1e-6 \
+    --save_total_limit 1
+</code></pre>
+<p>进行评估：</p>
+<pre><code class="language-shell">!python evaluate.py \
+    --model_path checkpoint/baseline \
+    --test_path ./data/dev.txt \
+    --batch_size 8 \
+    --device gpu \
+    --max_seq_len 512 \
+    --debug
+</code></pre>
+<h1 id="参考">参考</h1>
+<p><a href="https://www.heywhale.com/mw/project/648e811202479f749d15842b">大数据计算智能挑战赛面向低资源命名实体识别基线方案</a></p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#1-%E8%83%8C%E6%99%AF">1、背景</a></li>
+<li><a href="#2-%E6%96%B9%E6%B3%95">2、方法</a>
+<ul>
+<li><a href="#chatglm-6b%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%9F%BA%E4%BA%8Ep-tuning-v2%E5%BE%AE%E8%B0%83">chatglm-6b大模型基于P-Tuning v2微调</a>
+<ul>
+<li><a href="#one-shot%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B">One-Shot测试模型</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2">数据转换</a></li>
+<li><a href="#%E5%BE%AE%E8%B0%83%E8%AE%AD%E7%BB%83">微调训练</a></li>
+<li><a href="#%E6%8E%A8%E7%90%86">推理</a></li>
+</ul>
+</li>
+<li><a href="#uie%E5%BE%AE%E8%B0%83">UIE微调</a>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2-2">数据转换</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%88%87%E5%88%86%E6%9E%84%E9%80%A0%E8%B4%9F%E6%A0%B7%E6%9C%AC">数据切分/构造负样本</a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83">模型微调</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/liang-hua-ti-mu-ji-lu/">
+              <span class="post-title">
+                量化题目记录&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

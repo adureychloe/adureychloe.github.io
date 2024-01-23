@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>Leetcode 146. LRU Cache | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="Leetcode 146. LRU Cache | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="Leetcode 146. LRU Cache" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/leetcode-146-lru-cache/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>Leetcode 146. LRU Cache</h1>
+              <span class="meta">
+                Posted on
+                2023-08-16，7 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="题目描述">题目描述</h1>
+<p>设计一个LRU的数据结构，</p>
+<p>首先要接收一个 capacity 参数作为缓存的最大容量，然后实现两个 API，一个是 put(key, val) 方法存入键值对，另一个是 get(key) 方法获取 key 对应的 val，如果 key 不存在则返回 -1。</p>
+<p>注意get 和 put 方法必须都是 O(1) 的时间复杂度。</p>
+<h1 id="思路">思路</h1>
+<p>LRU的实现就是靠哈希链表。如果只是在笔试中出现，则直接使用OrderedDict就行。分析cache这个数据结构的必要条件：</p>
+<ul>
+<li>元素有序，当容量满了要删除最久的元素</li>
+<li>快速查找key对应的val</li>
+<li>每次访问cache的key，都有将其变为最近使用，即在任意位置快速插入和删除元素。</li>
+</ul>
+<pre><code class="language-python">from collections import OrderedDict
+
+class LRUCache:
+    def __init__(self, capacity: int):
+        # 缓存最大容量
+        self.cap = capacity
+        # 记录key-value的顺序
+        self.cache = OrderedDict()
+    
+    def get(self, key: int) -&gt; int:
+        if key not in self.cache:
+            # 返回-1表示查找失败
+            return -1
+        # 将当前访问的节点移到双向链表尾部
+        self.cache.move_to_end(key)
+        return self.cache[key]
+    
+    def put(self, key: int, value: int) -&gt; None:
+        if key in self.cache:
+            # 修改key对应的value值
+            self.cache[key] = value
+            # 将当前访问的节点移到双向链表尾部
+            self.cache.move_to_end(key)
+            return
+        
+        if len(self.cache) &gt;= self.cap:
+            # 双向链表头部为最久没有被访问的节点，删除该节点
+            self.cache.popitem(last=False)
+
+        # 添加新节点到链表尾部
+        self.cache[key] = value
+</code></pre>
+<p>但是在面试中出现的话就没这么简单，肯定要自己设计哈希链表。</p>
+<p>首先定义双链表的节点类：</p>
+<pre><code class="language-python">class Node:
+    def __init__(self, k:int, v:int):
+        self.key = k
+        self.val = v
+        self.prev = None
+        self.next = None
+</code></pre>
+<p>然后定义双链表：</p>
+<pre><code class="language-python">class DoubleList:
+    # 头尾虚节点
+    def __init__(self):
+        self.head = Node(0, 0)
+        self.tail = Node(0, 0)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+        self.size = 0
+    
+    # 在链表尾部添加节点 x，时间 O(1)
+    def addLast(self, x: Node):
+        x.prev = self.tail.prev
+        x.next = self.tail
+        self.tail.prev.next = x
+        self.tail.prev = x
+        self.size += 1
+    
+    # 删除链表中的 x 节点（x 一定存在）
+    # 由于是双链表且给的是目标 Node 节点，时间 O(1)
+    def remove(self, x: Node):
+        x.prev.next = x.next
+        x.next.prev = x.prev
+        self.size -= 1
+    
+    # 删除链表中第一个节点，并返回该节点，时间 O(1)
+    def removeFirst(self) -&gt; Node:
+        if self.head.next == self.tail:
+            return None
+        first = self.head.next
+        self.remove(first)
+        return first
+    
+    # 返回链表长度，时间 O(1)
+    def size(self) -&gt; int:
+        return self.size
+</code></pre>
+<p>注意我们实现的双链表 API 只能从尾部插入，也就是说靠尾部的数据是最近使用的，靠头部的数据是最久未使用的。（因为一般用的list这些结构也是这样）</p>
+<p>有了双向链表的实现，我们只需要在 LRU 算法中把它和哈希表结合起来即可，先搭出代码框架：</p>
+<pre><code class="language-python">class LRUCache:
+    # key -&gt; Node(key, val)
+    # 创建一个哈希表将 Node 节点的 key 映射至其本身
+    map: dict[int, Node]
+
+    # Node(k1, v1) &lt;-&gt; Node(k2, v2)...
+    # 双向链表用来实现 LRU 缓存淘汰机制
+    cache: DoubleList
+
+    # 最大容量
+    # 缓存最大容量，超过此容量则淘汰
+    cap: int
+    
+    def __init__(self, capacity: int):
+        self.cap = capacity
+        self.map = {}
+        self.cache = DoubleList()
+</code></pre>
+<p>由于我们要同时维护一个双链表 cache 和一个哈希表 map，很容易漏掉一些操作，比如说删除某个 key 时，在 cache 中删除了对应的 Node，但是却忘记在 map 中删除 key。</p>
+<p>解决这种问题的有效方法是：在这两种数据结构之上提供一层抽象 API，就是尽量让 LRU 的主方法 get 和 put 避免直接操作 map 和 cache 的细节。我们可以先实现下面几个函数：</p>
+<pre><code class="language-python">class LRUCache:
+    def makeRecently(self, key: int):
+        # 将某个 key 提升为最近使用的
+        x = self.map.get(key)
+        # 先从链表中删除这个节点
+        self.cache.remove(x)
+        # 重新插到队尾
+        self.cache.addLast(x)
+
+    def addRecently(self, key: int, val: int):
+        # 添加最近使用的元素
+        x = Node(key, val)
+        # 链表尾部就是最近使用的元素
+        self.cache.append(x)
+        # 别忘了在 map 中添加 key 的映射
+        self.map[key] = x
+
+    def deleteKey(self, key: int):
+        # 删除某一个 key
+        x = self.map.get(key)
+        # 从链表中删除
+        self.cache.remove(x)
+        # 从 map 中删除
+        self.map.pop(key)
+
+    def removeLeastRecently(self):
+        # 删除最久未使用的元素
+        # 链表头部的第一个元素就是最久未使用的
+        deletedNode = self.cache.pop(0)
+        # 同时别忘了从 map 中删除它的 key
+        deletedKey = deletedNode.key
+        self.map.pop(deletedKey)
+
+    def __init__(self, capacity: int):
+        self.cache = []
+        self.map = {}
+        self.capacity = capacity
+
+    def get(self, key: int) -&gt; int:
+        # 读操作
+        if key not in self.map:
+            return -1
+        self.makeRecently(key)
+        return self.map.get(key).val
+
+    def put(self, key: int, value: int) -&gt; None:
+        # 写操作
+        if key in self.map:
+            self.map.get(key).val = value
+            self.makeRecently(key)
+            return
+        if lself.cache.size == self.capacity:
+            self.removeLeastRecently()
+        self.addRecently(key, value)
+</code></pre>
+<h1 id="可能问题">可能问题</h1>
+<blockquote>
+<ul>
+<li>为什么是双向链表？</li>
+</ul>
+</blockquote>
+<p>因为我们需要删除操作。删除一个节点不光要得到该节点本身的指针，也需要操作其前驱节点的指针，而双向链表才能支持直接查找前驱，保证操作的时间复杂度 O(1)。</p>
+<blockquote>
+<ul>
+<li>既然哈希表中已经存了 key，为什么链表中还要存 key 和 val 呢，只存 val 不就行了？</li>
+</ul>
+</blockquote>
+<p>removeLeastRecently 函数中，我们需要用 deletedNode 得到 deletedKey。</p>
+<p>也就是说，当缓存容量已满，我们不仅仅要删除最后一个 Node 节点，还要把 map 中映射到该节点的 key 同时删除，而这个 key 只能由 Node 得到。如果 Node 结构中只存储 val，那么我们就无法得知 key 是什么，就无法删除 map 中的键，造成错误。</p>
+<h1 id="参考">参考</h1>
+<p><a href="https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/suan-fa-ji-8674e/">labuladong 的算法小抄</a></p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+<li><a href="#%E5%8F%AF%E8%83%BD%E9%97%AE%E9%A2%98">可能问题</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/python-zhong-de-ha-xi-lian-biao-ordereddict/">
+              <span class="post-title">
+                python 中的哈希链表--OrderedDict&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

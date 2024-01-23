@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>python的面向对象编程 | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="python的面向对象编程 | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="python的面向对象编程" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/python-de-mian-xiang-dui-xiang-bian-cheng/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>python的面向对象编程</h1>
+              <span class="meta">
+                Posted on
+                2022-09-05，5 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <p><ul class="markdownIt-TOC">
+<li><a href="#%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96">类的实例化</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%B1%9E%E6%80%A7">引用类属性</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95">引用类的方法</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+<br>
+对python的类和实例化等做一下梳理。</p>
+<h1 id="类的实例化">类的实例化</h1>
+<p>定义类Human：</p>
+<pre><code class="language-python">class Human(object):
+    century = 21
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def speak(self, language):
+        print('%s has speak %s ability' % (self.name, language))
+
+    def write(self, word):
+        print('%s has write %s ability' % (self.name, word))
+
+    def walk(self):
+        print('%s has walk ability' % self)
+</code></pre>
+<p>创建一个实例Johnny：</p>
+<pre><code class="language-python">Johnny = Human('Johnny', 16)
+</code></pre>
+<p>只有将类实例化后，类内部定义的函数才被绑定到实例上，成为实例的方法，否则仅仅只是类内部定义的一个函数，在类中调用的叫做函数，实例化中调用的才称为方法：</p>
+<pre><code class="language-python">print(Human.speak, Human.write, Human.walk)
+print(Johnny.speak, Johnny.write, Johnny.walk)
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-05%2021.00.28.png" alt="截屏2022-09-05 21.00.28" loading="lazy"></figure>
+<blockquote>
+<p>当用实例调用方法时，python解释器会自动把实例对象传入方法中，因此self变量代表了实例对象本身。例如用实例对象Johnny调用三个方法：</p>
+</blockquote>
+<pre><code class="language-python">Johnny.speak(&quot;Chinese&quot;)
+Johnny.write(&quot;Chinese&quot;)
+Johnny.walk()
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-05%2021.18.37.png" alt="截屏2022-09-05 21.18.37" loading="lazy"></figure>
+<blockquote>
+<p>假如没有创建实例，直接使用类名去调用speak()等未绑定方法，就需要手动传入self参数，此时self参数并不具备self.name、self.age属性，所以只有walk能调用成功：</p>
+</blockquote>
+<pre><code class="language-python">Human.walk('Johnny')
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-05%2021.23.28.png" alt="截屏2022-09-05 21.23.28" loading="lazy"></figure>
+<h1 id="引用类属性">引用类属性</h1>
+<p>__dict__能以字典形式返回对象的属性，键为属性名，值为属性值。类的__dict__存储的是所有实例共享的变量和函数，不包含其父类的属性。实例的__dict__仅存储与该实例相关的实例属性。<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-06%2011.04.28.png" alt="截屏2022-09-06 11.04.28" loading="lazy"><br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-06%2011.05.28.png" alt="截屏2022-09-06 11.05.28" loading="lazy"><br>
+century为类属性，可以通过类和实例分别访问：</p>
+<pre><code class="language-python">print(Human.century)
+print(Johnny.century)
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-05%2021.26.24.png" alt="截屏2022-09-05 21.26.24" loading="lazy"></figure>
+<p>只有通过类引用时，类属性才能更新它的值，并且类属性的修改会影响到所有的实例；而被实例引用时，会像静态成员那样无法改变其值，因此类变量大多用于存储常量值。</p>
+<pre><code class="language-python">Human.century += 1 # 通过类更新
+print(Human.century) # 值改变
+print(Johnny.century) # 值改变
+
+Johnny.century += 1 # 通过实例更新
+print(Johnny.century) # 通过实例访问，值被改变
+print(Human.century) # 通过类访问，值未改变
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-05%2021.33.56.png" alt="截屏2022-09-05 21.33.56" loading="lazy"></figure>
+<p>实际上，上面的代码中，通过实例改变century的值是创建了一个名为century的新实例属性，只是该实例属性刚好与类属性同名。这点和python变量一样，如果变量不存在而对其赋值，就会创建一个变量，并且对其赋值。使用__dict__再次查看实例属性，发现增加了century属性：<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-06%2011.10.32.png" alt="截屏2022-09-06 11.10.32" loading="lazy"></p>
+<p>使用del删除century属性，于是返回的又变回类属性中的century：<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-06%2011.13.19.png" alt="截屏2022-09-06 11.13.19" loading="lazy"></p>
+<p>其实类和实例都是各自的命名空间，类是类属性的命名空间，实例是实例属性的命名空间，即使名字相同，也是在不同的属性集中，当访问实例属性时，如果不存在该属性，解释器才会从类属性中找。</p>
+<p>此处century为不可变变量，如果改为可变变量，如字典类型，就可以通过实例引用century属性且改变其值，不会创建一个同名的实例属性，类属性中的值也会改变。</p>
+<pre><code class="language-python">class Human_A(object):
+    century = {&quot;A&quot;: 21}
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+
+    def speak(self, language):
+        print('%s has speak %s ability' % (self.name, language))
+
+    def write(self, word):
+        print('%s has write %s ability' % (self.name, word))
+
+    def walk(self):
+        print('%s has walk ability' % self)
+
+John = Human_A('John', 22)
+
+print(Human_A.century)
+print(John.century)
+
+John.century['B'] = &quot;32&quot; # 通过实例更新
+
+print(Human_A.century)
+print(John.century)
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-07%2015.46.53.png" alt="截屏2022-09-07 15.46.53" loading="lazy"></figure>
+<h1 id="引用类的方法">引用类的方法</h1>
+<p>假如要调用类中的方法，但是并不希望这些方法为实例所用，可以使用@staticmethod 或@classmethod语法。在不需要实例化的前提下，可以直接以类名.方法名（）方式来调用。<br>
+@staticmethod和@classmethod的区别在于，@staticmethod不需要表示自身对象的self和自身类的cls参数，就和使用函数一样；而@classmethod虽然不需要self参数，但第一个参数需要表示自身类的cls参数。因此在@staticmethod中要调用到这个类的一些属性方法，只能用直接类名.属性名或类名.方法名，而@classmethod因为持有cls参数，可以来调用类的属性、类的方法、实例化对象等。</p>
+<pre><code class="language-python">class Human_B(object):
+    century = 21
+    name = &quot;John&quot;
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @staticmethod
+    def speak(language):
+        print('%s has speak %s ability' % (Human_B.name, language))
+
+    def write(self, word):
+        print('%s has write %s ability' % (self.name, word))
+
+    @classmethod
+    def walk(cls):
+        print('%s has walk ability' % cls.name)
+
+Human_B.speak(&quot;Chinese&quot;)
+Human_B.walk()
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-07%2016.35.37.png" alt="截屏2022-09-07 16.35.37" loading="lazy"></figure>
+<h1 id="参考资料">参考资料</h1>
+<p>《python股票量化交易从入门到实践》</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96">类的实例化</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%B1%9E%E6%80%A7">引用类属性</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95">引用类的方法</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/liang-hua-jiao-yi-ming-ci-jie-shi/">
+              <span class="post-title">
+                量化交易名词&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>微博大v数据分析 | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="微博大v数据分析 | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="微博大v数据分析" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/wei-bo-da-v-shu-ju-fen-xi/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://adureychloe.github.io/tag/48JldArED/" class="tag">data analysis</a>
+                
+              </span>
+              <h1>微博大v数据分析</h1>
+              <span class="meta">
+                Posted on
+                2022-11-12，1 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <img class="post-feature-header-image" src="https://adureychloe.github.io//post-images/wei-bo-da-v-shu-ju-fen-xi.jpg" alt="封面图">
+          </img>
+          
+          <!-- more -->
+<p><ul class="markdownIt-TOC">
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a>
+<ul>
+<li><a href="#%E4%B8%80-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE">一、查看数据</a></li>
+<li><a href="#%E4%BA%8C-%E6%B8%85%E6%B4%97%E6%95%B0%E6%8D%AE">二、清洗数据</a></li>
+<li><a href="#%E4%B8%89-%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F">三、用户画像</a></li>
+<li><a href="#%E5%9B%9B-%E7%83%AD%E7%82%B9%E8%AF%9D%E9%A2%98%E5%88%86%E6%9E%90">四、热点话题分析</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h1 id="前言">前言</h1>
+<p><font color=#999AAA >该文档包含设计思路、过程和分析结果，完整代码见ipynb文档。数据集和ipynb文档地址如下：链接：https://github.com/adureychloe/weibo-data-analysize<br>
+</font></p>
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+<h2 id="一-查看数据">一、查看数据</h2>
+<p>1、导入需要的包</p>
+<pre><code class="language-python">import csv
+import pandas as pd
+import chardet
+import jieba
+import wordcloud
+from PIL import Image
+from jieba import analyse
+import numpy as np
+from pyecharts.charts import Pie
+import pyecharts.options as opts
+from pyecharts.charts import Map
+import matplotlib.pyplot as plt
+%matplotlib inline
+#from pyecharts.globals import CurrentConfig, NotebookType
+# CurrentConfig.NOTEBOOK_TYPE = NotebookType.JUPYTER_LAB
+#CurrentConfig.ONLINE_HOST = &quot;pyecharts-assets/assets&quot;
+</code></pre>
+<p>2、用pandas导入数据并查看</p>
+<pre><code class="language-python">user_df=pd.read_csv('data/data31204/userdata.csv')
+user_df
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.46.55.png" alt="截屏2022-11-10 18.46.55" loading="lazy"></figure>
+<p><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxNjQzMjI3,size_16,color_FFFFFF,t_70.png" alt="在这里插入图片描述" loading="lazy">这</p>
+<p>这里直接读取week1.csv的话会有编码问题，所以要间接用open函数里的errors参数来处理。</p>
+<pre><code class="language-python">data_path='data/data31204/week1.csv'
+df = pd.DataFrame()
+encode = get_encode(data_path) # get_encode函数在上文
+f = open(data_path, encoding=encode,errors='ignore')
+data = pd.read_csv(f,dtype=str)
+df = df.append(data)
+df
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxNjQzMjI3,size_16,color_FFFFFF,t_70-20221110184519656.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.48.24.png" alt="截屏2022-11-10 18.48.24" loading="lazy"></figure>
+<p>用info函数来查看两个数据表的信息，info函数返回有哪些列、有多少非缺失值、每列的类型。</p>
+<p>df:</p>
+<figure data-type="image" tabindex="4"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.49.05.png" alt="截屏2022-11-10 18.49.05" loading="lazy"></figure>
+<p>user_df:</p>
+<figure data-type="image" tabindex="5"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.49.31.png" alt="截屏2022-11-10 18.49.31" loading="lazy"></figure>
+<p>查看有多少是缺失值:</p>
+<p>df:</p>
+<pre><code class="language-python">df.isnull().sum()
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.50.21.png" alt="截屏2022-11-10 18.50.21" loading="lazy"></figure>
+<p>可见retweeted_uid、geo、deleted_last_seen、permission_denied基本上全是 Nan值，所以不需要考虑他们。</p>
+<p>user_df:</p>
+<pre><code class="language-python"> user_df.isnull().sum()
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.51.12.png" alt="截屏2022-11-10 18.51.12" loading="lazy"></figure>
+<p>可见user_df里没有空值。</p>
+<h2 id="二-清洗数据">二、清洗数据</h2>
+<p>user_df的数据不需要清洗，来看df。</p>
+<p>随便从text中抽一条看看:</p>
+<figure data-type="image" tabindex="8"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.53.03.png" alt="截屏2022-11-10 18.53.03" loading="lazy"></figure>
+<p>可见里面主要信息为中文，其余还有一些字符、@、英文，特别要注意的是，这是微博数据，也就是说[]里的内容并不是真正的文本，而是表情，如果没有注意这个，那提取关键词的时候这些表情就会变成最多的词，因为表情才是用户发的最多的，什么[哈哈]、[哭]什么的。</p>
+<p>值得注意的是，除了这些之外，在观察了text文本数据内容，并且在后面提取了关键词后我们会发现，“转发微博”、“微博”、“哈哈”、“啊”这些词出现的频率很高，但是并没有实际含义，而且“哈哈”和“啊”这类词的长度不定，可以是任意个“哈”和“啊”，所以不能在停用词里去掉。所以根据这些，我们来清洗text文本数据。</p>
+<pre><code class="language-python">df.text.replace(r'\[.*?\]','',regex=True,inplace=True) 
+df.text.replace(r'转发微博','',regex=True,inplace=True) 
+df.text.replace(r'轉發微博','',regex=True,inplace=True) 
+df.text.replace(r'微博','',regex=True,inplace=True) 
+df.text.replace(r'转发','',regex=True,inplace=True) 
+df.text.replace(r'哈*','',regex=True,inplace=True) 
+df.text.replace(r'啊*','',regex=True,inplace=True) 
+df['text']=df['text'].str.replace(r'[^\u4e00-\u9fa5]','') 
+df
+</code></pre>
+<figure data-type="image" tabindex="9"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.55.48.png" alt="截屏2022-11-10 18.55.48" loading="lazy"></figure>
+<p>得到的结果里只包含中文。但是有些行已经为空了，防止对我们后续造成影响， 我们将这些空行去掉。首先填充Nan:</p>
+<pre><code class="language-python">df.text=df.text.astype(str)
+df.replace(to_replace=r'^\s*$',value=np.nan,regex=True,inplace=True)
+df
+</code></pre>
+<figure data-type="image" tabindex="10"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.56.33.png" alt="截屏2022-11-10 18.56.33" loading="lazy"></figure>
+<p>然后去掉带Nan的行并将索引重排:</p>
+<pre><code class="language-python">df.dropna(subset=['text'],axis=0,how='any',inplace=True)
+df.reset_index(drop=True,inplace=True)
+df
+</code></pre>
+<figure data-type="image" tabindex="11"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.57.18.png" alt="截屏2022-11-10 18.57.18" loading="lazy"></figure>
+<p>到这里为止数据就算是清理好了。</p>
+<h2 id="三-用户画像">三、用户画像</h2>
+<p>先把user_df中的大V的性别和省份筛选出来。</p>
+<pre><code class="language-python">big_v=pd.DataFrame()
+big_v['province']=user_df.province[user_df.verified==True]
+big_v['gender']=user_df.gender[user_df.verified==True]
+big_v
+</code></pre>
+<figure data-type="image" tabindex="12"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.58.44.png" alt="截屏2022-11-10 18.58.44" loading="lazy"></figure>
+<p>查看性别分布:</p>
+<pre><code class="language-python"> #y_data=list(big_v['gender']).count()
+gender=big_v['gender'].value_counts()
+gender
+</code></pre>
+<figure data-type="image" tabindex="13"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2018.59.49.png" alt="截屏2022-11-10 18.59.49" loading="lazy"></figure>
+<p>用pyecharts画出微博大V性别分布图:</p>
+<pre><code class="language-python">x_data=list(gender.index)
+y_data=list(gender)
+data_pair=list(z for z in zip(x_data,y_data)) data_pair.sort(key=lambda x:x[1])
+pie=Pie() pie.add('',data_pair=data_pair,radius='50%',center= ['50%','50%']) pie.set_global_opts(title_opts=opts.TitleOpts(title='微博大 V男女比'),
+legend_opts=opts.LegendOpts(is_show=True)) pie.set_series_opts(label_opts=opts.LabelOpts(formatter=&quot; {b}: {c}&quot;))
+#pie.render('1.html')
+pie.render_notebook() #因为pyecharts渲染图片是从远处抓取的，所以有可能显示不出来，我就直接把图片贴在下面了
+#也可以打开html看
+</code></pre>
+<figure data-type="image" tabindex="14"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.00.54.png" alt="截屏2022-11-10 19.00.54" loading="lazy"></figure>
+<p>可见微博大V中男性要比女性多一点，男性有124433个，女性有68539个。</p>
+<p>接下来看省份分布，这里的省份只有代码，所以我们要先在网上找一个省份代码 对照表province.txt。内容如下:</p>
+<figure data-type="image" tabindex="15"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.01.25.png" alt="截屏2022-11-10 19.01.25" loading="lazy"></figure>
+<p>然后要将表big_v中的省份代码换成真正的省份名称。</p>
+<pre><code class="language-python">province=pd.read_csv('province.txt',sep='\t',skiprows=1,na
+mes=['code','province'])
+province1=province.set_index('code')
+province1
+</code></pre>
+<figure data-type="image" tabindex="16"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.02.38.png" alt="截屏2022-11-10 19.02.38" loading="lazy"></figure>
+<pre><code class="language-python">code=list(province1.index)
+def transfer(x):
+    y=province1.loc[x]
+    return y
+big_v['place']=big_v.province[big_v['province'].isin(code)].apply(transfer)
+big_v
+</code></pre>
+<figure data-type="image" tabindex="17"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.03.42.png" alt="截屏2022-11-10 19.03.42" loading="lazy"></figure>
+<p>查看省份分布:</p>
+<pre><code class="language-python">place=big_v.place.value_counts()
+place
+</code></pre>
+<figure data-type="image" tabindex="18"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.05.53.png" alt="截屏2022-11-10 19.05.53" loading="lazy"></figure>
+<p>用pyecharts画出省份地图分布:</p>
+<pre><code class="language-python">x_place=place.index
+y_place=place.values
+y_place=y_place.tolist()
+x_place=x_place.tolist()
+data_pair1=list(z for z in zip(x_place,y_place))
+pieces = [
+    {'min': 60000, 'color': '#540d0d'},
+    {'max': 59999, 'min': 10000, 'color': '#9c1414'},
+    {'max': 9999, 'min': 5000, 'color': '#d92727'},
+    {'max': 4999, 'min': 2000, 'color': '#ed3232'},
+    {'max': 1999, 'min': 1000, 'color': '#f27777'},
+    {'max': 999, 'min': 100, 'color': '#f7adad'},
+    {'max': 0, 'color': '#f7e4e4'},
+]
+m=Map()
+m.add(&quot;大v数量&quot;,data_pair1,'china') 
+#系列配置项,可配置图元样式、文字样式、标签样式、点线样式等 
+m.set_series_opts(label_opts=opts.LabelOpts(font_size=12),is_show=False) 
+#全局配置项,可配置标题、动画、坐标轴、图例等
+m.set_global_opts(title_opts=opts.TitleOpts(title='全国各地大v数量',pos_top=True), legend_opts=opts.LegendOpts(is_show=False),
+
+ 
+visualmap_opts=opts.VisualMapOpts(pieces=pieces, is_piecewise=True, #是否为分段型
+is_show=True)) #是否显示视觉映射配置 
+m.render_notebook()
+</code></pre>
+<figure data-type="image" tabindex="19"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.09.55.png" alt="截屏2022-11-10 19.09.55" loading="lazy"></figure>
+<p>图像是交互式的，可以把鼠标移到省份上查看当前省份的大V数量:</p>
+<figure data-type="image" tabindex="20"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.10.16.png" alt="截屏2022-11-10 19.10.16" loading="lazy"></figure>
+<figure data-type="image" tabindex="21"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.10.33.png" alt="截屏2022-11-10 19.10.33" loading="lazy"></figure>
+<p>从图中可看出大V主要集中在东部地区，这应该是因为东部地区经济更加发达， 资源更多，网络条件什么的也更好，相比之下成为大V更容易的缘故。</p>
+<p>接下来看看微博大V最常使用的客户端。</p>
+<p>这个信息在df里，所以我们先将user_df中的大V的uid弄出来:</p>
+<pre><code class="language-python">v_uid=list(user_df['uid'][user_df['verified']==True])
+</code></pre>
+<figure data-type="image" tabindex="22"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.11.29.png" alt="截屏2022-11-10 19.11.29" loading="lazy"></figure>
+<p>然后筛选出大V的客户端来源:</p>
+<pre><code class="language-python">source_df=pd.DataFrame(df.loc[df.uid.isin(v_uid)].source)
+source=source_df.source.value_counts()[:10]
+source
+</code></pre>
+<figure data-type="image" tabindex="23"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.12.20.png" alt="截屏2022-11-10 19.12.20" loading="lazy"></figure>
+<p>还是用pyecharts画出饼图:</p>
+<pre><code class="language-python">x_data_s=list(source.index)
+y_data_s=list(source)
+data_pair_s=list(z for z in zip(x_data_s,y_data_s)) data_pair_s.sort(key=lambda x:x[1])
+pie=Pie() pie.add('',data_pair=data_pair_s,radius='55%',center= ['50%','50%']) pie.set_global_opts(title_opts=opts.TitleOpts(title='微博大V客户端程序前十'),
+ 										legend_opts=opts.LegendOpts(orient=&quot;vertical&quot;,
+										pos_top=&quot;15%&quot;, pos_left=&quot;2%&quot;))
+pie.set_series_opts(label_opts=opts.LabelOpts(formatter=&quot;{b}: {c}&quot;))
+pie.render_notebook()
+</code></pre>
+<figure data-type="image" tabindex="24"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.13.25.png" alt="截屏2022-11-10 19.13.25" loading="lazy"></figure>
+<p>图中可以看出用新浪微博客户端的大V最多，有405282个，其次是iPhone客户端 和皮皮时光机，分别有123852和99816个。</p>
+<p>然后对大V发布微博进行关键词提取作为大V的用户标签，分为全部大V、男性大 V和女性大V。</p>
+<p>首先对df中的text进行jieba分词:</p>
+<pre><code class="language-python">def cut_words(a):
+    seg=jieba.cut(a)
+    return ' '.join(seg)
+df['seg_words']=df['text'].apply(cut_words)
+df.seg_words
+</code></pre>
+<figure data-type="image" tabindex="25"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.14.34.png" alt="截屏2022-11-10 19.14.34" loading="lazy"></figure>
+<p>把男性大V和女性大V的uid分别取出:</p>
+<pre><code class="language-python"> m_v_uid=list(user_df['uid'][user_df['verified']==True][user_df['gender']=='m'])
+f_v_uid=list(user_df['uid'][user_df['verified']==True][user_df['gender']=='f'])
+</code></pre>
+<p>然后分别把所有大V、男性大V、女性大V的微博内容筛选出来:</p>
+<pre><code class="language-python">m_text=list(df.loc[df.uid.isin(m_v_uid)].seg_words)
+f_text=list(df.loc[df.uid.isin(f_v_uid)].seg_words)
+v_text=list(df.loc[df.uid.isin(v_uid)].seg_words)
+</code></pre>
+<p>开始提取前100个关键词:</p>
+<pre><code class="language-python">m = jieba.analyse.extract_tags(m_text,topK=100)
+f = jieba.analyse.extract_tags(f_text,topK=100)
+v = jieba.analyse.extract_tags(v_text,topK=100)
+</code></pre>
+<p>结果:</p>
+<p>男性大V:</p>
+<figure data-type="image" tabindex="26"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.18.33.png" alt="截屏2022-11-10 19.18.33" loading="lazy"></figure>
+<p>女性大V:</p>
+<figure data-type="image" tabindex="27"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.19.23.png" alt="截屏2022-11-10 19.19.23" loading="lazy"></figure>
+<p>所有大V:</p>
+<figure data-type="image" tabindex="28"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.19.41.png" alt="截屏2022-11-10 19.19.41" loading="lazy"></figure>
+<p>词云可视化:</p>
+<pre><code class="language-python">image_mask='pic/man1.jpg'
+mask = np.array(Image.open(image_mask))
+w = wordcloud.WordCloud(width = 5000, height = 1000,\
+                        background_color = &quot;white&quot;,mask=mask,\
+                        font_path='font/simhei.ttf',)
+w.generate(m_tag)
+w.to_file(&quot;pic/man_word.png&quot;)
+#画图 
+plt.imshow(w) 
+plt.axis('off') 
+plt.show()
+</code></pre>
+<p>男性大V:</p>
+<figure data-type="image" tabindex="29"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-10%2019.23.10.png" alt="截屏2022-11-10 19.23.10" loading="lazy"></figure>
+<h2 id="四-热点话题分析">四、热点话题分析</h2>
+<p>首先我们来提取排名前十的热点话题。</p>
+<p>因为话题并不等同于关键词，而更像是一些关键词的组合，所以像上面那样直接提取关键词作为话题似乎并不科学。所以我们这里用LDA(隐含狄利克雷分布)来进行文本主题抽取。</p>
+<p>LDA 在主题模型中占有非常重要的地位，常用来文本分类。LDA由Blei, David M.、Ng, Andrew Y.、Jordan于2003年提出，用来推测文档的主题分布。它可以将文档集中每篇文档的主题以概率分布的形式给出，从而通过分析一些文档抽取<br>
+出它们的主题分布后，便可以根据主题分布进行主题聚类或文本分类。</p>
+<p>机器学习的模型分为两种，一种是基于策略，即不能给出明确的数据分布的，一种是基于模型，可以给出分布的形式，但是超参数不知道。kmeans，dbscan是基于性能和密度的，基于策略寻找最优聚类方案，而PLSA和LDA是基于多项式分布和狄利克雷分布的，基于参数迭代寻找最优聚类方案的。</p>
+<p>先对文本进行jieba分词:</p>
+<pre><code class="language-python">def cut_words(a):
+    seg=jieba.cut(a)
+    return ' '.join(seg)
+df['seg_words']=df['text'].apply(cut_words)
+df
+</code></pre>
+<figure data-type="image" tabindex="30"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.12.52.png" alt="截屏2022-11-12 16.12.52" loading="lazy"></figure>
+<p>单词之间都被空格区别开来，接下来对文本做向量化。</p>
+<p>导入包：</p>
+<pre><code class="language-python">#文本向量化
+from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer
+</code></pre>
+<p>导入停用词(停用词就是一些经常在文中出现但是没有太重要意义的词)，这里用的是网上找的停用词表:</p>
+<figure data-type="image" tabindex="31"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.15.41.png" alt="截屏2022-11-12 16.15.41" loading="lazy"></figure>
+<pre><code class="language-python">stopword=&quot;stopwords.txt&quot;
+with open(stopword,'rb') as f:
+	stopwords=f.read().decode('utf-8') #停用词提取 
+stoplist=stopwords.splitlines()
+</code></pre>
+<p>如果处理太多词汇的话时间太长，于是这里我就只从文本中提取1000个最重要 的特征关键词，并进行向量转换。</p>
+<pre><code class="language-python">n_features=1000
+tf_vectorizer=TfidfVectorizer(
+  														max_features=n_features,
+															stop_words=stoplist,
+															max_df=0.5,
+															min_df=10
+                             )
+tf=tf_vectorizer.fit_transform(df.seg_words)
+tf.shape
+</code></pre>
+<figure data-type="image" tabindex="32"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.17.14.png" alt="截屏2022-11-12 16.17.14" loading="lazy"></figure>
+<p>提取的向量矩阵大小为(3777777,1000)。</p>
+<p>导入LDA包:</p>
+<pre><code class="language-python"> from sklearn.decomposition import LatentDirichletAllocation
+</code></pre>
+<p>LDA需要人为设定主题数量，这里我选择30个，然后再取前10个主题。</p>
+<pre><code class="language-python">n_topics=30
+lda=LatentDirichletAllocation(n_topics=n_topics,
+															lda.fit(tf)
+															#learning_method='batch',
+															learning_method='online',
+															max_iter=20,
+															learning_offset=50.,
+															random_state=0,
+															batch_size=128,
+															verbose=1)
+lda.fit(tf)
+</code></pre>
+<p>主题并没有确定的名称，而是用一系列关键词相结合形成的。模型fit后，需要定义每个主题输出多少个关键词，这里暂定输出前20个关键词:</p>
+<pre><code class="language-python">def print_topic(model,feature_names,n_top_words):
+    for idx,topic in enumerate(model.components_):
+        if(idx&lt;10):
+            print(&quot;Topic{}&quot;.format(idx))
+            print(&quot; &quot;.join([feature_names[i] for i in
+               topic.argsort()[:-n_top_words-1:-1]]))
+        else:
+            break
+    print()
+n_top_words=20
+tf_feature_names=tf_vectorizer.get_feature_names()
+print_topic(lda,tf_feature_names,n_top_words)
+</code></pre>
+<p>输出结果:</p>
+<figure data-type="image" tabindex="33"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.20.57.png" alt="截屏2022-11-12 16.20.57" loading="lazy"></figure>
+<figure data-type="image" tabindex="34"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.21.11.png" alt="截屏2022-11-12 16.21.11" loading="lazy"></figure>
+<p>可以大概看出每个主题大概是什么。比如第一个大概是关于电影明星的，第四个大概是抽奖、祝福之类的，第十个大概是关于人生鸡汤之类的。</p>
+<p>这里可以用pyLDAvis来可视化:</p>
+<pre><code class="language-python">import pyLDAvis
+import pyLDAvis.sklearn
+pyLDAvis.enable_notebook()
+pyLDAvis.sklearn.prepare(lda,tf,tf_vectorizer)
+</code></pre>
+<figure data-type="image" tabindex="35"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.22.54.png" alt="截屏2022-11-12 16.22.54" loading="lazy"></figure>
+<p>在图的左侧，是用圆圈代表不同的主题，圆圈的大小代表每个主题分别包含文章的数量。可以看到30个主题大概聚成了三堆，聚成一堆的代表他们主题比较相似。</p>
+<p>当鼠标没有指向任何主题的时候，右侧的30个关键词代表全部文本中提取到的 30个最重要关键词。大概是“喜欢、关注、男人、女人、加油”这些词。</p>
+<p>如果把鼠标放到某个主题(这里是主题一)下:</p>
+<figure data-type="image" tabindex="36"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.24.26.png" alt="截屏2022-11-12 16.24.26" loading="lazy"></figure>
+<p>右侧的关键词列表就会变化，红色展示了每个关键词在当前主题下的频率。这里主题主要被分成了三个区域，对于右上角的区域:</p>
+<figure data-type="image" tabindex="37"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.25.40.png" alt="截屏2022-11-12 16.25.40" loading="lazy"></figure>
+<p>对于左下角的区域:</p>
+<figure data-type="image" tabindex="38"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.26.25.png" alt="截屏2022-11-12 16.26.25" loading="lazy"></figure>
+<p>因为只迭代了20次，所以效果不是太好，但是大概还是可以看出的。</p>
+<p>接下来我们来分析不同时间段的热点话题，看下热点话题的演化过程。</p>
+<p>时间数据在df的created_at字段里，先来看一下数据:</p>
+<figure data-type="image" tabindex="39"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.27.28.png" alt="截屏2022-11-12 16.27.28" loading="lazy"></figure>
+<p>这些数据是object，不好操作，所以需要把它转化成时间序列。</p>
+<pre><code class="language-python">#将created_at转成时间序列 
+time_data=pd.to_datetime(df['created_at'],format='%Y-%m- %d')
+df['time']=time_data
+</code></pre>
+<p>然后把它作为索引并排序:</p>
+<pre><code class="language-python">#将时间序列作为索引并升序排序 
+date_index=df.set_index(['time']) 
+date_index=date_index.sort_index(ascending=True) 
+date_index
+</code></pre>
+<figure data-type="image" tabindex="40"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.28.44.png" alt="截屏2022-11-12 16.28.44" loading="lazy"></figure>
+<p>看一下时间序列:</p>
+<pre><code class="language-python">date_index.index
+</code></pre>
+<figure data-type="image" tabindex="41"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.29.14.png" alt="截屏2022-11-12 16.29.14" loading="lazy"></figure>
+<p>可以看到时间为从2012-01-02到2012-01-08。我就分成2号-4号、5号-7号、8 号-9号来研究不同时间的热点话题。</p>
+<pre><code class="language-python">date_1=list(date_index['2012-01-02':'2012-01-04']['seg_words'])
+date_2=list(date_index['2012-01-05':'2012-01-06']['seg_words'])
+date_3=list(date_index['2012-01-07':'2012-01-08']['seg_words'])
+print(len(date_1),len(date_2),len(date_3))
+</code></pre>
+<figure data-type="image" tabindex="42"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.30.04.png" alt="截屏2022-11-12 16.30.04" loading="lazy"></figure>
+<p>类似上面的，分别从文本中提取1000个最重要的特征关键词，并进行向量转换。</p>
+<pre><code class="language-python">n_features=1000
+tf_vectorizer_1=CountVectorizer(strip_accents='unicode',max_features=n_features,
+																stop_words=stoplist,
+                                max_df=0.5,
+                                min_df=10)
+tf_vectorizer_2=CountVectorizer(strip_accents='unicode',
+                                max_features=n_features,
+                                stop_words=stoplist,
+                                max_df=0.5,
+                                min_df=10)
+tf_vectorizer_3=CountVectorizer(strip_accents='unicode',
+                                max_features=n_features,
+                                stop_words=stoplist,
+                                max_df=0.5,
+                                min_df=10)
+tf_1=tf_vectorizer_1.fit_transform(date_1)
+tf_2=tf_vectorizer_2.fit_transform(date_2)
+tf_3=tf_vectorizer_3.fit_transform(date_3)
+</code></pre>
+<p>进行LDA主题抽取，这里只选取5个主题:</p>
+<pre><code class="language-py">n_topics=5
+lda_1=LatentDirichletAllocation(n_topics=n_topics,
+                                #learning_method='batch',
+                                learning_method='online',
+                                max_iter=20,
+                                learning_offset=50.,
+                                random_state=0,
+                                batch_size=128,
+                                verbose=1)
+lda_2=LatentDirichletAllocation(n_topics=n_topics,
+                                #learning_method='batch',
+                                learning_method='online',
+                                max_iter=20,
+                                learning_offset=50.,
+                                random_state=0,
+                                batch_size=128,
+                                verbose=1)
+lda_3=LatentDirichletAllocation(n_topics=n_topics,
+                                #learning_method='batch',
+                                learning_method='online',
+                                max_iter=20,
+                                learning_offset=50.,
+                                random_state=0,
+                                batch_size=128,
+                                verbose=1)
+</code></pre>
+<p>第一阶段的热点话题:</p>
+<figure data-type="image" tabindex="43"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.32.38.png" alt="截屏2022-11-12 16.32.38" loading="lazy"></figure>
+<p>第二阶段的热点话题:</p>
+<figure data-type="image" tabindex="44"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.32.54.png" alt="截屏2022-11-12 16.32.54" loading="lazy"></figure>
+<p>第三阶段的热点话题:</p>
+<figure data-type="image" tabindex="45"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-12%2016.33.07.png" alt="截屏2022-11-12 16.33.07" loading="lazy"></figure>
+<p>最后来总结一下热点话题形成的特点和关键因素。</p>
+<p>首先当然是微博大V发布和转发的消息会更容易成为热点话题，而从大V的用户 画像中可以看出来自北京、上海、广东等发达地区的大V数量更多，他们引起的 热点话题也就多。</p>
+<p>其次是一条微博的转发量。转发量越多，自然话题变成热点话题的概率也就更大。</p>
+<p>还有就是各种重大节日和事件的发生。比如像是情人节，恋爱、感情就会变成热点话题，而如果是奥运会开幕这种事件，运动员就会变成热点话题。热点话题是随着时间和事件的发生决定的。而关于工作、生活、学习之类的事情，其实一直都是热点话题，一直被人们所讨论。</p>
+<p>同时，男性和女性各自的热点话题也会有所差异。</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a>
+<ul>
+<li><a href="#%E4%B8%80-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE">一、查看数据</a></li>
+<li><a href="#%E4%BA%8C-%E6%B8%85%E6%B4%97%E6%95%B0%E6%8D%AE">二、清洗数据</a></li>
+<li><a href="#%E4%B8%89-%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F">三、用户画像</a></li>
+<li><a href="#%E5%9B%9B-%E7%83%AD%E7%82%B9%E8%AF%9D%E9%A2%98%E5%88%86%E6%9E%90">四、热点话题分析</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/from-flairdata_fetcher-import-nlptaskdatafetcher-nlptask-chu-cuo/">
+              <span class="post-title">
+                from flair.data_fetcher import NLPTaskDataFetcher, NLPTask出错&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

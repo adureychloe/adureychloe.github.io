@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>HackerRank Balanced Trees: Self Balancing Tree | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="HackerRank Balanced Trees: Self Balancing Tree | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="HackerRank Balanced Trees: Self Balancing Tree" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/hackerrank-balanced-trees-self-balancing-tree/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>HackerRank Balanced Trees: Self Balancing Tree</h1>
+              <span class="meta">
+                Posted on
+                2023-03-30，3 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="题目描述">题目描述</h1>
+<p>AVL树是自平衡二叉搜索树。二叉搜索树就是左子树小于root小于右子树，平衡树就是左右子树高度相差最多1。AVL树满足：</p>
+<ul>
+<li>balance</li>
+<li>rotations：不满足平衡时进行旋转直到满足</li>
+</ul>
+<p>定义平衡因子：balanceFactor = height(left subtree) - height(right subtree)<br>
+范围[-1,1]。所有节点都满足这个，才叫平衡。</p>
+<p>定义树的高度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo>(</mo><mi>h</mi><mo>)</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo>(</mo><mi>H</mi><mo>(</mo><msub><mi>T</mi><mi>L</mi></msub><mo>)</mo><mo separator="true">,</mo><mi>H</mi><mo>(</mo><msub><mi>T</mi><mi>R</mi></msub><mo>)</mo><mo>)</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">H(h) = max(H(T_L), H(T_R)) + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">h</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
+<p>如果不满足，且平衡因子为正，则称left heavy，rotation就是right或left-right；反之是right heavy，rotation就是left或right-left。</p>
+<blockquote>
+<p>输入：<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202303301737631.png" alt="截屏2023-03-29 19.35.02 (2)" loading="lazy"></p>
+</blockquote>
+<h1 id="思路">思路</h1>
+<h2 id="right-rotation">right rotation</h2>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202303301646452.png" alt="截屏2023-03-29 19.35.02 (2)" loading="lazy"></figure>
+<h2 id="left-right-rotation">left-right rotation</h2>
+<figure data-type="image" tabindex="2"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202303301648531.png" alt="截屏2023-03-29 19.35.02 (2)" loading="lazy"></figure>
+<h2 id="left-rotation">left rotation</h2>
+<figure data-type="image" tabindex="3"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202303301700893.png" alt="截屏2023-03-29 19.35.02 (2)" loading="lazy"></figure>
+<h2 id="right-left-ratation">right-left ratation</h2>
+<figure data-type="image" tabindex="4"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202303301703557.png" alt="截屏2023-03-29 19.35.02 (2)" loading="lazy"></figure>
+<p>旋转时只关注x和y节点。再看节点大小是否满足。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-c++14">/* Node is defined as :
+typedef struct node
+{
+    int val;
+    struct node* left;
+    struct node* right;
+    int ht;
+} node; */
+
+
+int height(node* root){
+    
+    if(root==NULL)
+        return 0;
+    
+    int lh,rh;
+    if(root-&gt;left!=NULL)
+        lh=1+root-&gt;left-&gt;ht;
+    else
+        lh=0;
+    
+    if(root-&gt;right!=NULL)
+        rh=1+root-&gt;right-&gt;ht;
+    else
+        rh=0;
+    
+    if(lh&gt;rh)
+        return lh;
+    else
+        return rh; 
+}
+
+
+int balance_factor(node* root){
+    
+    if(root==NULL)
+        return 0;
+    int lh,rh;
+    
+    if(root-&gt;left==NULL)
+        lh=0;
+    else
+        lh=1+root-&gt;left-&gt;ht;
+    
+    if(root-&gt;right==NULL)
+        rh=0;
+    else
+        rh=1+root-&gt;right-&gt;ht;
+    
+    return lh-rh;
+    
+    
+}
+
+node* createnode(int val){
+    
+    //node* temp=(node* )malloc(sizeof(node));
+    node* temp = new node();
+    temp-&gt;val=val;
+    temp-&gt;left=NULL;
+    temp-&gt;right=NULL;
+    temp-&gt;ht=0;
+    
+    return temp;
+}
+node* rotateright(node* x){
+    node* y;
+    
+    y=x-&gt;left;
+    x-&gt;left=y-&gt;right;
+    y-&gt;right=x;
+    
+    x-&gt;ht=height(x);
+    y-&gt;ht=height(y);
+    
+    return y;
+    
+}
+
+node* rotateleft(node* x){
+    node* y;
+    
+    y=x-&gt;right;
+    x-&gt;right=y-&gt;left;
+    y-&gt;left=x;
+    
+    x-&gt;ht=height(x);
+    y-&gt;ht=height(y);
+    
+    return y;
+    
+    
+}
+
+node* LL(node* x){
+    x=rotateright(x);
+    
+    return x;
+}
+
+node* RR(node* x ){
+    
+    x=rotateleft(x);
+    return x;
+}
+
+node* RL(node* x){
+    
+    x-&gt;right=rotateright(x-&gt;right);
+    x=rotateleft(x);
+    
+    return x;
+}
+
+node* LR(node* x){
+    
+    x-&gt;left=rotateleft(x-&gt;left);
+    x=rotateright(x);
+    
+    return x;
+}
+
+
+
+node * insert(node* root,int val)
+{   
+    if(root==NULL)
+        root=createnode(val);
+    
+    else{
+        
+        if(val&lt;root-&gt;val){ 
+            root-&gt;left=insert(root-&gt;left,val);
+            
+            if(balance_factor(root)==2){
+                if(val&lt;root-&gt;left-&gt;val)
+                    root=LL(root);
+                else
+                    root=LR(root);
+            }
+        }
+        
+        else if(val&gt;root-&gt;val){ 
+            root-&gt;right=insert(root-&gt;right,val);
+            
+            if(balance_factor(root)==-2){
+                if(val&gt;root-&gt;right-&gt;val)
+                    root=RR(root);
+                else
+                    root=RL(root);
+            }
+        }
+        
+        
+        
+    }
+    
+    root-&gt;ht=height(root);
+    
+    return root;
+    
+    
+  
+}
+</code></pre>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a>
+<ul>
+<li><a href="#right-rotation">right rotation</a></li>
+<li><a href="#left-right-rotation">left-right rotation</a></li>
+<li><a href="#left-rotation">left rotation</a></li>
+<li><a href="#right-left-ratation">right-left ratation</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%98%E8%A7%A3">题解</a></li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/hackerrank-arrays-sparse-arrays/">
+              <span class="post-title">
+                HackerRank Arrays: Sparse Arrays&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

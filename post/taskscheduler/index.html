@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>TaskScheduler  | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="TaskScheduler  | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="TaskScheduler " />
+  <meta property="og:url" content="https://adureychloe.github.io/post/taskscheduler/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>TaskScheduler </h1>
+              <span class="meta">
+                Posted on
+                2023-08-23，3 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="问题描述">问题描述</h1>
+<p>写一个python的类TaskScheduler，根据任务的优先级和分析师进入程序的时间和偏好分配任务给分析师。每个任务会有一个 Task ID、Task Type和 Task Priority。每个分析师都会有 Analyst Name 和 Analyst Preference（TaskType的列表）。</p>
+<p>一个分析师可以被分配多个任务，一个任务如果不在任何分析师偏好列表里，就不分配。为了简化，每个分析人员可以为其偏好列表中的每个任务类型最多分配1个任务。任务分配结果按给出的任务类型列表的顺序输出。您在类中应该有插入任务、插入分析人员和分配函数。请随意使用__init__函数来添加到您的数据模型中。并添加一个清晰的功能来清理所有的任务。</p>
+<p>例如：</p>
+<pre><code>#enter the tasks 
+insertTask(“TaskType1”, “TaskID1”,“MEDIUM”) to TaskScheduler
+insertTask(“TaskType1”, “TaskID2” , “URGENT”) to TaskScheduler
+insertTask(“TaskType1”, “TaskID3” ,“MEDIUM”) to TaskScheduler
+insertTask(“TaskType2”, “TaskID4” , “HIGH”) to TaskScheduler
+insertTask(“TaskType3”, “TaskID5” , “HIGH”) to TaskScheduler
+#enter the analysts
+insertAnalyst(“Analyst1”, [“TaskType1”, “TaskType2”]) to TaskScheduler
+insertAnalyst(“Analyst2”, [“TaskType1”,]) to TaskScheduler
+insertAnalyst(“Analyst3”, [“TaskType2”]) to TaskScheduler
+#call function assign
+TaskID2 -&gt; Analyst1
+TaskID1 -&gt; Analyst2
+TaskID3 -&gt; None
+TaskID4 -&gt; Aanlyst1
+TaskID5 -&gt; Analyst3
+</code></pre>
+<h1 id="思路">思路</h1>
+<p>感觉题目实例结果应该不对，应该是首先按优先级排序，再按分析师的先后顺序和偏好决定。类里面应该有一个任务列表和一个分析师字典，三个函数：插入任务、插入分析师、分配任务。分析师字典存储名字和偏好列表。还应该有一个字典存储分析师已分配任务。</p>
+<h1 id="代码">代码</h1>
+<pre><code class="language-python">from collections import defaultdict
+
+class TaskScheduler:
+    def __init__(self):
+        self.tasks = []
+        self.analysts = {}
+
+    def insertTask(self, taskType, taskId, priority):
+        pri2id = {'LOW':1,'MEDIUM':2, 'HIGH':3, 'URGENT':4}
+        self.tasks.append((taskType, taskId, pri2id[priority]))
+
+    def insertAnalyst(self, name, preferences):
+        self.analysts[name] = preferences
+
+    def assign(self):
+        # Sort tasks by priority
+        self.tasks.sort(key=lambda x: x[2], reverse=True)
+
+        # Track assigned tasks
+        assigned = defaultdict(list)
+
+        # Iterate through tasks
+        for taskType, taskId, priority in self.tasks:
+            # Find analyst with this task type in preferences
+            candidates = [a for a,p in self.analysts.items() if taskType in p and len(assigned[a]) &lt; len(p)]
+        
+            if candidates:
+                # Assign to first candidate
+                analyst = candidates[0]
+                assigned[analyst].append(taskType)
+                print(f&quot;{taskId} -&gt; {analyst}&quot;)
+
+            else:
+                # No candidates
+                print(f&quot;{taskId} -&gt; None&quot;)
+
+scheduler = TaskScheduler()
+
+scheduler.insertTask(&quot;TaskType1&quot;, &quot;TaskID1&quot;, &quot;MEDIUM&quot;)
+scheduler.insertTask(&quot;TaskType1&quot;, &quot;TaskID2&quot;, &quot;URGENT&quot;) 
+scheduler.insertTask(&quot;TaskType1&quot;, &quot;TaskID3&quot;, &quot;MEDIUM&quot;)
+scheduler.insertTask(&quot;TaskType2&quot;, &quot;TaskID4&quot;, &quot;HIGH&quot;)
+scheduler.insertTask(&quot;TaskType3&quot;, &quot;TaskID5&quot;, &quot;HIGH&quot;)
+
+scheduler.insertAnalyst(&quot;Analyst1&quot;, [&quot;TaskType1&quot;, &quot;TaskType2&quot;])
+scheduler.insertAnalyst(&quot;Analyst2&quot;, [&quot;TaskType1&quot;])  
+scheduler.insertAnalyst(&quot;Analyst3&quot;, [&quot;TaskType2&quot;])
+
+scheduler.assign()
+
+</code></pre>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0">问题描述</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/zhi-shi-tu-pu-san-yuan-zu-chou-qu/">
+              <span class="post-title">
+                知识图谱三元组抽取&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

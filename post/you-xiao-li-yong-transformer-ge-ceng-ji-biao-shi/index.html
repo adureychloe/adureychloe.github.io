@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>有效利用Transformer各层级表示 | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="有效利用Transformer各层级表示 | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="有效利用Transformer各层级表示" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/you-xiao-li-yong-transformer-ge-ceng-ji-biao-shi/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>有效利用Transformer各层级表示</h1>
+              <span class="meta">
+                Posted on
+                2022-11-17，11 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <p><ul class="markdownIt-TOC">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#contents">Contents</a>
+<ul>
+<li><a href="#preliminary-setup">Preliminary Setup</a></li>
+<li><a href="#pooler-output">Pooler Output</a>
+<ul>
+<li><a href="#introduction-2">Introduction</a></li>
+<li><a href="#implementation">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#last-hidden-state-output">Last Hidden State Output</a>
+<ul>
+<li><a href="#introduction-3">Introduction</a></li>
+<li><a href="#cls-embeddings">CLS Embeddings</a>
+<ul>
+<li><a href="#introduction-4">Introduction</a></li>
+<li><a href="#implementation-2">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#mean-pooling">Mean Pooling</a>
+<ul>
+<li><a href="#introduction-5">Introduction</a></li>
+<li><a href="#implementation-3">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#max-pooling">Max Pooling</a>
+<ul>
+<li><a href="#introduction-6">Introduction</a></li>
+<li><a href="#implementation-4">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#mean-max-pooling">Mean-Max Pooling</a>
+<ul>
+<li><a href="#introduction-7">Introduction</a></li>
+<li><a href="#implementation-5">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#conv-1d-pooling">Conv-1D Pooling</a>
+<ul>
+<li><a href="#introduction-8">Introduction</a></li>
+<li><a href="#implementation-6">Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+原文：<a href="https://www.kaggle.com/code/rhtsingh/utilizing-transformer-representations-efficiently/notebook">Utilizing Transformer Representations Efficiently</a><br>
+该笔记详细记录了利用Transformer各层上下文表示的方法，所有方法都有实例代码，能直接应用到实验中。</p>
+<h1 id="introduction">Introduction</h1>
+<p>微调的典型方式：在Transformer之后只附加一个额外的输出层，用于下游任务或模型的后端部分，它将预训练的语言模型的最后一层的表示作为默认输入。<br>
+然而由于Transformer的多层结构，不同层会捕获不同层次的表征，学习到丰富的语义信息，即在底层有表面特征，中层有句法特征，高层有语义特征。<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/bert-feature-extraction-contextualized-embeddings.png" alt="" loading="lazy"></p>
+<p>BERT的作者通过将不同的向量组合作为输入特征输入到一个用于命名实体识别任务的BiLSTM中，并观察所得到的F1分数，来测试单词嵌入策略。发现最后四层的串联产生了最好的结果。这就部分证明了bert的不同层编码了不同的信息。</p>
+<h1 id="overview">Overview</h1>
+<p>在HuggingFace的Transformers中输入input_ids和attention_mask后有2个主要输出（配置后是3个）：</p>
+<ul>
+<li>pooler output (batch size, hidden size) - 序列中第一个token的最后一层隐藏状态</li>
+<li>last hidden state (batch size, seq Len, hidden size) 在最后一层输出的隐藏状态序列</li>
+<li>hidden states (n layers, batch size, seq Len, hidden size) - 所有层和所有id的隐藏状态</li>
+</ul>
+<h1 id="contents">Contents</h1>
+<h2 id="preliminary-setup">Preliminary Setup</h2>
+<p>import包：</p>
+<pre><code class="language-python">import gc; gc.enable()
+from IPython.display import clear_output
+import pandas as pd
+train = pd.read_csv('../input/commonlitreadabilityprize/train.csv')
+</code></pre>
+<h2 id="pooler-output">Pooler Output</h2>
+<h3 id="introduction-2">Introduction</h3>
+<p>这通常是transformer的第二层输出和最简单的一个输出。Pooler Output是序列中第一个token（分类标记）的最后一层隐藏状态，由线性层和Tanh激活函数进一步处理。线性层的权重是在预训练期间从NSP（分类）目标中训练出来的。<br>
+Last hidden state被传递到pooler中，这将返回pooler output。我们可以通过在模型配置中设置添加池化层为False并将其传递给模型来停用池化输出。</p>
+<h3 id="implementation">Implementation</h3>
+<p>利用Pooler output到下游任务。</p>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import transformers
+from transformers import (
+    AutoModel, AutoConfig, 
+    AutoTokenizer, logging
+)
+logging.set_verbosity_error()
+logging.set_verbosity_warning()
+
+train_text = train['excerpt'][:16].tolist()
+max_seq_length = 256
+_pretrained_model = 'roberta-base'
+
+config = AutoConfig.from_pretrained(_pretrained_model)
+model = AutoModel.from_pretrained(_pretrained_model, config=config)
+tokenizer = AutoTokenizer.from_pretrained(_pretrained_model)
+
+clear_output()
+
+features = tokenizer.batch_encode_plus(
+    train_text,
+    add_special_tokens=True,
+    padding='max_length',
+    max_length=max_seq_length,
+    truncation=True,
+    return_tensors='pt',
+    return_attention_mask=True
+)
+
+with torch.no_grad():
+    outputs = model(features['input_ids'], features['attention_mask'])
+pooler_output = outputs[1]
+logits = nn.Linear(config.hidden_size, 1)(pooler_output) # regression head
+
+print(f'Pooler Output Shape: {pooler_output.detach().numpy().shape}')
+print(f'Logits Shape: {logits.detach().numpy().shape}')
+
+del config, model, tokenizer, features, outputs
+gc.collect();
+</code></pre>
+<p>Pooler Output Shape: (16, 768)<br>
+Logits Shape: (16, 1)</p>
+<h2 id="last-hidden-state-output">Last Hidden State Output</h2>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/1*p6PgpOV74U_qLrzr-1_4Zg.png" alt="" loading="lazy"></figure>
+<h3 id="introduction-3">Introduction</h3>
+<p>这是模型的第一输出也是默认输出。Last Hidden State Output是模型最后一层输出的隐藏状态的序列。输出通常是[batch, maxlen, hidden_state]，对于[CLS]token，它可以缩小为[batch, 1, hidden_state]，因为[CLS]token是序列中的第一个token。这里，[batch, 1, hidden_state]可以等同于[batch, hidden_state]。</p>
+<h3 id="cls-embeddings">CLS Embeddings</h3>
+<figure data-type="image" tabindex="2"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/CLS_token_500x606.png" alt="" loading="lazy"></figure>
+<h4 id="introduction-4">Introduction</h4>
+<p>由于Transformers是上下文模型，其思想是[CLS]token将捕获整个上下文，并足以完成简单的下游任务，如分类。因此，对于使用句子表示进行分类这样的任务，可以使用[batch，hidden_state]。</p>
+<h4 id="implementation-2">Implementation</h4>
+<p>利用cls embeddings输出到下游任务。</p>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import transformers
+from transformers import (
+    AutoModel, AutoConfig, 
+    AutoTokenizer, logging
+)
+logging.set_verbosity_error()
+logging.set_verbosity_warning()
+
+train_text = train['excerpt'][:16].tolist()
+max_seq_length = 256
+_pretrained_model = 'roberta-base'
+
+config = AutoConfig.from_pretrained(_pretrained_model)
+model = AutoModel.from_pretrained(_pretrained_model, config=config)
+tokenizer = AutoTokenizer.from_pretrained(_pretrained_model)
+
+clear_output()
+
+features = tokenizer.batch_encode_plus(
+    train_text,
+    add_special_tokens=True,
+    padding='max_length',
+    max_length=max_seq_length,
+    truncation=True,
+    return_tensors='pt',
+    return_attention_mask=True
+)
+
+with torch.no_grad():
+    outputs = model(features['input_ids'], features['attention_mask'])
+last_hidden_state = outputs[0]
+cls_embeddings = last_hidden_state[:, 0]
+logits = nn.Linear(config.hidden_size, 1)(cls_embeddings) # regression head
+
+print(f'Last Hidden State Output Shape: {last_hidden_state.detach().numpy().shape}')
+print(f'CLS Embeddings Output Shape: {cls_embeddings.detach().numpy().shape}')
+print(f'Logits Shape: {logits.detach().numpy().shape}')
+
+del config, model, tokenizer, features, outputs
+gc.collect();
+</code></pre>
+<p>Last Hidden State Output Shape: (16, 256, 768)<br>
+CLS Embeddings Output Shape: (16, 768)<br>
+Logits Shape: (16, 1)</p>
+<h3 id="mean-pooling">Mean Pooling</h3>
+<h4 id="introduction-5">Introduction</h4>
+<p>我们也可以考虑 last hidden state [batch, maxlen, hidden_state]，即跨maxlen维度的平均值，以获得平均/均值嵌入。<br>
+有多种不同的方法来做到这一点。我们可以简单地采用 torch.mean(last_hidden_state, 1)，但我们要实现不同的东西。我们将利用attention masks，这样我们就可以忽略padding tokens，这是实现平均嵌入的一个更好的方法。</p>
+<h4 id="implementation-3">Implementation</h4>
+<p>利用平均池化输出到下游任务。</p>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import transformers
+from transformers import (
+    AutoModel, AutoConfig, 
+    AutoTokenizer, logging
+)
+logging.set_verbosity_error()
+logging.set_verbosity_warning()
+
+train_text = train['excerpt'][:16].tolist()
+max_seq_length = 256
+_pretrained_model = 'roberta-base'
+
+config = AutoConfig.from_pretrained(_pretrained_model)
+model = AutoModel.from_pretrained(_pretrained_model, config=config)
+tokenizer = AutoTokenizer.from_pretrained(_pretrained_model)
+
+clear_output()
+
+features = tokenizer.batch_encode_plus(
+    train_text,
+    add_special_tokens=True,
+    padding='max_length',
+    max_length=max_seq_length,
+    truncation=True,
+    return_tensors='pt',
+    return_attention_mask=True
+)
+
+with torch.no_grad():
+    outputs = model(features['input_ids'], features['attention_mask'])
+last_hidden_state = outputs[0]
+attention_mask = features['attention_mask']
+</code></pre>
+<ul>
+<li>step1：将注意力掩码从[batch_size, max_len]扩展到[batch_size, max_len, hidden_size]。</li>
+<li>step2：沿max_len轴对embeddings求和，所以现在我们有[batch_size, hidden_size]。</li>
+<li>step3：沿max_len轴对Mask求和。这样做是为了让我们能够忽略padding tokens。</li>
+<li>step4：取平均值。</li>
+</ul>
+<pre><code class="language-python">input_mask_expanded = attention_mask.unsqueeze(-1).expand(last_hidden_state.size()).float()
+sum_embeddings = torch.sum(last_hidden_state * input_mask_expanded, 1)
+sum_mask = input_mask_expanded.sum(1)
+sum_mask = torch.clamp(sum_mask, min=1e-9)
+mean_embeddings = sum_embeddings / sum_mask
+logits = nn.Linear(config.hidden_size, 1)(mean_embeddings) # regression head
+
+print(f'Last Hidden State Output Shape: {last_hidden_state.detach().numpy().shape}')
+print(f'Mean Embeddings Output Shape: {mean_embeddings.detach().numpy().shape}')
+print(f'Logits Shape: {logits.detach().numpy().shape}')
+
+del config, model, tokenizer, features
+gc.collect();
+</code></pre>
+<p>Last Hidden State Output Shape: (16, 256, 768)<br>
+Mean Embeddings Output Shape: (16, 768)<br>
+Logits Shape: (16, 1)</p>
+<h3 id="max-pooling">Max Pooling</h3>
+<figure data-type="image" tabindex="3"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/2120.1575378105.gif" alt="" loading="lazy"></figure>
+<h4 id="introduction-6">Introduction</h4>
+<p>与平均池化类似，我们将考虑 last hidden state [batch, maxlen, hidden_state]，然后在maxlen维度上取最大值，得到最大池嵌入。<br>
+也有多种不同的方法来做这个。我们可以简单地采取Torch.max(last_hidden_state, 1)，但我们将通过利用attention masks来实现类似于平均池化的方法。</p>
+<h4 id="implementation-4">Implementation</h4>
+<p>利用最大池化embeddings输出到下游任务。</p>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import transformers
+from transformers import (
+    AutoModel, AutoConfig, 
+    AutoTokenizer, logging
+)
+logging.set_verbosity_error()
+logging.set_verbosity_warning()
+
+train_text = train['excerpt'][:16].tolist()
+max_seq_length = 256
+_pretrained_model = 'roberta-base'
+
+config = AutoConfig.from_pretrained(_pretrained_model)
+model = AutoModel.from_pretrained(_pretrained_model, config=config)
+tokenizer = AutoTokenizer.from_pretrained(_pretrained_model)
+
+clear_output()
+
+features = tokenizer.batch_encode_plus(
+    train_text,
+    add_special_tokens=True,
+    padding='max_length',
+    max_length=max_seq_length,
+    truncation=True,
+    return_tensors='pt',
+    return_attention_mask=True
+)
+
+with torch.no_grad():
+    outputs = model(features['input_ids'], features['attention_mask'])
+last_hidden_state = outputs[0]
+attention_mask = features['attention_mask']
+
+input_mask_expanded = attention_mask.unsqueeze(-1).expand(last_hidden_state.size()).float()
+last_hidden_state[input_mask_expanded == 0] = -1e9  # Set padding tokens to large negative value
+max_embeddings = torch.max(last_hidden_state, 1)[0]
+logits = nn.Linear(config.hidden_size, 1)(max_embeddings) # regression head
+
+print(f'Last Hidden State Output Shape: {last_hidden_state.detach().numpy().shape}')
+print(f'Max Embeddings Output Shape: {max_embeddings.detach().numpy().shape}')
+print(f'Logits Shape: {logits.detach().numpy().shape}')
+
+del config, model, tokenizer, features
+gc.collect();
+</code></pre>
+<p>Last Hidden State Output Shape: (16, 256, 768)<br>
+Max Embeddings Output Shape: (16, 768)<br>
+Logits Shape: (16, 1)</p>
+<h3 id="mean-max-pooling">Mean-Max Pooling</h3>
+<figure data-type="image" tabindex="4"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/498432_1_En_23_Fig1_HTML.png" alt="" loading="lazy"></figure>
+<h4 id="introduction-7">Introduction</h4>
+<p>Mean Max Pooling或Mean Max Head是许多kernels和竞赛中最常用的技术。我们首先找到均值和最大池化嵌入，然后将其串联起来，得到一个两倍于hidden size的最终表示。上图b显示了这是如何做到的。<br>
+这里我们将采用Kaggle的方法，但也可以像前面的方法那样找到均值和最大值嵌入，然后连接起来，得到一个最终的结果向量，其形状也是一样的，但不会考虑padding tokens。</p>
+<h4 id="implementation-5">Implementation</h4>
+<p>利用平均-最大池化embeddings输出到下游任务。</p>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import transformers
+from transformers import (
+    AutoModel, AutoConfig, 
+    AutoTokenizer, logging
+)
+logging.set_verbosity_error()
+logging.set_verbosity_warning()
+
+train_text = train['excerpt'][:16].tolist()
+max_seq_length = 256
+_pretrained_model = 'roberta-base'
+
+config = AutoConfig.from_pretrained(_pretrained_model)
+model = AutoModel.from_pretrained(_pretrained_model, config=config)
+tokenizer = AutoTokenizer.from_pretrained(_pretrained_model)
+
+clear_output()
+
+features = tokenizer.batch_encode_plus(
+    train_text,
+    add_special_tokens=True,
+    padding='max_length',
+    max_length=max_seq_length,
+    truncation=True,
+    return_tensors='pt',
+    return_attention_mask=True
+)
+
+with torch.no_grad():
+    outputs = model(features['input_ids'], features['attention_mask'])
+last_hidden_state = outputs[0]
+
+mean_pooling_embeddings = torch.mean(last_hidden_state, 1)
+_, max_pooling_embeddings = torch.max(last_hidden_state, 1)
+mean_max_embeddings = torch.cat((mean_pooling_embeddings, max_pooling_embeddings), 1)
+logits = nn.Linear(config.hidden_size*2, 1)(mean_max_embeddings) # twice the hidden size
+
+print(f'Last Hidden State Output Shape: {last_hidden_state.detach().numpy().shape}')
+print(f'Mean-Max Embeddings Output Shape: {mean_max_embeddings.detach().numpy().shape}')
+print(f'Logits Shape: {logits.detach().numpy().shape}')
+
+del config, model, tokenizer, features
+gc.collect();
+</code></pre>
+<p>Last Hidden State Output Shape: (16, 256, 768)<br>
+Mean-Max Embeddings Output Shape: (16, 1536)<br>
+Logits Shape: (16, 1)</p>
+<h3 id="conv-1d-pooling">Conv-1D Pooling</h3>
+<h4 id="introduction-8">Introduction</h4>
+<p>使用conv1d层来过滤不想要的特征。这里内核大小为2意味着它考虑了两个token来进行跨特征的卷积。conv1d的主要思想是进行跨token的滑动，通过探索所有768个特征找到最重要的token。</p>
+<h4 id="implementation-6">Implementation</h4>
+<p>利用conv1d embedding输出到下游任务。</p>
+<pre><code class="language-python">import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import transformers
+from transformers import (
+    AutoModel, AutoConfig, 
+    AutoTokenizer, logging
+)
+logging.set_verbosity_error()
+logging.set_verbosity_warning()
+
+train_text = train['excerpt'][:16].tolist()
+max_seq_length = 256
+_pretrained_model = 'roberta-base'
+
+config = AutoConfig.from_pretrained(_pretrained_model)
+model = AutoModel.from_pretrained(_pretrained_model, config=config)
+tokenizer = AutoTokenizer.from_pretrained(_pretrained_model)
+
+clear_output()
+
+features = tokenizer.batch_encode_plus(
+    train_text,
+    add_special_tokens=True,
+    padding='max_length',
+    max_length=max_seq_length,
+    truncation=True,
+    return_tensors='pt',
+    return_attention_mask=True
+)
+
+with torch.no_grad():
+    outputs = model(features['input_ids'], features['attention_mask'])
+last_hidden_state = outputs[0]
+
+
+# first define layers
+cnn1 = nn.Conv1d(768, 256, kernel_size=2, padding=1)
+cnn2 = nn.Conv1d(256, 1, kernel_size=2, padding=1)
+
+last_hidden_state = last_hidden_state.permute(0, 2, 1)
+cnn_embeddings = F.relu(cnn1(last_hidden_state))
+cnn_embeddings = cnn2(cnn_embeddings)
+logits, _ = torch.max(cnn_embeddings, 2)
+
+print(f'Last Hidden State Output Shape: {last_hidden_state.detach().numpy().shape}')
+print(f'CNN Embeddings Output Shape: {cnn_embeddings.detach().numpy().shape}')
+print(f'Logits Shape: {logits.detach().numpy().shape}')
+
+del config, model, tokenizer, features
+gc.collect();
+</code></pre>
+<p>Last Hidden State Output Shape: (16, 768, 256)<br>
+CNN Embeddings Output Shape: (16, 1, 258)<br>
+Logits Shape: (16, 1)</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#contents">Contents</a>
+<ul>
+<li><a href="#preliminary-setup">Preliminary Setup</a></li>
+<li><a href="#pooler-output">Pooler Output</a>
+<ul>
+<li><a href="#introduction-2">Introduction</a></li>
+<li><a href="#implementation">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#last-hidden-state-output">Last Hidden State Output</a>
+<ul>
+<li><a href="#introduction-3">Introduction</a></li>
+<li><a href="#cls-embeddings">CLS Embeddings</a>
+<ul>
+<li><a href="#introduction-4">Introduction</a></li>
+<li><a href="#implementation-2">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#mean-pooling">Mean Pooling</a>
+<ul>
+<li><a href="#introduction-5">Introduction</a></li>
+<li><a href="#implementation-3">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#max-pooling">Max Pooling</a>
+<ul>
+<li><a href="#introduction-6">Introduction</a></li>
+<li><a href="#implementation-4">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#mean-max-pooling">Mean-Max Pooling</a>
+<ul>
+<li><a href="#introduction-7">Introduction</a></li>
+<li><a href="#implementation-5">Implementation</a></li>
+</ul>
+</li>
+<li><a href="#conv-1d-pooling">Conv-1D Pooling</a>
+<ul>
+<li><a href="#introduction-8">Introduction</a></li>
+<li><a href="#implementation-6">Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/shen-du-xue-xi-kong-zhi-xu-yao-you-hua-de-can-shu/">
+              <span class="post-title">
+                深度学习控制需要优化的参数&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

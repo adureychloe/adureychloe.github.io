@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>HackerRank：Truck Tour | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="HackerRank：Truck Tour | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="HackerRank：Truck Tour" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/hackerranktruck-tour/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>HackerRank：Truck Tour</h1>
+              <span class="meta">
+                Posted on
+                2023-02-27，4 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h2 id="题目描述">题目描述</h2>
+<p>给定每个汽油泵中的汽油量以及到下一个汽油泵的距离。找到我们可以启动的油泵的最小索引，然后访问每个油泵。汽油泵以圆形格式放置，因此我们可以在索引 (N-1) 之后访问索引 0。返回最小索引。</p>
+<p>输入petrolpums，petropums[i][0]是油量，petrolpums[i][1]是离下一个油泵的距离。</p>
+<h2 id="思路">思路</h2>
+<p>参考：<a href="https://codecurse.medium.com/truck-tour-hackerrank-problem-f793501e9522">https://codecurse.medium.com/truck-tour-hackerrank-problem-f793501e9522</a></p>
+<ul>
+<li>暴力解法：主要是看[i][0]和[i][1]相加后的油量是否是正，如果有一段不是，就说明此顺序不行。我们可以从每个索引开始并检查是否能够完成循环。如果不是，我们从下一个索引重新开始。我们继续这样做，直到得到我们合适的第一个索引能够完成整个循环。对于遍历最多 N 个元素的每个索引，这种方法的时间复杂度将为 O(N²)。</li>
+<li>优化解法：要完成循环，我们必须确保卡车中的汽油在任何点都不会变为负值。我们可以计算每个汽油泵的剩余距离，即到达下一个汽油泵后我们可以覆盖的额外距离。我们可以通过从当前汽油泵中的汽油中减去到下一个汽油泵的距离 ([i][0]-[i][1]) 来轻松获得此值。现在我们有每个汽油泵的额外距离，我们必须看看我们是否可以从一个特定的泵完成循环。所以我们从第一个泵开始并维护一个变量“xsum”，它表示我们还剩下多少汽油，我们不断地将每个泵的剩余添加到“xsum”变量中。如果在任何时候该变量变为负值，则意味着无法以当前起点完成循环，我们将重置该变量并从下一个汽油泵开始。要注意：我们不会从上一次迭代开始的下一个泵重新开始，而是从“xsum”变量变为负的泵重新开始。这是因为如果我们到达一个汽油泵并添加它的盈余但仍然无法完成循环，即使我们从其他点开始直到那个泵，我们也无法完成循环。</li>
+</ul>
+<p>考虑一个例子：</p>
+<p>汽油 = [ 3 , 4 , 6 , 3 , 4 , 3 , 7 ]</p>
+<p>距离 = [ 2 , 4 , 9 , 1 , 3 , 6 , 2 ]</p>
+<p>盈余 = [ 1 , 0 , -3 , 2 , -1 , -3 , 5 ]</p>
+<p>执行 ：</p>
+<p>最初 xsum=0 并且我们从 i = 0 开始（第一个泵）<br>
+将盈余加到xsum，xsum = 1<br>
+现在 i = 1 , xsum = 1+0 = 1<br>
+i = 2 , xsum = 1–3 = -2<br>
+xsum 变为负数意味着我们不能从 i=0 开始完成循环</p>
+<p>请注意，这意味着我们既不能从 i=1 开始，也不能从 i=2 开始完成循环</p>
+<p>所以我们从 i = 3 开始并重置 xsum。xsum = 0</p>
+<p>i = 3 , xsum = 0 + 2 = 2<br>
+i = 4 , xsum = 2–1 = 1<br>
+i = 5 , xsum = 1–3 = -2<br>
+xsum 变为负数意味着我们不能从 i=3 开始完成循环</p>
+<p>请注意，我们既不能从 i = 4 开始，也不能从 i = 5 开始完成循环</p>
+<p>所以我们从 i = 6 开始并重置 xsum。xsum = 0</p>
+<p>i = 6 , xsum = 0 + 5 = 5<br>
+然后我们再去第一个泵(因为圆形)</p>
+<p>i = 0 , xsum = 5 + 1 = 6<br>
+i = 1 , xsum = 6 + 0 = 6<br>
+i = 2 , xsum = 6–3 = 3 依此类推直到 i=5 我们完成循环<br>
+所以答案是6</p>
+<p>注意：我们不需要在到达最后一个泵后去第一个泵，因为给出的解决方案总是存在的，所以如果我们到达最后一个汽油泵，我们肯定会完成循环。</p>
+<pre><code class="language-python">def truckTour(petrolpumps):
+   start,xsum=0,0
+    for i in range(n):
+        xsum+=petrolpumps[i][0]-petrolpumps[i][1]     #Calculating the difference and adding to the sum
+        if xsum&lt;0:          #If sum becomes negative, that means we cannot complete the loop
+            start=i+1       #So start from the next index
+            xsum=0          #Reset the sum
+    return start
+</code></pre>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a></li>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day4-new-year-chaos/">
+              <span class="post-title">
+                HackerRank 1 week preparation kit day4: New Year Chaos&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

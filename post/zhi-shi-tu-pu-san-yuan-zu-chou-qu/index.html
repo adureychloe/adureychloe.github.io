@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>知识图谱三元组抽取 | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="知识图谱三元组抽取 | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="知识图谱三元组抽取" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/zhi-shi-tu-pu-san-yuan-zu-chou-qu/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>知识图谱三元组抽取</h1>
+              <span class="meta">
+                Posted on
+                2023-08-23，15 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <p>参考资料：</p>
+<p>https://blog.csdn.net/qq_27590277/article/details/106263409?spm=1001.2101.3001.6650.3&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-106263409-blog-108566208.pc_relevant_recovery_v2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-106263409-blog-108566208.pc_relevant_recovery_v2&amp;utm_relevant_index=4</p>
+<p>http://ltp.ai/demo.html</p>
+<p>https://blog.csdn.net/lsqzedu/article/details/122569469</p>
+<p>https://neo4j.com/developer/desktop-csv-import/</p>
+<h1 id="ltp三元组抽取">LTP三元组抽取</h1>
+<p>按照我们原来的设想，整个过程是这样子：</p>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2016.06.26.png" alt="截屏2022-12-17 16.06.26" loading="lazy"></figure>
+<p>在找寻工具来抽取三元组的过程中，发现现有的最直接的工具是哈工大的LTP（<em>Language Technology Platform</em>）</p>
+<p>官网：</p>
+<figure data-type="image" tabindex="2"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2016.10.30.png" alt="截屏2022-12-17 16.10.30" loading="lazy"></figure>
+<p>官网示例：</p>
+<figure data-type="image" tabindex="3"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2016.14.18.png" alt="截屏2022-12-17 16.14.18" loading="lazy"></figure>
+<p>可以看到它主要是利用语法结构来进行信息提取。我们要抽三元组用到的就是其中的语义角色标注SRL（Semantic Role Labeling）。</p>
+<h2 id="语义角色标注srl">语义角色标注SRL</h2>
+<figure data-type="image" tabindex="4"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2016.38.33.png" alt="截屏2022-12-17 16.38.33" loading="lazy"></figure>
+<p>自然语言分析技术大致分为三个层面：词法分析、句法分析和语义分析。语义角色标注是实现浅层语义分析的一种方式。</p>
+<p>在一个句子中，谓词是对主语的陈述或说明，指出“做什么”、“是什么”或“怎么样，代表了一个事件的核心，跟谓词搭配的名词称为论元。<strong>语义角色</strong>是指论元在动词所指事件中担任的角色。例如下面：</p>
+<figure data-type="image" tabindex="5"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/format,png.png" alt="img" loading="lazy"></figure>
+<p>A0奥巴马是施事者，发表是谓词（predicate），A1演说是受事者。</p>
+<p>具体来说，语义角色标注的任务就是以句子的谓词为中心，研究句子中各成分与谓词之间的关系，并且用语义角色来描述他们之间的关系，<strong>即句子的谓词（Predicate）- 论元（Argument）结构</strong>。</p>
+<p>抽取三元组的话一般把A0和A1作为实体，谓词predicate作为关系。</p>
+<h2 id="实际抽取">实际抽取</h2>
+<p>随便用了一篇新闻</p>
+<pre><code class="language-python">text = '当地时间12月16日，德国首都柏林街头一巨型水族馆发生爆裂。' \
+       '据美联社与路透社报道，当地时间12月16日凌晨6时前，位于德国首都柏林市中心的一个巨大的水族馆发生爆裂，' \
+       '约100万升水夹杂着玻璃碎片、热带鱼，倾泻到柏林米特区的主干道上。据报道，该水族馆的高度为25米，' \
+       '曾被称为世界上最大的圆柱形水族馆，事故发生前有约1500条热带鱼养在其中，最近一次维护是在2020年。' \
+       '由于水族馆位于一个综合休闲区内，目前爆裂导致周边的一家酒店、一家咖啡馆、一家巧克力店受损，' \
+       '2人被玻璃碎片击伤，超300名旅客和员工从水族馆周围撤离，从亚历山大广场通往勃兰登堡门的一条主干道已被封锁。' \
+       '柏林市长弗兰齐丝卡·吉费（Franziska Giffey）表示：“不幸的是，这1500条鱼没有一条能够幸免。' \
+       '但如果水族馆在（实际发生时间的）一小时后爆炸，将面临更可怕的人员伤亡。' \
+       '”动物保护组织“善待动物组织”（PETA）在推特上发文称：“这场悲剧表明，水族馆对于鱼类和其他海洋生物来说并不是一个安全的地方。”' \
+       '报道称，目前事故原因仍不明。有人推测是因为柏林当地气温一夜之间降至零下10摄氏度，导致丙烯酸玻璃壁出现裂缝，而后在水压之下爆炸。' \
+       '警方表示，暂无证据表明这起事件是恶意行为造成的。'
+</code></pre>
+<pre><code class="language-python"># 使用语义角色标注构造关系抽取
+def srl_AtoA(sent):
+    rst = ltp.pipeline([sent],tasks=[&quot;cws&quot;,&quot;pos&quot;,&quot;srl&quot;]) # cws是分词，pos是词性标注，srl是语义角色标注
+    seg = rst.cws[0]
+    srl = rst.srl[0]
+    results = []
+    for s in srl:
+        key = s['predicate'] # 谓词
+        values = s['arguments'] # 论元
+        start = ''
+        end = ''
+        for value in values:
+            # 语义角色只需要获取A0,A1(施事和受事）
+            if value[0] == 'A0':
+                start = value[1]
+            if value[0] == 'A1':
+                end = value[1]
+        if start != '' and end != '':
+            results.append((start,key,end))
+    return results
+
+
+</code></pre>
+<p>抽取结果：</p>
+<figure data-type="image" tabindex="6"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2017.01.58.png" alt="截屏2022-12-17 17.01.58" loading="lazy"></figure>
+<p>这样就自动抽取了三元组，将三元组存入neo4j来观察得到的知识图谱。</p>
+<pre><code class="language-python">class DataToNeo4j(object):
+    &quot;&quot;&quot;将数据存入neo4j&quot;&quot;&quot;
+    def __init__(self):
+        &quot;&quot;&quot;建立连接&quot;&quot;&quot;
+        neo4j_url = 'http://localhost:7474/'
+        user = 'neo4j'
+        pwd = '123456'
+        try:
+            link = Graph(neo4j_url, auth=(user, pwd),name='neo4j')
+        except Exception as e:
+            print('can\'t link to neo4j' )
+        self.graph = link
+        self.graph.delete_all()
+
+    def create_spo(self, result):
+        start = Node(&quot;Entity1&quot;, name = result[0])  # 实体1
+        end = Node(&quot;Entity2&quot;, name =  result[2])  # 实体2
+        self.graph.create(start)
+        self.graph.create(end)
+        r1 = Relationship(start, result[1], end)  # 关系
+        self.graph.create(r1)
+</code></pre>
+<p>得到知识图谱如下：</p>
+<figure data-type="image" tabindex="7"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2017.09.29.png" alt="截屏2022-12-17 17.09.29" loading="lazy"></figure>
+<p>问题很多，一个一个来说。</p>
+<h3 id="1-a0和a1并不一定是单独实体">1、A0和A1并不一定是单独实体</h3>
+<figure data-type="image" tabindex="8"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2017.10.56.png" alt="截屏2022-12-17 17.10.56" loading="lazy"></figure>
+<p>基于语义角色标注得到的三元组很多并不是我们想要的命名实体，而是一段文字。</p>
+<h3 id="2-实体和关系没有分类">2、实体和关系没有分类</h3>
+<figure data-type="image" tabindex="9"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2017.18.45.png" alt="截屏2022-12-17 17.18.45" loading="lazy"></figure>
+<p>实体没有分类，这两个“Entity1”和“Entity2”还是我前面在插入之前自己定义的，实际上如果不定义也能插入，就所有节点都是一类：</p>
+<figure data-type="image" tabindex="10"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2017.21.44.png" alt="截屏2022-12-17 17.21.44" loading="lazy"></figure>
+<p>但是实体应该分类，因为我们要抽取的实体肯定是有不同类别的，就像项目书里写的：</p>
+<figure data-type="image" tabindex="11"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2018.02.03.png" alt="截屏2022-12-17 18.02.03" loading="lazy"></figure>
+<p>所以我们肯定是得事先定义好要抽取的实体类型。</p>
+<p>关系也一样，如果单纯将抽出来的谓词当作关系，那基本上关系类型都是独立的，也不能体现不同类型实体之间固定关系（比如某地属于某国这种固定关系）。</p>
+<h3 id="3-实体都是孤立的">3、实体都是孤立的</h3>
+<figure data-type="image" tabindex="12"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-17%2021.50.50.png" alt="截屏2022-12-17 21.50.50" loading="lazy"></figure>
+<p>可以看到17对实体全部是孤立的，没有相互联系。一方面是因为只有一篇文章，但更重要是因为抽取效果差，比如水族馆位于德国柏林这个信息都没有抽取出来。说明这种方法不适合。</p>
+<h1 id="官网示例">官网示例</h1>
+<p>我们来看一下neo4j官网的示例。一般来说输入是csv表，我们需要两个实体表，一个关系表。</p>
+<p>在插入数据之前，为了确保主键的值是唯一的，需要定义数据表约束：</p>
+<pre><code class="language-cypher">CREATE CONSTRAINT UniqueProduct ON (p:Product) ASSERT p.id IS UNIQUE;
+CREATE CONSTRAINT UniqueOrder ON (o:Order) ASSERT o.id IS UNIQUE;
+</code></pre>
+<p>这里Product和Order就是我们现在定义的两种节点类型，也就是实体类型，id是插入每个数据时自动分配的索引。</p>
+<p>一个实体表是products.csv：</p>
+<figure data-type="image" tabindex="13"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-18%2012.26.51.png" alt="截屏2022-12-18 12.26.51" loading="lazy"></figure>
+<p>它包含商品ID，商品名字，单价，这些都是product实体的属性。</p>
+<p>另一个实体表是order.csv:</p>
+<figure data-type="image" tabindex="14"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-18%2012.47.22.png" alt="截屏2022-12-18 12.47.22" loading="lazy"></figure>
+<p>它包含订单ID，订单日期，国家，这些都是order实体的属性。</p>
+<p>关系表是order-details.csv:</p>
+<figure data-type="image" tabindex="15"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-18%2012.48.18.png" alt="截屏2022-12-18 12.48.18" loading="lazy"></figure>
+<p>它包含商品ID、订单ID和订单数量。其中商品ID和订单ID的对应代表了两个实体的关系，该关系拥有属性订单数量。</p>
+<p>我们要定义的图结构是这样：</p>
+<figure data-type="image" tabindex="16"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/developer-desktop-csv-import-data_model.svg" alt="developer desktop csv import data model" loading="lazy"></figure>
+<p>CONTAINS就是我们后面定义的关系类别，代表了product和order两个实体之间的关系。</p>
+<p>分别导入实体和关系数据：</p>
+<ul>
+<li>导入product数据：</li>
+</ul>
+<pre><code class="language-cypher">LOAD CSV FROM 'file:///products.csv' AS row
+WITH toInteger(row[0]) AS productId, row[1] AS productName, toFloat(row[2]) AS unitCost
+MERGE (p:Product {productId: productId})
+  SET p.productName = productName, p.unitCost = unitCost
+RETURN count(p);
+</code></pre>
+<p>​		<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-18%2012.54.59.png" alt="截屏2022-12-18 12.54.59" loading="lazy"></p>
+<ul>
+<li>导入order数据：</li>
+</ul>
+<pre><code class="language-cypher">LOAD CSV WITH HEADERS FROM 'file:///orders.csv' AS row
+WITH toInteger(row.orderID) AS orderId, datetime(replace(row.orderDate,' ','T')) AS orderDate, row.shipCountry AS country
+MERGE (o:Order {orderId: orderId})
+  SET o.orderDateTime = orderDate, o.shipCountry = country
+RETURN count(o);
+</code></pre>
+<figure data-type="image" tabindex="17"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-18%2013.04.30.png" alt="截屏2022-12-18 13.04.30" loading="lazy"></figure>
+<ul>
+<li>导入关系：</li>
+</ul>
+<pre><code class="language-cypher">LOAD CSV WITH HEADERS FROM 'file:///order-details.csv' AS row
+WITH toInteger(row.productID) AS productId, toInteger(row.orderID) AS orderId, toInteger(row.quantity) AS quantityOrdered
+MATCH (p:Product {productId: productId})
+MATCH (o:Order {orderId: orderId})
+MERGE (o)-[rel:CONTAINS {quantityOrdered: quantityOrdered}]-&gt;(p)
+RETURN count(rel);
+</code></pre>
+<p>这里面的CONTAINS就是我们定义的关系类型。</p>
+<p>整个图谱：</p>
+<figure data-type="image" tabindex="18"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-18%2013.06.55.png" alt="截屏2022-12-18 13.06.55" loading="lazy"></figure>
+<figure data-type="image" tabindex="19"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-18%2013.07.45.png" alt="截屏2022-12-18 13.07.45" loading="lazy"></figure>
+<p>关系CONTAINS也有自己的属性订单数量。</p>
+<h1 id="设计知识图谱">设计知识图谱</h1>
+<p>由上可知，我们需要事先定义好知识图谱的类别和关系，才能构建好一个知识图谱，方便我们后续的查询等操作。举例来说可以设计这样的图谱：</p>
+<ul>
+<li>创建“人物”实体</li>
+<li>创建“组织”实体</li>
+<li>创建“产品”实体</li>
+<li>创建“领域”实体</li>
+<li>创建“型号”实体</li>
+<li>创建“人”和“人”的关系，这个关系的属性可能有亲属、同事等</li>
+<li>创建“人”和“组织”的关系，属性可能有职位等</li>
+<li>。。。。。</li>
+</ul>
+<figure data-type="image" tabindex="20"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-18%2016.09.48.png" alt="截屏2022-12-18 16.09.48" loading="lazy"></figure>
+<p>这只是可能的一个例子，具体设计什么实体、关系和属性要根据具体的数据和任务来决定。</p>
+<h1 id="实体关系抽取">实体关系抽取</h1>
+<p>要抽取实体关系，我们得首先定义两个东西：（1）什么是我们需要的实体；（2）什么是我们需要的实体关系。一般来说，可以用schema来描述有价值的实体关系类型。</p>
+<figure data-type="image" tabindex="21"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-20%2020.46.02.png" alt="截屏2022-12-20 20.46.02" loading="lazy"></figure>
+<h1 id="通用信息抽取">通用信息抽取</h1>
+<p>根据语义结构直接抽三元组行不通，我又尝试了一下开放域的通用信息抽取方法 工具。</p>
+<h2 id="uie">UIE</h2>
+<p>中科院软件所和百度共同提出了一个大一统诸多任务的通用信息抽取技术 UIE（Unified Structure Generation for Universal Information Extraction），发表在ACL‘22。UIE在实体、关系、事件和情感等4个信息抽取任务、13个数据集的全监督、低资源和少样本设置下，UIE均取得了SOTA性能，不需要标注数据（或仅需少量标注数据），即可快速完成各类信息抽取任务。</p>
+<p>直接用的话准确率可以，查全率不太行。</p>
+<p>实体识别：</p>
+<pre><code class="language-python"># 实体抽取
+schema = ['国家','市', '时间','人物','职位','组织','建筑']
+ie.set_schema(schema)
+text = '当地时间12月16日，德国首都柏林街头一巨型水族馆发生爆裂。\
+据美联社与路透社报道，当地时间12月16日凌晨6时前，位于德国首都柏林市中心的一个巨大的水族馆发生爆裂，约100万升水夹杂着玻璃碎片、热带鱼，倾泻到柏林米特区的主干道上。据报道，该水族馆的高度为25米，曾被称为世界上最大的圆柱形水族馆，事故发生前有约1500条热带鱼养在其中，最近一次维护是在2020年。\
+由于水族馆位于一个综合休闲区内，目前爆裂导致周边的一家酒店、一家咖啡馆、一家巧克力店受损，2人被玻璃碎片击伤，超300名旅客和员工从水族馆周围撤离，从亚历山大广场通往勃兰登堡门的一条主干道已被封锁。\
+柏林市长弗兰齐丝卡·吉费（Franziska Giffey）表示：“不幸的是，这1500条鱼没有一条能够幸免。但如果水族馆在（实际发生时间的）一小时后爆炸，将面临更可怕的人员伤亡。”动物保护组织“善待动物组织”（PETA）在推特上发文称：“这场悲剧表明，水族馆对于鱼类和其他海洋生物来说并不是一个安全的地方。”\
+报道称，目前事故原因仍不明。有人推测是因为柏林当地气温一夜之间降至零下10摄氏度，导致丙烯酸玻璃壁出现裂缝，而后在水压之下爆炸。警方表示，暂无证据表明这起事件是恶意行为造成的。'
+
+ie(text)
+</code></pre>
+<figure data-type="image" tabindex="22"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-20%2017.43.08.png" alt="截屏2022-12-20 17.43.08" loading="lazy"></figure>
+<figure data-type="image" tabindex="23"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-20%2017.43.42.png" alt="截屏2022-12-20 17.43.42" loading="lazy"></figure>
+<figure data-type="image" tabindex="24"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-20%2017.44.33.png" alt="截屏2022-12-20 17.44.33" loading="lazy"></figure>
+<p>职位没有抽出来，酒店、咖啡馆这些建筑也没有抽出来。抽出来的这些应该是训练时候的语料中有才能以高置信度抽出，如果换成没见过的涉密文本实体直接抽应该够呛。</p>
+<figure data-type="image" tabindex="25"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-20%2017.41.36.png" alt="截屏2022-12-20 17.41.36" loading="lazy"></figure>
+<p>运行时间也比较长。</p>
+<p>换一个军事方面的，抽取武器型号和功能。</p>
+<pre><code class="language-python">text = '要说中国的黑科技武器装备，那可是非常的多。比如歼-20隐身战机，攻击-11隐身无人机、055型驱逐舰、东风-21D、东风-26反舰弹道导弹、以及东风-17高超音速导弹、电磁炮等。这些武器装备在当今世界上绝对是处于领先地位，每一款武器装备的威都非常的大，就连美国都不敢小觑。咱们就仔细来看下中国的军事武器装备黑科技。\
+先来看下歼-20隐身战斗机。据悉，歼-20隐身战机是我国自主研制的一款单座、双发的鸭翼式布局的第五代隐身战机，同时也是世界上第三个列装的第五代隐身战斗机，而目前世界上一共有四款隐身战斗机。我国的歼-20隐身战斗机在航程、航电等方面是丝毫不比美国的F-22战机差。除此之外，歼-20还装备了射程超过200公里的霹雳-15导弹，具备超视距攻击。\
+而攻击-11无人机，该机则让中国成为了世界上第一款装备隐身无人机的国家。虽然美国、欧洲等国家也在研制隐身无人机，但还没有列装。攻击-11无人机由于采用了飞翼布局，背负式进气道设计，没有垂直尾翼和平尾具备很强的隐身能力。除此之外，该机内置载弹量应该会达到2吨级，最大航程则会接近4000公里。未来，该机将会成为歼-20的“忠诚僚机”，与歼-20一起执行任务。\
+055型驱逐舰则是我国的首款排水量过万吨的驱逐舰，该舰排水量达到了1.3万吨左右，并且运用了各种新型的技术，比如一体桅杆化的设计，集雷达综合体，集雷达、通讯和电子以及敌我识别，综合调度等功能于一体、双波段雷达，成为了全球第二款装备X+S双波段有源相控阵雷达的水面战舰，这让055型驱逐舰拥有防守能力，真正做到攻防兼备。当然，该舰还装备了112单元的垂直发射系统，并且拥有1坑4弹的设计，能发射海军当中很多现役导弹，未来更是能发射高超音速反舰导弹等。可以说，055型驱逐舰的杀伤力在全球都是非常强的。\
+我国还是全球唯一一个拥有反舰弹道导弹的国家，东风-21D、以及东风-26这两款弹道导弹更是被称为航母杀手。尤其是东风-26反舰弹道导弹威力更大，该导弹射程超过5000公里，并且可以搭载载核弹头，其杀伤力破坏更加的强大，能够对对陆地上和海上大中型舰船等目标精确打击。\
+而东风-17高超音速导弹威力更是非常的大，它是世界上首种进入实用阶段的高超音速乘波体武器。其射程在1800公里-2500公里左右，最高速度有超过10马赫，由于该导弹侧边还装有矢量喷管，可随时进行横向机动，在该导弹行动过程当中，路线是相当的比较诡异，也就是该导弹很难被敌方给拦截。'
+</code></pre>
+<p>一大段直接输入会有问题，只能分句输入。抽取关系为：</p>
+<pre><code class="language-python">schema = {'武器':['型号','功能']}
+</code></pre>
+<p>得到输出</p>
+<figure data-type="image" tabindex="26"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-12-20%2020.27.55.png" alt="截屏2022-12-20 20.27.55" loading="lazy"></figure>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#ltp%E4%B8%89%E5%85%83%E7%BB%84%E6%8A%BD%E5%8F%96">LTP三元组抽取</a>
+<ul>
+<li><a href="#%E8%AF%AD%E4%B9%89%E8%A7%92%E8%89%B2%E6%A0%87%E6%B3%A8srl">语义角色标注SRL</a></li>
+<li><a href="#%E5%AE%9E%E9%99%85%E6%8A%BD%E5%8F%96">实际抽取</a>
+<ul>
+<li><a href="#1-a0%E5%92%8Ca1%E5%B9%B6%E4%B8%8D%E4%B8%80%E5%AE%9A%E6%98%AF%E5%8D%95%E7%8B%AC%E5%AE%9E%E4%BD%93">1、A0和A1并不一定是单独实体</a></li>
+<li><a href="#2-%E5%AE%9E%E4%BD%93%E5%92%8C%E5%85%B3%E7%B3%BB%E6%B2%A1%E6%9C%89%E5%88%86%E7%B1%BB">2、实体和关系没有分类</a></li>
+<li><a href="#3-%E5%AE%9E%E4%BD%93%E9%83%BD%E6%98%AF%E5%AD%A4%E7%AB%8B%E7%9A%84">3、实体都是孤立的</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%AE%98%E7%BD%91%E7%A4%BA%E4%BE%8B">官网示例</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1">设计知识图谱</a></li>
+<li><a href="#%E5%AE%9E%E4%BD%93%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96">实体关系抽取</a></li>
+<li><a href="#%E9%80%9A%E7%94%A8%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96">通用信息抽取</a>
+<ul>
+<li><a href="#uie">UIE</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/zhi-shi-tu-pu-gou-jian-liu-cheng/">
+              <span class="post-title">
+                知识图谱构建流程&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

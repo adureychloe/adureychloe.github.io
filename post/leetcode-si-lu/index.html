@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>leetcode 思路 | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="leetcode 思路 | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="leetcode 思路" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/leetcode-si-lu/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>leetcode 思路</h1>
+              <span class="meta">
+                Posted on
+                2023-09-08，8 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="数组">数组</h1>
+<ol>
+<li>在一个数组中找一个位置，想到先将数组排序后用二分</li>
+<li>对一个数组操作后前后长度改变，想到用快慢指针，快指针一直移动，慢指针指向更新数组下标，满足条件才动</li>
+<li>有序数组的平方后排序，用双指针分别指向开头和结尾，谁小在结果数组放谁。</li>
+<li>求数组的连续子序列，一般滑动窗口。用一个for循环，索引是窗口的终止位置，当窗口内元素不满足要求了，就向前移动起始位置。</li>
+<li>螺旋矩阵，要按照顺时针走四条边，每条都左闭右开。全部圈的循环次数看n//2，中间的位置也是n//2，从（0，0）开始第一圈，第二圈开始变成（1，1）</li>
+<li>一个数组的连续子数组个数，比如[1,2,3]的子数组，当i指向-1，j遍历时，子数组个数就是j-(-1)个，比如0-(-1)是1，也就是[1]，1-(-1)是2，就是[1,2][2]，也就是只要一直加就能得到全部的子数组个数。（在某一区间内，第一个i指向左区间左边，第二个j遍历区间，一直加）</li>
+</ol>
+<h1 id="链表">链表</h1>
+<ol>
+<li>python链表节点：<pre><code class="language-python">class ListNode:
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+</code></pre>
+</li>
+<li>更改链表，使用dummy_head。</li>
+<li>反转链表，用迭代或递归，用双指针，一个指向前一位置，一个指向当前位置。</li>
+<li>反转链表区间，用三个指针，分别指向前、中、后位置，prev一直固定，指向不断变化的下一个位置，一直是cur向后移动（其实是cur指向的在动，cur指的数不变），next是cur后一个，每次循环将cur的下一个移动到prev下一个。</li>
+<li>删除倒数第n个节点，用快慢指针，首先快指针走n步，然后快慢指针一起走，直到快指针指向空，慢指针就指向n（注意倒数第n个就是正数第 L-n 个）。</li>
+<li>链表相交，先将长的对齐到短的，然后一起向前，遇到相同节点就返回。</li>
+<li>环形链表，用快慢指针，环的起点就是快慢指针相遇之后，慢指针重新指向开头，快慢指针同速前进，下一个相遇点。</li>
+<li>删除数组元素用双指针。</li>
+</ol>
+<h1 id="哈希表">哈希表</h1>
+<ol>
+<li>
+<p>哈希碰撞：</p>
+<ul>
+<li>拉链法：存储在链表中<br>
+<img src="https://code-thinking-1253855093.file.myqcloud.com/pics/20210104235015226.png" alt="" loading="lazy"></li>
+<li>线性探测法：向下找空位</li>
+</ul>
+</li>
+<li>
+<p>遇到需要判断一个元素是否出现过马上想到哈希</p>
+</li>
+<li>
+<p>求交集用 set和&amp;，或者字典哈希，或者数组</p>
+</li>
+<li>
+<p>求快乐数，因为和可能会重复出现，只要一出现重复就可以判断不是快乐数，所以使用哈希。</p>
+</li>
+<li>
+<p>两数之和，用字典，如果target-当前值的结果在字典中，返回，否则记录当前值。</p>
+</li>
+<li>
+<p>四数相加，求四个数组各取一个和为0的可能次数。思路：</p>
+<ul>
+<li>首先一个哈希，key放前两个数组元素之和a+b，value放出现次数</li>
+<li>遍历后两个数组，找 0-(c+d) 在哈希中的出现</li>
+</ul>
+</li>
+<li>
+<p>如果数据量大时间过不掉，就不用字典而用数组（前提是数组长度已知）</p>
+</li>
+<li>
+<p>三数之和，求数组中a+b+c=0的个数，可以排序后用哈希确定 0-（a+b）在不在哈希中，注意如果第一个数大于0就绝对没有。</p>
+</li>
+</ol>
+<h1 id="字符串">字符串</h1>
+<ol>
+<li>反转字符串用切片或reversed，不能用的话用双指针。</li>
+<li>反转每2k的前k个，每次前进2k，用一个p记录2k，一个p2记录k，反转前k就行。</li>
+<li>替换空格，用replace或join+split</li>
+<li>翻转字符串里的单词，简单的就是split加倒序，如果不用辅助空间，先将全部字符反转，然后单词内部反转。</li>
+<li>左旋字符串，直接用切片拼接</li>
+<li>判断字符串是否可以由重复的子字符串组成，因为字符串如果由重复子字符串组成，可以从中间分成前后一样的两段s1+s2，如果在后面拼接上本身，中间就有s2+s1=s出现，注意要剔除第一和最后一个元素，保证s是出现在中间。即掐头去尾后用find。</li>
+<li>很多数组填充类的问题，都可以先预先给数组扩容带填充后的大小，然后在从后向前进行操作</li>
+</ol>
+<h1 id="栈和队列">栈和队列</h1>
+<ol>
+<li>用栈模拟队列，需要两个栈，一个进栈，一个出栈。python中用列表模拟就行，pop方法就是最右边的元素。<br>
+<img src="https://code-thinking.cdn.bcebos.com/gifs/232.%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E7%89%88%E6%9C%AC2.gif" alt="" loading="lazy"></li>
+<li>用队列模拟栈，只需要一个队列，在模拟栈弹出元素的时候只要将队列头部的元素重新添加到队列尾部，只留一个，就可以模拟栈了。队列在python里是collections里的deque，使用popleft弹出，append添加</li>
+<li>删除字符串中的所有相邻重复项，和括号匹配相似，用栈记录元素，如果出现就pop。</li>
+<li>求滑动窗口中的最大值，使用单调队列。队列中的元素要排序，维护元素单调递减的队列就叫做单调队列，单调队列不是排序，只维护有可能成为最大值的元素，比如对于{2，3，5，1，4}，单调队列只维护{5，4}，出口元素就是最大元素。需要三个函数：pop、push和front（返回出口元素）。因此pop和push操作规则：如果窗口移除元素等于出口元素，就pop，否则不变；如果push的元素大于入口元素，就将入口元素pop，直到push元素小于入口元素。</li>
+</ol>
+<h1 id="二叉树">二叉树</h1>
+<ol>
+<li>
+<p>二叉树的递归遍历用栈，只要注意顺序不一样。迭代也是用栈，但是前中后不一样。前序遍历是中左右，每次先处理的是中间节点，那么先将根节点放入栈中，出栈，然后将右孩子加入栈，再加入左孩子（这样出栈才是左右）。中序遍历是左中右，先访问的是二叉树顶部的节点，然后一层一层向下访问，直到到达树左面的最底部，再开始处理节点（也就是在把节点的数值放进result数组中）。后续遍历是左右中，那么我们只需要调整一下先序遍历的代码顺序，就变成中右左的遍历顺序，然后在反转result数组，输出的结果顺序就是左右中了。</p>
+<blockquote>
+<p>递归三要素：<br>
+确定递归函数的参数和返回值<br>
+确定终止条件<br>
+确定单层递归的逻辑</p>
+</blockquote>
+</li>
+<li>
+<p>层序遍历用队列。</p>
+</li>
+<li>
+<p>翻转二叉树用前序/后序/层序遍历。</p>
+</li>
+<li>
+<p>判断对称二叉树，使用后序遍历，通过递归函数的返回值来判断两个子树的内侧节点和外侧节点是否相等。正是因为要遍历两棵树而且要比较内侧和外侧节点，所以准确的来说是一个树的遍历顺序是左右中，一个树的遍历顺序是右左中。</p>
+</li>
+<li>
+<p>使用前序求的就是深度，使用后序求的是高度。</p>
+</li>
+</ol>
+<ul>
+<li>二叉树节点的深度：指从根节点到该节点的最长简单路径边的条数或者节点数（取决于深度从0开始还是从1开始）</li>
+<li>二叉树节点的高度：指从该节点到叶子节点的最长简单路径边的条数或者节点数（取决于高度从0开始还是从1开始）</li>
+</ul>
+<p>根节点的高度就是二叉树的最大深度，所以我们通过后序求的根节点高度来求的二叉树最大深度。</p>
+<ol start="6">
+<li>
+<p>求最小深度，也可以用后序遍历求高度，不过要注意最小深度是到叶子节点：<br>
+<img src="https://code-thinking.cdn.bcebos.com/pics/111.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6.png" alt="" loading="lazy"></p>
+<p>所以有条件，如果左子树为空，右子树不为空，说明最小深度是 1 + 右子树的深度。反之，右子树为空，左子树不为空，最小深度是 1 + 左子树的深度。 最后如果左右子树都不为空，返回左右子树深度最小值 + 1.<br>
+<strong>求二叉树的最小深度和求二叉树的最大深度的差别主要在于处理左右孩子不为空的逻辑。</strong></p>
+</li>
+<li>
+<p>判断是不是满二叉树：完全二叉树中递归向左遍历的深度等于递归向右遍历的深度。<br>
+<img src="https://code-thinking-1253855093.file.myqcloud.com/pics/20220829163554.png" alt="" loading="lazy"></p>
+</li>
+<li></li>
+</ol>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E6%95%B0%E7%BB%84">数组</a></li>
+<li><a href="#%E9%93%BE%E8%A1%A8">链表</a></li>
+<li><a href="#%E5%93%88%E5%B8%8C%E8%A1%A8">哈希表</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a></li>
+<li><a href="#%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97">栈和队列</a></li>
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a></li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/hackerrank-arrays-minimum-swaps-2/">
+              <span class="post-title">
+                HackerRank Arrays Minimum Swaps 2&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>

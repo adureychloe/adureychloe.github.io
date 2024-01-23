@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Central Park]的个人博客">
+<meta name="author" content="kveln">
+<title>论文阅读——威胁情报 | Central Park</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="论文阅读——威胁情报 | Central Park » Feed"
+  href="https://adureychloe.github.io//atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://adureychloe.github.io//styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="论文阅读——威胁情报" />
+  <meta property="og:url" content="https://adureychloe.github.io/post/wei-xie-qing-bao-lun-wen/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Central Park" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://adureychloe.github.io/">Central Park</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1705982296753"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://adureychloe.github.io//media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://adureychloe.github.io/tag/7VQKROPzY/" class="tag">paper</a>
+                
+              </span>
+              <h1>论文阅读——威胁情报</h1>
+              <span class="meta">
+                Posted on
+                2022-07-11，25 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <hr>
+<p>title: '威胁情报论文'<br>
+date: 2022-07-11 14:06:56<br>
+tags: [paper]<br>
+published: true<br>
+hideInList: false<br>
+feature:<br>
+isTop: false</p>
+<hr>
+<h1 id="定义">定义</h1>
+<p>TTP：只是一种概念，符合这种概念的都算TTP。在STIX中一般是Malware、Infrastructure、Tool、Attack Pattern。</p>
+<h1 id="资源">资源</h1>
+<p>Blacklists：CleanMX， PhishTank</p>
+<p>IOC provider：AlienVault, Recorded Future, Malware-bytes</p>
+<p>article：Hexacorn, Naked Security, Malware-don't need coffee, Symantec, Kaspersky, McAfee, ThreatExchange, dibnet, Krebs on Security</p>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-10%2016.00.31.png" alt="截屏2022-09-10 16.00.31" loading="lazy"></figure>
+<p>APTNotes:</p>
+<p>OpenIOC: iockucket, openiocdb</p>
+<p>CTI source:</p>
+<ul>
+<li>IBM X-Force Exchange Platform,</li>
+<li>ThreatBook</li>
+<li>Facebook ThreatExchange</li>
+<li>Paid Feed Aggregator(PA)</li>
+<li>AlienVault</li>
+<li>Badips</li>
+<li>Abuse.ch</li>
+<li>Packetmail</li>
+</ul>
+<h1 id="一-ttpdrill-automatic-and-accurate-extraction-of-threat-actions-from-unstructured-text-of-cti-sources">一、TTPDrill: Automatic and Accurate Extraction of Threat Actions from Unstructured Text of CTI Sources</h1>
+<h2 id="摘要">摘要</h2>
+<p>缺少标准化语言和对网络威胁信息的自动分析技术，使得从CTI报告中分析非结构化文本非常耗时耗力。本文目标是设计一个自动化且考虑上下文的威胁情报提取器，从公共CTI来源中精确提取到攻击模式（TTP）。本文贡献有三个：</p>
+<ul>
+<li>创新性地提出一个威胁-动作本体。</li>
+<li>设计一个混合NLP和IR的文本挖掘方法，基于语义而不是句法关系抽取威胁动作。</li>
+<li>通过映射每个威胁动作到一个技术、战术和杀伤链阶段，构造出一个完整的攻击模式，并转换成威胁情报标准，如STIX2.1。<br>
+TTPDrill在不同评估方式上实现了超过82%的精确率和召回率。</li>
+</ul>
+<h2 id="引言">引言</h2>
+<figure data-type="image" tabindex="2"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2016.45.32.png" alt="截屏2022-07-12 16.45.32" loading="lazy"></figure>
+<h2 id="ttpdrill-结构">TTPDrill 结构</h2>
+<figure data-type="image" tabindex="3"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2016.47.46.png" alt="截屏2022-07-12 16.47.46" loading="lazy"></figure>
+<p>首先爬取报告、清洗数据、丢弃无关文章（例如广告）；然后使用词形解析，从文章中提取候选威胁动作（subject、verb、object），这些动作之后利用BM25 TF-IDF赋予权重并筛选，找出与威胁本体最符合的威胁动作。报告中的IOC会对识别造成影响，所以要用正则替换：</p>
+<figure data-type="image" tabindex="4"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2016.58.08.png" alt="截屏2022-07-12 16.58.08" loading="lazy"></figure>
+<p>威胁动作提取例子：</p>
+<figure data-type="image" tabindex="5"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2017.00.22.png" alt="截屏2022-07-12 17.00.22" loading="lazy"></figure>
+<h2 id="威胁动作本体">威胁动作本体</h2>
+<p>本体就是对一个特定领域的规范描述。我们的方法基于ATT&amp;CK和CAPEC构造。</p>
+<figure data-type="image" tabindex="6"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2017.03.15.png" alt="截屏2022-07-12 17.03.15" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2017.03.21.png" alt="截屏2022-07-12 17.03.21" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2017.03.29.png" alt="截屏2022-07-12 17.03.29" loading="lazy"></figure>
+<p>本体类型：</p>
+<ul>
+<li>威胁动作：中心种类</li>
+<li>战术：ATT&amp;CK提供10种，CAPEC提供9种</li>
+<li>技术：战术下的具体攻击技术，一个技术可能被多个威胁动作执行</li>
+</ul>
+<h2 id="威胁动作提取和分析">威胁动作提取和分析</h2>
+<p>TTPDrill期望一个报告对应一个恶意软件。</p>
+<h3 id="爬取和预处理">爬取和预处理</h3>
+<p>用SVM训练文档分类器，区分出无关文档。</p>
+<h4 id="清洗文本">清洗文本：</h4>
+<ul>
+<li>去除HTML标签、图片、视频</li>
+</ul>
+<h4 id="文本分类">文本分类：</h4>
+<p>SVM分类器特征：</p>
+<ul>
+<li>词语数量：TTP文章的词数量更多</li>
+<li>安全动作-词 密度：根据公共信息标准（ATT&amp;CK、CAPEC、CWE、CVE）提取verb，然后为了标记这些verb，计算该密度，即这些verb在一篇文章中的出现比例</li>
+<li>安全目标-词 密度：计算安全noun的比例</li>
+</ul>
+<h4 id="正则匹配">正则匹配</h4>
+<h2 id="威胁动作识别">威胁动作识别</h2>
+<p>分两步提取文章中的威胁动作：识别候选威胁动作、将候选动作映射到本体的威胁动作。</p>
+<p>一个威胁动作包含一个SVO（subject, verb, object）语法结构，用斯坦福依赖解析器识别，源结点称为governor，目的结点称为dependent。</p>
+<figure data-type="image" tabindex="9"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2017.37.45.png" alt="截屏2022-07-12 17.37.45" loading="lazy"></figure>
+<figure data-type="image" tabindex="10"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2017.37.53.png" alt="截屏2022-07-12 17.37.53" loading="lazy"></figure>
+<h2 id="威胁动作映射和筛选">威胁动作映射和筛选</h2>
+<figure data-type="image" tabindex="11"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2020.15.40.png" alt="截屏2022-07-12 20.15.40" loading="lazy"></figure>
+<p>一个已知的本体entry表示成词袋，候选动作也表示成词袋，计算相似度，计算方法是BM25为权重函数的TF-IDF。注意要考虑同义词。</p>
+<p>一对一的候选动作称为原始动作，多对一的动作称为复合动作，前者一对一计算相似度，后者将多个候选动作合并计算相似度，合并原则是：</p>
+<ul>
+<li>只考虑m窗口大小的句子提取的候选动作（m=3）</li>
+<li>只有相似度分数提升超过阈值才合并</li>
+</ul>
+<h2 id="构建ttp杀伤链">构建TTP杀伤链</h2>
+<figure data-type="image" tabindex="12"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2020.49.15.png" alt="截屏2022-07-12 20.49.15" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2020.49.23.png" alt="截屏2022-07-12 20.49.23" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2020.49.31.png" alt="截屏2022-07-12 20.49.31" loading="lazy"></figure>
+<h1 id="评估">评估</h1>
+<p>两个阈值：</p>
+<ul>
+<li>候选与本体匹配的截断阈值</li>
+</ul>
+<figure data-type="image" tabindex="15"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2020.52.35.png" alt="截屏2022-07-12 20.52.35" loading="lazy"></figure>
+<ul>
+<li>合并选择阈值</li>
+</ul>
+<figure data-type="image" tabindex="16"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-07-12%2020.52.46.png" alt="截屏2022-07-12 20.52.46" loading="lazy"></figure>
+<h1 id="acing-the-ioc-game-toward-automatic-discovery-andanalysis-of-open-source-cyber-threat-intelligence">Acing the IOC Game- Toward Automatic Discovery andAnalysis of Open-Source Cyber Threat Intelligence</h1>
+<h2 id="摘要-2">摘要</h2>
+<p>IOC（如恶意软件指纹，僵尸网络ip）。提出iACE，自动提取IOC。</p>
+<p>依据是文章中的IOC通常与通过语法关系与一系列上下文联系在一起，iACE自动定位IOC和上下文，通过图挖掘技术分析关系，最后生成OpenIOC项。</p>
+<p>实验在45个博客的71000篇文章提取了900k的OpenIOC项，准确率95%，覆盖率90%。</p>
+<h2 id="引言-2">引言</h2>
+<p>CTI经常用IOC形式，如病毒指纹、僵尸网络IP/域名，攻击文件MD5hash。</p>
+<h2 id="难点">难点</h2>
+<p>NER难点在于一个领域的方法不适用于另一个领域，RE难点在于IOC和上下文之间的关系复杂。</p>
+<figure data-type="image" tabindex="17"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220304160214563.png" alt="image-20220304160214563" loading="lazy"></figure>
+<h2 id="整体结构">整体结构</h2>
+<p>预处理文章：使用topic-term分类找出可能包含IOC的文章，ocr提取图片中的文字。</p>
+<p>定位包含IOC token的句子，建立IOC token和上下文之间的联系，将句子转化为依赖图DG。</p>
+<p>利用图挖掘技术分析token之间的关系，确认是否真的包含IOC。</p>
+<figure data-type="image" tabindex="18"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220304161005116.png" alt="image-20220304161005116" loading="lazy"></figure>
+<h1 id="hincti-a-cyber-threat-intelligence-modeling-and-identification-system-based-on-heterogeneous-information-network">HinCTI: A Cyber Threat Intelligence Modeling and Identification System Based on Heterogeneous Information Network</h1>
+<h2 id="摘要-3">摘要</h2>
+<p>创建CTI很困难，因为CTI之间内在和外在的关系，还有CTI中包含的威胁基础设施节点的异构性。因为网络威胁基础设施节点标签有限，自动识别基础设施节点的威胁种类很困难。本文提出HinCTI来创建网络威胁情报和识别威胁类型。首先，设计了一个威胁情报元模式来描述基础设施节点间的语义关系。之后在HIN（异构信息网络）上创建威胁情报，能融合各种基建节点和它们之间的丰富关系。接下来，定义了MIIS指标，提出基于MIIS度量的异构图卷积网络（GCN）来识别基建节点威胁类型。</p>
+<p>本文第一个在HIN上创建CTI来威胁识别并提出一个基于异构GCN的方法来识别威胁类型。</p>
+<h2 id="引言-3">引言</h2>
+<p>本研究只考虑结构化的CTI数据。</p>
+<h3 id="意义">意义</h3>
+<ul>
+<li>很少有研究集中在CTI中包含的基建节点的有限威胁类型标签问题。</li>
+<li>很少研究关注从HIN的视角研究基建节点之间的深层语义关系。</li>
+</ul>
+<h3 id="贡献">贡献</h3>
+<ul>
+<li>从计算的视角（基于元路径和元图物质计算）提出基于HIN的CTI创建方法</li>
+<li>基于MIIS度量的异构GCN方法来识别基建节点的威胁类型</li>
+<li>提出HinCTI系统，创建CTI和识别威胁类型</li>
+</ul>
+<h2 id="创建cti">创建CTI</h2>
+<figure data-type="image" tabindex="19"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220305145738765.png" alt="image-20220305145738765" loading="lazy"></figure>
+<p>如图所示，两个domain之间的关系能用域名相关服务来丰富，例如来自Whois数据库的相关所有者，相关组织、DNS相关位置、相关注册者等；两个IP之间关系能用IP相关服务来丰富，例如IP2Location来获得相同ISP；。。。有害文件哈希能用开源恶意软件分析工具。。。，例如CVE数据库；。。。电子邮件用相同主机名字的关系。</p>
+<figure data-type="image" tabindex="20"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220305150528933.png" alt="image-20220305150528933" loading="lazy"></figure>
+<p>一块威胁情报实例能看作整个HIN的子图。</p>
+<h2 id="系统结构">系统结构</h2>
+<figure data-type="image" tabindex="21"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220305150930947.png" alt="image-20220305150930947" loading="lazy"></figure>
+<h1 id="threat-intelligence-generation-using-network-telescope-data-for-industrial-control-systems">Threat Intelligence Generation Using Network Telescope Data for Industrial Control Systems</h1>
+<h2 id="摘要-4">摘要</h2>
+<p>文章通过分析网络望远镜流量（好像就是暗网流量）来探索工控设备的威胁范围。工控系统（ICS），文章分析暗网流量并生成针对ICS的扫描活动（campaign）的威胁情报。分析数据包的技术是DPI（deep packet inspection）。作者找到了13个不同的payload模板。使用机器学习来分类这些活动的来源，并识别威胁主体例如僵尸网络、恶意攻击者或研究者，最后用一种打分方法对威胁活动进行评级。收集了暗网上12.85TB（330天）的网络流量。</p>
+<h2 id="引言-4">引言</h2>
+<p>背景：需要精确、最新的针对ICS日益增加的网络威胁的情报，来预防攻击。</p>
+<p>贡献：</p>
+<ul>
+<li>提出一个可伸展的方法，通过分析暗网数据流，检测接近实时的针对ICS的探测活动。</li>
+<li>通过使用DPI技术来识别一场战役的潜在客体。各种方法的使用使其自动决定每次战役的威胁等级。</li>
+<li>创建了一个弹性的打分系统，通过预先设定指标的威胁等级对战役进行评级。</li>
+</ul>
+<figure data-type="image" tabindex="22"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220301155705116.png" alt="image-20220301155705116" loading="lazy"></figure>
+<h2 id="战役检测">战役检测</h2>
+<p>战役定义：一系列单来源扫描的集合。。扫描活动共享一些特征，例如相似的数据包特征、相似的扫描技巧和相似的时态特征。</p>
+<p>对流量分类为non-ICS和ICS：</p>
+<figure data-type="image" tabindex="23"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220301155858834.png" alt="image-20220301155858834" loading="lazy"></figure>
+<h2 id="来源ip分析">来源ip分析</h2>
+<p>将检测的ip通过外部数据库，例如VirusTotal和DShield，来提取相关信息（各种资产），用Doc2Vec分类来源。</p>
+<h2 id="威胁情报生成">威胁情报生成</h2>
+<p>就是ip和payload。</p>
+<h1 id="twitisocial-listening-for-threat-intelligence">Twiti:Social Listening for Threat Intelligence</h1>
+<h2 id="研究领域的痛点和现状">研究领域的痛点和现状</h2>
+<h3 id="现状">现状</h3>
+<p>Twitter is a popular public source for threat hunting, but few study of IOCs conducted on Twitter.</p>
+<h3 id="痛点">痛点</h3>
+<p>little is known about IOCs on Twitter.</p>
+<p>how to extracts IOCs from Twitter.</p>
+<h2 id="方法-重要细节-创新点">方法、重要细节、创新点</h2>
+<h2 id="方法">方法</h2>
+<ul>
+<li>prensent Twiti, a high-performance IOC extraction system</li>
+<li>Twiti consists of three parts:</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>data collection</p>
+<ul>
+<li>
+<p>Twitter search API and timeline API</p>
+</li>
+<li>
+<p>Keywords and users</p>
+</li>
+</ul>
+</li>
+<li>
+<p>relevant tweet selection</p>
+<blockquote>
+<ul>
+<li>
+<p>tweet preprocessor</p>
+<blockquote>
+<p>shortened URL remover: delete &quot;http://t.co&quot;/&quot;bit.ly&quot;/&quot;goo.gl&quot;, etc</p>
+<p>Regex checker : hash、IP、domain、URL</p>
+<p>Text preprocessed:</p>
+<ul>
+<li>Replace hash to [hash], etc.</li>
+<li>NER to find malware name: bert based NER</li>
+<li>remove Tweet handles</li>
+<li>remove unicode</li>
+<li>lowercase: “c&amp;c”、“cnc”and “command and-control” are replaced by “c2”</li>
+<li>Tokenized and lemmatization</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>tweet classier</p>
+<blockquote>
+<ul>
+<li>
+<p>feature</p>
+</li>
+<li>
+<p>Feature selection</p>
+</li>
+<li>
+<p>Classier</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>external link checker</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>IOC extraction</p>
+<ul>
+<li>From tweets</li>
+<li>from external sources</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="实验结果和结论">实验结果和结论</h2>
+<h3 id="metric">metric</h3>
+<ul>
+<li>volume</li>
+<li>exclusiveness</li>
+<li>latency</li>
+<li>Accuracy</li>
+</ul>
+<h3 id="limitation">limitation</h3>
+<ul>
+<li>
+<p>there may be fake information</p>
+</li>
+<li>
+<p>Accuracy from Pastebin.com can't guarantee.</p>
+</li>
+</ul>
+<h1 id="cti-view-apt-threat-intelligence-analysis-system">CTI View: APT Threat Intelligence Analysis System</h1>
+<h2 id="摘要-5">摘要</h2>
+<p>设计了一个自动系统CTI View，可以从大量非结构网络威胁情报中进行文本提取和分析。</p>
+<p>主要工作：</p>
+<ul>
+<li>处理异构的CTI</li>
+<li>使用混合黑名单和白名单机制的正则表达式来提取IOC和TTP信息</li>
+<li>提出基于bert的模型，对异构CTI进行实体抽取</li>
+</ul>
+<h2 id="引言-5">引言</h2>
+<p>IOC：hash、IP、domain、Mac、e-mail</p>
+<p>威胁情报主要问题：</p>
+<ul>
+<li>来源复杂</li>
+<li>CTI种类繁多且无组织，应用场景复杂</li>
+<li>信息生成很快，威胁情报更新很快</li>
+</ul>
+<p>IOC缺点：</p>
+<ul>
+<li>IOC不能表示攻击者怎么和受害系统交互</li>
+<li>IOC只能关注攻击过程的部分分析，不能建立一个完整的攻击链，更别说攻击的组织者和实施者，造成攻击行为检测的不准确。</li>
+<li>IOC项目关联性很低，独立性很高，不能对溯源提供高支持。</li>
+</ul>
+<h2 id="贡献-2">贡献</h2>
+<ul>
+<li>设计了一个基于网页文本识别技术的CTI文本抽取系统。</li>
+<li>设计了基于Bert的威胁实体识别系统。</li>
+</ul>
+<h2 id="整体结构-2">整体结构</h2>
+<figure data-type="image" tabindex="24"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/image-20220328144912079.png" alt="image-20220328144912079" loading="lazy"></figure>
+<h1 id="vulcan-automatic-extraction-and-analysis-of-cyber-threat-intelligence-from-unstructured-text">Vulcan: Automatic extraction and analysis of cyber threat intelligence from unstructured text</h1>
+<h2 id="研究领域的痛点及现状">研究领域的痛点及现状</h2>
+<h3 id="现状-2">现状：</h3>
+<p>Many researcher give all their attention to IOC, the ability of IOC-centric CTI systems to understand and detect threats remains questionable.</p>
+<p>To derive descriptive or static CTI data from unstructured text, there are several IE methods including dictionary-based, rule-based and deep learning-based.</p>
+<h3 id="痛点-2">痛点：</h3>
+<ul>
+<li>
+<p>IOCs cannot depict the technical details of threats, and they have a very short lifespan.</p>
+</li>
+<li>
+<p>The IE methods to extract the CTI data have challenges.</p>
+</li>
+<li>
+<p>NER task is highly dependent on the target domain.</p>
+</li>
+</ul>
+<h2 id="方法-重要细节-创新点-2">方法、重要细节、创新点</h2>
+<h3 id="方法-2">方法：</h3>
+<ul>
+<li>
+<p>Present a novel CTI system, Vulcan, that is responsible for the entire process from CTI data collection to utilization.</p>
+</li>
+<li>
+<p>Data collection part consists of five components:</p>
+<blockquote>
+<p><strong>data scraper,</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>pre-processor,</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>threat entity identifier:</strong> BERT layer-&gt; BiLSTM Layer-&gt; CRF Layer</p>
+</blockquote>
+<blockquote>
+<p><strong>entity linker:</strong></p>
+<ul>
+<li>entity segmentation</li>
+</ul>
+<p>in order to locate a single entity refering to different things, we pick out candidate entities that are likely to mention several ransomware variants based on bursts of tweets(highest number of tweets), consider the keywords showing two or more bursts. If burst points has distinct ransomware variants, they are likely to contain different technical terms.</p>
+<ul>
+<li>entity integration</li>
+</ul>
+<p>Construct a dictionary consisting of alias pairs, add <em><strong>alias_for</strong></em> relation between the entities.</p>
+<p><strong>threat relation identifier.</strong>: BERT Layer -&gt; (three vector for CLS and two entities) -&gt; three FC Layer -&gt; concat-&gt; FC Layer + Softmax</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="细节">细节:</h3>
+<ul>
+<li>manually annotate 6791 CTI data and 4323 relationships.</li>
+<li>In the relation identifier, two entities mentioned in the input sentences are masked with the names of their types.</li>
+</ul>
+<h3 id="创新点">创新点：</h3>
+<ul>
+<li></li>
+</ul>
+<h2 id="实验结果和结论-2">实验结果和结论</h2>
+<ul>
+<li>
+<p>Provide 7 search APIs to access the collected CTI data, and present 2 applications:</p>
+<blockquote>
+<ul>
+<li>Evolution identification</li>
+<li>Threat profiling</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>Identify 6 types of CTI and 7 types of relationships. Can't recognize a new type of CTI.</p>
+</li>
+</ul>
+<h2 id="文章缺陷">文章缺陷</h2>
+<ul>
+<li>没有做entity linker前后的表现对比，不确定entity linker到底有没有好处</li>
+</ul>
+<h1 id="cti-twitter-gathering-cyber-threat-intelligence-from-twitter-using-integrated-supervised-and-unsupervised-learning">CTI-Twitter: Gathering Cyber Threat Intelligence from Twitter using Integrated Supervised and Unsupervised Learning</h1>
+<h2 id="研究领域的痛点及现状-2">研究领域的痛点及现状</h2>
+<h3 id="现状-3">现状</h3>
+<p>A sufficient amount of research already existed that explored the possibility of using Twitter as a potential asset for cyberthreat awareness.</p>
+<h3 id="痛点-3">痛点</h3>
+<p>Other methods doesn't find a particular category of cyber attack.</p>
+<h2 id="方法重要细节创新点">方法，重要细节，创新点</h2>
+<h3 id="方法-3">方法</h3>
+<ul>
+<li>system overview:</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>Data collection</strong></li>
+<li><strong>BERT Classification model</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li>Filter security relevent Tweets: manually classified some tweets randomly selected from tweet into relevant and irrelevant.</li>
+<li>Tweets multiple classification: five categories: INFO/ ATK/ CVE/ MAL/ MISC</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>Semantic Grouping</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li>Only cluster ATK, MAL and INFO.</li>
+<li>Two methods: k-means with TF-IDF and LDA.</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>Feedback mechanism</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li>Query construction: use trending keywords from LDA</li>
+<li>Discover threat activity</li>
+<li>Discover IOC and TTPs</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="创新点-2">创新点</h3>
+<h2 id="实验结果及结论">实验结果及结论</h2>
+<ul>
+<li>Metrics: precision, recall and F1-score.</li>
+<li>Compare Bert and CNN on binary classification and multi-class classification.(so lame!)</li>
+<li>这篇太水了，真的垃圾</li>
+</ul>
+<h1 id="generating-fake-cyber-threat-intelligence-using-transformer-based-models">Generating Fake Cyber Threat Intelligence Using Transformer-Based Models</h1>
+<h2 id="研究领域的痛点和现状-2">研究领域的痛点和现状</h2>
+<h3 id="现状-4">现状</h3>
+<p>Many cyber defense systems that rely on this data automatically collect streams of CTI data from common sources. Adversaries can use fake CTI examples as training input to subvert cyber defense systems.</p>
+<h3 id="痛点-4">痛点</h3>
+<p>Fake CTI issue.</p>
+<h2 id="方法-重要细节-创新点-3">方法、重要细节、创新点</h2>
+<h3 id="方法-4">方法</h3>
+<ul>
+<li>
+<p>Fake CTI generation</p>
+<blockquote>
+<ul>
+<li><strong>Creating cybersecurity corpus</strong>:</li>
+</ul>
+<p>data sources: security news articles, vulnerability databases, APTNotes</p>
+<ul>
+<li>
+<p><strong>Fine-Tuning GPT-2</strong>:</p>
+</li>
+<li>
+<p><strong>Generating fake CTI</strong></p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>Evaluating generated CTI</p>
+<blockquote>
+<ul>
+<li>Calculating perplexity score</li>
+<li>human eval</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>Data poisoning</p>
+<p>Perform data poisoning attack on CKG(Cybersecurity Knowledge Graph)</p>
+</li>
+</ul>
+<h3 id="创新点-3">创新点</h3>
+<p>Present fake CTI generation.</p>
+<h2 id="实验结果及结论-2">实验结果及结论</h2>
+<p>Returning incorrect reasoning outputs, representation poisoning, and corruption of other dependent AI-based cyber defense systems.</p>
+<h1 id="gapfinder-finding-inconsistency-of-security-information-from-unstructured-text">GapFinder: Finding Inconsistency of Security Information From Unstructured Text</h1>
+<h2 id="研究领域现状和痛点">研究领域现状和痛点</h2>
+<h3 id="现状-5">现状</h3>
+<p>One commonality among CTI methods is a central reliance on publicly available information.</p>
+<h3 id="痛点-5">痛点</h3>
+<p>Derive a quality metric that captures the consistency and accuracy of the web-mined information and used to drive a CTI service.</p>
+<h2 id="方法-创新点和重要细节">方法、创新点和重要细节</h2>
+<h3 id="方法-5">方法</h3>
+<ul>
+<li>
+<p>unstructured text to structured data</p>
+<blockquote>
+<p>Construct malware graph based on entity and relation types.</p>
+</blockquote>
+</li>
+<li>
+<p>Data refinement process</p>
+<blockquote>
+<ul>
+<li>
+<p>Normalize the format of the nodes.</p>
+</li>
+<li>
+<p>Refine different words with a similar contextual meaning into a single representation.</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>Formulate semantic connections between malware aliases</p>
+<blockquote>
+<ul>
+<li>linking same malware nodes that have  different names.</li>
+<li>finds an inconsistency between nodes of the same type in the connected graph</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="创新点-4">创新点</h3>
+<ul>
+<li>
+<p>Coreference resolution algorithm: If malware name and type is separated in the article, the type will be labeled as &quot;O&quot;. And if later sentence has the type, it won't be coreference to the malware. To address this, the algorithm is designed.</p>
+<blockquote>
+<ul>
+<li>Label the malware's proper noun as &quot;MW&quot;</li>
+<li>Look for a noun that indicates a malware type within three words back and forth around malware name found in first step, in this work there's four types(trojan, worm, botnet, ransomware), if there's none, default type is &quot;malware&quot;</li>
+<li>If the malware type appears after the sentence containing a malware name, it's replaced with the malware name, and the label is modified from &quot;O&quot; to &quot;MW&quot;</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>IT companies can be wrongly annotated with &quot;MW&quot;, so use K-means clustering to classify malware and non-malware.</p>
+</li>
+<li>
+<p>obtain absolute time and formatted date nodes. e.g., &quot;last September&quot; should be transformed to &quot;2014-09&quot; since the writing date is 2015.</p>
+</li>
+</ul>
+<h3 id="重要细节">重要细节</h3>
+<h2 id="实验结果和结论-3">实验结果和结论</h2>
+<ul>
+<li>Construct a groud truth dataset by manually annotating the entities and their relations, randomly select 1000 sentences.</li>
+<li>Only  focus malware, in the future will seek to expand the scope of relation-types.</li>
+<li>The base date and set may be wrong, there are some ways to determine the truth from nodes, such as through a reputation-based weighting scheme.</li>
+<li>Unstructured data has noise.</li>
+</ul>
+<h1 id="reading-the-tea-leaves-a-comparative-analysis-of-threat-intelligence">Reading the Tea Leaves: A Comparative Analysis of Threat Intelligence</h1>
+<h2 id="创新点-5">创新点</h2>
+<ul>
+<li>Introduce  a set of basic threat intelligence metrics: volume, differential contribution, exclusive contribution, latency, coverage, accuracy.</li>
+<li>Analyze 47 IP address TI sources covering 6 categories of threat, 8 malware file hash TI sources</li>
+<li>conduct the analyses in two different time periods two years apart, shows strong consistency.</li>
+</ul>
+<h1 id="open-cykg-an-open-cyber-threat-intelligence-knowledge-graph">Open-CyKG: An Open Cyber Threat Intelligence Knowledge Graph</h1>
+<h2 id="研究领域现状和痛点-2">研究领域现状和痛点</h2>
+<h3 id="现状-6">现状</h3>
+<p>NLP techniques such as text memorization, information extraction and NER are applied to analyze cyber security reports.</p>
+<h3 id="痛点-6">痛点</h3>
+<p>Existing information extraction systems lack two essential components:</p>
+<ul>
+<li>a methodology that is capable of extracting valuable information that does not necessitate either a pre-defined set of relations or an existing ontology</li>
+<li>a data structure that supports storing extracted data efficiently to allow information retrieval and knowledge understanding.</li>
+</ul>
+<h2 id="方法-创新点和重要细节-2">方法、创新点和重要细节</h2>
+<h3 id="方法-6">方法</h3>
+<p>Present Open-CyKG, an open threat intelligence knowledge graph. It consists of two components:</p>
+<ul>
+<li>An attention-based OIE architecture for extracting domain-independent relation triples</li>
+<li>a NER model to label cybersecurity terms.</li>
+</ul>
+<p>Then construct a knowledge graph using refinement and fusion process.</p>
+<ul>
+<li>Triple refinement</li>
+<li>Entity disambiguation</li>
+</ul>
+<blockquote>
+<p>Cluster entity using HAC(Hierarchical Agglomerative Clustering) by employing cosine similarity as a distance metric.</p>
+</blockquote>
+<h3 id="创新点-6">创新点</h3>
+<h2 id="实验结果和结论-4">实验结果和结论</h2>
+<ul>
+<li>OIE</li>
+</ul>
+<blockquote>
+<ul>
+<li>Dataset: MalwareDB</li>
+<li>Performance: compare with two other works. But in my opinion, <strong>not very promising</strong></li>
+</ul>
+</blockquote>
+<ul>
+<li>NER</li>
+</ul>
+<blockquote>
+<ul>
+<li>Dataset: 5072 + 3450 sentences</li>
+<li>Performance:compare with two dataset's origin paper, <strong>good way</strong></li>
+</ul>
+</blockquote>
+<ul>
+<li>Information retrieval using Cypher</li>
+</ul>
+<h1 id="can-we-survive-without-labelled-data-in-nlptransfer-learning-for-open-information-extraction">Can We Survive without Labelled Data in NLP?Transfer Learning for Open Information Extraction</h1>
+<h2 id="研究领域现状和痛点-3">研究领域现状和痛点</h2>
+<h3 id="现状-7">现状</h3>
+<p>OIE extracts relation tuples without the need of predefining the relation between entities, RE requires predefining the relation prior to extraction.</p>
+<h3 id="痛点-7">痛点</h3>
+<p>NLP task suffer from lack of labelled training data.</p>
+<h2 id="方法-创新点和重要细节-3">方法、创新点和重要细节</h2>
+<h3 id="目标">目标</h3>
+<p>Aim to measure how OIE can assist in other NLP tasks. Objective was to measure OIE transfer learning effects.</p>
+<p>Two tasks:</p>
+<ul>
+<li>OIE news domain to OIE bio-medical domain</li>
+<li>OIE news domain to RE news domain</li>
+</ul>
+<h3 id="方法-7">方法</h3>
+<ul>
+<li>Domain adaption: pre-training the network on source domain data followed by fine-tuning hyper parameters on target domain data.</li>
+<li>Tansductive transfer learning</li>
+<li>Inductive transfer learning</li>
+</ul>
+<h3 id="创新点-7">创新点</h3>
+<h2 id="实验结果和结论-5">实验结果和结论</h2>
+<ul>
+<li>
+<p>ROIE(original model)</p>
+<blockquote>
+<ul>
+<li>Dataset: WikiNews</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>Transfering to OIE Bio-medical</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>Dataset:DDIExtraction</li>
+</ul>
+</blockquote>
+<ul>
+<li>Transfering to RE</li>
+</ul>
+<blockquote>
+<ul>
+<li>Dataset:Semeval-2010</li>
+</ul>
+</blockquote>
+<h1 id="a-system-for-automated-open-source-threat-intelligence-gathering-and-management">A System for Automated Open-Source Threat Intelligence Gathering and Management</h1>
+<h2 id="研究领域现状和痛点-4">研究领域现状和痛点</h2>
+<h3 id="现状-8">现状</h3>
+<p>Existing OSCTI gathering and management platforms have primarily focused on IOCs.</p>
+<h3 id="痛点-8">痛点</h3>
+<p>There is a pressing need for a new system that can harvest and manage high-fidelity threat intelligence in an automated, intelligence, and pricncipled way.</p>
+<p>Challenges:</p>
+<ul>
+<li>Diverse formats</li>
+<li>Various entities</li>
+<li>Massive nuances</li>
+<li>Require large annotated training corpora</li>
+</ul>
+<h2 id="方法-创新点和重要细节-4">方法、创新点和重要细节</h2>
+<h3 id="方法-8">方法</h3>
+<ul>
+<li>data crawler: 40+ crawler, 350+ reports per minute, 120K+ total</li>
+<li>Categorize reports into three types: malware、vulnerability、attack</li>
+<li>Entities list: ATT&amp;CK</li>
+<li>Relation extraction: dependency parsing-based</li>
+<li>knowledge fusion:creating a new node with unified attributes and migrating all relation edges</li>
+</ul>
+<h3 id="创新点-8">创新点</h3>
+<h3 id="重要细节-2">重要细节</h3>
+<ul>
+<li>IOC protection: replacing IOCs with meaningful words to make sure entities are complete tokens.(<strong>useful</strong>)</li>
+</ul>
+<h2 id="实验结果和结论-6">实验结果和结论</h2>
+<h4 id="future-work">Future work</h4>
+<ul>
+<li>Attack investigation</li>
+<li>Attack detection</li>
+<li>threat hunting</li>
+</ul>
+<h1 id="基于非结构化文本的威胁情报抽取系统">基于非结构化文本的威胁情报抽取系统</h1>
+<h2 id="研究领域现状和痛点-5">研究领域现状和痛点</h2>
+<h3 id="现状-9">现状</h3>
+<p>威胁情报抽取技术主要有基于规则、有监督、无监督。</p>
+<h3 id="痛点-9">痛点</h3>
+<p>抽取类型单一，标准多样。</p>
+<p>Challenges:</p>
+<ul>
+<li>Diverse formats</li>
+<li>Various entities</li>
+<li>Massive nuances</li>
+<li>Require large annotated training corpora</li>
+</ul>
+<h2 id="方法-创新点和重要细节-5">方法、创新点和重要细节</h2>
+<h3 id="方法-9">方法</h3>
+<ul>
+<li>data crawler: 40+ crawler, 350+ reports per minute, 120K+ total</li>
+<li>Categorize reports into three types: malware、vulnerability、attack</li>
+<li>Entities list: ATT&amp;CK</li>
+<li>Relation extraction: dependency parsing-based</li>
+<li>knowledge fusion:creating a new node with unified attributes and migrating all relation edges</li>
+</ul>
+<h3 id="创新点-9">创新点</h3>
+<h3 id="重要细节-3">重要细节</h3>
+<ul>
+<li>IOC protection: replacing IOCs with meaningful words to make sure entities are complete tokens.(<strong>useful</strong>)</li>
+</ul>
+<h2 id="实验结果和结论-7">实验结果和结论</h2>
+<h1 id="基于深度学习的威胁情报抽取研究与实现">基于深度学习的威胁情报抽取研究与实现</h1>
+<h2 id="研究领域现状和痛点-6">研究领域现状和痛点</h2>
+<h3 id="现状-10">现状</h3>
+<p>从威胁情报和物联网设备文本中获取结构化的信息。</p>
+<h3 id="痛点-10">痛点</h3>
+<h2 id="方法-创新点和重要细节-6">方法、创新点和重要细节</h2>
+<h3 id="方法-10">方法</h3>
+<ul>
+<li>针对中英文混杂严重和专业词汇生僻导致的实体识别困难问题，使用BiGRU-CRF-IDCNN模型，</li>
+<li>对于关系分类，使用BERT-BiGRU-Attention模型。</li>
+<li>识别物联网实体，使用神经网络+模板层</li>
+</ul>
+<h3 id="创新点-10">创新点</h3>
+<p>最后加上一个校验层，使用多模式字符串匹配算法和规则。</p>
+<figure data-type="image" tabindex="25"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202306130900171.png" alt="截屏2023-06-13 09.00.04" loading="lazy"></figure>
+<h2 id="实验结果和结论-8">实验结果和结论</h2>
+<h1 id="基于关联增强的网络威胁情报技战术分类">基于关联增强的网络威胁情报技战术分类</h1>
+<h2 id="研究领域现状和痛点-7">研究领域现状和痛点</h2>
+<h3 id="现状-11">现状</h3>
+<p>痛苦金字塔模型，直观的IOCs属于较低级，最高级的是TTPs，不仅对袭击事件提供全局预览，也能侧面反映现有系统的漏洞。现有有TTPDrill、ActionMiner、rcATT。</p>
+<h3 id="痛点-11">痛点</h3>
+<p>现有分类TTPs方案效果差且分类TT不平均。</p>
+<h2 id="方法-创新点和重要细节-7">方法、创新点和重要细节</h2>
+<h3 id="方法-11">方法</h3>
+<p>提出基于关联增强的技战术分类模型RENet，使用BiRNN和CNN作为基础分类器，并通过使用自学习的技战术关联矩阵提高分类效果。</p>
+<p>两个任务：</p>
+<ul>
+<li>多标签分类任务：两个独立分类器，一个分战术，一个分技术。权重和层不共享。</li>
+<li>使用关联增强修正技术：在分类器尾部使用关联增强方式将战术分类效果迁移至技术分类器。</li>
+</ul>
+<h3 id="创新点-11">创新点</h3>
+<p>使用关联增强将战术效果增强给技术效果。</p>
+<h3 id="重要细节-4">重要细节</h3>
+<ul>
+<li></li>
+</ul>
+<h2 id="实验结果和结论-9">实验结果和结论</h2>
+<h3 id="数据集">数据集</h3>
+<p>mitre官网的14个战术和184个主要技术的6504条描述语句。</p>
+<h3 id="评价指标">评价指标</h3>
+<p>因为是多标签分类，使用Precision-Recall和F_B分数。</p>
+<p>不同的对比模型。</p>
+<h1 id="towards-the-detection-of-inconsistencies-in-public-security-vulnerability-reports">Towards the Detection of Inconsistencies in Public Security Vulnerability Reports</h1>
+<h2 id="研究领域现状和痛点-8">研究领域现状和痛点</h2>
+<h3 id="现状-12">现状</h3>
+<p>根据CVE ID，可以从NVD和其它论坛得到信息。</p>
+<h3 id="痛点-12">痛点</h3>
+<p>NVD上的信息可能不全或过时。</p>
+<h2 id="方法-创新点和重要细节-8">方法、创新点和重要细节</h2>
+<h3 id="方法-12">方法</h3>
+<p>提出VIEM来抽取漏洞软件名字和版本。面临三个问题：</p>
+<ul>
+<li>难以用字典或正则表达来抽取</li>
+<li>传统NLP难以解决</li>
+<li>除了有漏洞的软件，还有正常软件作为干扰</li>
+</ul>
+<p>整个系统分为NER和RE。NER识别名字和版本，RE将句子中所有识别的名字和版本连接起来后找出最有可能的名字-版本对。数据集大量标注1种类型，其它类型少量，使用迁移学习来扩展标注。</p>
+<p>VIEM结构：</p>
+<figure data-type="image" tabindex="26"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202307112042263.png" alt="截屏2023-07-11 20.41.52" loading="lazy"></figure>
+<p>NER模块首先用word embedding和character embedding，用Bi-GRU预测标签。</p>
+<p>这里加入一个字典库匹配的方法来提高效果：</p>
+<ul>
+<li>字典库是CVE product list</li>
+<li>用字典库里的词进行查询，如果至少有一个词被NER模型标为名字，就将匹配的前后词都标为名字。如NER将Explorer标为名字，查询字典后将整个Internet Explorer标为名字。</li>
+</ul>
+<p>RE模块首先将名字和版本编码index，然后将其一一对应，将其one-hot编码后再转换为两个向量，作为位置向量，和NER的word embedding一起送入两个注意力层得到最终的预测概率，即正确的名字-版本对。</p>
+<p>对于不一致性，使用NVD项和CVE描述及漏洞报告进行对比。</p>
+<p>首先匹配软件名字，匹配方法：</p>
+<ul>
+<li>如果两个名字的相同词数量大于或等于不同词数量，就说他们匹配（<strong>这一点可以改进，利用知识图谱的节点相似性</strong>）</li>
+</ul>
+<p>对匹配的名字，开始评估版本的不一致性。两种匹配：</p>
+<ul>
+<li>严厉匹配：两个版本号完全一致</li>
+<li>松弛匹配：两者相互包含就算匹配</li>
+</ul>
+<h3 id="创新点-12">创新点</h3>
+<ul>
+<li>增加字典匹配</li>
+<li>RE的抽取方法</li>
+<li>研究不一致性</li>
+</ul>
+<h3 id="重要细节-5">重要细节</h3>
+<ul>
+<li></li>
+</ul>
+<h2 id="实验结果和结论-10">实验结果和结论</h2>
+<h3 id="数据集-2">数据集</h3>
+<p>得到20年的13种类型的78296个CVE ID列表。然后用ID对5个外部网站得到70569个漏洞报告。然后用ID得到78296个NVD项。</p>
+<p>手工标注1974个报告，包含5193个ID。</p>
+<h3 id="评估-2">评估</h3>
+<h5 id="ner">NER</h5>
+<ul>
+<li>精确率、召回率</li>
+<li>消融实验，对于字典匹配</li>
+</ul>
+<h5 id="re">RE</h5>
+<ul>
+<li>手工标注作为输入的精确率、召回率和准确率</li>
+<li>NER作为输入的。。。</li>
+<li>消融实验，对于字典匹配</li>
+</ul>
+<h5 id="对比">对比</h5>
+<ul>
+<li>SemFuzz，使用手工正则表达式抽取版本</li>
+<li>端到端的NLP工具</li>
+</ul>
+<h5 id="参数实验">参数实验</h5>
+<h5 id="迁移学习">迁移学习</h5>
+<ul>
+<li>对其它12种少量标注类型的数据，微调最后一层</li>
+</ul>
+<h3 id="评估信息不一致性">评估信息不一致性</h3>
+<p>有45.9%严厉匹配，87.3%松弛匹配，NVD和其它来源存在不一致性。</p>
+<h5 id="融合方法">融合方法</h5>
+<ul>
+<li>取最大值：哪个来源的版本出现次数最多取哪个来源（关注来源）</li>
+<li>合并：哪些版本出现次数最多取哪些（关注版本）</li>
+</ul>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E5%AE%9A%E4%B9%89">定义</a></li>
+<li><a href="#%E8%B5%84%E6%BA%90">资源</a></li>
+<li><a href="#%E4%B8%80-ttpdrill-automatic-and-accurate-extraction-of-threat-actions-from-unstructured-text-of-cti-sources">一、TTPDrill: Automatic and Accurate Extraction of Threat Actions from Unstructured Text of CTI Sources</a>
+<ul>
+<li><a href="#%E6%91%98%E8%A6%81">摘要</a></li>
+<li><a href="#%E5%BC%95%E8%A8%80">引言</a></li>
+<li><a href="#ttpdrill-%E7%BB%93%E6%9E%84">TTPDrill 结构</a></li>
+<li><a href="#%E5%A8%81%E8%83%81%E5%8A%A8%E4%BD%9C%E6%9C%AC%E4%BD%93">威胁动作本体</a></li>
+<li><a href="#%E5%A8%81%E8%83%81%E5%8A%A8%E4%BD%9C%E6%8F%90%E5%8F%96%E5%92%8C%E5%88%86%E6%9E%90">威胁动作提取和分析</a>
+<ul>
+<li><a href="#%E7%88%AC%E5%8F%96%E5%92%8C%E9%A2%84%E5%A4%84%E7%90%86">爬取和预处理</a>
+<ul>
+<li><a href="#%E6%B8%85%E6%B4%97%E6%96%87%E6%9C%AC">清洗文本：</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB">文本分类：</a></li>
+<li><a href="#%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D">正则匹配</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%A8%81%E8%83%81%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB">威胁动作识别</a></li>
+<li><a href="#%E5%A8%81%E8%83%81%E5%8A%A8%E4%BD%9C%E6%98%A0%E5%B0%84%E5%92%8C%E7%AD%9B%E9%80%89">威胁动作映射和筛选</a></li>
+<li><a href="#%E6%9E%84%E5%BB%BAttp%E6%9D%80%E4%BC%A4%E9%93%BE">构建TTP杀伤链</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AF%84%E4%BC%B0">评估</a></li>
+<li><a href="#acing-the-ioc-game-toward-automatic-discovery-andanalysis-of-open-source-cyber-threat-intelligence">Acing the IOC Game- Toward Automatic Discovery andAnalysis of Open-Source Cyber Threat Intelligence</a>
+<ul>
+<li><a href="#%E6%91%98%E8%A6%81-2">摘要</a></li>
+<li><a href="#%E5%BC%95%E8%A8%80-2">引言</a></li>
+<li><a href="#%E9%9A%BE%E7%82%B9">难点</a></li>
+<li><a href="#%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84">整体结构</a></li>
+</ul>
+</li>
+<li><a href="#hincti-a-cyber-threat-intelligence-modeling-and-identification-system-based-on-heterogeneous-information-network">HinCTI: A Cyber Threat Intelligence Modeling and Identification System Based on Heterogeneous Information Network</a>
+<ul>
+<li><a href="#%E6%91%98%E8%A6%81-3">摘要</a></li>
+<li><a href="#%E5%BC%95%E8%A8%80-3">引言</a>
+<ul>
+<li><a href="#%E6%84%8F%E4%B9%89">意义</a></li>
+<li><a href="#%E8%B4%A1%E7%8C%AE">贡献</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%9B%E5%BB%BActi">创建CTI</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84">系统结构</a></li>
+</ul>
+</li>
+<li><a href="#threat-intelligence-generation-using-network-telescope-data-for-industrial-control-systems">Threat Intelligence Generation Using Network Telescope Data for Industrial Control Systems</a>
+<ul>
+<li><a href="#%E6%91%98%E8%A6%81-4">摘要</a></li>
+<li><a href="#%E5%BC%95%E8%A8%80-4">引言</a></li>
+<li><a href="#%E6%88%98%E5%BD%B9%E6%A3%80%E6%B5%8B">战役检测</a></li>
+<li><a href="#%E6%9D%A5%E6%BA%90ip%E5%88%86%E6%9E%90">来源ip分析</a></li>
+<li><a href="#%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E7%94%9F%E6%88%90">威胁情报生成</a></li>
+</ul>
+</li>
+<li><a href="#twitisocial-listening-for-threat-intelligence">Twiti:Social Listening for Threat Intelligence</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%9A%84%E7%97%9B%E7%82%B9%E5%92%8C%E7%8E%B0%E7%8A%B6">研究领域的痛点和现状</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-%E5%88%9B%E6%96%B0%E7%82%B9">方法、重要细节、创新点</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95">方法</a></li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA">实验结果和结论</a>
+<ul>
+<li><a href="#metric">metric</a></li>
+<li><a href="#limitation">limitation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#cti-view-apt-threat-intelligence-analysis-system">CTI View: APT Threat Intelligence Analysis System</a>
+<ul>
+<li><a href="#%E6%91%98%E8%A6%81-5">摘要</a></li>
+<li><a href="#%E5%BC%95%E8%A8%80-5">引言</a></li>
+<li><a href="#%E8%B4%A1%E7%8C%AE-2">贡献</a></li>
+<li><a href="#%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84-2">整体结构</a></li>
+</ul>
+</li>
+<li><a href="#vulcan-automatic-extraction-and-analysis-of-cyber-threat-intelligence-from-unstructured-text">Vulcan: Automatic extraction and analysis of cyber threat intelligence from unstructured text</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%9A%84%E7%97%9B%E7%82%B9%E5%8F%8A%E7%8E%B0%E7%8A%B6">研究领域的痛点及现状</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-2">现状：</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-2">痛点：</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-%E5%88%9B%E6%96%B0%E7%82%B9-2">方法、重要细节、创新点</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-2">方法：</a></li>
+<li><a href="#%E7%BB%86%E8%8A%82">细节:</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9">创新点：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA-2">实验结果和结论</a></li>
+<li><a href="#%E6%96%87%E7%AB%A0%E7%BC%BA%E9%99%B7">文章缺陷</a></li>
+</ul>
+</li>
+<li><a href="#cti-twitter-gathering-cyber-threat-intelligence-from-twitter-using-integrated-supervised-and-unsupervised-learning">CTI-Twitter: Gathering Cyber Threat Intelligence from Twitter using Integrated Supervised and Unsupervised Learning</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%9A%84%E7%97%9B%E7%82%B9%E5%8F%8A%E7%8E%B0%E7%8A%B6-2">研究领域的痛点及现状</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-3">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-3">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82%E5%88%9B%E6%96%B0%E7%82%B9">方法，重要细节，创新点</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-3">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-2">创新点</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%8F%8A%E7%BB%93%E8%AE%BA">实验结果及结论</a></li>
+</ul>
+</li>
+<li><a href="#generating-fake-cyber-threat-intelligence-using-transformer-based-models">Generating Fake Cyber Threat Intelligence Using Transformer-Based Models</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%9A%84%E7%97%9B%E7%82%B9%E5%92%8C%E7%8E%B0%E7%8A%B6-2">研究领域的痛点和现状</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-4">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-4">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-%E5%88%9B%E6%96%B0%E7%82%B9-3">方法、重要细节、创新点</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-4">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-3">创新点</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%8F%8A%E7%BB%93%E8%AE%BA-2">实验结果及结论</a></li>
+</ul>
+</li>
+<li><a href="#gapfinder-finding-inconsistency-of-security-information-from-unstructured-text">GapFinder: Finding Inconsistency of Security Information From Unstructured Text</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%8E%B0%E7%8A%B6%E5%92%8C%E7%97%9B%E7%82%B9">研究领域现状和痛点</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-5">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-5">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E5%88%9B%E6%96%B0%E7%82%B9%E5%92%8C%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82">方法、创新点和重要细节</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-5">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-4">创新点</a></li>
+<li><a href="#%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82">重要细节</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA-3">实验结果和结论</a></li>
+</ul>
+</li>
+<li><a href="#reading-the-tea-leaves-a-comparative-analysis-of-threat-intelligence">Reading the Tea Leaves: A Comparative Analysis of Threat Intelligence</a>
+<ul>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-5">创新点</a></li>
+</ul>
+</li>
+<li><a href="#open-cykg-an-open-cyber-threat-intelligence-knowledge-graph">Open-CyKG: An Open Cyber Threat Intelligence Knowledge Graph</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%8E%B0%E7%8A%B6%E5%92%8C%E7%97%9B%E7%82%B9-2">研究领域现状和痛点</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-6">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-6">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E5%88%9B%E6%96%B0%E7%82%B9%E5%92%8C%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-2">方法、创新点和重要细节</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-6">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-6">创新点</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA-4">实验结果和结论</a></li>
+</ul>
+</li>
+<li><a href="#can-we-survive-without-labelled-data-in-nlptransfer-learning-for-open-information-extraction">Can We Survive without Labelled Data in NLP?Transfer Learning for Open Information Extraction</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%8E%B0%E7%8A%B6%E5%92%8C%E7%97%9B%E7%82%B9-3">研究领域现状和痛点</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-7">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-7">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E5%88%9B%E6%96%B0%E7%82%B9%E5%92%8C%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-3">方法、创新点和重要细节</a>
+<ul>
+<li><a href="#%E7%9B%AE%E6%A0%87">目标</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95-7">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-7">创新点</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA-5">实验结果和结论</a></li>
+</ul>
+</li>
+<li><a href="#a-system-for-automated-open-source-threat-intelligence-gathering-and-management">A System for Automated Open-Source Threat Intelligence Gathering and Management</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%8E%B0%E7%8A%B6%E5%92%8C%E7%97%9B%E7%82%B9-4">研究领域现状和痛点</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-8">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-8">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E5%88%9B%E6%96%B0%E7%82%B9%E5%92%8C%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-4">方法、创新点和重要细节</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-8">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-8">创新点</a></li>
+<li><a href="#%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-2">重要细节</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA-6">实验结果和结论</a><br>
+*
+<ul>
+<li><a href="#future-work">Future work</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E6%96%87%E6%9C%AC%E7%9A%84%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E6%8A%BD%E5%8F%96%E7%B3%BB%E7%BB%9F">基于非结构化文本的威胁情报抽取系统</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%8E%B0%E7%8A%B6%E5%92%8C%E7%97%9B%E7%82%B9-5">研究领域现状和痛点</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-9">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-9">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E5%88%9B%E6%96%B0%E7%82%B9%E5%92%8C%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-5">方法、创新点和重要细节</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-9">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-9">创新点</a></li>
+<li><a href="#%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-3">重要细节</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA-7">实验结果和结论</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E6%8A%BD%E5%8F%96%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0">基于深度学习的威胁情报抽取研究与实现</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%8E%B0%E7%8A%B6%E5%92%8C%E7%97%9B%E7%82%B9-6">研究领域现状和痛点</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-10">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-10">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E5%88%9B%E6%96%B0%E7%82%B9%E5%92%8C%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-6">方法、创新点和重要细节</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-10">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-10">创新点</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA-8">实验结果和结论</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E5%85%B3%E8%81%94%E5%A2%9E%E5%BC%BA%E7%9A%84%E7%BD%91%E7%BB%9C%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E6%8A%80%E6%88%98%E6%9C%AF%E5%88%86%E7%B1%BB">基于关联增强的网络威胁情报技战术分类</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%8E%B0%E7%8A%B6%E5%92%8C%E7%97%9B%E7%82%B9-7">研究领域现状和痛点</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-11">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-11">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E5%88%9B%E6%96%B0%E7%82%B9%E5%92%8C%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-7">方法、创新点和重要细节</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-11">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-11">创新点</a></li>
+<li><a href="#%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-4">重要细节</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA-9">实验结果和结论</a>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E9%9B%86">数据集</a></li>
+<li><a href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87">评价指标</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#towards-the-detection-of-inconsistencies-in-public-security-vulnerability-reports">Towards the Detection of Inconsistencies in Public Security Vulnerability Reports</a>
+<ul>
+<li><a href="#%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F%E7%8E%B0%E7%8A%B6%E5%92%8C%E7%97%9B%E7%82%B9-8">研究领域现状和痛点</a>
+<ul>
+<li><a href="#%E7%8E%B0%E7%8A%B6-12">现状</a></li>
+<li><a href="#%E7%97%9B%E7%82%B9-12">痛点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E6%B3%95-%E5%88%9B%E6%96%B0%E7%82%B9%E5%92%8C%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-8">方法、创新点和重要细节</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95-12">方法</a></li>
+<li><a href="#%E5%88%9B%E6%96%B0%E7%82%B9-12">创新点</a></li>
+<li><a href="#%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82-5">重要细节</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C%E5%92%8C%E7%BB%93%E8%AE%BA-10">实验结果和结论</a>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E9%9B%86-2">数据集</a></li>
+<li><a href="#%E8%AF%84%E4%BC%B0-2">评估</a><br>
+*
+<ul>
+<li><a href="#ner">NER</a></li>
+<li><a href="#re">RE</a></li>
+<li><a href="#%E5%AF%B9%E6%AF%94">对比</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0%E5%AE%9E%E9%AA%8C">参数实验</a></li>
+<li><a href="#%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0">迁移学习</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AF%84%E4%BC%B0%E4%BF%A1%E6%81%AF%E4%B8%8D%E4%B8%80%E8%87%B4%E6%80%A7">评估信息不一致性</a><br>
+*
+<ul>
+<li><a href="#%E8%9E%8D%E5%90%88%E6%96%B9%E6%B3%95">融合方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://adureychloe.github.io/post/lun-wen-su-shua/">
+              <span class="post-title">
+                论文速刷&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://adureychloe.github.io//atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Central Park</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://adureychloe.github.io//media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://adureychloe.github.io//media/scripts/tocScript.js"></script>
+</body>
+
+</html>
