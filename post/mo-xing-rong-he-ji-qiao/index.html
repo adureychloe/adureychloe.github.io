@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>模型融合技巧 | Gridea</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico?v=1723023477629">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://adureychloe.github.io">
+        <img class="avatar" src="https://adureychloe.github.io/images/avatar.png?v=1723023477629" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://adureychloe.github.io">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">模型融合技巧</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-07-19</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://adureychloe.github.io/tag/RO5nehTX4/">
+                    打比赛
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <p>参考文章：<a href="https://www.kaggle.com/discussions/general/407718">Model Fusion in Machine Learning</a></p>
+<p>模型融合就是将多个模型的输出组合的机器学习技巧，能够提升预测表现。主要原理是不同的模型有各自的错误，通过融合能将错误减小。有多种方式，包括线性融合、stacking、随机森林或梯度提升。</p>
+<h1 id="例子">例子</h1>
+<p>三种不同模型：</p>
+<ul>
+<li>线性模型假设输入特征和目标之间存在线性关系</li>
+<li>决策树模型捕捉非线性关系和输入特征之间关系</li>
+<li>神经网络模型学习复杂的非线性关系</li>
+</ul>
+<p>线性融合例子：</p>
+<pre><code class="language-python">import numpy as np
+
+# Define the vectors
+vector1 = np.array([2, 4, 6])  # First vector
+vector2 = np.array([1, 3, 5])  # Second vector
+
+# Define the coefficients
+coefficients = np.array([0.5, -1])  # Coefficients for linear combination
+
+# Perform the linear combination
+result = np.dot(coefficients, np.vstack((vector1, vector2)))
+# The dot product of the coefficients and a vertically stacked array of vector1 and vector2 computes the linear combination
+
+# Print the result
+print(&quot;Result:&quot;, result)
+</code></pre>
+<p>Result: [ 0. -1. -2.]</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://adureychloe.github.io/post/hello-gridea/">
+              <h3 class="post-title">
+                下一篇：Hello Gridea
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://adureychloe.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

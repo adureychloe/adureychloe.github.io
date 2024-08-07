@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>英文数据处理模版 | Gridea</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico?v=1723023477629">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://adureychloe.github.io">
+        <img class="avatar" src="https://adureychloe.github.io/images/avatar.png?v=1723023477629" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://adureychloe.github.io">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">英文数据处理模版</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-07-29</span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <p>不断更新功能：</p>
+<pre><code class="language-python">class TextPreprocessor:
+    def __init__(self, custom_stopwords=None):
+        # 初始化停用词、词形还原器和词干提取器
+        self.stop_words = set(stopwords.words('english'))
+        if custom_stopwords:
+            self.stop_words.update(custom_stopwords)
+        self.lemmatizer = WordNetLemmatizer()
+        self.stemmer = PorterStemmer()
+
+    def clean_text(self, text):
+        # 清理文本，移除HTML标签、数字、标点符号和多余的空格
+        if not isinstance(text, str):
+            text = str(text)
+        text = BeautifulSoup(text, &quot;html.parser&quot;).get_text()
+        text = text.lower()
+        text = re.sub(r'\d+', '', text)
+        text = re.sub(r'[^\w\s]', '', text)
+        text = re.sub(r'\s+', ' ', text).strip()
+        text = contractions.fix(text)
+        return text
+
+    def remove_urls(self, text):
+        # 移除URL
+        return re.sub(r'http\S+|www.\S+', '', text)
+
+    def normalize_text(self, text):
+        # 规范化文本，移除标点符号并转换为小写
+        return ''.join([c.lower() for c in text if c not in string.punctuation])
+
+    def tokenize_text(self, text):
+        # 将文本分词
+        return word_tokenize(text)
+
+    def remove_stopwords(self, words):
+        # 移除停用词
+        return [word for word in words if word not in self.stop_words]
+
+    def lemmatize_words(self, words):
+        # 词形还原
+        return [self.lemmatizer.lemmatize(word) for word in words]
+
+    def stem_words(self, words):
+        # 词干提取
+        return [self.stemmer.stem(word) for word in words]
+
+    def correct_spelling(self, text):
+        # 拼写纠正
+        return str(TextBlob(text).correct())
+
+    def remove_non_ascii(self, words):
+        # 移除非ASCII字符
+        return [word for word in words if word.isascii()]
+
+    def generate_ngrams(self, words, n=2):
+        # 生成n-grams
+        return [' '.join(words[i:i+n]) for i in range(len(words)-n+1)]
+
+    def remove_emojis(self, text):
+        # 移除表情符号
+        emoji_pattern = re.compile(&quot;[&quot;
+                                   u&quot;\U0001F600-\U0001F64F&quot;  # 表情符号
+                                   u&quot;\U0001F300-\U0001F5FF&quot;  # 符号和图标
+                                   u&quot;\U0001F680-\U0001F6FF&quot;  # 运输和地图符号
+                                   u&quot;\U0001F1E0-\U0001F1FF&quot;  # 旗帜（iOS）
+                                   &quot;]+&quot;, flags=re.UNICODE)
+        return emoji_pattern.sub(r'', text)
+
+    def expand_abbreviations(self, text):
+        # 扩展缩写
+        abbreviations = {
+            &quot;n't&quot;: &quot; not&quot;,
+            &quot;'re&quot;: &quot; are&quot;,
+            &quot;'s&quot;: &quot; is&quot;,
+            &quot;'d&quot;: &quot; would&quot;,
+            &quot;'ll&quot;: &quot; will&quot;,
+            &quot;'t&quot;: &quot; not&quot;,
+            &quot;'ve&quot;: &quot; have&quot;,
+            &quot;'m&quot;: &quot; am&quot;
+        }
+        for abbr, full in abbreviations.items():
+            text = text.replace(abbr, full)
+        return text
+
+    def preprocess_text(self, text, use_stemming=False, use_spelling_correction=False, generate_ngrams=False):
+        # 预处理文本
+        if pd.isna(text):
+            return &quot;&quot;
+        text = self.clean_text(text)
+        text = self.remove_urls(text)
+        text = self.remove_emojis(text)
+        text = self.expand_abbreviations(text)
+        text = self.normalize_text(text)
+        words = self.tokenize_text(text)
+        words = self.remove_stopwords(words)
+        if use_stemming:
+            words = self.stem_words(words)
+        else:
+            words = self.lemmatize_words(words)
+        words = self.remove_non_ascii(words)
+        cleaned_text = &quot; &quot;.join(words)
+        if use_spelling_correction:
+            cleaned_text = self.correct_spelling(cleaned_text)
+        if generate_ngrams:
+            ngrams = self.generate_ngrams(words)
+            cleaned_text += &quot; &quot; + &quot; &quot;.join(ngrams)
+        return cleaned_text
+
+    def preprocess_dataframe(self, df, text_column, **kwargs):
+        # 预处理数据框中的文本列
+        df['cleaned_text'] = df[text_column].apply(lambda x: self.preprocess_text(x, **kwargs))
+        return df
+
+</code></pre>
+<p>使用：</p>
+<pre><code class="language-python">preprocessor = TextPreprocessor(custom_stopwords=['custom', 'words'])
+df = preprocessor.preprocess_dataframe(df, 'text', use_stemming=True, use_spelling_correction=False, generate_ngrams=False)
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://adureychloe.github.io/post/zi-zhu-yi-li-ji-zhi-de-qkv/">
+              <h3 class="post-title">
+                下一篇：自注意力机制的QKV
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://adureychloe.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

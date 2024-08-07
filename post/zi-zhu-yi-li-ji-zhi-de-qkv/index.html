@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>自注意力机制的QKV | Gridea</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico?v=1723023477629">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://adureychloe.github.io">
+        <img class="avatar" src="https://adureychloe.github.io/images/avatar.png?v=1723023477629" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://adureychloe.github.io">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">自注意力机制的QKV</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-07-22</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://adureychloe.github.io/tag/ioI4R8rdD/">
+                    nlp
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <p>来源：GPT</p>
+<h2 id="比喻图书馆借书">比喻：图书馆借书</h2>
+<p>想象一下，你在一个大型图书馆工作，你的任务是帮助读者找到他们需要的书。图书馆里有很多书架，每个书架上都有很多书。为了高效地找到书籍，我们需要一个系统来管理这些书。<br>
+<strong>Query（查询）</strong><br>
+Query就像是读者的需求或问题。例如，一个读者走进图书馆，问你：“我想找一本关于机器学习的书。” 这个请求就是Query。在自注意力机制中，Query是我们想要重点关注的输入。<br>
+<strong>Key（键）</strong><br>
+Key就像是图书馆中每本书的标签或索引。例如，每本书都有一个标签，上面写着书的主题、作者等信息。这些标签就是Key。在自注意力机制中，Key是输入的特征表示，用来匹配Query。<br>
+<strong>Value（值）</strong><br>
+Value就像是图书馆中的实际书籍内容。例如，当读者提出请求后，你根据标签（Key）找到相关的书，然后把书的内容（Value）提供给读者。在自注意力机制中，Value是输入的特征表示，用来生成最终的输出。</p>
+<h2 id="自注意力机制的工作流程">自注意力机制的工作流程</h2>
+<p><strong>计算Query、Key和Value：</strong><br>
+对于每个输入，我们通过权重矩阵计算出对应的Query、Key和Value。<br>
+例如，对于一个句子中的每个单词，我们计算出这个单词的Query、Key和Value。<br>
+<strong>计算注意力分数：</strong><br>
+我们将Query和所有的Key进行匹配，计算出注意力分数。这个过程就像是读者的请求（Query）和图书标签（Key）之间的匹配。<br>
+注意力分数表示Query和Key之间的相关性。高分数表示Query和Key高度相关，低分数表示相关性较低。<br>
+<strong>计算注意力权重：</strong><br>
+我们对注意力分数进行归一化（通常使用softmax函数），得到注意力权重。这些权重表示每个Key对Query的重要程度。<br>
+<strong>生成输出：</strong><br>
+最后，我们使用注意力权重对所有的Value进行加权求和，得到最终的输出。这个过程就像是根据读者的请求（Query），找到相关的书（Key），然后提供书的内容（Value）给读者。<br>
+<strong>代码示例</strong></p>
+<pre><code class="language-python">
+import tensorflow as tf
+
+class SelfAttention(tf.keras.layers.Layer):
+    def __init__(self, units):
+        super(SelfAttention, self).__init__()
+        self.units = units
+
+    def build(self, input_shape):
+        self.W_q = self.add_weight(shape=(input_shape[-1], self.units),
+                                   initializer='random_normal',
+                                   trainable=True)
+        self.W_k = self.add_weight(shape=(input_shape[-1], self.units),
+                                   initializer='random_normal',
+                                   trainable=True)
+        self.W_v = self.add_weight(shape=(input_shape[-1], self.units),
+                                   initializer='random_normal',
+                                   trainable=True)
+
+    def call(self, inputs):
+        Q = tf.matmul(inputs, self.W_q)  # 计算Query
+        K = tf.matmul(inputs, self.W_k)  # 计算Key
+        V = tf.matmul(inputs, self.W_v)  # 计算Value
+
+        attention_scores = tf.matmul(Q, K, transpose_b=True)  # 计算注意力分数
+        attention_scores = attention_scores / tf.math.sqrt(tf.cast(self.units, tf.float32))
+        attention_weights = tf.nn.softmax(attention_scores, axis=-1)  # 计算注意力权重
+
+        output = tf.matmul(attention_weights, V)  # 生成输出
+        return output
+</code></pre>
+<h2 id="总结">总结</h2>
+<p>Query：读者的请求，表示我们想要重点关注的输入。<br>
+Key：图书标签，用来匹配Query。<br>
+Value：图</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://adureychloe.github.io/post/mo-xing-rong-he-ji-qiao/">
+              <h3 class="post-title">
+                下一篇：模型融合技巧
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://adureychloe.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
