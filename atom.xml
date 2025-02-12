@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://adureychloe.github.io</id>
+    <title>Gridea</title>
+    <updated>2025-02-12T10:15:23.290Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://adureychloe.github.io"/>
+    <link rel="self" href="https://adureychloe.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://adureychloe.github.io/images/avatar.png</logo>
+    <icon>https://adureychloe.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[AWS无法SSH连接EMR]]></title>
+        <id>https://adureychloe.github.io/post/aws-wu-fa-ssh-lian-jie-emr/</id>
+        <link href="https://adureychloe.github.io/post/aws-wu-fa-ssh-lian-jie-emr/">
+        </link>
+        <updated>2025-02-12T08:46:31.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>刚开始弄AWS，还是不太熟练。弄好EC2密钥对，把安全策略中的SSH22端口打开后，使用SSH连接连不上。</p>
+<h1 id="问题解决">问题解决</h1>
+<p>在配置SSH安全策略时，我使用的是&quot;my ip&quot;入站规则：<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202502121648656.png" alt="img" loading="lazy"></p>
+<p>而我在配置规则时使用了代理的rule规则访问，也就意味着这里我的ip是代理的ip。而在ssh连接时又关闭了代理使用了原始ip，导致无法访问。只要配置规则时把代理关闭就好了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[bert的位置编码position_ids代码]]></title>
+        <id>https://adureychloe.github.io/post/bert-de-wei-zhi-bian-ma-position_ids-dai-ma/</id>
+        <link href="https://adureychloe.github.io/post/bert-de-wei-zhi-bian-ma-position_ids-dai-ma/">
+        </link>
+        <updated>2025-02-12T07:37:27.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-python">encode_result = tokenizer(sents, padding='max_length', truncation=True, max_length=config.max_length)
+input_ids = torch.tensor(encode_result['input_ids'])
+attention_mask = torch.tensor(encode_result['attention_mask'])
+type_ids = torch.tensor(encode_result['token_type_ids'])
+position_ids = []
+for i, j in enumerate(input_ids):  # i, j无用
+    position_id = list(range(config.max_length)) # 一个token的最大长度
+    position_ids.append(position_id)
+position_ids = torch.tensor(position_ids)
+</code></pre>
+<h1 id="解释">解释</h1>
+<p>这段代码的主要功能是将输入的文本数据（<code>sents</code>）进行编码，并将其转换为模型所需的输入格式。以下是逐行解释：</p>
+<hr>
+<h3 id="1-文本编码"><strong>1. 文本编码</strong></h3>
+<pre><code class="language-python">encode_result = tokenizer(sents, padding='max_length', truncation=True, max_length=config.max_length)
+</code></pre>
+<ul>
+<li><strong><code>tokenizer</code></strong>：这是一个预训练的分词器（Tokenizer），通常来自 Hugging Face 的 <code>transformers</code> 库（如 BERT、GPT 等）。</li>
+<li><strong><code>sents</code></strong>：输入的文本数据，可以是一个字符串或字符串列表。</li>
+<li><strong><code>padding='max_length'</code></strong>：将文本填充到指定的最大长度（<code>max_length</code>）。如果文本长度不足，会用特殊填充符号（如 <code>[PAD]</code>）填充。</li>
+<li><strong><code>truncation=True</code></strong>：如果文本长度超过 <code>max_length</code>，则截断多余的部分。</li>
+<li><strong><code>max_length=config.max_length</code></strong>：指定文本的最大长度，通常由配置文件（<code>config</code>）中的 <code>max_length</code> 参数决定。</li>
+<li><strong><code>encode_result</code></strong>：编码后的结果是一个字典，包含以下键：
+<ul>
+<li><code>input_ids</code>：文本转换为对应的 token ID 序列。</li>
+<li><code>attention_mask</code>：表示哪些位置是实际文本，哪些位置是填充部分（1 表示实际文本，0 表示填充）。</li>
+<li><code>token_type_ids</code>：用于区分不同句子的标记（如 BERT 中的句子 A 和句子 B）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-转换为-pytorch-张量"><strong>2. 转换为 PyTorch 张量</strong></h3>
+<pre><code class="language-python">input_ids = torch.tensor(encode_result['input_ids'])
+attention_mask = torch.tensor(encode_result['attention_mask'])
+type_ids = torch.tensor(encode_result['token_type_ids'])
+</code></pre>
+<ul>
+<li><strong><code>input_ids</code></strong>：将 <code>encode_result['input_ids']</code> 转换为 PyTorch 张量，表示文本的 token ID 序列。</li>
+<li><strong><code>attention_mask</code></strong>：将 <code>encode_result['attention_mask']</code> 转换为 PyTorch 张量，表示注意力掩码。</li>
+<li><strong><code>type_ids</code></strong>：将 <code>encode_result['token_type_ids']</code> 转换为 PyTorch 张量，表示句子类型标记（如 BERT 中的句子 A 和句子 B）。</li>
+</ul>
+<hr>
+<h3 id="3-生成位置编码"><strong>3. 生成位置编码</strong></h3>
+<pre><code class="language-python">position_ids = []
+for i, j in enumerate(input_ids):  # i, j无用
+    position_id = list(range(config.max_length)) # 一个token的最大长度
+    position_ids.append(position_id)
+position_ids = torch.tensor(position_ids)
+</code></pre>
+<ul>
+<li><strong><code>position_ids</code></strong>：用于表示每个 token 在序列中的位置信息。</li>
+<li><strong><code>for i, j in enumerate(input_ids)</code></strong>：
+<ul>
+<li>遍历 <code>input_ids</code> 的每一行（每个样本）。</li>
+<li><code>i</code> 是索引，<code>j</code> 是当前样本的 <code>input_ids</code>，但这里 <code>i</code> 和 <code>j</code> 并未使用。</li>
+</ul>
+</li>
+<li><strong><code>position_id = list(range(config.max_length))</code></strong>：
+<ul>
+<li>为每个样本生成一个位置 ID 列表，范围从 <code>0</code> 到 <code>config.max_length - 1</code>。</li>
+<li>例如，如果 <code>config.max_length=10</code>，则生成 <code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>。</li>
+</ul>
+</li>
+<li><strong><code>position_ids.append(position_id)</code></strong>：
+<ul>
+<li>将生成的位置 ID 列表添加到 <code>position_ids</code> 中。</li>
+</ul>
+</li>
+<li><strong><code>position_ids = torch.tensor(position_ids)</code></strong>：
+<ul>
+<li>将 <code>position_ids</code> 转换为 PyTorch 张量。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-最终输出"><strong>4. 最终输出</strong></h3>
+<ul>
+<li><strong><code>input_ids</code></strong>：文本的 token ID 序列。</li>
+<li><strong><code>attention_mask</code></strong>：注意力掩码，用于区分实际文本和填充部分。</li>
+<li><strong><code>type_ids</code></strong>：句子类型标记（如 BERT 中的句子 A 和句子 B）。</li>
+<li><strong><code>position_ids</code></strong>：每个 token 的位置信息。</li>
+</ul>
+<hr>
+<h3 id="代码的作用"><strong>代码的作用</strong></h3>
+<p>这段代码的目的是将输入的文本数据转换为模型所需的输入格式。具体来说：</p>
+<ol>
+<li>使用分词器对文本进行编码，生成 <code>input_ids</code>、<code>attention_mask</code> 和 <code>token_type_ids</code>。</li>
+<li>将编码结果转换为 PyTorch 张量。</li>
+<li>生成位置编码 <code>position_ids</code>，表示每个 token 在序列中的位置。</li>
+</ol>
+<hr>
+<h3 id="示例"><strong>示例</strong></h3>
+<p>假设：</p>
+<ul>
+<li><code>sents = [&quot;Hello, world!&quot;, &quot;How are you?&quot;]</code></li>
+<li><code>config.max_length = 10</code></li>
+</ul>
+<h4 id="编码结果"><strong>编码结果</strong></h4>
+<ul>
+<li><code>input_ids</code>：<code>[[101, 7592, 1010, 2088, 102, 0, 0, 0, 0, 0], [101, 2129, 2024, 2017, 102, 0, 0, 0, 0, 0]]</code></li>
+<li><code>attention_mask</code>：<code>[[1, 1, 1, 1, 1, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]]</code></li>
+<li><code>token_type_ids</code>：<code>[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]</code></li>
+<li><code>position_ids</code>：<code>[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]</code></li>
+</ul>
+<hr>
+<h3 id="总结"><strong>总结</strong></h3>
+<p>这段代码是 NLP 任务中常见的文本预处理步骤，用于将原始文本转换为模型可以处理的张量格式。通过分词器编码和位置编码，模型能够理解文本的内容和结构。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day2: Lonely Integer]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day2-lonely-integer/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day2-lonely-integer/">
+        </link>
+        <updated>2025-02-12T01:01:01.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>给定一个整数数组，其中除一个之外的所有元素都出现两次，找到那个唯一元素。</p>
+<p>Example<br>
+a=[1,2,3,4,3,2,1]<br>
+The unique element is 4 .</p>
+<h1 id="要点">要点</h1>
+<p>list有count(i)可以计算i的出现次数。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">def lonelyinteger(a):
+    # Write your code here
+    for i in a:
+        if a.count(i) == 1:
+            return i
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    a = list(map(int, input().rstrip().split()))
+
+    result = lonelyinteger(a)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day1: Mini-Max Sum]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day1-mini-max-sum/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day1-mini-max-sum/">
+        </link>
+        <updated>2025-02-11T02:41:49.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>给定五个正整数，找出五个整数中的四个恰好相加可以计算出的最小值和最大值。 然后将各自的最小值和最大值打印为单行的两个空格分隔的长整数。</p>
+<p>例子(Example):</p>
+<p>arr=[1,3,5,7,9]</p>
+<p>最小总和是1+3+5+7=16<br>
+最大和是3+5+7+9=24. 函数打印</p>
+<p>16 24</p>
+<h1 id="要点">要点</h1>
+<p>list有sort()函数</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">def miniMaxSum(arr):
+    # Write your code here
+    arr.sort()
+    min_sum = sum(arr[:-1])
+    max_sum = sum(arr[1:])
+    print(min_sum,max_sum)
+
+if __name__ == '__main__':
+
+    arr = list(map(int, input().rstrip().split()))
+
+    miniMaxSum(arr)
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day1: Plus Minus]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day1-plus-minus/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day1-plus-minus/">
+        </link>
+        <updated>2025-02-11T02:02:36.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>给定一个整数数组，计算其正、负和零元素的比率。将每个分数的小数值打印在新的一行，小数点后有6位。</p>
+<h1 id="暴力求解">暴力求解</h1>
+<pre><code class="language-python">def plusMinus(arr):
+    # Write your code here
+    n = len(arr)
+    pos = 0
+    neg = 0
+    zero = 0
+    for i in arr:
+        if i ==0 : zero += 1
+        if i &lt; 0: neg += 1
+        if i&gt;0 : pos += 1
+    print(&quot;%.6f&quot; %(pos/n))
+    print(&quot;%.6f&quot; %(neg/n))
+    print(&quot;%.6f&quot; % (zero/n))
+    
+        
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+    
+    plusMinus(arr)
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[表格读取降低内存方法]]></title>
+        <id>https://adureychloe.github.io/post/biao-ge-du-qu-jiang-di-nei-cun-fang-fa/</id>
+        <link href="https://adureychloe.github.io/post/biao-ge-du-qu-jiang-di-nei-cun-fang-fa/">
+        </link>
+        <updated>2024-10-22T09:47:14.000Z</updated>
+        <content type="html"><![CDATA[<p>若是表格太大，可以针对表格的不同数据类型进行优化处理，降低内存使用。</p>
+<h1 id="pandas">pandas：</h1>
+<pre><code class="language-python">def reduce_mem_usage(self, float16_as32=True):
+    #memory_usage()是df每列的内存使用量,sum是对它们求和, B-&gt;KB-&gt;MB
+    start_mem = df.memory_usage().sum() / 1024**2
+    print('Memory usage of dataframe is {:.2f} MB'.format(start_mem))
+
+    for col in df.columns:#遍历每列的列名
+        col_type = df[col].dtype#列名的type
+        if col_type != object and str(col_type)!='category':#不是object也就是说这里处理的是数值类型的变量
+            c_min,c_max = df[col].min(),df[col].max() #求出这列的最大值和最小值
+            if str(col_type)[:3] == 'int':#如果是int类型的变量,不管是int8,int16,int32还是int64
+                #如果这列的取值范围是在int8的取值范围内,那就对类型进行转换 (-128 到 127)
+                if c_min &gt; np.iinfo(np.int8).min and c_max &lt; np.iinfo(np.int8).max:
+                    df[col] = df[col].astype(np.int8)
+                #如果这列的取值范围是在int16的取值范围内,那就对类型进行转换(-32,768 到 32,767)
+                elif c_min &gt; np.iinfo(np.int16).min and c_max &lt; np.iinfo(np.int16).max:
+                    df[col] = df[col].astype(np.int16)
+                #如果这列的取值范围是在int32的取值范围内,那就对类型进行转换(-2,147,483,648到2,147,483,647)
+                elif c_min &gt; np.iinfo(np.int32).min and c_max &lt; np.iinfo(np.int32).max:
+                    df[col] = df[col].astype(np.int32)
+                #如果这列的取值范围是在int64的取值范围内,那就对类型进行转换(-9,223,372,036,854,775,808到9,223,372,036,854,775,807)
+                elif c_min &gt; np.iinfo(np.int64).min and c_max &lt; np.iinfo(np.int64).max:
+                    df[col] = df[col].astype(np.int64)  
+            else:#如果是浮点数类型.
+                #如果数值在float16的取值范围内,如果觉得需要更高精度可以考虑float32
+                if c_min &gt; np.finfo(np.float16).min and c_max &lt; np.finfo(np.float16).max:
+                    if float16_as32:#如果数据需要更高的精度可以选择float32
+                        df[col] = df[col].astype(np.float32)
+                    else:
+                        df[col] = df[col].astype(np.float16)  
+                #如果数值在float32的取值范围内，对它进行类型转换
+                elif c_min &gt; np.finfo(np.float32).min and c_max &lt; np.finfo(np.float32).max:
+                    df[col] = df[col].astype(np.float32)
+                #如果数值在float64的取值范围内，对它进行类型转换
+                else:
+                    df[col] = df[col].astype(np.float64)
+    #计算一下结束后的内存
+    end_mem = df.memory_usage().sum() / 1024**2
+    print('Memory usage after optimization is: {:.2f} MB'.format(end_mem))
+    #相比一开始的内存减少了百分之多少
+    print('Decreased by {:.1f}%'.format(100 * (start_mem - end_mem) / start_mem))
+
+    return df
+</code></pre>
+<h1 id="polars">polars:</h1>
+<pre><code class="language-python">def reduce_mem_usage(df, float16_as32=True):
+    # memory_usage() 是 df 每列的内存使用量，sum 是对它们求和，B-&gt;KB-&gt;MB
+    start_mem = df.estimated_size() / 1024**2
+    print('Memory usage of dataframe is {:.2f} MB'.format(start_mem))
+
+    for col in df.columns:  # 遍历每列的列名
+        col_type = df[col].dtype  # 列名的 type
+        if col_type != pl.Utf8 and col_type != pl.Categorical:  # 不是 object 也就是说这里处理的是数值类型的变量
+            c_min, c_max = df[col].min(), df[col].max()  # 求出这列的最大值和最小值
+            if col_type in [pl.Int8, pl.Int16, pl.Int32, pl.Int64]:  # 如果是 int 类型的变量
+            #if pl.DataType.is_integer(col_type):  # 如果是 int 类型的变量
+                # 如果这列的取值范围是在 int8 的取值范围内，那就对类型进行转换 (-128 到 127)
+                if c_min &gt; np.iinfo(np.int8).min and c_max &lt; np.iinfo(np.int8).max:
+                    df = df.with_columns(df[col].cast(pl.Int8))
+                # 如果这列的取值范围是在 int16 的取值范围内，那就对类型进行转换 (-32,768 到 32,767)
+                elif c_min &gt; np.iinfo(np.int16).min and c_max &lt; np.iinfo(np.int16).max:
+                    df = df.with_columns(df[col].cast(pl.Int16))
+                # 如果这列的取值范围是在 int32 的取值范围内，那就对类型进行转换 (-2,147,483,648 到 2,147,483,647)
+                elif c_min &gt; np.iinfo(np.int32).min and c_max &lt; np.iinfo(np.int32).max:
+                    df = df.with_columns(df[col].cast(pl.Int32))
+                # 如果这列的取值范围是在 int64 的取值范围内，那就对类型进行转换 (-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807)
+                elif c_min &gt; np.iinfo(np.int64).min and c_max &lt; np.iinfo(np.int64).max:
+                    df = df.with_columns(df[col].cast(pl.Int64))
+            elif col_type in [pl.Float32, pl.Float64]:  # 如果是浮点数类型
+                # 如果数值在 float16 的取值范围内，如果觉得需要更高精度可以考虑 float32
+                if c_min &gt; np.finfo(np.float16).min and c_max &lt; np.finfo(np.float16).max:
+                    if float16_as32:  # 如果数据需要更高的精度可以选择 float32
+                        df = df.with_columns(df[col].cast(pl.Float32))
+                    else:
+                        df = df.with_columns(df[col].cast(pl.Float16))
+                # 如果数值在 float32 的取值范围内，对它进行类型转换
+                elif c_min &gt; np.finfo(np.float32).min and c_max &lt; np.finfo(np.float32).max:
+                    df = df.with_columns(df[col].cast(pl.Float32))
+                # 如果数值在 float64 的取值范围内，对它进行类型转换
+                else:
+                    df = df.with_columns(df[col].cast(pl.Float64))
+    
+    # 计算一下结束后的内存
+    end_mem = df.estimated_size() / 1024**2
+    print('Memory usage after optimization is: {:.2f} MB'.format(end_mem))
+    # 相比一开始的内存减少了百分之多少
+    print('Decreased by {:.1f}%'.format(100 * (start_mem - end_mem) / start_mem))
+
+    return df
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[bert分词后标签不一致问题]]></title>
+        <id>https://adureychloe.github.io/post/bert-fen-ci-hou-biao-qian-bu-yi-zhi-wen-ti/</id>
+        <link href="https://adureychloe.github.io/post/bert-fen-ci-hou-biao-qian-bu-yi-zhi-wen-ti/">
+        </link>
+        <updated>2024-09-09T07:38:09.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题">问题</h1>
+<p>在使用bert的tokenize之后，NER数据的文本和标签不能再一一对应。</p>
+<h1 id="解决方法">解决方法</h1>
+<h2 id="一-对word而不是sentence进行tokenize">一、对word而不是sentence进行tokenize</h2>
+<p>使用空格分隔字符，直接对每一个token进行tokenize，然后label就复制tokenize的长度。</p>
+<p>示例：</p>
+<pre><code class="language-python">for word, label in zip(sentences.split(), labels.split(',')):
+        tokenized_word = tokenizer.tokenize(word)
+        tokenized_sent.extend(tokenized_word)
+        labels.extend([label]*len(tokenized_word))
+</code></pre>
+<h2 id="二-待定">二、待定</h2>
+<p>。。。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[BERT动态词向量迷思]]></title>
+        <id>https://adureychloe.github.io/post/bert-dong-tai-ci-xiang-liang-mi-si/</id>
+        <link href="https://adureychloe.github.io/post/bert-dong-tai-ci-xiang-liang-mi-si/">
+        </link>
+        <updated>2024-09-09T03:16:43.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题">问题：</h1>
+<p>bert应该是生成动态词向量，但是在使用tokenzier时得到的是静态词向量？</p>
+<h1 id="解答">解答：</h1>
+<p>在使用BERT时，tokenizer的作用是将句子分成词片段（tokens），并将它们转换为对应的ID。tokenizer本身并不生成词向量，因此同一个词的ID在不同位置是相同的。</p>
+<p>词向量的动态变化发生在BERT模型中。当你将tokenized输入传入BERT模型时，模型会根据上下文为每个词生成不同的词向量。因此，虽然同一个词的ID相同，但经过模型处理后，其词向量会根据上下文而变化。</p>
+<p>简单来说：</p>
+<p>tokenizer负责将文本转为ID，ID是固定的。<br>
+BERT模型处理后，生成的词向量会根据上下文不同而变化。<br>
+Tokenize：将文本分割成词片段（tokens），并生成对应的ID。<br>
+Encode：将这些ID作为输入传给BERT模型，模型处理后生成上下文相关的词向量。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[面试有用资源]]></title>
+        <id>https://adureychloe.github.io/post/mian-shi-you-yong-zi-yuan/</id>
+        <link href="https://adureychloe.github.io/post/mian-shi-you-yong-zi-yuan/">
+        </link>
+        <updated>2024-09-06T08:41:59.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="python基础">python基础</h1>
+<p><a href="https://amos-x.com/index.php/amos/archives/python-read-readline-readlines/">https://amos-x.com/index.php/amos/archives/python-read-readline-readlines/</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[pandas保存表格时，list类型的数据变成了str]]></title>
+        <id>https://adureychloe.github.io/post/pandas-bao-cun-biao-ge-shi-list-lei-xing-de-shu-ju-bian-cheng-liao-str/</id>
+        <link href="https://adureychloe.github.io/post/pandas-bao-cun-biao-ge-shi-list-lei-xing-de-shu-ju-bian-cheng-liao-str/">
+        </link>
+        <updated>2024-08-15T09:38:27.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>在pandas保存一个含有list列的数据时，保存之前数据是list类型，保存成csv文件后，再次读取，数据变成str类型。</p>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202408151754912.png" alt="截屏2024-08-15 17.53.54" loading="lazy"></figure>
+<h1 id="解决方法">解决方法</h1>
+<p>不使用csv保存，使用pickle保存。<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202408151755755.png" alt="截屏2024-08-15 17.55.27" loading="lazy"></p>
+]]></content>
+    </entry>
+</feed>
