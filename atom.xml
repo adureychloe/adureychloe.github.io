@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://adureychloe.github.io</id>
+    <title>Gridea</title>
+    <updated>2025-02-19T09:25:52.046Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://adureychloe.github.io"/>
+    <link rel="self" href="https://adureychloe.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://adureychloe.github.io/images/avatar.png</logo>
+    <icon>https://adureychloe.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day4: Recursive Digit Sum]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day4-recursive-digit-sum/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day4-recursive-digit-sum/">
+        </link>
+        <updated>2025-02-19T09:13:18.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>定义超级数字的规则如下：</p>
+<p>如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>只有一个数字，那超级数字就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>。否则，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>的超级数字等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>的数字之和的超级数字。<br>
+例子：<br>
+9875的超级数字：<br>
+super_digit(9875) 9+8+7+5 = 29<br>
+super_digit(29) 2 + 9 = 11<br>
+super_digit(11) 1 + 1 = 2<br>
+super_digit(2) = 2</p>
+<p>函数输入n,k。n是数字字符串，k是倍数。如果n='123', k=3，则要计算p = '123123123'。</p>
+<h1 id="思路">思路</h1>
+<p>一眼递归。刚开始先用p = n*k，然后相加内部元素进行递归，但是有几个实例过不掉，说明需要优化。<br>
+就先不重复字符串，先相加计算完后再乘倍数，这样就少了两个操作（字符串复制和相加）。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">def superDigit(n, k):
+    # Write your code here
+    
+    res = 0
+    if len(n)&lt;=1:
+        return n
+    # for i in p:
+    #     res += int(i) 
+    return superDigit(str(sum(int(i) for i in n) *k), 1)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    first_multiple_input = input().rstrip().split()
+
+    n = first_multiple_input[0]
+
+    k = int(first_multiple_input[1])
+
+    result = superDigit(n, k)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day5: Balanced Bracketes]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day5-balanced-bracketes/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day5-balanced-bracketes/">
+        </link>
+        <updated>2025-02-19T08:08:07.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>括号包括{}/[]/()，我们说一个括号序列平衡要满足以下条件：</p>
+<p>它不包含不匹配的括号。<br>
+包含在一对匹配的括号范围内的括号子集也是一对匹配的括号。<br>
+给定n个括号串，如果平衡返回YES，否则返回NO。</p>
+<h1 id="思路">思路</h1>
+<p>暴力匹配：直接匹配字符串的开头和结尾并向内收紧，看会不会有一对不匹配。但是没有过测试用例，用的时间太多。# 更新：这个不对，比如[]{}<br>
+栈方法：用字典存储括号对，对字符串的每个括号先压入栈，因为后来的总是在最上面，所以直接看后面的括号是否匹配栈顶，匹配就出栈，若最后栈为空，则平衡。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">def isBalanced(s):
+    # Write your code here
+    # temp = list(s)
+    # if len(temp) % 2 == 1:
+    #     return &quot;NO&quot;
+    # half = len(temp)/2
+    # i = 0
+    # j = len(temp)-1 
+    # if(i&lt;j &amp; temp[i] == temp[j]):
+    #     i += 1
+    #     j -= 1
+    # if(i&gt;j):return &quot;YES&quot;
+    stack = []
+        
+    for item in s:
+        if item == '(':
+            stack.append(')')
+        elif item == '[':
+            stack.append(']')
+        elif item == '{':
+            stack.append('}')
+        elif not stack or stack[-1] != item:
+            return False
+        else:
+            stack.pop()
+    return &quot;YES&quot; if not stack else &quot;NO&quot;
+    
+        
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        s = input()
+
+        result = isBalanced(s)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day5: Merge two sorted linked lists]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day5-merge-two-sorted-linked-lists/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day5-merge-two-sorted-linked-lists/">
+        </link>
+        <updated>2025-02-18T06:44:26.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>给定指向两个已排序链表头部的指针，将它们合并为一个已排序链表。任一头指针都可以为空，这意味着对应的列表为空。</p>
+<p>例如:<br>
+Input: a: 5-&gt;10-&gt;15, b: 2-&gt;3-&gt;20<br>
+Output: 2-&gt;3-&gt;5-&gt;10-&gt;15-&gt;20</p>
+<h1 id="思路">思路</h1>
+<p>暴力解法：<br>
+新建一个链表节点，如果两个链表任一链表的节点值小于另一个，则将该节点添加到我们的新建链表并递增该指针。</p>
+<p>递归解法<br>
+比较两个链表节点哪个值小，指针指向那个值，然后通过向前移动指针进行递归调用，这样子就能一直添加较小值。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">// Complete the mergeLists function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+    SinglyLinkedListNode* res = head1;
+    if(head1 == NULL){
+        return head2;
+    }
+    if(head2 == NULL){
+        return head1;
+    }
+    if(head1-&gt;data &lt;= head2-&gt;data){
+        res = head1;
+        res-&gt;next = mergeLists(head1-&gt;next, head2);
+    }
+    else{
+        res = head2;
+        res-&gt;next = mergeLists(head1, head2-&gt;next);
+    }
+    return res;
+
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[WorldQuant BRAIN alpha构建注意点]]></title>
+        <id>https://adureychloe.github.io/post/worldquant-brain-alpha-gou-jian-zhu-yi-dian/</id>
+        <link href="https://adureychloe.github.io/post/worldquant-brain-alpha-gou-jian-zhu-yi-dian/">
+        </link>
+        <updated>2025-02-13T09:12:06.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>美股市场的一个月是20天，一年是250天，三个月63天，两年480或500天</li>
+<li>对于Trade_When (x=triggerTradeExp, y=AlphaExp, z=triggerExitExp)，当符合x条件时，alpha就是y；如果符合z条件，alpha就是NaN，即平仓不分配alpha；如果不符合x条件且不符合z条件，就是alpha维持前一个不变。如果z设置为-1，代表z条件永不满足，即永不平仓。</li>
+<li>group时尝试使用“country”。</li>
+<li>group 分为 statistical grouping 和 bucket operator。前者根据统计量进行分组，后者自定义分组。</li>
+<li>Densify能让量纲差距大的数据变得紧密。在使用group操作符时尽量使用这个。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[安装了torchcrf后导入提示No module named 'TorchCRF' ，但是pip show显示包已存在]]></title>
+        <id>https://adureychloe.github.io/post/an-zhuang-liao-torchcrf-hou-dao-ru-ti-shi-no-module-named-torchcrf-dan-shi-pip-show-xian-shi-bao-yi-cun-zai/</id>
+        <link href="https://adureychloe.github.io/post/an-zhuang-liao-torchcrf-hou-dao-ru-ti-shi-no-module-named-torchcrf-dan-shi-pip-show-xian-shi-bao-yi-cun-zai/">
+        </link>
+        <updated>2025-02-13T09:10:58.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>已经正常安装torchcrf，但是import不了</p>
+<h1 id="问题解决">问题解决</h1>
+<p>比较坑的问题，因为实例代码是import torchcrf，又看到网上说的也是这样做，就以为问题在环境配置方面，但是其实就是包的名字没写对（可能以前的版本是torchcrf），改成import TorchCRF就行。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ARLM（自回归语言模型）和AELM（自编码语言模型）]]></title>
+        <id>https://adureychloe.github.io/post/arlmzi-hui-gui-yu-yan-mo-xing-he-aelmzi-bian-ma-yu-yan-mo-xing/</id>
+        <link href="https://adureychloe.github.io/post/arlmzi-hui-gui-yu-yan-mo-xing-he-aelmzi-bian-ma-yu-yan-mo-xing/">
+        </link>
+        <updated>2025-02-13T09:09:20.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="arlm与aelm语言模型的两大范式">ARLM与AELM：语言模型的两大范式</h2>
+<p>语言模型是自然语言处理领域的核心技术，ARLM（自回归语言模型）和AELM（自编码语言模型）代表了当前语言建模的两大主流范式。这两种模型在架构设计和应用场景上各具特色，共同推动着自然语言处理技术的发展。</p>
+<h3 id="一-arlm序列生成的典范">一、ARLM：序列生成的典范</h3>
+<p>自回归语言模型通过前向预测的方式进行序列生成，采用单向注意力机制，逐个预测序列中的下一个词。GPT系列模型是ARLM的典型代表，其核心优势在于：</p>
+<ol>
+<li>生成质量高：能够生成连贯、自然的文本</li>
+<li>训练稳定：采用标准的语言模型训练目标</li>
+<li>可扩展性强：模型规模与性能呈正相关</li>
+</ol>
+<p>ARLM在文本生成、对话系统等任务中表现出色，但其单向建模特性限制了其在需要全局理解的任务中的表现。</p>
+<h3 id="二-aelm双向理解的突破">二、AELM：双向理解的突破</h3>
+<p>自编码语言模型通过双向注意力机制同时处理整个输入序列，BERT是AELM的典型代表。其特点包括：</p>
+<ol>
+<li>双向编码：能够捕捉上下文信息</li>
+<li>掩码预测：通过预测被掩码的词进行训练</li>
+<li>理解能力强：适合需要深度理解的任务</li>
+</ol>
+<p>AELM在文本分类、问答系统等任务中表现优异，但在生成任务上存在局限性。</p>
+<h3 id="三-技术融合与创新">三、技术融合与创新</h3>
+<p>近年来，研究者们致力于融合两种模型的优势：</p>
+<ol>
+<li>混合架构：如UniLM，结合单向和双向注意力</li>
+<li>多任务学习：同时训练生成和理解任务</li>
+<li>预训练-微调范式：结合两种模型的优势</li>
+</ol>
+<p>这些创新推动了语言模型性能的持续提升，为自然语言处理带来了新的可能性。</p>
+<p>ARLM和AELM代表了语言建模的不同思路，它们的竞争与融合推动着自然语言处理技术的发展。未来，随着计算能力的提升和算法的创新，语言模型将在更多应用场景中发挥重要作用，为人工智能的发展提供强大动力。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS SageMaker 连接 EMR 集群后安装外部包的问题]]></title>
+        <id>https://adureychloe.github.io/post/aws-sagemaker-lian-jie-emr-ji-qun-hou-an-zhuang-wai-bu-bao-de-wen-ti/</id>
+        <link href="https://adureychloe.github.io/post/aws-sagemaker-lian-jie-emr-ji-qun-hou-an-zhuang-wai-bu-bao-de-wen-ti/">
+        </link>
+        <updated>2025-02-13T09:01:18.000Z</updated>
+        <content type="html"><![CDATA[<p>较简单的SageMaker连接EMR集群的方法：<a href="https://docs.aws.amazon.com/zh_cn/sagemaker/latest/dg/nbi-lifecycle-config-emr.html">https://docs.aws.amazon.com/zh_cn/sagemaker/latest/dg/nbi-lifecycle-config-emr.html</a></p>
+<p><a href="https://aws.amazon.com/cn/blogs/machine-learning/build-amazon-sagemaker-notebooks-backed-by-spark-in-amazon-emr/">https://aws.amazon.com/cn/blogs/machine-learning/build-amazon-sagemaker-notebooks-backed-by-spark-in-amazon-emr/</a></p>
+<h1 id="问题描述">问题描述</h1>
+<p>在使用SageMaker连接EMR集群使用pyspark时，默认环境里没有pandas包。使用 %pip install 后还是没有，但是终端里可以导入。</p>
+<h1 id="问题解决">问题解决</h1>
+<p>这个问题是由于 notebook 连接到集群后，所有命令都是在集群环境下运行，而安装包是安装在了本地，所以相当于远端是没有这个包的。解决方法就是使用 %%local 命令让命令在本地运行导入。</p>
+<pre><code class="language-python">%%local
+import numpy as np
+import pandas as pd
+</code></pre>
+<p>在本地读取处理后再上传到集群：</p>
+<pre><code class="language-python">%%send_to_spark -i df -n custom_name -t df
+</code></pre>
+<h1 id="附生命周期配置">附：生命周期配置</h1>
+<pre><code class="language-bash"># OVERVIEW
+# This script connects an Amazon EMR cluster to an Amazon SageMaker notebook instance that uses Sparkmagic.
+#
+# Note that this script will fail if the Amazon EMR cluster's master node IP address is not reachable.
+#   1. Ensure that the EMR master node IP is resolvable from the notebook instance.
+#      One way to accomplish this is to have the notebook instance and the Amazon EMR cluster in the same subnet.
+#   2. Ensure the EMR master node security group provides inbound access from the notebook instance security group.
+#       Type        - Protocol - Port - Source
+#       Custom TCP  - TCP      - 8998 - $NOTEBOOK_SECURITY_GROUP
+#   3. Ensure the notebook instance has internet connectivity to fetch the SparkMagic example config.
+#
+# https://aws.amazon.com/blogs/machine-learning/build-amazon-sagemaker-notebooks-backed-by-spark-in-amazon-emr/
+
+# PARAMETERS
+EMR_MASTER_IP=your.emr.master.ip
+
+
+cd /home/ec2-user/.sparkmagic
+
+echo &quot;Fetching Sparkmagic example config from GitHub...&quot;
+wget https://raw.githubusercontent.com/jupyter-incubator/sparkmagic/master/sparkmagic/example_config.json
+
+echo &quot;Replacing EMR master node IP in Sparkmagic config...&quot;
+sed -i -- &quot;s/localhost/$EMR_MASTER_IP/g&quot; example_config.json
+mv example_config.json config.json
+
+echo &quot;Sending a sample request to Livy..&quot;
+curl &quot;$EMR_MASTER_IP:8998/sessions&quot;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS SageMaker Notebook 内核 Pyspark无法连接的问题]]></title>
+        <id>https://adureychloe.github.io/post/aws-sagemaker-notebook-nei-he-pyspark-wu-fa-lian-jie-de-wen-ti/</id>
+        <link href="https://adureychloe.github.io/post/aws-sagemaker-notebook-nei-he-pyspark-wu-fa-lian-jie-de-wen-ti/">
+        </link>
+        <updated>2025-02-13T08:45:12.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>以前是能成功连接的，但是我用完以后先终止了。重新配置以后突然不能连接了，打开notebook会显示无法连接notebook server。再三确定所有配置，还是没用。</p>
+<h1 id="问题解决">问题解决</h1>
+<p>查了好久，发现有一篇教程下有人也有同样问题：</p>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202502131646945.png" alt="截屏2023-08-26 12.10.28" loading="lazy"></figure>
+<p>据回复说的，应该是因为新版本的 Livy 连接EMR有问题，所以使用低版本的EMR和Livy就可以。</p>
+<figure data-type="image" tabindex="2"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202502131647800.png" alt="img" loading="lazy"></figure>
+<p>要注意新的控制台里已经没有低版本的EMR，所有需要转到旧版控制台才可以新建。</p>
+<p>参考：https://aws.amazon.com/cn/blogs/machine-learning/build-amazon-sagemaker-notebooks-backed-by-spark-in-amazon-emr/</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS无法SSH连接EMR]]></title>
+        <id>https://adureychloe.github.io/post/aws-wu-fa-ssh-lian-jie-emr/</id>
+        <link href="https://adureychloe.github.io/post/aws-wu-fa-ssh-lian-jie-emr/">
+        </link>
+        <updated>2025-02-12T08:46:31.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>刚开始弄AWS，还是不太熟练。弄好EC2密钥对，把安全策略中的SSH22端口打开后，使用SSH连接连不上。</p>
+<h1 id="问题解决">问题解决</h1>
+<p>在配置SSH安全策略时，我使用的是&quot;my ip&quot;入站规则：<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202502121648656.png" alt="img" loading="lazy"></p>
+<p>而我在配置规则时使用了代理的rule规则访问，也就意味着这里我的ip是代理的ip。而在ssh连接时又关闭了代理使用了原始ip，导致无法访问。只要配置规则时把代理关闭就好了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[bert的位置编码position_ids代码]]></title>
+        <id>https://adureychloe.github.io/post/bert-de-wei-zhi-bian-ma-position_ids-dai-ma/</id>
+        <link href="https://adureychloe.github.io/post/bert-de-wei-zhi-bian-ma-position_ids-dai-ma/">
+        </link>
+        <updated>2025-02-12T07:37:27.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-python">encode_result = tokenizer(sents, padding='max_length', truncation=True, max_length=config.max_length)
+input_ids = torch.tensor(encode_result['input_ids'])
+attention_mask = torch.tensor(encode_result['attention_mask'])
+type_ids = torch.tensor(encode_result['token_type_ids'])
+position_ids = []
+for i, j in enumerate(input_ids):  # i, j无用
+    position_id = list(range(config.max_length)) # 一个token的最大长度
+    position_ids.append(position_id)
+position_ids = torch.tensor(position_ids)
+</code></pre>
+<h1 id="解释">解释</h1>
+<p>这段代码的主要功能是将输入的文本数据（<code>sents</code>）进行编码，并将其转换为模型所需的输入格式。以下是逐行解释：</p>
+<hr>
+<h3 id="1-文本编码"><strong>1. 文本编码</strong></h3>
+<pre><code class="language-python">encode_result = tokenizer(sents, padding='max_length', truncation=True, max_length=config.max_length)
+</code></pre>
+<ul>
+<li><strong><code>tokenizer</code></strong>：这是一个预训练的分词器（Tokenizer），通常来自 Hugging Face 的 <code>transformers</code> 库（如 BERT、GPT 等）。</li>
+<li><strong><code>sents</code></strong>：输入的文本数据，可以是一个字符串或字符串列表。</li>
+<li><strong><code>padding='max_length'</code></strong>：将文本填充到指定的最大长度（<code>max_length</code>）。如果文本长度不足，会用特殊填充符号（如 <code>[PAD]</code>）填充。</li>
+<li><strong><code>truncation=True</code></strong>：如果文本长度超过 <code>max_length</code>，则截断多余的部分。</li>
+<li><strong><code>max_length=config.max_length</code></strong>：指定文本的最大长度，通常由配置文件（<code>config</code>）中的 <code>max_length</code> 参数决定。</li>
+<li><strong><code>encode_result</code></strong>：编码后的结果是一个字典，包含以下键：
+<ul>
+<li><code>input_ids</code>：文本转换为对应的 token ID 序列。</li>
+<li><code>attention_mask</code>：表示哪些位置是实际文本，哪些位置是填充部分（1 表示实际文本，0 表示填充）。</li>
+<li><code>token_type_ids</code>：用于区分不同句子的标记（如 BERT 中的句子 A 和句子 B）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-转换为-pytorch-张量"><strong>2. 转换为 PyTorch 张量</strong></h3>
+<pre><code class="language-python">input_ids = torch.tensor(encode_result['input_ids'])
+attention_mask = torch.tensor(encode_result['attention_mask'])
+type_ids = torch.tensor(encode_result['token_type_ids'])
+</code></pre>
+<ul>
+<li><strong><code>input_ids</code></strong>：将 <code>encode_result['input_ids']</code> 转换为 PyTorch 张量，表示文本的 token ID 序列。</li>
+<li><strong><code>attention_mask</code></strong>：将 <code>encode_result['attention_mask']</code> 转换为 PyTorch 张量，表示注意力掩码。</li>
+<li><strong><code>type_ids</code></strong>：将 <code>encode_result['token_type_ids']</code> 转换为 PyTorch 张量，表示句子类型标记（如 BERT 中的句子 A 和句子 B）。</li>
+</ul>
+<hr>
+<h3 id="3-生成位置编码"><strong>3. 生成位置编码</strong></h3>
+<pre><code class="language-python">position_ids = []
+for i, j in enumerate(input_ids):  # i, j无用
+    position_id = list(range(config.max_length)) # 一个token的最大长度
+    position_ids.append(position_id)
+position_ids = torch.tensor(position_ids)
+</code></pre>
+<ul>
+<li><strong><code>position_ids</code></strong>：用于表示每个 token 在序列中的位置信息。</li>
+<li><strong><code>for i, j in enumerate(input_ids)</code></strong>：
+<ul>
+<li>遍历 <code>input_ids</code> 的每一行（每个样本）。</li>
+<li><code>i</code> 是索引，<code>j</code> 是当前样本的 <code>input_ids</code>，但这里 <code>i</code> 和 <code>j</code> 并未使用。</li>
+</ul>
+</li>
+<li><strong><code>position_id = list(range(config.max_length))</code></strong>：
+<ul>
+<li>为每个样本生成一个位置 ID 列表，范围从 <code>0</code> 到 <code>config.max_length - 1</code>。</li>
+<li>例如，如果 <code>config.max_length=10</code>，则生成 <code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>。</li>
+</ul>
+</li>
+<li><strong><code>position_ids.append(position_id)</code></strong>：
+<ul>
+<li>将生成的位置 ID 列表添加到 <code>position_ids</code> 中。</li>
+</ul>
+</li>
+<li><strong><code>position_ids = torch.tensor(position_ids)</code></strong>：
+<ul>
+<li>将 <code>position_ids</code> 转换为 PyTorch 张量。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-最终输出"><strong>4. 最终输出</strong></h3>
+<ul>
+<li><strong><code>input_ids</code></strong>：文本的 token ID 序列。</li>
+<li><strong><code>attention_mask</code></strong>：注意力掩码，用于区分实际文本和填充部分。</li>
+<li><strong><code>type_ids</code></strong>：句子类型标记（如 BERT 中的句子 A 和句子 B）。</li>
+<li><strong><code>position_ids</code></strong>：每个 token 的位置信息。</li>
+</ul>
+<hr>
+<h3 id="代码的作用"><strong>代码的作用</strong></h3>
+<p>这段代码的目的是将输入的文本数据转换为模型所需的输入格式。具体来说：</p>
+<ol>
+<li>使用分词器对文本进行编码，生成 <code>input_ids</code>、<code>attention_mask</code> 和 <code>token_type_ids</code>。</li>
+<li>将编码结果转换为 PyTorch 张量。</li>
+<li>生成位置编码 <code>position_ids</code>，表示每个 token 在序列中的位置。</li>
+</ol>
+<hr>
+<h3 id="示例"><strong>示例</strong></h3>
+<p>假设：</p>
+<ul>
+<li><code>sents = [&quot;Hello, world!&quot;, &quot;How are you?&quot;]</code></li>
+<li><code>config.max_length = 10</code></li>
+</ul>
+<h4 id="编码结果"><strong>编码结果</strong></h4>
+<ul>
+<li><code>input_ids</code>：<code>[[101, 7592, 1010, 2088, 102, 0, 0, 0, 0, 0], [101, 2129, 2024, 2017, 102, 0, 0, 0, 0, 0]]</code></li>
+<li><code>attention_mask</code>：<code>[[1, 1, 1, 1, 1, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]]</code></li>
+<li><code>token_type_ids</code>：<code>[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]</code></li>
+<li><code>position_ids</code>：<code>[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]</code></li>
+</ul>
+<hr>
+<h3 id="总结"><strong>总结</strong></h3>
+<p>这段代码是 NLP 任务中常见的文本预处理步骤，用于将原始文本转换为模型可以处理的张量格式。通过分词器编码和位置编码，模型能够理解文本的内容和结构。</p>
+]]></content>
+    </entry>
+</feed>
