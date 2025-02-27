@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://adureychloe.github.io</id>
+    <title>Gridea</title>
+    <updated>2025-02-27T10:28:35.970Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://adureychloe.github.io"/>
+    <link rel="self" href="https://adureychloe.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://adureychloe.github.io/images/avatar.png</logo>
+    <icon>https://adureychloe.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day3: Zig Zag Sequence]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day3-zig-zag-sequence/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day3-zig-zag-sequence/">
+        </link>
+        <updated>2025-02-24T07:14:48.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>给你一个包含奇数个元素的整数数组（例如：[5, 2, 3, 1, 4]）。您需要重新排列元素，使它们处于zig zag sequence中，这意味着：</p>
+<p>元素的前半部分（从第一到中间）按递增顺序排列（例如：1、2、5）。<br>
+元素的后半部分（从中间到最后）按降序排列（例如：5、4、3）。<br>
+换句话说：递增顺序的元素&lt;中间元素&gt;递减顺序的元素。此外，由于可以有多个有效的之字形序列（例如：[1, 4, 5, 3, 2]），您需要返回字典序最小的一个。在此示例中，[1, 2, 5, 4, 3] &lt; [1, 4, 5, 3, 2] 按字典顺序排列，这就是为什么 [1, 2, 5, 4, 3] 是答案。</p>
+<h1 id="要点">要点</h1>
+<p>因为zig zag，所以中间元素最大；因为字典序要最小，所以最小值放前面。先升序排序，最大值在最后，所以中间和最后值交换；然后后半部分降序排序，中间值和最后值之间的元素反转。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">def findZigZagSequence(a, n):
+    a.sort()
+    mid = int(n/2)
+    a[mid], a[n-1] = a[n-1], a[mid]
+
+    st = mid + 1
+    ed = n - 2
+    while(st &lt;= ed):
+        a[st], a[ed] = a[ed], a[st]
+        st = st + 1
+        ed = ed - 1
+
+    for i in range (n):
+        if i == n-1:
+            print(a[i])
+        else:
+            print(a[i], end = ' ')
+    return
+
+test_cases = int(input())
+for cs in range (test_cases):
+    n = int(input())
+    a = list(map(int, input().split()))
+    findZigZagSequence(a, n)
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day4: Grid Challenge]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day4-grid-challenge/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day4-grid-challenge/">
+        </link>
+        <updated>2025-02-24T03:52:13.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>给定一个规模为的正方形网格G，其中每个格子包含一个小写字母。第i行第j列的数用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>G</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">G_{ij}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>​表示。你可以进行一种操作任意多次：对任意合法的i和j，交换同一行中相邻两列的字符。可能重排这个网格满足下面的条件么？</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mi>i</mi><mn>1</mn><mi mathvariant="normal">​</mi><mo>&lt;</mo><mo>=</mo><mi>G</mi><mi>i</mi><mn>2</mn><mi mathvariant="normal">​</mi><mo>&lt;</mo><mo>=</mo><mi>G</mi><mi>i</mi><mi>N</mi><mi mathvariant="normal">​</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>a</mi><mi>l</mi><mi>l</mi><mn>1</mn><mo>&lt;</mo><mo>=</mo><mi>i</mi><mo>&lt;</mo><mo>=</mo><mi>N</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>G</mi><mn>1</mn><mi>j</mi><mi mathvariant="normal">​</mi><mo>&lt;</mo><mo>=</mo><mi>G</mi><mi>N</mi><mi>j</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>a</mi><mi>l</mi><mi>l</mi><mn>1</mn><mo>&lt;</mo><mo>=</mo><mi>j</mi><mo>&lt;</mo><mo>=</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">Gi1​&lt;=Gi2​&lt;=GiN​ for  all 1&lt;=i&lt;=N and G1j​&lt;=GNj for all 1&lt;=j&lt;=N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">G</span><span class="mord mathdefault">i</span><span class="mord">1</span><span class="mord">​</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">G</span><span class="mord mathdefault">i</span><span class="mord">2</span><span class="mord">​</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">G</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord">​</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69862em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">d</span><span class="mord mathdefault">G</span><span class="mord">1</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord">​</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">G</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></p>
+<p>字母大小就是根据字母表来看。</p>
+<h1 id="要点">要点</h1>
+<p>先把每一行升序排列满足第一条，然后循环判断第二条是否满足。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">def gridChallenge(grid):
+    # Write your code here
+    arr = [sorted(i) for i in grid]
+    for j in range(len(arr[0])):
+        for i in range(1,len(arr)):
+            if(arr[i][j]&lt;arr[i-1][j]):
+                return &quot;NO&quot;
+    return &quot;YES&quot;
+            
+    
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        n = int(input().strip())
+
+        grid = []
+
+        for _ in range(n):
+            grid_item = input()
+            grid.append(grid_item)
+
+        result = gridChallenge(grid)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day4: New Year Chaos]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day4-new-year-chaos/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day4-new-year-chaos/">
+        </link>
+        <updated>2025-02-19T09:27:12.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>今天是元旦，每个人都在排队乘坐 Wonderland 过山车！有很多人在排队，每个人都贴着一张标明他们在队列中的初始位置的贴纸。初始位置从1到n递增。<br>
+队列中的任何人都可以贿赂直接排在他们前面的人来交换位置。如果两个人交换位置，他们仍然会佩戴相同的贴纸，表示他们原来排队的位置。一个人最多可以贿赂另外两个人。打印贿赂数，如果贿赂超过2，打印“Too chaotic”。</p>
+<p>例如，q = [4,1,2,3]，4必须贿赂三个人，打印“Too chaotic”。</p>
+<h1 id="思路">思路</h1>
+<p>比较数组中前后元素的差别，如果前面的元素大于原来的位置超过2，就chaotic。计算bribe数量时，可以用重叠循环i和j，比较i之前的所有元素有无大于i元素的（说明i被贿赂了），如果有就加1。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">def minimumBribes(q):
+    # Write your code here
+    q = [i-1 for i in q] # set queue to start at 0
+    bribes = 0
+    for i in range(len(q)):
+        if (q[i] - i) &gt; 2:
+            print('Too chaotic')
+            return
+        else:
+            for j in range(i):
+                if(q[j]&gt;q[i]):
+                    bribes+=1
+    print(bribes)
+                
+            
+
+if __name__ == '__main__':
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        n = int(input().strip())
+
+        q = list(map(int, input().rstrip().split()))
+
+        minimumBribes(q)
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day4: Recursive Digit Sum]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day4-recursive-digit-sum/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day4-recursive-digit-sum/">
+        </link>
+        <updated>2025-02-19T09:13:18.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>定义超级数字的规则如下：</p>
+<p>如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>只有一个数字，那超级数字就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>。否则，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>的超级数字等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>的数字之和的超级数字。<br>
+例子：<br>
+9875的超级数字：<br>
+super_digit(9875) 9+8+7+5 = 29<br>
+super_digit(29) 2 + 9 = 11<br>
+super_digit(11) 1 + 1 = 2<br>
+super_digit(2) = 2</p>
+<p>函数输入n,k。n是数字字符串，k是倍数。如果n='123', k=3，则要计算p = '123123123'。</p>
+<h1 id="思路">思路</h1>
+<p>一眼递归。刚开始先用p = n*k，然后相加内部元素进行递归，但是有几个实例过不掉，说明需要优化。<br>
+就先不重复字符串，先相加计算完后再乘倍数，这样就少了两个操作（字符串复制和相加）。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">def superDigit(n, k):
+    # Write your code here
+    
+    res = 0
+    if len(n)&lt;=1:
+        return n
+    # for i in p:
+    #     res += int(i) 
+    return superDigit(str(sum(int(i) for i in n) *k), 1)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    first_multiple_input = input().rstrip().split()
+
+    n = first_multiple_input[0]
+
+    k = int(first_multiple_input[1])
+
+    result = superDigit(n, k)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day5: Balanced Bracketes]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day5-balanced-bracketes/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day5-balanced-bracketes/">
+        </link>
+        <updated>2025-02-19T08:08:07.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>括号包括{}/[]/()，我们说一个括号序列平衡要满足以下条件：</p>
+<p>它不包含不匹配的括号。<br>
+包含在一对匹配的括号范围内的括号子集也是一对匹配的括号。<br>
+给定n个括号串，如果平衡返回YES，否则返回NO。</p>
+<h1 id="思路">思路</h1>
+<p>暴力匹配：直接匹配字符串的开头和结尾并向内收紧，看会不会有一对不匹配。但是没有过测试用例，用的时间太多。# 更新：这个不对，比如[]{}<br>
+栈方法：用字典存储括号对，对字符串的每个括号先压入栈，因为后来的总是在最上面，所以直接看后面的括号是否匹配栈顶，匹配就出栈，若最后栈为空，则平衡。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">def isBalanced(s):
+    # Write your code here
+    # temp = list(s)
+    # if len(temp) % 2 == 1:
+    #     return &quot;NO&quot;
+    # half = len(temp)/2
+    # i = 0
+    # j = len(temp)-1 
+    # if(i&lt;j &amp; temp[i] == temp[j]):
+    #     i += 1
+    #     j -= 1
+    # if(i&gt;j):return &quot;YES&quot;
+    stack = []
+        
+    for item in s:
+        if item == '(':
+            stack.append(')')
+        elif item == '[':
+            stack.append(']')
+        elif item == '{':
+            stack.append('}')
+        elif not stack or stack[-1] != item:
+            return False
+        else:
+            stack.pop()
+    return &quot;YES&quot; if not stack else &quot;NO&quot;
+    
+        
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        s = input()
+
+        result = isBalanced(s)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HackerRank 1 week preparation kit day5: Merge two sorted linked lists]]></title>
+        <id>https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day5-merge-two-sorted-linked-lists/</id>
+        <link href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day5-merge-two-sorted-linked-lists/">
+        </link>
+        <updated>2025-02-18T06:44:26.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题目描述">题目描述</h1>
+<p>给定指向两个已排序链表头部的指针，将它们合并为一个已排序链表。任一头指针都可以为空，这意味着对应的列表为空。</p>
+<p>例如:<br>
+Input: a: 5-&gt;10-&gt;15, b: 2-&gt;3-&gt;20<br>
+Output: 2-&gt;3-&gt;5-&gt;10-&gt;15-&gt;20</p>
+<h1 id="思路">思路</h1>
+<p>暴力解法：<br>
+新建一个链表节点，如果两个链表任一链表的节点值小于另一个，则将该节点添加到我们的新建链表并递增该指针。</p>
+<p>递归解法<br>
+比较两个链表节点哪个值小，指针指向那个值，然后通过向前移动指针进行递归调用，这样子就能一直添加较小值。</p>
+<h1 id="题解">题解</h1>
+<pre><code class="language-python">// Complete the mergeLists function below.
+
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+    SinglyLinkedListNode* res = head1;
+    if(head1 == NULL){
+        return head2;
+    }
+    if(head2 == NULL){
+        return head1;
+    }
+    if(head1-&gt;data &lt;= head2-&gt;data){
+        res = head1;
+        res-&gt;next = mergeLists(head1-&gt;next, head2);
+    }
+    else{
+        res = head2;
+        res-&gt;next = mergeLists(head1, head2-&gt;next);
+    }
+    return res;
+
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[WorldQuant BRAIN alpha构建注意点]]></title>
+        <id>https://adureychloe.github.io/post/worldquant-brain-alpha-gou-jian-zhu-yi-dian/</id>
+        <link href="https://adureychloe.github.io/post/worldquant-brain-alpha-gou-jian-zhu-yi-dian/">
+        </link>
+        <updated>2025-02-13T09:12:06.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>美股市场的一个月是20天，一年是250天，三个月63天，两年480或500天</li>
+<li>对于Trade_When (x=triggerTradeExp, y=AlphaExp, z=triggerExitExp)，当符合x条件时，alpha就是y；如果符合z条件，alpha就是NaN，即平仓不分配alpha；如果不符合x条件且不符合z条件，就是alpha维持前一个不变。如果z设置为-1，代表z条件永不满足，即永不平仓。</li>
+<li>group时尝试使用“country”。</li>
+<li>group 分为 statistical grouping 和 bucket operator。前者根据统计量进行分组，后者自定义分组。</li>
+<li>Densify能让量纲差距大的数据变得紧密。在使用group操作符时尽量使用这个。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[安装了torchcrf后导入提示No module named 'TorchCRF' ，但是pip show显示包已存在]]></title>
+        <id>https://adureychloe.github.io/post/an-zhuang-liao-torchcrf-hou-dao-ru-ti-shi-no-module-named-torchcrf-dan-shi-pip-show-xian-shi-bao-yi-cun-zai/</id>
+        <link href="https://adureychloe.github.io/post/an-zhuang-liao-torchcrf-hou-dao-ru-ti-shi-no-module-named-torchcrf-dan-shi-pip-show-xian-shi-bao-yi-cun-zai/">
+        </link>
+        <updated>2025-02-13T09:10:58.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题描述">问题描述</h1>
+<p>已经正常安装torchcrf，但是import不了</p>
+<h1 id="问题解决">问题解决</h1>
+<p>比较坑的问题，因为实例代码是import torchcrf，又看到网上说的也是这样做，就以为问题在环境配置方面，但是其实就是包的名字没写对（可能以前的版本是torchcrf），改成import TorchCRF就行。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ARLM（自回归语言模型）和AELM（自编码语言模型）]]></title>
+        <id>https://adureychloe.github.io/post/arlmzi-hui-gui-yu-yan-mo-xing-he-aelmzi-bian-ma-yu-yan-mo-xing/</id>
+        <link href="https://adureychloe.github.io/post/arlmzi-hui-gui-yu-yan-mo-xing-he-aelmzi-bian-ma-yu-yan-mo-xing/">
+        </link>
+        <updated>2025-02-13T09:09:20.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="arlm与aelm语言模型的两大范式">ARLM与AELM：语言模型的两大范式</h2>
+<p>语言模型是自然语言处理领域的核心技术，ARLM（自回归语言模型）和AELM（自编码语言模型）代表了当前语言建模的两大主流范式。这两种模型在架构设计和应用场景上各具特色，共同推动着自然语言处理技术的发展。</p>
+<h3 id="一-arlm序列生成的典范">一、ARLM：序列生成的典范</h3>
+<p>自回归语言模型通过前向预测的方式进行序列生成，采用单向注意力机制，逐个预测序列中的下一个词。GPT系列模型是ARLM的典型代表，其核心优势在于：</p>
+<ol>
+<li>生成质量高：能够生成连贯、自然的文本</li>
+<li>训练稳定：采用标准的语言模型训练目标</li>
+<li>可扩展性强：模型规模与性能呈正相关</li>
+</ol>
+<p>ARLM在文本生成、对话系统等任务中表现出色，但其单向建模特性限制了其在需要全局理解的任务中的表现。</p>
+<h3 id="二-aelm双向理解的突破">二、AELM：双向理解的突破</h3>
+<p>自编码语言模型通过双向注意力机制同时处理整个输入序列，BERT是AELM的典型代表。其特点包括：</p>
+<ol>
+<li>双向编码：能够捕捉上下文信息</li>
+<li>掩码预测：通过预测被掩码的词进行训练</li>
+<li>理解能力强：适合需要深度理解的任务</li>
+</ol>
+<p>AELM在文本分类、问答系统等任务中表现优异，但在生成任务上存在局限性。</p>
+<h3 id="三-技术融合与创新">三、技术融合与创新</h3>
+<p>近年来，研究者们致力于融合两种模型的优势：</p>
+<ol>
+<li>混合架构：如UniLM，结合单向和双向注意力</li>
+<li>多任务学习：同时训练生成和理解任务</li>
+<li>预训练-微调范式：结合两种模型的优势</li>
+</ol>
+<p>这些创新推动了语言模型性能的持续提升，为自然语言处理带来了新的可能性。</p>
+<p>ARLM和AELM代表了语言建模的不同思路，它们的竞争与融合推动着自然语言处理技术的发展。未来，随着计算能力的提升和算法的创新，语言模型将在更多应用场景中发挥重要作用，为人工智能的发展提供强大动力。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS SageMaker 连接 EMR 集群后安装外部包的问题]]></title>
+        <id>https://adureychloe.github.io/post/aws-sagemaker-lian-jie-emr-ji-qun-hou-an-zhuang-wai-bu-bao-de-wen-ti/</id>
+        <link href="https://adureychloe.github.io/post/aws-sagemaker-lian-jie-emr-ji-qun-hou-an-zhuang-wai-bu-bao-de-wen-ti/">
+        </link>
+        <updated>2025-02-13T09:01:18.000Z</updated>
+        <content type="html"><![CDATA[<p>较简单的SageMaker连接EMR集群的方法：<a href="https://docs.aws.amazon.com/zh_cn/sagemaker/latest/dg/nbi-lifecycle-config-emr.html">https://docs.aws.amazon.com/zh_cn/sagemaker/latest/dg/nbi-lifecycle-config-emr.html</a></p>
+<p><a href="https://aws.amazon.com/cn/blogs/machine-learning/build-amazon-sagemaker-notebooks-backed-by-spark-in-amazon-emr/">https://aws.amazon.com/cn/blogs/machine-learning/build-amazon-sagemaker-notebooks-backed-by-spark-in-amazon-emr/</a></p>
+<h1 id="问题描述">问题描述</h1>
+<p>在使用SageMaker连接EMR集群使用pyspark时，默认环境里没有pandas包。使用 %pip install 后还是没有，但是终端里可以导入。</p>
+<h1 id="问题解决">问题解决</h1>
+<p>这个问题是由于 notebook 连接到集群后，所有命令都是在集群环境下运行，而安装包是安装在了本地，所以相当于远端是没有这个包的。解决方法就是使用 %%local 命令让命令在本地运行导入。</p>
+<pre><code class="language-python">%%local
+import numpy as np
+import pandas as pd
+</code></pre>
+<p>在本地读取处理后再上传到集群：</p>
+<pre><code class="language-python">%%send_to_spark -i df -n custom_name -t df
+</code></pre>
+<h1 id="附生命周期配置">附：生命周期配置</h1>
+<pre><code class="language-bash"># OVERVIEW
+# This script connects an Amazon EMR cluster to an Amazon SageMaker notebook instance that uses Sparkmagic.
+#
+# Note that this script will fail if the Amazon EMR cluster's master node IP address is not reachable.
+#   1. Ensure that the EMR master node IP is resolvable from the notebook instance.
+#      One way to accomplish this is to have the notebook instance and the Amazon EMR cluster in the same subnet.
+#   2. Ensure the EMR master node security group provides inbound access from the notebook instance security group.
+#       Type        - Protocol - Port - Source
+#       Custom TCP  - TCP      - 8998 - $NOTEBOOK_SECURITY_GROUP
+#   3. Ensure the notebook instance has internet connectivity to fetch the SparkMagic example config.
+#
+# https://aws.amazon.com/blogs/machine-learning/build-amazon-sagemaker-notebooks-backed-by-spark-in-amazon-emr/
+
+# PARAMETERS
+EMR_MASTER_IP=your.emr.master.ip
+
+
+cd /home/ec2-user/.sparkmagic
+
+echo &quot;Fetching Sparkmagic example config from GitHub...&quot;
+wget https://raw.githubusercontent.com/jupyter-incubator/sparkmagic/master/sparkmagic/example_config.json
+
+echo &quot;Replacing EMR master node IP in Sparkmagic config...&quot;
+sed -i -- &quot;s/localhost/$EMR_MASTER_IP/g&quot; example_config.json
+mv example_config.json config.json
+
+echo &quot;Sending a sample request to Livy..&quot;
+curl &quot;$EMR_MASTER_IP:8998/sessions&quot;
+</code></pre>
+]]></content>
+    </entry>
+</feed>
