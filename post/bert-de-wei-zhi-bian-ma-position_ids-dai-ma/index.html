@@ -1,0 +1,478 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>bert的位置编码position_ids代码 | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+<script src="https://adureychloe.github.io/media/js/jquery.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/aos.js"></script>
+<script src="https://adureychloe.github.io/media/js/pace.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/view-image.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="encode_result = tokenizer(sents, padding='max_length', truncation=True, max_length=config.max_length)
+input_ids = torch...." />
+    <meta name="keywords" content="" />
+    <script src="https://adureychloe.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://adureychloe.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://adureychloe.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/" class="menu">
+                      首页
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1755488408181" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2025-02-12"><i class="fa fa-calendar"></i><span class="lately">6 个月前</span></time>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+              </div>
+              <h1 class="title ularge white bold">bert的位置编码position_ids代码</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <pre><code class="language-python">encode_result = tokenizer(sents, padding='max_length', truncation=True, max_length=config.max_length)
+input_ids = torch.tensor(encode_result['input_ids'])
+attention_mask = torch.tensor(encode_result['attention_mask'])
+type_ids = torch.tensor(encode_result['token_type_ids'])
+position_ids = []
+for i, j in enumerate(input_ids):  # i, j无用
+    position_id = list(range(config.max_length)) # 一个token的最大长度
+    position_ids.append(position_id)
+position_ids = torch.tensor(position_ids)
+</code></pre>
+<h1 id="解释">解释</h1>
+<p>这段代码的主要功能是将输入的文本数据（<code>sents</code>）进行编码，并将其转换为模型所需的输入格式。以下是逐行解释：</p>
+<hr>
+<h3 id="1-文本编码"><strong>1. 文本编码</strong></h3>
+<pre><code class="language-python">encode_result = tokenizer(sents, padding='max_length', truncation=True, max_length=config.max_length)
+</code></pre>
+<ul>
+<li><strong><code>tokenizer</code></strong>：这是一个预训练的分词器（Tokenizer），通常来自 Hugging Face 的 <code>transformers</code> 库（如 BERT、GPT 等）。</li>
+<li><strong><code>sents</code></strong>：输入的文本数据，可以是一个字符串或字符串列表。</li>
+<li><strong><code>padding='max_length'</code></strong>：将文本填充到指定的最大长度（<code>max_length</code>）。如果文本长度不足，会用特殊填充符号（如 <code>[PAD]</code>）填充。</li>
+<li><strong><code>truncation=True</code></strong>：如果文本长度超过 <code>max_length</code>，则截断多余的部分。</li>
+<li><strong><code>max_length=config.max_length</code></strong>：指定文本的最大长度，通常由配置文件（<code>config</code>）中的 <code>max_length</code> 参数决定。</li>
+<li><strong><code>encode_result</code></strong>：编码后的结果是一个字典，包含以下键：
+<ul>
+<li><code>input_ids</code>：文本转换为对应的 token ID 序列。</li>
+<li><code>attention_mask</code>：表示哪些位置是实际文本，哪些位置是填充部分（1 表示实际文本，0 表示填充）。</li>
+<li><code>token_type_ids</code>：用于区分不同句子的标记（如 BERT 中的句子 A 和句子 B）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-转换为-pytorch-张量"><strong>2. 转换为 PyTorch 张量</strong></h3>
+<pre><code class="language-python">input_ids = torch.tensor(encode_result['input_ids'])
+attention_mask = torch.tensor(encode_result['attention_mask'])
+type_ids = torch.tensor(encode_result['token_type_ids'])
+</code></pre>
+<ul>
+<li><strong><code>input_ids</code></strong>：将 <code>encode_result['input_ids']</code> 转换为 PyTorch 张量，表示文本的 token ID 序列。</li>
+<li><strong><code>attention_mask</code></strong>：将 <code>encode_result['attention_mask']</code> 转换为 PyTorch 张量，表示注意力掩码。</li>
+<li><strong><code>type_ids</code></strong>：将 <code>encode_result['token_type_ids']</code> 转换为 PyTorch 张量，表示句子类型标记（如 BERT 中的句子 A 和句子 B）。</li>
+</ul>
+<hr>
+<h3 id="3-生成位置编码"><strong>3. 生成位置编码</strong></h3>
+<pre><code class="language-python">position_ids = []
+for i, j in enumerate(input_ids):  # i, j无用
+    position_id = list(range(config.max_length)) # 一个token的最大长度
+    position_ids.append(position_id)
+position_ids = torch.tensor(position_ids)
+</code></pre>
+<ul>
+<li><strong><code>position_ids</code></strong>：用于表示每个 token 在序列中的位置信息。</li>
+<li><strong><code>for i, j in enumerate(input_ids)</code></strong>：
+<ul>
+<li>遍历 <code>input_ids</code> 的每一行（每个样本）。</li>
+<li><code>i</code> 是索引，<code>j</code> 是当前样本的 <code>input_ids</code>，但这里 <code>i</code> 和 <code>j</code> 并未使用。</li>
+</ul>
+</li>
+<li><strong><code>position_id = list(range(config.max_length))</code></strong>：
+<ul>
+<li>为每个样本生成一个位置 ID 列表，范围从 <code>0</code> 到 <code>config.max_length - 1</code>。</li>
+<li>例如，如果 <code>config.max_length=10</code>，则生成 <code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>。</li>
+</ul>
+</li>
+<li><strong><code>position_ids.append(position_id)</code></strong>：
+<ul>
+<li>将生成的位置 ID 列表添加到 <code>position_ids</code> 中。</li>
+</ul>
+</li>
+<li><strong><code>position_ids = torch.tensor(position_ids)</code></strong>：
+<ul>
+<li>将 <code>position_ids</code> 转换为 PyTorch 张量。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-最终输出"><strong>4. 最终输出</strong></h3>
+<ul>
+<li><strong><code>input_ids</code></strong>：文本的 token ID 序列。</li>
+<li><strong><code>attention_mask</code></strong>：注意力掩码，用于区分实际文本和填充部分。</li>
+<li><strong><code>type_ids</code></strong>：句子类型标记（如 BERT 中的句子 A 和句子 B）。</li>
+<li><strong><code>position_ids</code></strong>：每个 token 的位置信息。</li>
+</ul>
+<hr>
+<h3 id="代码的作用"><strong>代码的作用</strong></h3>
+<p>这段代码的目的是将输入的文本数据转换为模型所需的输入格式。具体来说：</p>
+<ol>
+<li>使用分词器对文本进行编码，生成 <code>input_ids</code>、<code>attention_mask</code> 和 <code>token_type_ids</code>。</li>
+<li>将编码结果转换为 PyTorch 张量。</li>
+<li>生成位置编码 <code>position_ids</code>，表示每个 token 在序列中的位置。</li>
+</ol>
+<hr>
+<h3 id="示例"><strong>示例</strong></h3>
+<p>假设：</p>
+<ul>
+<li><code>sents = [&quot;Hello, world!&quot;, &quot;How are you?&quot;]</code></li>
+<li><code>config.max_length = 10</code></li>
+</ul>
+<h4 id="编码结果"><strong>编码结果</strong></h4>
+<ul>
+<li><code>input_ids</code>：<code>[[101, 7592, 1010, 2088, 102, 0, 0, 0, 0, 0], [101, 2129, 2024, 2017, 102, 0, 0, 0, 0, 0]]</code></li>
+<li><code>attention_mask</code>：<code>[[1, 1, 1, 1, 1, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 0, 0, 0, 0, 0]]</code></li>
+<li><code>token_type_ids</code>：<code>[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]</code></li>
+<li><code>position_ids</code>：<code>[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]</code></li>
+</ul>
+<hr>
+<h3 id="总结"><strong>总结</strong></h3>
+<p>这段代码是 NLP 任务中常见的文本预处理步骤，用于将原始文本转换为模型可以处理的张量格式。通过分词器编码和位置编码，模型能够理解文本的内容和结构。</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/aws-wu-fa-ssh-lian-jie-emr/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-02-12">2025-02-12</time>
+                  <h4 class="title white no-margin">AWS无法SSH连接EMR</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day2-lonely-integer/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-02-12">2025-02-12</time>
+                  <h4 class="title white no-margin">HackerRank 1 week preparation kit day2: Lonely Integer</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-18">2025-08-18</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/">bun install和bun add一直卡在resolving且无日志输出</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-14">2025-08-14</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/">Web3初学笔记（二）：稳定币、借贷协议与 Uniswap 版本对比</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-05">2025-08-05</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/">Web3初学笔记（一）</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://adureychloe.github.io/tag/ioI4R8rdD/" class="ctag ctag-0 ctag-ioI4R8rdD" aria-label="">nlp</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/RO5nehTX4/" class="ctag ctag-1 ctag-RO5nehTX4" aria-label="">打比赛</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/WE3NPk-_f/" class="ctag ctag-2 ctag-WE3NPk-_f" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://adureychloe.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">Gridea</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 42 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://adureychloe.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

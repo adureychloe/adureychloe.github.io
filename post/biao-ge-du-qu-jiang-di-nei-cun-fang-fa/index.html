@@ -1,0 +1,464 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>表格读取降低内存方法 | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+<script src="https://adureychloe.github.io/media/js/jquery.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/aos.js"></script>
+<script src="https://adureychloe.github.io/media/js/pace.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/view-image.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="若是表格太大，可以针对表格的不同数据类型进行优化处理，降低内存使用。
+pandas：
+def reduce_mem_usage(self, float16_as32=True):
+    #memory_usage()是df每列的内存使用量..." />
+    <meta name="keywords" content="" />
+    <script src="https://adureychloe.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://adureychloe.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://adureychloe.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/" class="menu">
+                      首页
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1755488408181" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2024-10-22"><i class="fa fa-calendar"></i><span class="lately">10 个月前</span></time>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+              </div>
+              <h1 class="title ularge white bold">表格读取降低内存方法</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>若是表格太大，可以针对表格的不同数据类型进行优化处理，降低内存使用。</p>
+<h1 id="pandas">pandas：</h1>
+<pre><code class="language-python">def reduce_mem_usage(self, float16_as32=True):
+    #memory_usage()是df每列的内存使用量,sum是对它们求和, B-&gt;KB-&gt;MB
+    start_mem = df.memory_usage().sum() / 1024**2
+    print('Memory usage of dataframe is {:.2f} MB'.format(start_mem))
+
+    for col in df.columns:#遍历每列的列名
+        col_type = df[col].dtype#列名的type
+        if col_type != object and str(col_type)!='category':#不是object也就是说这里处理的是数值类型的变量
+            c_min,c_max = df[col].min(),df[col].max() #求出这列的最大值和最小值
+            if str(col_type)[:3] == 'int':#如果是int类型的变量,不管是int8,int16,int32还是int64
+                #如果这列的取值范围是在int8的取值范围内,那就对类型进行转换 (-128 到 127)
+                if c_min &gt; np.iinfo(np.int8).min and c_max &lt; np.iinfo(np.int8).max:
+                    df[col] = df[col].astype(np.int8)
+                #如果这列的取值范围是在int16的取值范围内,那就对类型进行转换(-32,768 到 32,767)
+                elif c_min &gt; np.iinfo(np.int16).min and c_max &lt; np.iinfo(np.int16).max:
+                    df[col] = df[col].astype(np.int16)
+                #如果这列的取值范围是在int32的取值范围内,那就对类型进行转换(-2,147,483,648到2,147,483,647)
+                elif c_min &gt; np.iinfo(np.int32).min and c_max &lt; np.iinfo(np.int32).max:
+                    df[col] = df[col].astype(np.int32)
+                #如果这列的取值范围是在int64的取值范围内,那就对类型进行转换(-9,223,372,036,854,775,808到9,223,372,036,854,775,807)
+                elif c_min &gt; np.iinfo(np.int64).min and c_max &lt; np.iinfo(np.int64).max:
+                    df[col] = df[col].astype(np.int64)  
+            else:#如果是浮点数类型.
+                #如果数值在float16的取值范围内,如果觉得需要更高精度可以考虑float32
+                if c_min &gt; np.finfo(np.float16).min and c_max &lt; np.finfo(np.float16).max:
+                    if float16_as32:#如果数据需要更高的精度可以选择float32
+                        df[col] = df[col].astype(np.float32)
+                    else:
+                        df[col] = df[col].astype(np.float16)  
+                #如果数值在float32的取值范围内，对它进行类型转换
+                elif c_min &gt; np.finfo(np.float32).min and c_max &lt; np.finfo(np.float32).max:
+                    df[col] = df[col].astype(np.float32)
+                #如果数值在float64的取值范围内，对它进行类型转换
+                else:
+                    df[col] = df[col].astype(np.float64)
+    #计算一下结束后的内存
+    end_mem = df.memory_usage().sum() / 1024**2
+    print('Memory usage after optimization is: {:.2f} MB'.format(end_mem))
+    #相比一开始的内存减少了百分之多少
+    print('Decreased by {:.1f}%'.format(100 * (start_mem - end_mem) / start_mem))
+
+    return df
+</code></pre>
+<h1 id="polars">polars:</h1>
+<pre><code class="language-python">def reduce_mem_usage(df, float16_as32=True):
+    # memory_usage() 是 df 每列的内存使用量，sum 是对它们求和，B-&gt;KB-&gt;MB
+    start_mem = df.estimated_size() / 1024**2
+    print('Memory usage of dataframe is {:.2f} MB'.format(start_mem))
+
+    for col in df.columns:  # 遍历每列的列名
+        col_type = df[col].dtype  # 列名的 type
+        if col_type != pl.Utf8 and col_type != pl.Categorical:  # 不是 object 也就是说这里处理的是数值类型的变量
+            c_min, c_max = df[col].min(), df[col].max()  # 求出这列的最大值和最小值
+            if col_type in [pl.Int8, pl.Int16, pl.Int32, pl.Int64]:  # 如果是 int 类型的变量
+            #if pl.DataType.is_integer(col_type):  # 如果是 int 类型的变量
+                # 如果这列的取值范围是在 int8 的取值范围内，那就对类型进行转换 (-128 到 127)
+                if c_min &gt; np.iinfo(np.int8).min and c_max &lt; np.iinfo(np.int8).max:
+                    df = df.with_columns(df[col].cast(pl.Int8))
+                # 如果这列的取值范围是在 int16 的取值范围内，那就对类型进行转换 (-32,768 到 32,767)
+                elif c_min &gt; np.iinfo(np.int16).min and c_max &lt; np.iinfo(np.int16).max:
+                    df = df.with_columns(df[col].cast(pl.Int16))
+                # 如果这列的取值范围是在 int32 的取值范围内，那就对类型进行转换 (-2,147,483,648 到 2,147,483,647)
+                elif c_min &gt; np.iinfo(np.int32).min and c_max &lt; np.iinfo(np.int32).max:
+                    df = df.with_columns(df[col].cast(pl.Int32))
+                # 如果这列的取值范围是在 int64 的取值范围内，那就对类型进行转换 (-9,223,372,036,854,775,808 到 9,223,372,036,854,775,807)
+                elif c_min &gt; np.iinfo(np.int64).min and c_max &lt; np.iinfo(np.int64).max:
+                    df = df.with_columns(df[col].cast(pl.Int64))
+            elif col_type in [pl.Float32, pl.Float64]:  # 如果是浮点数类型
+                # 如果数值在 float16 的取值范围内，如果觉得需要更高精度可以考虑 float32
+                if c_min &gt; np.finfo(np.float16).min and c_max &lt; np.finfo(np.float16).max:
+                    if float16_as32:  # 如果数据需要更高的精度可以选择 float32
+                        df = df.with_columns(df[col].cast(pl.Float32))
+                    else:
+                        df = df.with_columns(df[col].cast(pl.Float16))
+                # 如果数值在 float32 的取值范围内，对它进行类型转换
+                elif c_min &gt; np.finfo(np.float32).min and c_max &lt; np.finfo(np.float32).max:
+                    df = df.with_columns(df[col].cast(pl.Float32))
+                # 如果数值在 float64 的取值范围内，对它进行类型转换
+                else:
+                    df = df.with_columns(df[col].cast(pl.Float64))
+    
+    # 计算一下结束后的内存
+    end_mem = df.estimated_size() / 1024**2
+    print('Memory usage after optimization is: {:.2f} MB'.format(end_mem))
+    # 相比一开始的内存减少了百分之多少
+    print('Decreased by {:.1f}%'.format(100 * (start_mem - end_mem) / start_mem))
+
+    return df
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day1-plus-minus/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-02-11">2025-02-11</time>
+                  <h4 class="title white no-margin">HackerRank 1 week preparation kit day1: Plus Minus</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/bert-fen-ci-hou-biao-qian-bu-yi-zhi-wen-ti/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2024-09-09">2024-09-09</time>
+                  <h4 class="title white no-margin">bert分词后标签不一致问题</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-18">2025-08-18</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/">bun install和bun add一直卡在resolving且无日志输出</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-14">2025-08-14</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/">Web3初学笔记（二）：稳定币、借贷协议与 Uniswap 版本对比</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-05">2025-08-05</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/">Web3初学笔记（一）</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://adureychloe.github.io/tag/ioI4R8rdD/" class="ctag ctag-0 ctag-ioI4R8rdD" aria-label="">nlp</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/RO5nehTX4/" class="ctag ctag-1 ctag-RO5nehTX4" aria-label="">打比赛</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/WE3NPk-_f/" class="ctag ctag-2 ctag-WE3NPk-_f" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://adureychloe.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">Gridea</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 42 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://adureychloe.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

@@ -1,0 +1,475 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>kaggle比赛经验 | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+<script src="https://adureychloe.github.io/media/js/jquery.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/aos.js"></script>
+<script src="https://adureychloe.github.io/media/js/pace.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/view-image.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="
+baseline一般流程
+
+1、数据准备和特征工程
+
+观察数据特征
+采样
+空值填充
+特征工程
+
+
+2、模型搭建
+
+种类
+时序问题
+
+
+3、训练
+4、评估
+5、优化
+
+
+
+
+baseline一般流程
+1、数据准备和特征工程
+观察数据特征
+
+..." />
+    <meta name="keywords" content="" />
+    <script src="https://adureychloe.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://adureychloe.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://adureychloe.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/" class="menu">
+                      首页
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1755488408181" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2025-03-10"><i class="fa fa-calendar"></i><span class="lately">5 个月前</span></time>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+              </div>
+              <h1 class="title ularge white bold">kaggle比赛经验</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p><ul class="markdownIt-TOC">
+<li><a href="#baseline%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B">baseline一般流程</a>
+<ul>
+<li><a href="#1-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E5%92%8C%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B">1、数据准备和特征工程</a>
+<ul>
+<li><a href="#%E8%A7%82%E5%AF%9F%E6%95%B0%E6%8D%AE%E7%89%B9%E5%BE%81">观察数据特征</a></li>
+<li><a href="#%E9%87%87%E6%A0%B7">采样</a></li>
+<li><a href="#%E7%A9%BA%E5%80%BC%E5%A1%AB%E5%85%85">空值填充</a></li>
+<li><a href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B">特征工程</a></li>
+</ul>
+</li>
+<li><a href="#2-%E6%A8%A1%E5%9E%8B%E6%90%AD%E5%BB%BA">2、模型搭建</a>
+<ul>
+<li><a href="#%E7%A7%8D%E7%B1%BB">种类</a></li>
+<li><a href="#%E6%97%B6%E5%BA%8F%E9%97%AE%E9%A2%98">时序问题</a></li>
+</ul>
+</li>
+<li><a href="#3-%E8%AE%AD%E7%BB%83">3、训练</a></li>
+<li><a href="#4-%E8%AF%84%E4%BC%B0">4、评估</a></li>
+<li><a href="#5-%E4%BC%98%E5%8C%96">5、优化</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<h1 id="baseline一般流程">baseline一般流程</h1>
+<h2 id="1-数据准备和特征工程">1、数据准备和特征工程</h2>
+<h3 id="观察数据特征">观察数据特征</h3>
+<ul>
+<li><code>pd.describe()</code>, <code>pd.info()</code></li>
+<li>画图</li>
+</ul>
+<h3 id="采样">采样</h3>
+<ul>
+<li>如果数据太多，后期尝试采样，观察是否造成结果变差</li>
+<li>去掉不稳定的数据</li>
+</ul>
+<h3 id="空值填充">空值填充</h3>
+<ul>
+<li>填充NaN，刚开始从0开始，后期尝试不同的填充方法是否有影响</li>
+<li>从简单标准化开始，后期尝试不同的标准化方法</li>
+</ul>
+<h3 id="特征工程">特征工程</h3>
+<ul>
+<li>特征选择</li>
+<li>选出与y值有高相关性的特征，在此基础上创造新特征（比如平均、滚动、窗口）</li>
+<li>如果有时间，将时间变成特征</li>
+</ul>
+<h2 id="2-模型搭建">2、模型搭建</h2>
+<h3 id="种类">种类</h3>
+<ul>
+<li>树模型</li>
+<li>神经网络模型</li>
+<li>表格模型</li>
+<li>大模型</li>
+</ul>
+<h3 id="时序问题">时序问题</h3>
+<ul>
+<li>时序GRU</li>
+<li>LSTM</li>
+<li>MLP</li>
+<li>时序Transformers</li>
+<li>树模型</li>
+</ul>
+<h2 id="3-训练">3、训练</h2>
+<ul>
+<li>如果预测结果是多个中的一个，可以分别对每一个结果训练一个base模型，将这些模型的预测通过一个linear层，生成最终的目标target</li>
+<li></li>
+</ul>
+<h2 id="4-评估">4、评估</h2>
+<ul>
+<li>在线学习：用新的数据和预测进行前向更新</li>
+<li></li>
+</ul>
+<h2 id="5-优化">5、优化</h2>
+<ul>
+<li>模型集成：使用不同的种子、加权平均</li>
+</ul>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day3-tower-breakers/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-03-19">2025-03-19</time>
+                  <h4 class="title white no-margin">HackerRank 1 week preparation kit day3: Tower Breakers</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day3-zig-zag-sequence/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-02-24">2025-02-24</time>
+                  <h4 class="title white no-margin">HackerRank 1 week preparation kit day3: Zig Zag Sequence</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-18">2025-08-18</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/">bun install和bun add一直卡在resolving且无日志输出</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-14">2025-08-14</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/">Web3初学笔记（二）：稳定币、借贷协议与 Uniswap 版本对比</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-05">2025-08-05</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/">Web3初学笔记（一）</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://adureychloe.github.io/tag/ioI4R8rdD/" class="ctag ctag-0 ctag-ioI4R8rdD" aria-label="">nlp</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/RO5nehTX4/" class="ctag ctag-1 ctag-RO5nehTX4" aria-label="">打比赛</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/WE3NPk-_f/" class="ctag ctag-2 ctag-WE3NPk-_f" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://adureychloe.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">Gridea</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 42 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://adureychloe.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

@@ -1,0 +1,449 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>正向代理 vs 反向代理 | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+<script src="https://adureychloe.github.io/media/js/jquery.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/aos.js"></script>
+<script src="https://adureychloe.github.io/media/js/pace.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/view-image.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="1. 代理是什么？
+“代理”就是中间人，它帮你做事情，但不会暴露你的真实身份。比如：
+​- 现实例子：你想买演唱会门票，但不想排队，于是找黄牛代买。黄牛就是你的“代理”。
+​- 网络例子：你访问网站时，不直接连服务器，而是通过代理服务器中转..." />
+    <meta name="keywords" content="" />
+    <script src="https://adureychloe.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://adureychloe.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://adureychloe.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/" class="menu">
+                      首页
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1755488408181" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2025-03-27"><i class="fa fa-calendar"></i><span class="lately">5 个月前</span></time>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+              </div>
+              <h1 class="title ularge white bold">正向代理 vs 反向代理</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <h2 id="1-代理是什么">1. 代理是什么？</h2>
+<p>“代理”就是中间人，它帮你做事情，但不会暴露你的真实身份。比如：<br>
+​- <strong>现实例子</strong>：你想买演唱会门票，但不想排队，于是找黄牛代买。黄牛就是你的“代理”。<br>
+​- <strong>网络例子</strong>：你访问网站时，不直接连服务器，而是通过代理服务器中转。<br>
+代理分为两种：​正向代理和反向代理，它们的作用完全相反！</p>
+<h2 id="2-正向代理forward-proxy-帮客户端隐藏身份">2. 正向代理（Forward Proxy）—— 帮客户端隐藏身份</h2>
+<p>正向代理是“客户端”的代理，它代表客户端去访问服务器，服务器不知道真正的用户是谁。<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202503272001387.jpeg" alt="img" loading="lazy"></p>
+<h3 id="典型场景">典型场景：</h3>
+<ul>
+<li>​科学上网__：你用 VPN 访问 Google，Google 看到的是 VPN 服务器的 IP，而不是你的真实 IP。</li>
+<li>公司内网限制__：公司禁止访问某些网站，但你通过代理服务器绕开限制。</li>
+<li>爬虫隐藏 IP__：爬数据时用代理 IP，防止被目标网站封禁。</li>
+</ul>
+<h3 id="通俗比喻">​通俗比喻：</h3>
+<p>你想去一家店买东西，但不想让店主知道你是谁，于是找了个朋友（正向代理）帮你买。店主只看到你朋友，不知道你的存在。</p>
+<h3 id="特点">特点：</h3>
+<p>✅ ​隐藏客户端：服务器不知道真正的访问者是谁。<br>
+✅ ​突破限制：可以访问被封锁的网站。<br>
+❌ ​服务器无感知：网站不知道请求来自代理。</p>
+<h2 id="3-反向代理reverse-proxy-帮服务器隐藏身份">3. 反向代理（Reverse Proxy）—— 帮服务器隐藏身份</h2>
+<p>反向代理是“服务器”的代理，它代表服务器接收请求，客户端不知道真正的服务器是谁。<br>
+<img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/202503272006171.jpeg" alt="img" loading="lazy"></p>
+<h3 id="典型场景-2">典型场景：</h3>
+<ul>
+<li>负载均衡：比如淘宝有 1000 台服务器，反向代理（如 Nginx）决定把你的请求发给哪台。</li>
+<li>​CDN 加速：你访问的“百度”可能只是离你最近的 CDN 节点，不是真正的百度服务器。</li>
+<li>​安全防护：黑客攻击时，反向代理（如 Cloudflare）先拦截恶意流量，保护真实服务器。<br>
+​</li>
+</ul>
+<h3 id="通俗比喻-2">通俗比喻：</h3>
+<p>你想见明星，但明星不直接见粉丝，而是让经纪人（反向代理）先接待。你以为是和明星对话，其实是经纪人在处理。</p>
+<p>​特点：<br>
+✅ ​隐藏服务器：客户端不知道真正的服务器在哪。<br>
+✅ ​提高性能：缓存、负载均衡让网站更快。<br>
+✅ ​增强安全：防止 DDoS 攻击，隐藏服务器 IP。</p>
+<h2 id="4-正向代理-vs-反向代理一张图看懂">4. 正向代理 vs. 反向代理，一张图看懂！​</h2>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>正向代理</th>
+<th>反向代理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代理谁?</td>
+<td>代理客户端</td>
+<td>代理服务器</td>
+</tr>
+<tr>
+<td>谁用?</td>
+<td>客户端（用户）</td>
+<td>服务器（网站）</td>
+</tr>
+<tr>
+<td>隐藏谁？</td>
+<td>隐藏客户端</td>
+<td>隐藏服务器</td>
+</tr>
+<tr>
+<td>典型用途</td>
+<td>翻墙、爬虫、突破限制</td>
+<td>负载均衡、CDN、安全防护</td>
+</tr>
+<tr>
+<td>常见工具</td>
+<td>VPN、Shadowsocks</td>
+<td>Nginx、Cloudflare</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-总结">5. 总结</h2>
+<p>​正向代理 = ​​“替客户端办事”​​（隐藏用户，突破限制）<br>
+​反向代理 = ​​“替服务器办事”​​（隐藏服务器，提高性能）</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/leetcode-968-binary-tree-cameras/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-03-27">2025-03-27</time>
+                  <h4 class="title white no-margin">Leetcode 968 : Binary Tree Cameras</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/leetcode-287-xun-zhao-chong-fu-shu/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-03-26">2025-03-26</time>
+                  <h4 class="title white no-margin">Leetcode - 287 寻找重复数</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-18">2025-08-18</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/">bun install和bun add一直卡在resolving且无日志输出</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-14">2025-08-14</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/">Web3初学笔记（二）：稳定币、借贷协议与 Uniswap 版本对比</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-05">2025-08-05</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/">Web3初学笔记（一）</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://adureychloe.github.io/tag/ioI4R8rdD/" class="ctag ctag-0 ctag-ioI4R8rdD" aria-label="">nlp</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/RO5nehTX4/" class="ctag ctag-1 ctag-RO5nehTX4" aria-label="">打比赛</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/WE3NPk-_f/" class="ctag ctag-2 ctag-WE3NPk-_f" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://adureychloe.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">Gridea</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 42 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://adureychloe.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

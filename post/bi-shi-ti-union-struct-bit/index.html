@@ -1,0 +1,458 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>笔试题：union, struct, bit | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+<script src="https://adureychloe.github.io/media/js/jquery.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/aos.js"></script>
+<script src="https://adureychloe.github.io/media/js/pace.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/view-image.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="题目
+笔试题：Please try to use union, struct and bit field to decompose an integer into such fields as mode (2 bits),modified ..." />
+    <meta name="keywords" content="" />
+    <script src="https://adureychloe.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://adureychloe.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://adureychloe.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/" class="menu">
+                      首页
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1755488408181" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2025-03-25"><i class="fa fa-calendar"></i><span class="lately">5 个月前</span></time>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+              </div>
+              <h1 class="title ularge white bold">笔试题：union, struct, bit</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <h1 id="题目">题目</h1>
+<p>笔试题：Please try to use union, struct and bit field to decompose an integer into such fields as mode (2 bits),modified (1 bit), owner (3 bits), group (3 bits), world (3 bits), padding (the remained bits).</p>
+<h1 id="思考">思考</h1>
+<p>题目理解：<br>
+题目要求将一个整数（unsigned int，通常是 32 位）分解为多个字段，每个字段占用不同的位数。具体字段和位数为：</p>
+<ul>
+<li>mode：2 位</li>
+<li>modified：1 位</li>
+<li>owner：3 位</li>
+<li>group：3 位</li>
+<li>world：3 位</li>
+<li>padding：剩余的位数（如果整数是 32 位，则剩余位数为 20 位）<br>
+例如，假设有一个 32 位的整数，它的二进制表示如下：</li>
+</ul>
+<p>| mode (2) | modified (1) | owner (3) | group (3) | world (3) | padding (20) |</p>
+<p>我们的目标是将这个整数分解成上述字段，并能够访问每个字段的值。</p>
+<h1 id="实现方法">实现方法：</h1>
+<p>为了实现这个功能，我们可以使用以下技术：</p>
+<p>​位域（Bit Field）​：在 struct 中定义每个字段的位数。<br>
+​联合体（Union）​：将整数和 struct 叠加在一起，使得我们可以通过整数或字段来访问同一块内存。</p>
+<h1 id="具体步骤">具体步骤：</h1>
+<ol>
+<li>定义位域结构体<br>
+我们可以定义一个 struct，使用位域来指定每个字段的位数。例如：</li>
+</ol>
+<pre><code class="language-c++">struct BitFieldStruct {
+    unsigned int mode     : 2;  // 2 bits for mode
+    unsigned int modified : 1;  // 1 bit for modified
+    unsigned int owner    : 3;  // 3 bits for owner
+    unsigned int group    : 3;  // 3 bits for group
+    unsigned int world    : 3;  // 3 bits for world
+    unsigned int padding  : 20; // 剩余位数
+};
+</code></pre>
+<p>这个 struct 定义了一个 32 位的结构，其中每个字段占用指定的位数。</p>
+<ol start="2">
+<li>定义联合体<br>
+为了将整数和位域结构体叠加在一起，我们可以使用 union。union 的特点是所有成员共享同一块内存。例如：</li>
+</ol>
+<pre><code class="language-c++">// 定义联合体，将整数和结构体叠加
+union IntegerUnion {
+    unsigned int integer;
+    BitFieldStruct bitFields;
+};
+</code></pre>
+<p>通过这个 union，我们可以通过 integer 访问整个整数，也可以通过 bitFields 访问分解后的字段。</p>
+<ol start="3">
+<li>使用联合体分解整数<br>
+我们可以在代码中设置整数的值，然后通过 bitFields 访问每个字段的值。例如：</li>
+</ol>
+<pre><code class="language-c++">int main() {
+    IntegerUnion u;
+
+    // 设置整数值
+    u.integer = 0xFFFFFFFF; // 示例值
+
+    // 访问并打印分解后的字段
+    std::cout &lt;&lt; &quot;Mode:     &quot; &lt;&lt; u.bitFields.mode &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;Modified: &quot; &lt;&lt; u.bitFields.modified &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;Owner:    &quot; &lt;&lt; u.bitFields.owner &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;Group:    &quot; &lt;&lt; u.bitFields.group &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;World:    &quot; &lt;&lt; u.bitFields.world &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;Padding:  &quot; &lt;&lt; u.bitFields.padding &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+<p>代码运行结果：<br>
+对于 u.integer = 0xFFFFFFFF（所有位都为 1），输出结果为：<br>
+Mode:     3<br>
+Modified: 1<br>
+Owner:    7<br>
+Group:    7<br>
+World:    7<br>
+Padding:  1048575</p>
+<p>解释：</p>
+<ul>
+<li>mode 是 2 位，最大值是 11（二进制），即 3。</li>
+<li>modified 是 1 位，最大值是 1。</li>
+<li>owner 是 3 位，最大值是 111（二进制），即 7。</li>
+<li>group 是 3 位，最大值是 7。</li>
+<li>world 是 3 位，最大值是 7。</li>
+<li>padding 是 20 位，最大值是 11111111111111111111（二进制），即 1048575。</li>
+</ul>
+<p>为什么用 union 和位域？<br>
+​- 位域：可以精确地指定每个字段占用的位数。<br>
+​- 联合体：将整数和位域结构体叠加在一起，方便我们通过两种方式访问同一块内存。</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/leetcode-287-xun-zhao-chong-fu-shu/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-03-26">2025-03-26</time>
+                  <h4 class="title white no-margin">Leetcode - 287 寻找重复数</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/hackerrank-1-week-preparation-kit-day3-tower-breakers/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-03-19">2025-03-19</time>
+                  <h4 class="title white no-margin">HackerRank 1 week preparation kit day3: Tower Breakers</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-18">2025-08-18</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/">bun install和bun add一直卡在resolving且无日志输出</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-14">2025-08-14</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/">Web3初学笔记（二）：稳定币、借贷协议与 Uniswap 版本对比</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-05">2025-08-05</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/">Web3初学笔记（一）</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://adureychloe.github.io/tag/ioI4R8rdD/" class="ctag ctag-0 ctag-ioI4R8rdD" aria-label="">nlp</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/RO5nehTX4/" class="ctag ctag-1 ctag-RO5nehTX4" aria-label="">打比赛</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/WE3NPk-_f/" class="ctag ctag-2 ctag-WE3NPk-_f" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://adureychloe.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">Gridea</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 42 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://adureychloe.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

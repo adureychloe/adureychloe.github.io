@@ -1,0 +1,625 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Web3初学笔记（一） | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+<script src="https://adureychloe.github.io/media/js/jquery.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/aos.js"></script>
+<script src="https://adureychloe.github.io/media/js/pace.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/view-image.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="参加了由ETHPanda和LXDAO举办的Web3夏季实习，记录下学习笔记。
+项目地址：https://intensivecolearn.ing/programs/Web3_Internship_Program
+区块链基础学习笔记
+1. 区..." />
+    <meta name="keywords" content="" />
+    <script src="https://adureychloe.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://adureychloe.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://adureychloe.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/" class="menu">
+                      首页
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1755488408181" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2025-08-05"><i class="fa fa-calendar"></i><span class="lately">13 天前</span></time>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+              </div>
+              <h1 class="title ularge white bold">Web3初学笔记（一）</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>参加了由ETHPanda和LXDAO举办的Web3夏季实习，记录下学习笔记。<br>
+项目地址：<a href="https://intensivecolearn.ing/programs/Web3_Internship_Program">https://intensivecolearn.ing/programs/Web3_Internship_Program</a></p>
+<h3 id="区块链基础学习笔记">区块链基础学习笔记</h3>
+<h4 id="1-区块链是什么">1. 区块链是什么？</h4>
+<ul>
+<li>
+<p><strong>定义</strong>：去中心化的分布式账本技术，用于安全、透明、不可篡改地记录交易数据。</p>
+</li>
+<li></li>
+</ul>
+<p>区块结构</p>
+<figure data-type="image" tabindex="1"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/20250804220958754.jpg" alt="区块结构示意图" loading="lazy"></figure>
+<ul>
+<li>
+<p>包含交易记录和前一区块的哈希值。</p>
+</li>
+<li>
+<p>区块容量有限，定期打包生成（如每10分钟一个区块）。</p>
+</li>
+<li>
+<p><strong>链式连接</strong>：区块按顺序串联，形成不可篡改的历史记录。</p>
+</li>
+</ul>
+<h4 id="2-区块链特性">2. 区块链特性</h4>
+<ul>
+<li><strong>不可篡改</strong>：修改历史区块需修改后续所有区块，几乎不可能。</li>
+<li><strong>公开透明</strong>：所有交易公开，但用户匿名（通过钱包地址）。</li>
+<li><strong>快速交易</strong>：跨国交易无需中介，自动完成。</li>
+</ul>
+<h4 id="3-分布式网络">3. 分布式网络</h4>
+<ul>
+<li><strong>去中心化</strong>：全球节点共同维护数据，无单一控制者。</li>
+<li><strong>抗篡改</strong>：需控制51%以上节点才能篡改数据，成本极高。</li>
+</ul>
+<h4 id="4-比特币btc">4. 比特币（BTC）</h4>
+<ul>
+<li><strong>激励机制</strong>：节点通过挖矿获得比特币奖励。</li>
+<li><strong>货币属性</strong>：总量有限（2100万枚），可自由转账，成为加密货币。</li>
+</ul>
+<hr>
+<h3 id="区块链核心组成">区块链核心组成</h3>
+<ol>
+<li></li>
+</ol>
+<p>去中心化网络</p>
+<figure data-type="image" tabindex="2"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/20250804221053123.jpg" alt="去中心化网络架构" loading="lazy"></figure>
+<ul>
+<li>节点提供算力维护网络，存储完整区块链数据。</li>
+</ul>
+<ol start="2">
+<li></li>
+</ol>
+<p>代币激励</p>
+<figure data-type="image" tabindex="3"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/20250804221103554.jpg" alt="区块链代币激励机制" loading="lazy"></figure>
+<ul>
+<li>矿工通过挖矿获得代币奖励（如Gas Fee）。</li>
+<li>用户需支付代币使用网络服务（交易、智能合约等）。</li>
+</ul>
+<h4 id="区块链运行流程">区块链运行流程</h4>
+<ol>
+<li>用户发起交易。</li>
+<li>交易广播到全网节点。</li>
+<li>节点验证交易合法性。</li>
+<li>矿工打包交易成新区块。</li>
+<li>新区块链接到区块链。</li>
+<li>矿工获得代币奖励。</li>
+</ol>
+<figure data-type="image" tabindex="4"><img src="https://adurey-picture.oss-cn-chengdu.aliyuncs.com/img/20250804221133926.jpg" alt="区块链生态系统运行流程" loading="lazy"></figure>
+<hr>
+<h3 id="区块链类型">区块链类型</h3>
+<table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>特点</strong></th>
+<th><strong>适用场景</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>公链</strong></td>
+<td>完全开放，任何人可参与（如比特币、以太坊）。</td>
+<td>加密货币、公共存证</td>
+</tr>
+<tr>
+<td><strong>联盟链</strong></td>
+<td>需授权加入，部分去中心化（如企业合作链）。</td>
+<td>供应链、金融协作</td>
+</tr>
+<tr>
+<td><strong>私链</strong></td>
+<td>中心化控制，权限严格（如企业内部链）。</td>
+<td>内部管理、审计</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="web3-vs-web2-vs-web-30">Web3 vs Web2 vs Web 3.0</h3>
+<table>
+<thead>
+<tr>
+<th><strong>维度</strong></th>
+<th><strong>Web2</strong></th>
+<th><strong>Web 3.0</strong></th>
+<th><strong>Web3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>控制权</strong></td>
+<td>平台垄断（如谷歌）</td>
+<td>部分开放</td>
+<td>用户自治</td>
+</tr>
+<tr>
+<td><strong>数据存储</strong></td>
+<td>中心化服务器</td>
+<td>混合存储</td>
+<td>区块链/IPFS</td>
+</tr>
+<tr>
+<td><strong>支付系统</strong></td>
+<td>信用卡/支付宝</td>
+<td>集成支付</td>
+<td>加密货币</td>
+</tr>
+<tr>
+<td><strong>典型技术</strong></td>
+<td>JavaScript</td>
+<td>RDF/OWL（语义网）</td>
+<td>智能合约</td>
+</tr>
+</tbody>
+</table>
+<h4 id="web3核心创新">Web3核心创新</h4>
+<ul>
+<li><strong>数据主权归用户</strong>：资产（如NFT）真正属于用户，平台无法删除。</li>
+<li><strong>无需信任中介</strong>：智能合约自动执行规则。</li>
+<li><strong>应用可组合</strong>：DeFi协议可被其他应用直接调用（如“搭积木”）。</li>
+</ul>
+<hr>
+<h3 id="以太坊ethereum">以太坊（Ethereum）</h3>
+<h4 id="1-基本介绍">1. 基本介绍</h4>
+<ul>
+<li><strong>定位</strong>：去中心化计算平台（“世界计算机”），支持智能合约。</li>
+<li>核心组件
+<ul>
+<li><strong>钱包</strong>（EOA）：用户控制的账户。</li>
+<li><strong>DApp</strong>：去中心化应用。</li>
+<li><strong>智能合约</strong>：自动执行的代码。</li>
+<li><strong>区块链</strong>：存储交易和合约数据。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-以太坊-vs-比特币">2. 以太坊 vs 比特币</h4>
+<table>
+<thead>
+<tr>
+<th><strong>维度</strong></th>
+<th><strong>比特币</strong></th>
+<th><strong>以太坊</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>目标</strong></td>
+<td>数字黄金（存储价值）</td>
+<td>可编程平台（智能合约）</td>
+</tr>
+<tr>
+<td><strong>编程能力</strong></td>
+<td>有限脚本</td>
+<td>图灵完备（Solidity）</td>
+</tr>
+<tr>
+<td><strong>共识机制</strong></td>
+<td>PoW（工作量证明）</td>
+<td>PoS（权益证明）</td>
+</tr>
+<tr>
+<td><strong>交易速度</strong></td>
+<td>10分钟/区块</td>
+<td>12秒/区块</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-以太坊升级the-merge">3. 以太坊升级（The Merge）</h4>
+<ul>
+<li><strong>PoW → PoS</strong>：降低能耗99.95%，验证者需质押32 ETH。</li>
+<li>未来方向
+<ul>
+<li><strong>分片技术</strong>：提升吞吐量（数据分片优先）。</li>
+<li><strong>EIP-4844</strong>：降低Layer2费用（Blob交易）。</li>
+<li><strong>ZK-Rollup</strong>：零知识证明提升效率（如zkSync）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="defi去中心化金融">DeFi（去中心化金融）</h3>
+<h4 id="1-uniswapdex">1. Uniswap（DEX）</h4>
+<ul>
+<li><strong>AMM机制</strong>：通过公式 <code>x * y = k</code> 自动定价。</li>
+<li><strong>流动性池</strong>：用户存入代币成为LP，赚取手续费（如0.3%）。</li>
+</ul>
+<h4 id="2-compound借贷">2. Compound（借贷）</h4>
+<ul>
+<li><strong>超额抵押</strong>：借出资产需抵押更高价值的资产（如抵押ETH借DAI）。</li>
+<li><strong>清算风险</strong>：抵押物价值下跌可能触发强制卖出。</li>
+</ul>
+<h4 id="3-makerdao稳定币">3. MakerDAO（稳定币）</h4>
+<ul>
+<li><strong>DAI生成</strong>：抵押ETH等资产生成1:1锚定美元的DAI。</li>
+<li><strong>品牌升级</strong>：2024年更名为Sky，代币升级为USDS（稳定币）和SKY（治理代币）。</li>
+</ul>
+<hr>
+<h3 id="nft与dao">NFT与DAO</h3>
+<h4 id="1-nft数字所有权">1. NFT（数字所有权）</h4>
+<ul>
+<li>案例
+<ul>
+<li><strong>CryptoPunks</strong>：首个NFT项目（像素头像）。</li>
+<li><strong>OpenSea</strong>：最大NFT交易平台。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：唯一性、可验证所有权、智能合约版税。</li>
+</ul>
+<h4 id="2-dao去中心化自治组织">2. DAO（去中心化自治组织）</h4>
+<ul>
+<li>案例
+<ul>
+<li><strong>Nouns DAO</strong>：每日拍卖NFT，收益用于社区治理。</li>
+<li><strong>ConstitutionDAO</strong>：众筹4700万美元竞拍美国宪法副本（未成功）。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：社区投票决策，资金透明分配。</li>
+</ul>
+<hr>
+<h3 id="2025年趋势">2025年趋势</h3>
+<ol>
+<li><strong>Intent-Based交易</strong>：用户声明目标（如“最优价格”），系统自动执行。</li>
+<li><strong>账户抽象（AA）</strong>：智能合约钱包（社交恢复、Gas代付）。</li>
+<li><strong>模块化区块链</strong>：分离执行、共识、数据可用性层（如Celestia）。</li>
+<li><strong>AI+Web3</strong>：去中心化AI训练、AI代理自动化交易（如Fetch.ai）。</li>
+</ol>
+<hr>
+<h3 id="总结">总结</h3>
+<ul>
+<li><strong>区块链</strong>：不可篡改的分布式账本，核心是去中心化和激励机制。</li>
+<li><strong>以太坊</strong>：智能合约平台，通过PoS和Layer2解决扩展性问题。</li>
+<li><strong>DeFi/NFT/DAO</strong>：金融、所有权和治理的创新模式。</li>
+<li><strong>未来</strong>：更高效（模块化）、更易用（AA）、更智能（AI）。</li>
+</ul>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-08-14">2025-08-14</time>
+                  <h4 class="title white no-margin">Web3初学笔记（二）：稳定币、借贷协议与 Uniswap 版本对比</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/clash-geng-gai-pac-gui-ze/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2025-07-27">2025-07-27</time>
+                  <h4 class="title white no-margin">clash更改pac规则</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-18">2025-08-18</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/">bun install和bun add一直卡在resolving且无日志输出</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-14">2025-08-14</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/">Web3初学笔记（二）：稳定币、借贷协议与 Uniswap 版本对比</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-05">2025-08-05</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/">Web3初学笔记（一）</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://adureychloe.github.io/tag/ioI4R8rdD/" class="ctag ctag-0 ctag-ioI4R8rdD" aria-label="">nlp</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/RO5nehTX4/" class="ctag ctag-1 ctag-RO5nehTX4" aria-label="">打比赛</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/WE3NPk-_f/" class="ctag ctag-2 ctag-WE3NPk-_f" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://adureychloe.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">Gridea</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 42 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://adureychloe.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

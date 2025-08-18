@@ -1,0 +1,492 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>英文数据处理模版 | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://adureychloe.github.io/favicon.ico">
+<link rel="stylesheet" href="https://adureychloe.github.io/styles/main.css">
+
+<script src="https://adureychloe.github.io/media/js/jquery.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/aos.js"></script>
+<script src="https://adureychloe.github.io/media/js/pace.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/view-image.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://adureychloe.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="不断更新功能：
+class TextPreprocessor:
+    def __init__(self, custom_stopwords=None):
+        # 初始化停用词、词形还原器和词干提取器
+        self..." />
+    <meta name="keywords" content="" />
+    <script src="https://adureychloe.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://adureychloe.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://adureychloe.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/" class="menu">
+                      首页
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1755488408181" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2024-07-29"><i class="fa fa-calendar"></i><span class="lately">1 年前</span></time>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+              </div>
+              <h1 class="title ularge white bold">英文数据处理模版</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <p>不断更新功能：</p>
+<pre><code class="language-python">class TextPreprocessor:
+    def __init__(self, custom_stopwords=None):
+        # 初始化停用词、词形还原器和词干提取器
+        self.stop_words = set(stopwords.words('english'))
+        if custom_stopwords:
+            self.stop_words.update(custom_stopwords)
+        self.lemmatizer = WordNetLemmatizer()
+        self.stemmer = PorterStemmer()
+
+    def clean_text(self, text):
+        # 清理文本，移除HTML标签、数字、标点符号和多余的空格
+        if not isinstance(text, str):
+            text = str(text)
+        text = BeautifulSoup(text, &quot;html.parser&quot;).get_text()
+        text = text.lower()
+        text = re.sub(r'\d+', '', text)
+        text = re.sub(r'[^\w\s]', '', text)
+        text = re.sub(r'\s+', ' ', text).strip()
+        text = contractions.fix(text)
+        return text
+
+    def remove_urls(self, text):
+        # 移除URL
+        return re.sub(r'http\S+|www.\S+', '', text)
+
+    def normalize_text(self, text):
+        # 规范化文本，移除标点符号并转换为小写
+        return ''.join([c.lower() for c in text if c not in string.punctuation])
+
+    def tokenize_text(self, text):
+        # 将文本分词
+        return word_tokenize(text)
+
+    def remove_stopwords(self, words):
+        # 移除停用词
+        return [word for word in words if word not in self.stop_words]
+
+    def lemmatize_words(self, words):
+        # 词形还原
+        return [self.lemmatizer.lemmatize(word) for word in words]
+
+    def stem_words(self, words):
+        # 词干提取
+        return [self.stemmer.stem(word) for word in words]
+
+    def correct_spelling(self, text):
+        # 拼写纠正
+        return str(TextBlob(text).correct())
+
+    def remove_non_ascii(self, words):
+        # 移除非ASCII字符
+        return [word for word in words if word.isascii()]
+
+    def generate_ngrams(self, words, n=2):
+        # 生成n-grams
+        return [' '.join(words[i:i+n]) for i in range(len(words)-n+1)]
+
+    def remove_emojis(self, text):
+        # 移除表情符号
+        emoji_pattern = re.compile(&quot;[&quot;
+                                   u&quot;\U0001F600-\U0001F64F&quot;  # 表情符号
+                                   u&quot;\U0001F300-\U0001F5FF&quot;  # 符号和图标
+                                   u&quot;\U0001F680-\U0001F6FF&quot;  # 运输和地图符号
+                                   u&quot;\U0001F1E0-\U0001F1FF&quot;  # 旗帜（iOS）
+                                   &quot;]+&quot;, flags=re.UNICODE)
+        return emoji_pattern.sub(r'', text)
+
+    def expand_abbreviations(self, text):
+        # 扩展缩写
+        abbreviations = {
+            &quot;n't&quot;: &quot; not&quot;,
+            &quot;'re&quot;: &quot; are&quot;,
+            &quot;'s&quot;: &quot; is&quot;,
+            &quot;'d&quot;: &quot; would&quot;,
+            &quot;'ll&quot;: &quot; will&quot;,
+            &quot;'t&quot;: &quot; not&quot;,
+            &quot;'ve&quot;: &quot; have&quot;,
+            &quot;'m&quot;: &quot; am&quot;
+        }
+        for abbr, full in abbreviations.items():
+            text = text.replace(abbr, full)
+        return text
+
+    def preprocess_text(self, text, use_stemming=False, use_spelling_correction=False, generate_ngrams=False):
+        # 预处理文本
+        if pd.isna(text):
+            return &quot;&quot;
+        text = self.clean_text(text)
+        text = self.remove_urls(text)
+        text = self.remove_emojis(text)
+        text = self.expand_abbreviations(text)
+        text = self.normalize_text(text)
+        words = self.tokenize_text(text)
+        words = self.remove_stopwords(words)
+        if use_stemming:
+            words = self.stem_words(words)
+        else:
+            words = self.lemmatize_words(words)
+        words = self.remove_non_ascii(words)
+        cleaned_text = &quot; &quot;.join(words)
+        if use_spelling_correction:
+            cleaned_text = self.correct_spelling(cleaned_text)
+        if generate_ngrams:
+            ngrams = self.generate_ngrams(words)
+            cleaned_text += &quot; &quot; + &quot; &quot;.join(ngrams)
+        return cleaned_text
+
+    def preprocess_dataframe(self, df, text_column, **kwargs):
+        # 预处理数据框中的文本列
+        df['cleaned_text'] = df[text_column].apply(lambda x: self.preprocess_text(x, **kwargs))
+        return df
+
+</code></pre>
+<p>使用：</p>
+<pre><code class="language-python">preprocessor = TextPreprocessor(custom_stopwords=['custom', 'words'])
+df = preprocessor.preprocess_dataframe(df, 'text', use_stemming=True, use_spelling_correction=False, generate_ngrams=False)
+</code></pre>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/gridea.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/excel-shu-ju-fen-xi-wen-ti-handbook/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2024-08-07">2024-08-07</time>
+                  <h4 class="title white no-margin">Excel数据分析问题 handbook</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('https://adureychloe.github.io/media/images/ioI4R8rdD.jpg');"></div>
+                 <a href="https://adureychloe.github.io/post/zi-zhu-yi-li-ji-zhi-de-qkv/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2024-07-22">2024-07-22</time>
+                  <h4 class="title white no-margin">自注意力机制的QKV</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://adureychloe.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+              </div>
+              <div class="clear"></div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-18">2025-08-18</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/bun-install-he-bun-add-yi-zhi-qia-zai-resolving-qie-wu-ri-zhi-shu-chu/">bun install和bun add一直卡在resolving且无日志输出</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-14">2025-08-14</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-chu-xue-bi-ji-er-wen-ding-bi-jie-dai-xie-yi-yu-uniswap-ban-ben-dui-bi/">Web3初学笔记（二）：稳定币、借贷协议与 Uniswap 版本对比</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2025-08-05">2025-08-05</time>
+                      <h4 class="title usmall">
+                        <a href="https://adureychloe.github.io/post/web3-xia-ji-shi-xi-xue-xi-bi-ji-yi/">Web3初学笔记（一）</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://adureychloe.github.io/tag/ioI4R8rdD/" class="ctag ctag-0 ctag-ioI4R8rdD" aria-label="">nlp</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/RO5nehTX4/" class="ctag ctag-1 ctag-RO5nehTX4" aria-label="">打比赛</a>
+                    
+                      <a href="https://adureychloe.github.io/tag/WE3NPk-_f/" class="ctag ctag-2 ctag-WE3NPk-_f" aria-label="">Gridea</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://adureychloe.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">Gridea</a></h4>
+                    <p class="founder">温故而知新</p>
+                    <div class="social">
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://adureychloe.github.io"><img src="" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 42 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+
+      
+    <script src="https://adureychloe.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>
